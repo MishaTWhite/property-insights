@@ -25,22 +25,6 @@ const LoanStructureChart = ({ data }) => {
 };
 
 const ResultsDisplay = ({ results }) => {
-  const [showChart, setShowChart] = useState(false);
-
-  // Effect to properly handle chart mounting/unmounting
-  useEffect(() => {
-    // When results change, we first hide the chart
-    setShowChart(false);
-    
-    // Then show it again after a short delay to ensure proper cleanup
-    const timer = setTimeout(() => {
-      if (results) {
-        setShowChart(true);
-      }
-    }, 50);
-    
-    return () => clearTimeout(timer);
-  }, [results]);
 
   if (!results) return <div>Enter your mortgage details to see results</div>;
 
@@ -94,9 +78,9 @@ const ResultsDisplay = ({ results }) => {
       <div className="mt-6">
         <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Loan Structure</h3>
         <div className="w-full" style={{ maxHeight: '250px' }}>
-          {showChart && results.chartData && (
+          {results.chartData && (
             <LoanStructureChart 
-              key={`chart-${Date.now()}`}
+              key={`chart-${JSON.stringify(results.chartData)}`}
               data={{
                 ...results.chartData,
                 datasets: [{
