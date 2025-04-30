@@ -1,47 +1,15 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
-// Mock fetch
-global.fetch = jest.fn();
+// Mock the MortgageCalculator component
+jest.mock('./components/MortgageCalculator', () => () => (
+  <div data-testid="mortgage-calculator">Mortgage Calculator Mock</div>
+));
 
 describe('App Component', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
-
-  test('displays loading state initially', () => {
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({ message: 'Hello from Q' }),
-    });
-
+  test('renders the mortgage calculator', () => {
     render(<App />);
-    expect(screen.getByText(/loading message from server/i)).toBeInTheDocument();
-  });
-
-  test('displays message from server when fetch succeeds', async () => {
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({ message: 'Hello from Q' }),
-    });
-
-    render(<App />);
-    
-    await waitFor(() => {
-      expect(screen.getByText('Hello from Q')).toBeInTheDocument();
-    });
-    
-    expect(global.fetch).toHaveBeenCalledWith('/api/hello');
-  });
-
-  test('displays error when fetch fails', async () => {
-    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error('Network error'));
-
-    render(<App />);
-    
-    await waitFor(() => {
-      expect(screen.getByText(/failed to fetch message from server/i)).toBeInTheDocument();
-    });
+    expect(screen.getByTestId('mortgage-calculator')).toBeInTheDocument();
   });
 });
