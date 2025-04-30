@@ -27,13 +27,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8" style={{ backgroundColor: 'var(--color-background)' }}>
+      <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h1 className="text-3xl font-bold sm:text-4xl" style={{ color: 'var(--color-heading)' }}>
             Polish Mortgage Calculator
           </h1>
-          <p className="mt-3 text-xl text-gray-500">
+          <p className="mt-3 text-xl" style={{ color: 'var(--color-text)' }}>
             Get insights into your mortgage payments and loan structure
           </p>
         </div>

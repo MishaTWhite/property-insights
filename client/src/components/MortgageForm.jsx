@@ -6,11 +6,11 @@ const MortgageForm = ({ control }) => {
   const { downPaymentPercent, loanTerm, interestRate } = useWatch({ control });
   return (
     <div>
-      <h2 className="text-lg font-medium text-gray-900 mb-4">Mortgage Parameters</h2>
+      <h2 className="text-lg font-bold mb-5" style={{ color: 'var(--color-heading)', fontSize: '18px' }}>Loan Parameters</h2>
       <div className="space-y-6">
         {/* Property Value */}
         <div>
-          <label htmlFor="propertyValue" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="propertyValue" className="block text-label mb-2">
             Property Value (PLN)
           </label>
           <Controller
@@ -24,7 +24,8 @@ const MortgageForm = ({ control }) => {
                 max="10000000"
                 step="10000"
                 onChange={(e) => field.onChange(Number(e.target.value))}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
               />
             )}
           />
@@ -32,7 +33,7 @@ const MortgageForm = ({ control }) => {
 
         {/* Down Payment Percentage */}
         <div>
-          <label htmlFor="downPaymentPercent" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="downPaymentPercent" className="block text-label mb-2">
             Down Payment ({downPaymentPercent}%)
           </label>
           <Controller
@@ -48,8 +49,9 @@ const MortgageForm = ({ control }) => {
                   step="5"
                   onChange={(e) => field.onChange(Number(e.target.value))}
                   className="mt-1 block w-full"
+                  style={{ accentColor: 'var(--color-accent)' }}
                 />
-                <div className="flex justify-between text-xs text-gray-500">
+                <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
                   <span>10%</span>
                   <span>50%</span>
                   <span>90%</span>
@@ -61,7 +63,7 @@ const MortgageForm = ({ control }) => {
 
         {/* Loan Term */}
         <div>
-          <label htmlFor="loanTerm" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="loanTerm" className="block text-label mb-2">
             Loan Term ({loanTerm} years)
           </label>
           <Controller
@@ -77,8 +79,9 @@ const MortgageForm = ({ control }) => {
                   step="1"
                   onChange={(e) => field.onChange(Number(e.target.value))}
                   className="mt-1 block w-full"
+                  style={{ accentColor: 'var(--color-accent)' }}
                 />
-                <div className="flex justify-between text-xs text-gray-500">
+                <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
                   <span>5 years</span>
                   <span>20 years</span>
                   <span>35 years</span>
@@ -90,7 +93,7 @@ const MortgageForm = ({ control }) => {
 
         {/* Interest Rate */}
         <div>
-          <label htmlFor="interestRate" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="interestRate" className="block text-label mb-2">
             Interest Rate ({interestRate}%)
           </label>
           <Controller
@@ -104,14 +107,15 @@ const MortgageForm = ({ control }) => {
                 max="20"
                 step="0.01"
                 onChange={(e) => field.onChange(Number(e.target.value))}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
               />
             )}
           />
         </div>
       </div>
 
-      <p className="mt-4 text-sm text-gray-500">
+      <p className="mt-6 text-sm" style={{ color: 'var(--color-text)' }}>
         Adjust the parameters above to see how they affect your mortgage calculation.
       </p>
     </div>
