@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Server",
+      "type": "npm",
+      "script": "dev",
+      "path": "server/",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Start Client",
+      "type": "npm",
+      "script": "start",
+      "path": "client/",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      }
+    },
+    {
+      "label": "Build Server",
+      "type": "npm",
+      "script": "build",
+      "path": "server/",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Build Client",
+      "type": "npm",
+      "script": "build",
+      "path": "client/",
+      "problemMatcher": ["$tsc"],
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+    {
+      "label": "Start Full Stack",
+      "dependsOn": ["Start Server", "Start Client"],
+      "problemMatcher": []
+    }
+  ]
+}
