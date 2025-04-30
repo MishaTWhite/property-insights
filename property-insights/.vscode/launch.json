@@ -5,23 +5,40 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Server",
-      "program": "${workspaceFolder}/server/src/index.js",
       "skipFiles": ["<node_internals>/**"],
-      "console": "integratedTerminal",
-      "runtimeExecutable": "node"
+      "program": "${workspaceFolder}/server/src/index.js",
+      "cwd": "${workspaceFolder}/server",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal"
     },
     {
       "type": "chrome",
       "request": "launch",
-      "name": "Launch Chrome against localhost",
+      "name": "Launch Client",
       "url": "http://localhost:5173",
       "webRoot": "${workspaceFolder}/client"
+    },
+    {
+      "name": "Full Stack",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "start"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "Local:.+(https?://\\S+)",
+        "uriFormat": "http://localhost:5173",
+        "action": "debugWithChrome"
+      }
     }
   ],
   "compounds": [
     {
-      "name": "Run Full App",
-      "configurations": ["Launch Server", "Launch Chrome against localhost"]
+      "name": "Server/Client",
+      "configurations": ["Launch Server", "Launch Client"]
     }
   ]
 }
