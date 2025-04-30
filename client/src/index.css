@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; /* Changed font to more visible options */
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500; /* Increased font weight for better visibility */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 1); /* Increased opacity for better visibility */
   background-color: #242424;
 }
 

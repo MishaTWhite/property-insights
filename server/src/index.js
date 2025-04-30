@@ -1,16 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const ratesRoutes = require('./routes/rates');
+const baseRateRoutes = require('./routes/base-rate');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  // Allow requests from any origin for better development experience
+  origin: '*',
+  credentials: false
+}));
 app.use(express.json());
 
 // Routes
 app.use('/api', ratesRoutes);
+app.use('/api', baseRateRoutes);
 
 // Health check endpoint
 app.get('/', (req, res) => {

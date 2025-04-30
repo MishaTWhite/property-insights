@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // GET current base interest rate
-router.get('/', (req, res) => {
+router.get('/base-rate', (req, res) => {
   // This would typically come from a database or external API
   // For now, we'll use a static value as a placeholder
   res.json({

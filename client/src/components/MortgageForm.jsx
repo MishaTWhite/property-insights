@@ -1,7 +1,9 @@
 import React from 'react';
-import { Controller } from 'react-hook-form';
+import { Controller, useWatch } from 'react-hook-form';
 
 const MortgageForm = ({ control }) => {
+  // Use useWatch hook to access form values safely
+  const { downPaymentPercent, loanTerm, interestRate } = useWatch({ control });
   return (
     <div>
       <h2 className="text-lg font-medium text-gray-900 mb-4">Mortgage Parameters</h2>
@@ -31,7 +33,7 @@ const MortgageForm = ({ control }) => {
         {/* Down Payment Percentage */}
         <div>
           <label htmlFor="downPaymentPercent" className="block text-sm font-medium text-gray-700">
-            Down Payment ({control._formValues.downPaymentPercent}%)
+            Down Payment ({downPaymentPercent}%)
           </label>
           <Controller
             name="downPaymentPercent"
@@ -60,7 +62,7 @@ const MortgageForm = ({ control }) => {
         {/* Loan Term */}
         <div>
           <label htmlFor="loanTerm" className="block text-sm font-medium text-gray-700">
-            Loan Term ({control._formValues.loanTerm} years)
+            Loan Term ({loanTerm} years)
           </label>
           <Controller
             name="loanTerm"
@@ -89,7 +91,7 @@ const MortgageForm = ({ control }) => {
         {/* Interest Rate */}
         <div>
           <label htmlFor="interestRate" className="block text-sm font-medium text-gray-700">
-            Interest Rate (%)
+            Interest Rate ({interestRate}%)
           </label>
           <Controller
             name="interestRate"
