@@ -51,9 +51,9 @@ You can also use the Tasks menu (Ctrl+Shift+P or Cmd+Shift+P, then type "Run Tas
 
 - React frontend with TypeScript and Tailwind CSS
 - Express backend with TypeScript
-- API endpoint at `/api/hello` that returns "Hello from Q"
-- Frontend fetches and displays the message from the backend
-- VSCode Run and Debug configurations
+- Mortgage calculator with interactive inputs for property price, down payment, loan duration, and interest rates
+- Real-time calculation of monthly payments, total interest, and loan structure
+- Currency conversion support
 
 ## Testing
 
