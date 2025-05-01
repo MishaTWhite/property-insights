@@ -1,9 +1,10 @@
 import React from 'react';
 import { Controller, useWatch } from 'react-hook-form';
+import { formatCurrency } from '../utils/mortgageCalculations';
 
-const MortgageForm = ({ control }) => {
+const MortgageForm = ({ control, totalInterestRate }) => {
   // Use useWatch hook to access form values safely
-  const { downPaymentPercent, loanTerm, interestRate } = useWatch({ control });
+  const { downPaymentPercent, loanTerm, monthlyPayment, nbpBaseRate, bankMargin } = useWatch({ control });
   return (
     <div>
       <h2 className="text-lg font-bold mb-5" style={{ color: 'var(--color-heading)', fontSize: '18px' }}>Loan Parameters</h2>
@@ -91,27 +92,102 @@ const MortgageForm = ({ control }) => {
           />
         </div>
 
-        {/* Interest Rate */}
+        {/* Monthly Payment Slider - NEW */}
         <div>
-          <label htmlFor="interestRate" className="block text-label mb-2">
-            Interest Rate ({interestRate}%)
+          <label htmlFor="monthlyPayment" className="block text-label mb-2 flex justify-between">
+            <span>Monthly Payment</span>
+            <span>{formatCurrency(monthlyPayment)}</span>
           </label>
           <Controller
-            name="interestRate"
+            name="monthlyPayment"
             control={control}
             render={({ field }) => (
-              <input
-                {...field}
-                type="number"
-                min="1"
-                max="20"
-                step="0.01"
-                onChange={(e) => field.onChange(Number(e.target.value))}
-                className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
-              />
+              <div>
+                <input
+                  {...field}
+                  type="range"
+                  min="1000"
+                  max="13340"
+                  step="10"
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  className="mt-1 block w-full"
+                  style={{ accentColor: 'var(--color-accent)' }}
+                />
+                <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
+                  <span>{formatCurrency(1000)}</span>
+                  <span>{formatCurrency(7170)}</span>
+                  <span>{formatCurrency(13340)}</span>
+                </div>
+              </div>
             )}
           />
+        </div>
+
+        {/* Interest Rate Section - UPDATED */}
+        <div>
+          <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Interest Rate Components</h3>
+          
+          {/* NBP Base Rate */}
+          <div className="mb-3">
+            <label htmlFor="nbpBaseRate" className="block text-label mb-2">
+              NBP Base Rate (%)
+            </label>
+            <Controller
+              name="nbpBaseRate"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="number"
+                  min="0"
+                  max="15"
+                  step="0.01"
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
+                />
+              )}
+            />
+            <div className="text-xs mt-1" style={{ color: 'var(--color-text)' }}>
+              Based on WIBOR 3M
+            </div>
+          </div>
+
+          {/* Bank Margin */}
+          <div className="mb-3">
+            <label htmlFor="bankMargin" className="block text-label mb-2">
+              Bank Margin (%)
+            </label>
+            <Controller
+              name="bankMargin"
+              control={control}
+              render={({ field }) => (
+                <input
+                  {...field}
+                  type="number"
+                  min="0"
+                  max="10"
+                  step="0.01"
+                  onChange={(e) => field.onChange(Number(e.target.value))}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
+                />
+              )}
+            />
+          </div>
+
+          {/* Total Interest Rate Display */}
+          <div className="p-3 bg-blue-50 rounded-md border border-blue-200">
+            <div className="flex justify-between items-center">
+              <span className="text-label">Total Interest Rate:</span>
+              <span className="text-value font-bold" style={{ color: 'var(--color-accent)', fontSize: '16px' }}>
+                {totalInterestRate.toFixed(2)}%
+              </span>
+            </div>
+            <div className="text-xs mt-1" style={{ color: 'var(--color-text)' }}>
+              Based on WIBOR 3M ({nbpBaseRate?.toFixed(2) || '5.88'}%) + Bank Margin ({bankMargin?.toFixed(2) || '2.10'}%)
+            </div>
+          </div>
         </div>
       </div>
 
