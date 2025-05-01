@@ -7,15 +7,16 @@ const AcceleratedRepaymentPanel = ({ results }) => {
   const { formatWithCurrency, convertAmount } = useCurrency();
   const [paymentMultiplier, setPaymentMultiplier] = useState(1.5); // Default: 1.5x
   const [acceleratedResults, setAcceleratedResults] = useState(null);
+  const [repaymentMode, setRepaymentMode] = useState('shorter-term'); // Default mode: shorter-term
   
   useEffect(() => {
     if (!results) return;
     
     // Calculate accelerated repayment effects
-    calculateAcceleratedResults(results, accelerationMonths, paymentMultiplier);
-  }, [results, accelerationMonths, paymentMultiplier]);
+    calculateAcceleratedResults(results, accelerationMonths, paymentMultiplier, repaymentMode);
+  }, [results, accelerationMonths, paymentMultiplier, repaymentMode]);
   
-  const calculateAcceleratedResults = (results, months, multiplier) => {
+  const calculateAcceleratedResults = (results, months, multiplier, mode) => {
     if (!results) return;
     
     const {
@@ -55,49 +56,91 @@ const AcceleratedRepaymentPanel = ({ results }) => {
       }
     }
     
-    // If there's remaining principal, calculate new loan term and payment
+    // Variables for both modes
     let newMonthlyPayment = originalMonthlyPayment;
     let newTotalMonths = originalTotalMonths;
+    let monthlySavings = 0;
+    let yearsSaved = 0;
+    let remainingMonthsSaved = 0;
+    let monthsSaved = 0;
     
-    if (remainingPrincipal > 0) {
-      // Recalculate loan term with original payment
-      // Formula to solve for n (number of months):
-      // n = log(M / (M - P*r)) / log(1 + r)
-      // Where M is monthly payment, P is principal, r is monthly interest rate
-      const minPayment = remainingPrincipal * monthlyInterestRate;
-      
-      if (originalMonthlyPayment > minPayment) {
-        const newRemainingMonths = Math.log(originalMonthlyPayment / (originalMonthlyPayment - remainingPrincipal * monthlyInterestRate)) / 
-                                   Math.log(1 + monthlyInterestRate);
+    if (mode === 'shorter-term') {
+      // Shorter Term Mode: Keep payment constant, reduce term
+      if (remainingPrincipal > 0) {
+        // Recalculate loan term with original payment
+        // Formula to solve for n (number of months):
+        // n = log(M / (M - P*r)) / log(1 + r)
+        // Where M is monthly payment, P is principal, r is monthly interest rate
+        const minPayment = remainingPrincipal * monthlyInterestRate;
         
-        newTotalMonths = Math.ceil(monthsCounter + newRemainingMonths);
+        if (originalMonthlyPayment > minPayment) {
+          const newRemainingMonths = Math.log(originalMonthlyPayment / (originalMonthlyPayment - remainingPrincipal * monthlyInterestRate)) / 
+                                     Math.log(1 + monthlyInterestRate);
+          
+          newTotalMonths = Math.ceil(monthsCounter + newRemainingMonths);
+        }
+      } else {
+        // Loan fully paid during accelerated period
+        newTotalMonths = monthsCounter;
       }
-    } else {
-      // Loan fully paid during accelerated period
-      newTotalMonths = monthsCounter;
+      
+      // Calculate time saved
+      monthsSaved = originalTotalMonths - newTotalMonths;
+      yearsSaved = Math.floor(monthsSaved / 12);
+      remainingMonthsSaved = monthsSaved % 12;
+      
+    } else if (mode === 'lower-payments') {
+      // Lower Payments Mode: Keep term constant, reduce payment
+      
+      if (remainingPrincipal > 0) {
+        // Remaining term after accelerated period
+        const remainingTerm = originalTotalMonths - months;
+        
+        if (remainingTerm > 0) {
+          // Calculate new monthly payment for remaining term
+          // Formula: PMT = P * r * (1+r)^n / ((1+r)^n - 1)
+          // Where P is principal, r is monthly rate, n is remaining months
+          newMonthlyPayment = 
+            (remainingPrincipal * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, remainingTerm)) / 
+            (Math.pow(1 + monthlyInterestRate, remainingTerm) - 1);
+          
+          // Calculate monthly savings compared to original payment
+          monthlySavings = originalMonthlyPayment - newMonthlyPayment;
+        }
+      } else {
+        // Loan fully paid during accelerated period
+        newTotalMonths = monthsCounter;
+        newMonthlyPayment = 0;
+        monthlySavings = originalMonthlyPayment;
+      }
     }
-    
-    // Calculate time saved
-    const monthsSaved = originalTotalMonths - newTotalMonths;
-    const yearsSaved = Math.floor(monthsSaved / 12);
-    const remainingMonthsSaved = monthsSaved % 12;
     
     // Calculate interest savings (original interest - new interest)
     const originalTotalPayment = originalMonthlyPayment * originalTotalMonths;
-    const newTotalPayment = acceleratedMonthlyPayment * months + 
-                           (newTotalMonths > months ? originalMonthlyPayment * (newTotalMonths - months) : 0);
+    
+    let newTotalPayment;
+    if (mode === 'shorter-term') {
+      newTotalPayment = acceleratedMonthlyPayment * months + 
+                       (newTotalMonths > months ? originalMonthlyPayment * (newTotalMonths - months) : 0);
+    } else {
+      // Lower payments mode
+      newTotalPayment = acceleratedMonthlyPayment * months + 
+                       (originalTotalMonths > months ? newMonthlyPayment * (originalTotalMonths - months) : 0);
+    }
     
     const originalInterestPaid = originalTotalPayment - loanAmount;
     const newInterestPaid = newTotalPayment - loanAmount;
     const interestSavings = originalInterestPaid - newInterestPaid;
     
     setAcceleratedResults({
+      mode,
       newTotalMonths,
       monthsSaved,
       yearsSaved,
       remainingMonthsSaved,
       newMonthlyPayment,
       acceleratedMonthlyPayment,
+      monthlySavings,
       interestSavings,
       originalTotalPayment,
       newTotalPayment
@@ -189,6 +232,35 @@ const AcceleratedRepaymentPanel = ({ results }) => {
             </div>
           </div>
           
+          {/* Mode Toggle */}
+          <div className="mb-4">
+            <div className="flex justify-center space-x-2 border rounded-md p-1 w-full max-w-md mx-auto">
+              <button
+                onClick={() => setRepaymentMode('shorter-term')}
+                className={`flex-1 py-2 px-4 rounded ${
+                  repaymentMode === 'shorter-term' 
+                    ? 'bg-blue-600 text-white font-medium' 
+                    : 'bg-white text-gray-700'
+                }`}
+              >
+                🎯 Shorter Term
+              </button>
+              <button
+                onClick={() => setRepaymentMode('lower-payments')}
+                className={`flex-1 py-2 px-4 rounded ${
+                  repaymentMode === 'lower-payments' 
+                    ? 'bg-blue-600 text-white font-medium' 
+                    : 'bg-white text-gray-700'
+                }`}
+              >
+                💸 Lower Payments
+              </button>
+            </div>
+            <p className="text-sm mt-2 text-center" style={{ color: 'var(--color-text-secondary)' }}>
+              Choose whether to shorten the loan term or reduce future monthly payments.
+            </p>
+          </div>
+          
           {/* Results */}
           {acceleratedResults && (
             <div className="p-5 rounded" style={{ backgroundColor: '#f7f8f9' }}>
@@ -208,12 +280,14 @@ const AcceleratedRepaymentPanel = ({ results }) => {
                         'No reduction'}
                     </span>
                   </div>
-                  <div className="mb-1">
-                    <span className="block text-sm mb-1">Interest savings</span>
-                    <span className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
-                      {formatWithCurrency(acceleratedResults.interestSavings)}
-                    </span>
-                  </div>
+                  {repaymentMode === 'lower-payments' && (
+                    <div className="mb-1">
+                      <span className="block text-sm mb-1">Interest savings</span>
+                      <span className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
+                        {formatWithCurrency(acceleratedResults.interestSavings)}
+                      </span>
+                    </div>
+                  )}
                   <div className="mt-2">
                     <span className="text-sm text-gray-500">New loan term:</span>
                     <span className="text-sm ml-1">{formatMonths(acceleratedResults.newTotalMonths)}</span>
@@ -233,13 +307,28 @@ const AcceleratedRepaymentPanel = ({ results }) => {
                       (for {formatAccelerationPeriod(accelerationMonths)})
                     </span>
                   </div>
-                  {acceleratedResults.interestSavings > 0 && (
-                    <div className="mt-2">
-                      <span className="bg-green-100 text-green-700 text-sm font-medium px-2 py-1 rounded-md inline-flex items-center">
-                        💰 You save {formatWithCurrency(acceleratedResults.interestSavings)} in interest
+                  {repaymentMode === 'lower-payments' && acceleratedResults.newMonthlyPayment > 0 && (
+                    <div className="mb-1">
+                      <span className="block text-sm mb-1">New monthly payment after accelerated period</span>
+                      <span className="text-base font-semibold" style={{ color: 'var(--color-accent)' }}>
+                        {formatWithCurrency(acceleratedResults.newMonthlyPayment)}
                       </span>
                     </div>
                   )}
+                  {/* Savings pill - different displays based on mode */}
+                  <div className="mt-2">
+                    {repaymentMode === 'shorter-term' && acceleratedResults.interestSavings > 0 && (
+                      <span className="bg-green-100 text-green-700 text-sm font-medium px-2 py-1 rounded-md inline-flex items-center">
+                        💰 You save {formatWithCurrency(acceleratedResults.interestSavings)} in interest
+                      </span>
+                    )}
+                    
+                    {repaymentMode === 'lower-payments' && acceleratedResults.monthlySavings > 0 && (
+                      <span className="bg-green-100 text-green-700 text-sm font-medium px-2 py-1 rounded-md inline-flex items-center">
+                        💰 You save {formatWithCurrency(acceleratedResults.monthlySavings)}/month
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
