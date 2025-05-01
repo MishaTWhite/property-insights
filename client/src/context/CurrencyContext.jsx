@@ -26,17 +26,13 @@ export const CurrencyProvider = ({ children }) => {
     return Math.round(amount * rates[toCurrency]);
   };
 
-  // Format an amount with the currency symbol
+  // Format an amount with the currency symbol WITHOUT conversion
+  // The amounts should already be converted by usePropertyValueWithCurrency
   const formatWithCurrency = (amount, toCurrency = currency) => {
-    const convertedAmount = convertAmount(amount, toCurrency);
     const currencyInfo = CURRENCY_INFO[toCurrency];
     
     // Format with thousands separator and currency symbol
-    if (toCurrency === 'PLN') {
-      return `${convertedAmount.toLocaleString()} ${currencyInfo.symbol}`;
-    } else {
-      return `${convertedAmount.toLocaleString()} ${currencyInfo.symbol}`;
-    }
+    return `${amount.toLocaleString()} ${currencyInfo.symbol}`;
   };
 
   // The context value

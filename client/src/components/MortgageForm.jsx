@@ -103,7 +103,7 @@ const MortgageForm = ({ control, totalInterestRate, setValue }) => {
           />
         </div>
 
-        {/* Monthly Payment Slider - NEW */}
+        {/* Monthly Payment Slider - UPDATED for currency changes */}
         <div>
           <label htmlFor="monthlyPayment" className="block text-label mb-2 flex justify-between">
             <span>Monthly Payment</span>
@@ -112,25 +112,87 @@ const MortgageForm = ({ control, totalInterestRate, setValue }) => {
           <Controller
             name="monthlyPayment"
             control={control}
-            render={({ field }) => (
-              <div>
-                <input
-                  {...field}
-                  type="range"
-                  min="1000"
-                  max="13340"
-                  step="10"
-                  onChange={(e) => field.onChange(Number(e.target.value))}
-                  className="mt-1 block w-full"
-                  style={{ accentColor: 'var(--color-accent)' }}
-                />
-                <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
-                  <span>{formatWithCurrency(1000)}</span>
-                  <span>{formatWithCurrency(7170)}</span>
-                  <span>{formatWithCurrency(13340)}</span>
+            render={({ field }) => {
+              // Calculate payment ranges based on min/max loan terms
+              const propertyValue = useWatch({ control, name: 'propertyValue' });
+              const downPaymentPercent = useWatch({ control, name: 'downPaymentPercent' });
+              const interestRate = useWatch({ control, name: 'interestRate' });
+              
+              // Function to calculate min/max payment values (copied from MortgageCalculator)
+              const calculatePaymentRange = () => {
+                // Import this function if needed
+                const calculateMortgage = (propertyValue, downPaymentPercent, loanTerm, interestRate) => {
+                  const loanAmount = propertyValue * (1 - downPaymentPercent / 100);
+                  const monthlyInterestRate = interestRate / 100 / 12;
+                  const numberOfPayments = loanTerm * 12;
+                  const monthlyPayment = loanAmount * (monthlyInterestRate * Math.pow(1 + monthlyInterestRate, numberOfPayments)) / 
+                                        (Math.pow(1 + monthlyInterestRate, numberOfPayments) - 1);
+                  return { monthlyPayment };
+                };
+                
+                // Calculate payment for minimum term (5 years)
+                const minTermPayment = calculateMortgage(
+                  propertyValue,
+                  downPaymentPercent,
+                  5, // Min term
+                  interestRate
+                ).monthlyPayment;
+                
+                // Calculate payment for maximum term (35 years)
+                const maxTermPayment = calculateMortgage(
+                  propertyValue,
+                  downPaymentPercent,
+                  35, // Max term
+                  interestRate
+                ).monthlyPayment;
+                
+                return { min: Math.round(maxTermPayment), max: Math.round(minTermPayment) };
+              };
+              
+              const paymentRange = calculatePaymentRange();
+              const minPayment = paymentRange.min;
+              const midPayment = Math.round((paymentRange.min + paymentRange.max) / 2);
+              const maxPayment = paymentRange.max;
+              
+              return (
+                <div>
+                  <input
+                    {...field}
+                    type="range"
+                    min={minPayment}
+                    max={maxPayment}
+                    step={10}
+                    onChange={(e) => {
+                      const newValue = Number(e.target.value);
+                      field.onChange(newValue);
+                      
+                      // Calculate and update slider position (0-100%)
+                      if (paymentRange.max !== paymentRange.min) {
+                        const sliderPosition = ((newValue - minPayment) / (maxPayment - minPayment)) * 100;
+                        // We need to call the parent component's setPaymentSliderPosition if available
+                        if (setValue && typeof setValue === 'function') {
+                          // Notify MortgageCalculator that user manually changed payment
+                          const event = new CustomEvent('paymentSliderPositionChange', { 
+                            detail: { 
+                              position: Math.max(0, Math.min(100, sliderPosition)),
+                              userChangedPayment: true 
+                            } 
+                          });
+                          window.dispatchEvent(event);
+                        }
+                      }
+                    }}
+                    className="mt-1 block w-full"
+                    style={{ accentColor: 'var(--color-accent)' }}
+                  />
+                  <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
+                    <span>{formatWithCurrency(minPayment)}</span>
+                    <span>{formatWithCurrency(midPayment)}</span>
+                    <span>{formatWithCurrency(maxPayment)}</span>
+                  </div>
                 </div>
-              </div>
-            )}
+              );
+            }}
           />
         </div>
 
