@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 import MortgageForm from './MortgageForm';
 import ResultsDisplay from './ResultsDisplay';
 import BankOffersTable from './BankOffersTable';
+import AcceleratedRepaymentPanel from './AcceleratedRepaymentPanel';
+import HowItWorksExplanation from './HowItWorksExplanation';
 import { calculateMortgage, calculateLoanTermFromMonthlyPayment } from '../utils/mortgageCalculations';
 
 const MortgageCalculator = ({ defaultInterestRate }) => {
@@ -132,6 +134,12 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
           onSelectBaseRate={handleSelectBaseRate}
         />
       </div>
+      
+      <div className="mt-8">
+        <AcceleratedRepaymentPanel results={results} />
+      </div>
+      
+      <HowItWorksExplanation />
     </div>
   );
 };
