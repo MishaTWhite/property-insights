@@ -30,7 +30,7 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
       formValues.interestRate
     );
     setResults(calculationResults);
-  }, [formValues]);
+  }, [formValues.propertyValue, formValues.downPaymentPercent, formValues.loanTerm, formValues.interestRate]);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
