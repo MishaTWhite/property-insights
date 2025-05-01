@@ -42,64 +42,74 @@ const LoanStructureChart = ({ principalAmount, interestAmount, totalAmount }) =>
 };
 
 const ResultsDisplay = ({ results }) => {
-
-  if (!results) return <div>Enter your mortgage details to see results</div>;
-
+  // Always render the component, but conditionally show different content
+  // This ensures hooks are always called in the same order
+  
   return (
     <div className="space-y-6">
       <h2 className="text-lg font-bold mb-5" style={{ color: 'var(--color-heading)', fontSize: '18px' }}>Calculation Results</h2>
+      
+      {!results ? (
+        <div>Enter your mortgage details to see results</div>
+      ) : (
+        <>
+          {/* Loan Summary */}
+          <div className="p-4 rounded border" style={{ backgroundColor: '#f2f4f6', borderColor: '#dee2e6' }}>
+            <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Loan Summary</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <span className="text-label">Loan Amount:</span>
+                <span className="text-value">{formatCurrency(results.loanAmount)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-label">Monthly Payment:</span>
+                <span className="text-value font-bold" style={{ color: 'var(--color-accent)' }}>{formatCurrency(results.monthlyPayment)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-label">Duration:</span>
+                <span className="text-value">{results.loanTerm} years ({results.loanTerm * 12} payments)</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-label">Interest Rate:</span>
+                <span className="text-value">{results.interestRate.toFixed(2)}%</span>
+              </div>
+            </div>
+          </div>
 
-      {/* Loan Summary */}
-      <div className="p-4 rounded border" style={{ backgroundColor: '#f2f4f6', borderColor: '#dee2e6' }}>
-        <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Loan Summary</h3>
-        <div className="space-y-3">
-          <div className="flex justify-between">
-            <span className="text-label">Loan Amount:</span>
-            <span className="text-value">{formatCurrency(results.loanAmount)}</span>
+          {/* Total Cost of Loan */}
+          <div className="p-4 rounded border" style={{ backgroundColor: 'var(--color-white)', borderColor: '#dee2e6' }}>
+            <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Total Cost of Loan</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between">
+                <span className="text-label">Loan Amount:</span>
+                <span className="text-value">{formatCurrency(results.loanAmount)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-label">Total Interest:</span>
+                <span className="text-value">{formatCurrency(results.totalInterest)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span className="text-label">Total Amount to Repay:</span>
+                <span className="text-value font-bold" style={{ fontSize: '17px' }}>{formatCurrency(results.totalPayment)}</span>
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between">
-            <span className="text-label">Monthly Payment:</span>
-            <span className="text-value font-bold" style={{ color: 'var(--color-accent)' }}>{formatCurrency(results.monthlyPayment)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-label">Duration:</span>
-            <span className="text-value">{results.loanTerm} years ({results.loanTerm * 12} payments)</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-label">Interest Rate:</span>
-            <span className="text-value">{results.interestRate.toFixed(2)}%</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Total Cost of Loan */}
-      <div className="p-4 rounded border" style={{ backgroundColor: 'var(--color-white)', borderColor: '#dee2e6' }}>
-        <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Total Cost of Loan</h3>
-        <div className="space-y-3">
-          <div className="flex justify-between">
-            <span className="text-label">Loan Amount:</span>
-            <span className="text-value">{formatCurrency(results.loanAmount)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-label">Total Interest:</span>
-            <span className="text-value">{formatCurrency(results.totalInterest)}</span>
-          </div>
-          <div className="flex justify-between">
-            <span className="text-label">Total Amount to Repay:</span>
-            <span className="text-value font-bold" style={{ fontSize: '17px' }}>{formatCurrency(results.totalPayment)}</span>
-          </div>
-        </div>
-      </div>
+        </>
+      )}
 
       {/* Horizontal Bar Chart - Loan Structure */}
       <div className="mt-6">
         <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Loan Structure</h3>
         <div className="w-full">
-          <LoanStructureChart 
-            principalAmount={results.loanAmount}
-            interestAmount={results.totalInterest}
-            totalAmount={results.totalPayment}
-          />
+          {results?.loanAmount && results.totalInterest && results.totalPayment ? (
+            <LoanStructureChart 
+              principalAmount={results.loanAmount}
+              interestAmount={results.totalInterest}
+              totalAmount={results.totalPayment}
+            />
+          ) : (
+            <div>Complete loan details needed for chart</div>
+          )}
         </div>
         
         <p className="mt-4 text-xs" style={{ color: 'var(--color-text)' }}>
