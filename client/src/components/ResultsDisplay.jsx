@@ -1,26 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import React from 'react';
 import { formatCurrency } from '../utils/mortgageCalculations';
 
-// Register Chart.js components
-ChartJS.register(ArcElement, Tooltip, Legend);
-
-// Chart component with its own lifecycle
-const LoanStructureChart = ({ data }) => {
+// Horizontal bar chart component for loan structure
+const LoanStructureChart = ({ principalAmount, interestAmount, totalAmount }) => {
+  // Calculate percentages
+  const principalPercent = Math.round((principalAmount / totalAmount) * 100);
+  const interestPercent = 100 - principalPercent;
+  
   return (
-    <Pie
-      data={data}
-      options={{
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false // Don't use ChartJS legend - we'll create our own below
-          }
-        }
-      }}
-    />
+    <div style={{ display: 'flex', height: '60px', borderRadius: '6px', overflow: 'hidden' }}>
+      <div style={{
+        width: `${principalPercent}%`,
+        backgroundColor: 'var(--color-principal)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#fff',
+        flexDirection: 'column',
+        fontWeight: 600,
+        fontSize: '13px'
+      }}>
+        <div>{principalPercent}%</div>
+        <div>principal</div>
+      </div>
+      <div style={{
+        width: `${interestPercent}%`,
+        backgroundColor: 'var(--color-interest)',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: '#fff',
+        flexDirection: 'column',
+        fontWeight: 600,
+        fontSize: '13px'
+      }}>
+        <div>{interestPercent}%</div>
+        <div>interest</div>
+      </div>
+    </div>
   );
 };
 
@@ -74,39 +91,19 @@ const ResultsDisplay = ({ results }) => {
         </div>
       </div>
 
-      {/* Pie Chart - Loan Structure */}
+      {/* Horizontal Bar Chart - Loan Structure */}
       <div className="mt-6">
         <h3 className="text-md font-semibold mb-3" style={{ color: 'var(--color-heading)' }}>Loan Structure</h3>
-        <div className="w-full" style={{ maxHeight: '250px' }}>
-          {results.chartData && (
-            <LoanStructureChart 
-              key={`chart-${JSON.stringify(results.chartData)}`}
-              data={{
-                ...results.chartData,
-                datasets: [{
-                  ...results.chartData.datasets[0],
-                  backgroundColor: [
-                    'var(--color-principal)',
-                    'var(--color-interest)'
-                  ]
-                }]
-              }} 
-            />
-          )}
-        </div>
-        <div className="mt-3 grid grid-cols-2 gap-2 text-sm">
-          <div className="flex items-center">
-            <span className="w-3 h-3 inline-block mr-2 rounded-sm" style={{ backgroundColor: 'var(--color-principal)' }}></span>
-            <span className="text-sm" style={{ color: 'var(--color-heading)' }}>Principal: {formatCurrency(results.loanAmount)}</span>
-          </div>
-          <div className="flex items-center">
-            <span className="w-3 h-3 inline-block mr-2 rounded-sm" style={{ backgroundColor: 'var(--color-interest)' }}></span>
-            <span className="text-sm" style={{ color: 'var(--color-heading)' }}>Interest: {formatCurrency(results.totalInterest)}</span>
-          </div>
+        <div className="w-full">
+          <LoanStructureChart 
+            principalAmount={results.loanAmount}
+            interestAmount={results.totalInterest}
+            totalAmount={results.totalPayment}
+          />
         </div>
         
         <p className="mt-4 text-xs" style={{ color: 'var(--color-text)' }}>
-          This calculation is for guidance only. The actual mortgage terms may vary based on bank's policies and your individual circumstances.
+          This calculation is for guidance only and might differ from a bank's offer. Actual rates and payments depend on individual credit assessment.
         </p>
       </div>
     </div>
