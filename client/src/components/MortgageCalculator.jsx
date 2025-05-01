@@ -126,7 +126,7 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white shadow rounded-lg p-6" style={{ backgroundColor: 'var(--color-white)' }}>
-          <MortgageForm control={control} totalInterestRate={totalInterestRate} />
+          <MortgageForm control={control} totalInterestRate={totalInterestRate} setValue={setValue} />
         </div>
         <div className="bg-white shadow rounded-lg p-6" style={{ backgroundColor: 'var(--color-white)' }}>
           <ResultsDisplay results={results} />

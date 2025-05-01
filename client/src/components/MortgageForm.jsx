@@ -1,12 +1,15 @@
 import React from 'react';
 import { Controller, useWatch } from 'react-hook-form';
 import { formatCurrency } from '../utils/mortgageCalculations';
-import { useCurrency } from '../context/CurrencyContext';
+import { useCurrency, CURRENCY_INFO } from '../context/CurrencyContext';
+import { usePropertyValueWithCurrency } from '../hooks/usePropertyValueWithCurrency';
 
-const MortgageForm = ({ control, totalInterestRate }) => {
+const MortgageForm = ({ control, totalInterestRate, setValue }) => {
   // Use useWatch hook to access form values safely
   const { downPaymentPercent, loanTerm, monthlyPayment, nbpBaseRate, bankMargin } = useWatch({ control });
-  const { formatWithCurrency } = useCurrency();
+  const { formatWithCurrency, currency, convertAmount } = useCurrency();
+  // Use the custom hook for property value currency conversion
+  const { handlePropertyValueChange } = usePropertyValueWithCurrency(control, setValue);
   return (
     <div>
       <h2 className="text-lg font-bold mb-5" style={{ color: 'var(--color-heading)', fontSize: '18px' }}>Loan Parameters</h2>
@@ -14,7 +17,7 @@ const MortgageForm = ({ control, totalInterestRate }) => {
         {/* Property Value */}
         <div>
           <label htmlFor="propertyValue" className="block text-label mb-2">
-            Property Value (PLN)
+            Property Value {currency !== 'PLN' ? `(${CURRENCY_INFO[currency].symbol})` : '(PLN)'}
           </label>
           <Controller
             name="propertyValue"
@@ -26,7 +29,12 @@ const MortgageForm = ({ control, totalInterestRate }) => {
                 min="100000"
                 max="10000000"
                 step="10000"
-                onChange={(e) => field.onChange(Number(e.target.value))}
+                onChange={(e) => {
+                  const value = Number(e.target.value);
+                  // Process the input change through our currency handler
+                  const displayValue = handlePropertyValueChange(value);
+                  field.onChange(displayValue);
+                }}
                 className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 style={{ backgroundColor: 'var(--color-white)', borderColor: '#ced4da', transition: 'all 0.2s' }}
               />
@@ -36,8 +44,9 @@ const MortgageForm = ({ control, totalInterestRate }) => {
 
         {/* Down Payment Percentage */}
         <div>
-          <label htmlFor="downPaymentPercent" className="block text-label mb-2">
-            Down Payment ({downPaymentPercent}%)
+          <label htmlFor="downPaymentPercent" className="block text-label mb-2 flex justify-between">
+            <span>Down Payment ({downPaymentPercent}%)</span>
+            <span>{formatWithCurrency(useWatch({ control, name: 'propertyValue' }) * (downPaymentPercent / 100))}</span>
           </label>
           <Controller
             name="downPaymentPercent"
@@ -98,7 +107,7 @@ const MortgageForm = ({ control, totalInterestRate }) => {
         <div>
           <label htmlFor="monthlyPayment" className="block text-label mb-2 flex justify-between">
             <span>Monthly Payment</span>
-            <span>{formatCurrency(monthlyPayment)}</span>
+            <span>{formatWithCurrency(monthlyPayment)}</span>
           </label>
           <Controller
             name="monthlyPayment"
@@ -116,9 +125,9 @@ const MortgageForm = ({ control, totalInterestRate }) => {
                   style={{ accentColor: 'var(--color-accent)' }}
                 />
                 <div className="flex justify-between text-xs" style={{ color: 'var(--color-text)' }}>
-                  <span>{formatCurrency(1000)}</span>
-                  <span>{formatCurrency(7170)}</span>
-                  <span>{formatCurrency(13340)}</span>
+                  <span>{formatWithCurrency(1000)}</span>
+                  <span>{formatWithCurrency(7170)}</span>
+                  <span>{formatWithCurrency(13340)}</span>
                 </div>
               </div>
             )}
@@ -190,6 +199,16 @@ const MortgageForm = ({ control, totalInterestRate }) => {
               Based on WIBOR 3M ({nbpBaseRate?.toFixed(2) || '5.88'}%) + Bank Margin ({bankMargin?.toFixed(2) || '2.10'}%)
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Loan Amount Display */}
+      <div className="mt-6 p-3 bg-gray-50 rounded-md border border-gray-200">
+        <div className="flex justify-between items-center">
+          <span className="text-label">Loan Amount:</span>
+          <span className="text-value font-bold" style={{ color: 'var(--color-heading)', fontSize: '16px' }}>
+            {formatWithCurrency(useWatch({ control, name: 'propertyValue' }) * (1 - downPaymentPercent / 100))}
+          </span>
         </div>
       </div>
 

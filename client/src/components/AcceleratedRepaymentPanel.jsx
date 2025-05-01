@@ -4,7 +4,7 @@ import { useCurrency } from '../context/CurrencyContext';
 
 const AcceleratedRepaymentPanel = ({ results }) => {
   const [accelerationMonths, setAccelerationMonths] = useState(12); // Default: 1 year
-  const { formatWithCurrency } = useCurrency();
+  const { formatWithCurrency, convertAmount } = useCurrency();
   const [paymentMultiplier, setPaymentMultiplier] = useState(1.5); // Default: 1.5x
   const [acceleratedResults, setAcceleratedResults] = useState(null);
   
@@ -170,7 +170,7 @@ const AcceleratedRepaymentPanel = ({ results }) => {
             <div>
               <label className="block text-label mb-2 flex justify-between">
                 <span>Payment multiplier</span>
-                <span className="font-semibold">{paymentMultiplier.toFixed(1)}x ({formatCurrency(results.monthlyPayment * paymentMultiplier)})</span>
+                <span className="font-semibold">{paymentMultiplier.toFixed(1)}x ({formatWithCurrency(results.monthlyPayment * paymentMultiplier)})</span>
               </label>
               <input
                 type="range"
@@ -211,7 +211,7 @@ const AcceleratedRepaymentPanel = ({ results }) => {
                   <div className="mb-1">
                     <span className="block text-sm mb-1">Interest savings</span>
                     <span className="text-lg font-bold" style={{ color: 'var(--color-accent)' }}>
-                      {formatCurrency(acceleratedResults.interestSavings)}
+                      {formatWithCurrency(acceleratedResults.interestSavings)}
                     </span>
                   </div>
                   <div className="mt-2">
@@ -224,11 +224,11 @@ const AcceleratedRepaymentPanel = ({ results }) => {
                 <div className="bg-white p-4 rounded shadow-sm border border-gray-100">
                   <div className="mb-1">
                     <span className="block text-sm mb-1">Standard monthly payment</span>
-                    <span className="text-base font-semibold">{formatCurrency(results.monthlyPayment)}</span>
+                    <span className="text-base font-semibold">{formatWithCurrency(results.monthlyPayment)}</span>
                   </div>
                   <div className="mb-1">
                     <span className="block text-sm mb-1">Accelerated monthly payment</span>
-                    <span className="text-base font-semibold">{formatCurrency(acceleratedResults.acceleratedMonthlyPayment)}</span>
+                    <span className="text-base font-semibold">{formatWithCurrency(acceleratedResults.acceleratedMonthlyPayment)}</span>
                     <span className="text-xs ml-1 text-gray-500">
                       (for {formatAccelerationPeriod(accelerationMonths)})
                     </span>
@@ -236,7 +236,7 @@ const AcceleratedRepaymentPanel = ({ results }) => {
                   {acceleratedResults.interestSavings > 0 && (
                     <div className="mt-2">
                       <span className="bg-green-100 text-green-700 text-sm font-medium px-2 py-1 rounded-md inline-flex items-center">
-                        💰 You save {formatCurrency(acceleratedResults.interestSavings)} in interest
+                        💰 You save {formatWithCurrency(acceleratedResults.interestSavings)} in interest
                       </span>
                     </div>
                   )}
