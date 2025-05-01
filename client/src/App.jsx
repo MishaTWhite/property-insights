@@ -3,6 +3,7 @@ import axios from 'axios';
 import MortgageCalculator from './components/MortgageCalculator';
 import { fetchBaseRate } from './hooks/useRates';
 import LoadingOverlay from './components/LoadingOverlay';
+import { CurrencyProvider } from './context/CurrencyContext';
 
 function App() {
   const [baseRate, setBaseRate] = useState(7.75);
@@ -41,7 +42,9 @@ function App() {
         {isLoading ? (
           <LoadingOverlay message="Loading base interest rate..." />
         ) : (
-          <MortgageCalculator defaultInterestRate={baseRate} />
+          <CurrencyProvider>
+            <MortgageCalculator defaultInterestRate={baseRate} />
+          </CurrencyProvider>
         )}
 
       </div>

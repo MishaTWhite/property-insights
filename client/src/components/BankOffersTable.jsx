@@ -1,8 +1,10 @@
 import React from 'react';
+import { useCurrency } from '../context/CurrencyContext';
 import useBankOffers from '../hooks/useBankOffers';
 
 const BankOffersTable = ({ onSelectBankOffer, onSelectBaseRate }) => {
   const { offers, loading, error } = useBankOffers();
+  const { formatWithCurrency } = useCurrency();
 
   if (loading) {
     return (

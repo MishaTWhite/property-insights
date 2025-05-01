@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { formatCurrency } from '../utils/mortgageCalculations';
+import { useCurrency } from '../context/CurrencyContext';
 
 const AcceleratedRepaymentPanel = ({ results }) => {
   const [accelerationMonths, setAccelerationMonths] = useState(12); // Default: 1 year
+  const { formatWithCurrency } = useCurrency();
   const [paymentMultiplier, setPaymentMultiplier] = useState(1.5); // Default: 1.5x
   const [acceleratedResults, setAcceleratedResults] = useState(null);
   

@@ -5,6 +5,7 @@ import ResultsDisplay from './ResultsDisplay';
 import BankOffersTable from './BankOffersTable';
 import AcceleratedRepaymentPanel from './AcceleratedRepaymentPanel';
 import HowItWorksExplanation from './HowItWorksExplanation';
+import CurrencySwitcher from './CurrencySwitcher';
 import { calculateMortgage, calculateLoanTermFromMonthlyPayment } from '../utils/mortgageCalculations';
 
 const MortgageCalculator = ({ defaultInterestRate }) => {
@@ -119,6 +120,10 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
 
   return (
     <div className="flex flex-col">
+      {/* Currency selector at top right */}
+      <div className="flex justify-end mb-4">
+        <CurrencySwitcher />
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="bg-white shadow rounded-lg p-6" style={{ backgroundColor: 'var(--color-white)' }}>
           <MortgageForm control={control} totalInterestRate={totalInterestRate} />

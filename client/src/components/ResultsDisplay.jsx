@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatCurrency } from '../utils/mortgageCalculations';
+import { useCurrency } from '../context/CurrencyContext';
 
 // Horizontal bar chart component for loan structure
 const LoanStructureChart = ({ principalAmount, interestAmount, totalAmount }) => {
@@ -44,6 +45,7 @@ const LoanStructureChart = ({ principalAmount, interestAmount, totalAmount }) =>
 const ResultsDisplay = ({ results }) => {
   // Always render the component, but conditionally show different content
   // This ensures hooks are always called in the same order
+  const { formatWithCurrency } = useCurrency();
   
   return (
     <div className="space-y-6">
@@ -59,11 +61,11 @@ const ResultsDisplay = ({ results }) => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-label">Loan Amount:</span>
-                <span className="text-value">{formatCurrency(results.loanAmount)}</span>
+                <span className="text-value">{formatWithCurrency(results.loanAmount)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-label">Monthly Payment:</span>
-                <span className="text-value font-bold" style={{ color: 'var(--color-accent)' }}>{formatCurrency(results.monthlyPayment)}</span>
+                <span className="text-value font-bold" style={{ color: 'var(--color-accent)' }}>{formatWithCurrency(results.monthlyPayment)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-label">Duration:</span>
@@ -82,15 +84,15 @@ const ResultsDisplay = ({ results }) => {
             <div className="space-y-3">
               <div className="flex justify-between">
                 <span className="text-label">Loan Amount:</span>
-                <span className="text-value">{formatCurrency(results.loanAmount)}</span>
+                <span className="text-value">{formatWithCurrency(results.loanAmount)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-label">Total Interest:</span>
-                <span className="text-value">{formatCurrency(results.totalInterest)}</span>
+                <span className="text-value">{formatWithCurrency(results.totalInterest)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-label">Total Amount to Repay:</span>
-                <span className="text-value font-bold" style={{ fontSize: '17px' }}>{formatCurrency(results.totalPayment)}</span>
+                <span className="text-value font-bold" style={{ fontSize: '17px' }}>{formatWithCurrency(results.totalPayment)}</span>
               </div>
             </div>
           </div>

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Controller, useWatch } from 'react-hook-form';
 import { formatCurrency } from '../utils/mortgageCalculations';
+import { useCurrency } from '../context/CurrencyContext';
 
 const MortgageForm = ({ control, totalInterestRate }) => {
   // Use useWatch hook to access form values safely
   const { downPaymentPercent, loanTerm, monthlyPayment, nbpBaseRate, bankMargin } = useWatch({ control });
+  const { formatWithCurrency } = useCurrency();
   return (
     <div>
       <h2 className="text-lg font-bold mb-5" style={{ color: 'var(--color-heading)', fontSize: '18px' }}>Loan Parameters</h2>
