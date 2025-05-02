@@ -83,6 +83,23 @@ def test_parse_offer_json_new_format():
     assert result['floor'] == 2
     assert result['city'] == 'szczecin'
     assert result['district'] == 'śródmieście'
+
+def test_parse_offer_json_null_area():
+    """Test parsing JSON offer data with null area value"""
+    # Create a minimal offer with null area
+    offer = {
+        "id": "test123",
+        "areaInSquareMeters": None,
+        "totalPrice": {"value": 500000},
+        "location": {"city": "warszawa", "district": "mokotów"}
+    }
+    
+    # Create a scraper instance and parse the offer
+    scraper = OtodomScraper()
+    result = scraper.parse_offer_json(offer)
+    
+    # Offer with null area should be skipped (return None)
+    assert result is None
     
     # Old test part - not needed anymore since we split the tests
     offer2 = fixture_data["props"]["pageProps"]["initialState"]["listingSearch"]["offers"][1]

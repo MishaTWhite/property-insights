@@ -21,9 +21,15 @@ except ImportError as e:
     print("Missing Python package:", e.name, "— run pip install -r requirements.txt", file=sys.stderr)
     sys.exit(1)
 
-# Set up argument parser for debug flag
+# Set up argument parser for debug flag and filters
 parser = argparse.ArgumentParser()
 parser.add_argument("--debug", action="store_true", help="Enable debug logging")
+parser.add_argument("--cities", type=str, help="Comma or space separated list of cities to scrape (default: all major cities)")
+parser.add_argument("--districts", type=str, default="all", help="Comma or space separated list of districts to scrape (default: all)")
+parser.add_argument("--district-mode", type=str, choices=["exact", "prefix"], default="prefix", 
+                    help="How to match districts: 'exact' (exact match only) or 'prefix' (match prefix or parent slugs, default)")
+parser.add_argument("--rooms", type=str, help="Integer or comma-separated list of room numbers to filter (e.g. 1,2)")
+parser.add_argument("--max-pages", type=int, help="Maximum number of pages to scrape per city/district combination")
 args = parser.parse_args()
 
 # Configure logging level based on --debug flag or LOG_LEVEL environment variable
@@ -39,6 +45,21 @@ logging.basicConfig(level=log_level,
 
 try:
     from otodom_parser.scraper import OtodomScraper
+    
+    # Process filter arguments
+    city_filter = None
+    if args.cities:
+        city_filter = [city.strip() for city in args.cities.replace(',', ' ').split() if city.strip()]
+    
+    district_filter = ["all"]
+    if args.districts and args.districts != "all":
+        district_filter = [district.strip() for district in args.districts.replace(',', ' ').split() if district.strip()]
+    
+    room_filter = None
+    if args.rooms:
+        room_filter = [int(room.strip()) for room in args.rooms.replace(',', ' ').split() if room.strip().isdigit()]
+    
+    max_pages = args.max_pages
 
     def update_status(status, progress, error):
         """Print status updates in a format the Node.js process can parse"""
@@ -47,8 +68,10 @@ try:
         print(f"ERROR: {1 if error else 0}")
         sys.stdout.flush()
 
-    # Create scraper with debug flag
-    scraper = OtodomScraper(debug=args.debug)
+    # Create scraper with debug flag and filters
+    scraper = OtodomScraper(debug=args.debug, city_filter=city_filter, 
+                          district_filter=district_filter, district_mode=args.district_mode,
+                          room_filter=room_filter, max_pages=max_pages)
     scraper.start_scraping(callback=update_status)
 
 except Exception as e:

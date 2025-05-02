@@ -29,12 +29,19 @@ def setup_database():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             city TEXT NOT NULL,
             district TEXT NOT NULL,
+            district_parent TEXT NOT NULL,
             area REAL NOT NULL,          -- m²
             price_per_sqm REAL NOT NULL, -- zł
             floor INTEGER,               -- 0 = parter
             scraped_at TEXT              -- ISO timestamp
         )
         ''')
+        
+        # Check if district_parent column exists, add it if not
+        cursor.execute("PRAGMA table_info(listings)")
+        columns = [column[1] for column in cursor.fetchall()]
+        if 'district_parent' not in columns:
+            cursor.execute('ALTER TABLE listings ADD COLUMN district_parent TEXT')
         
         conn.commit()
         conn.close()
@@ -56,7 +63,7 @@ def clear_listings():
         logging.error(f"Error clearing listings: {str(e)}")
         raise
 
-def insert_listing(city, district, area, price_per_sqm, floor):
+def insert_listing(city, district, district_parent, area, price_per_sqm, floor):
     """Insert a listing into the database"""
     try:
         conn = get_connection()
@@ -67,9 +74,9 @@ def insert_listing(city, district, area, price_per_sqm, floor):
         
         # Insert the listing
         cursor.execute('''
-        INSERT INTO listings (city, district, area, price_per_sqm, floor, scraped_at)
-        VALUES (?, ?, ?, ?, ?, ?)
-        ''', (city, district, area, price_per_sqm, floor, timestamp))
+        INSERT INTO listings (city, district, district_parent, area, price_per_sqm, floor, scraped_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (city, district, district_parent, area, price_per_sqm, floor, timestamp))
         
         conn.commit()
         conn.close()

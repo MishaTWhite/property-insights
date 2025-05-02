@@ -24,7 +24,7 @@ CITIES = [
 ]
 
 class OtodomScraper:
-    def __init__(self, debug=False):
+    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None):
         self.debug = debug
         # Define debug directory relative to script location
         self.debug_dir = Path(__file__).parent / "debug"
@@ -38,6 +38,11 @@ class OtodomScraper:
         }
         self.base_url = "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie"
         self.districts_cache = {}
+        self.city_filter = city_filter
+        self.district_filter = district_filter if district_filter else ["all"]
+        self.district_mode = district_mode.lower()  # "exact" or "prefix"
+        self.room_filter = room_filter
+        self.max_pages = max_pages
         setup_database()
 
     def get_districts(self, city):
@@ -99,11 +104,27 @@ class OtodomScraper:
         self.error_occurred = True
         return None
 
-    def to_float(self, txt):
-        """Convert a Polish formatted number string to float"""
-        txt = txt.replace(' ', '').replace(',', '.')
-        match = re.search(r'[\d.]+', txt)
-        return float(match[0]) if match else 0.0
+    def to_float(self, v):
+        """Convert a value to float, handling None values and formatting Polish number strings
+        
+        Args:
+            v: The value to convert, can be None, string, or number
+            
+        Returns:
+            float value or None if conversion fails
+        """
+        try:
+            if v is None:
+                return None
+            if isinstance(v, str):
+                v = v.replace(' ', '').replace(',', '.')
+                match = re.search(r'[\d.]+', v)
+                if match:
+                    return float(match[0])
+                return None
+            return float(v)
+        except (TypeError, ValueError):
+            return None
         
     def extract_offers(self, next_json: dict, city=None, page=None, soup=None) -> list[dict]:
         """Extract offers from different possible JSON paths in the Next.js data structure
@@ -283,41 +304,41 @@ class OtodomScraper:
             logging.debug("Parsing offer JSON...")
             
             # Extract area from JSON
-            area = 0.0
-            if "areaInSquareMeters" in offer:
-                area = float(offer["areaInSquareMeters"])
-                logging.debug(f"Found area (areaInSquareMeters): {area}")
-            elif "areaInM2" in offer:
-                area = float(offer["areaInM2"])
-                logging.debug(f"Found area (areaInM2): {area}")
+            area = self.to_float(offer.get("areaInSquareMeters"))
+            if area is None:
+                area = self.to_float(offer.get("areaInM2"))
+                
+            if area is not None:
+                logging.debug(f"Found area: {area}")
             else:
-                logging.debug("Area not found in JSON offer")
+                logging.debug(f"Skipped offer {offer.get('id', 'unknown')} (area=None)")
+                return None
             
             # Extract price per sqm from JSON or calculate if missing
-            price_per_sqm = 0
-            ppsm = offer.get("pricePerSquareMeter", {}).get("value")
-            if ppsm:
+            ppsm = self.to_float(offer.get("pricePerSquareMeter", {}).get("value"))
+            if ppsm is not None:
                 price_per_sqm = int(ppsm)
                 logging.debug(f"Found price per sqm (pricePerSquareMeter.value): {price_per_sqm}")
             elif "pricePerSqm" in offer:
-                price_per_sqm = int(offer["pricePerSqm"])
-                logging.debug(f"Found price per sqm (pricePerSqm): {price_per_sqm}")
-            elif area > 0:
+                price_per_sqm = self.to_float(offer["pricePerSqm"])
+                if price_per_sqm is not None:
+                    price_per_sqm = int(price_per_sqm)
+                    logging.debug(f"Found price per sqm (pricePerSqm): {price_per_sqm}")
+            else:
                 # Try to calculate price per sqm from total price if available
-                if "totalPrice" in offer and isinstance(offer["totalPrice"], dict):
-                    price = int(offer["totalPrice"]["value"])
-                    price_per_sqm = int(price / area)
-                    logging.debug(f"Calculated price per sqm from totalPrice.value: {price_per_sqm}")
-                elif "price" in offer:
-                    price = int(offer["price"])
-                    price_per_sqm = int(price / area)
+                total = self.to_float(offer.get("totalPrice", {}).get("value"))
+                if total is None:
+                    total = self.to_float(offer.get("price"))
+                    
+                price_per_sqm = int(total / area) if total else None
+                if price_per_sqm is not None:
                     logging.debug(f"Calculated price per sqm from price: {price_per_sqm}")
                 else:
                     logging.debug("Price per sqm not found and could not be calculated")
             
-            # Skip offers with invalid area or price_per_sqm
-            if area <= 0 or price_per_sqm <= 0:
-                logging.debug(f"Skipped offer {offer.get('id', 'unknown')}: area={area} ppsm={price_per_sqm}")
+            # Skip offers with missing price_per_sqm
+            if price_per_sqm is None:
+                logging.debug(f"Skipped offer {offer.get('id', 'unknown')} (area={area}, ppsm=None)")
                 return None
             
             # Extract floor from JSON with support for string floor values
@@ -333,7 +354,8 @@ class OtodomScraper:
             
             # Extract city and district from new format if available
             city = ""
-            district = "unknown"
+            district_sub = "unknown"
+            district_parent = "unknown"
             
             if ("location" in offer and 
                 isinstance(offer["location"], dict) and
@@ -353,25 +375,26 @@ class OtodomScraper:
                     len(offer["location"]["reverseGeocoding"]["locations"]) > 0):
                     
                     locations = offer["location"]["reverseGeocoding"]["locations"]
-                    if locations:
-                        last_location = locations[-1]
-                        if isinstance(last_location, dict) and "id" in last_location:
-                            district_id = last_location["id"]
-                            if "/" in district_id:
-                                district = self.safe_lower(district_id.split("/")[-1])
-                                logging.debug(f"Found district from reverseGeocoding: {district}")
+                    path = locations[-1]["id"].split("/") if locations else []
+                    district_sub = self.safe_lower(path[-1]) if path else "unknown"
+                    district_parent = self.safe_lower(path[-2]) if len(path) >= 2 else district_sub
+                    
+                    logging.debug(f"Found district_sub from reverseGeocoding: {district_sub}")
+                    logging.debug(f"Found district_parent from reverseGeocoding: {district_parent}")
             else:
                 # Fall back to old format
                 city = self.safe_lower(offer.get("location", {}).get("city", ""))
-                district = self.safe_lower(offer.get("location", {}).get("district", "")) or "unknown"
-                logging.debug(f"Using old format location data: city={city}, district={district}")
+                district_sub = self.safe_lower(offer.get("location", {}).get("district", "")) or "unknown"
+                district_parent = district_sub  # In old format, use the same value for both
+                logging.debug(f"Using old format location data: city={city}, district_sub={district_sub}, district_parent={district_parent}")
             
             result = {
                 'area': area,
                 'price_per_sqm': price_per_sqm,
                 'floor': floor,
                 'city': city,
-                'district': district
+                'district': district_sub,
+                'district_parent': district_parent
             }
             logging.debug(f"Parsed offer data: {result}")
             return result
@@ -386,7 +409,17 @@ class OtodomScraper:
         url_path = f"{self.base_url}/{city}"
         if district:
             url_path += f"/{district}"
-        url = f"{url_path}?page={page}&viewType=list"
+        
+        # Start with base query parameters
+        params = [f"page={page}", "viewType=list"]
+        
+        # Add room filter parameters if specified
+        if self.room_filter:
+            room_params = ",".join(str(room) for room in self.room_filter)
+            params.append(f"roomsNumber=%5B{room_params}%5D")
+            
+        # Join all parameters
+        url = f"{url_path}?{'&'.join(params)}"
         
         logging.debug(f"Scraping URL: {url}")
         response = self._make_request(url)
@@ -432,6 +465,41 @@ class OtodomScraper:
                 return False, 0
             
             inserted_rows = 0
+            # Apply district filtering if specified and not "all"
+            if self.district_filter and "all" not in self.district_filter:
+                filtered_offers = []
+                total_offers = len(offers)
+                
+                for offer in offers:
+                    # Parse each offer to get district and district_parent
+                    parsed_data = self.parse_offer_json(offer)
+                    if parsed_data:
+                        district = parsed_data.get('district', '').lower()
+                        district_parent = parsed_data.get('district_parent', '').lower()
+                        
+                        match_found = False
+                        
+                        if self.district_mode == "exact":
+                            # Exact mode - either district or district_parent must be an exact match
+                            match_found = any(d.lower() == district or d.lower() == district_parent for d in self.district_filter)
+                        else:  # prefix mode (default)
+                            # Check if any filter is a prefix of either district or district_parent
+                            for d in self.district_filter:
+                                d_lower = d.lower()
+                                if (district.startswith(d_lower) or 
+                                    f"-{d_lower}" in district or
+                                    district_parent.startswith(d_lower) or
+                                    f"-{d_lower}" in district_parent):
+                                    match_found = True
+                                    break
+                        
+                        if match_found:
+                            filtered_offers.append(offer)
+                
+                logging.debug(f"Kept {len(filtered_offers)}/{total_offers} offers after district filter")
+                logging.debug(f"District filter kept {len(filtered_offers)}/{total_offers} offers")
+                offers = filtered_offers
+            
             for offer in offers:
                 listing_data = self.parse_offer_json(offer)
                 if listing_data:
@@ -444,7 +512,7 @@ class OtodomScraper:
                         logging.warning("Missing required field - skipping")
                         continue
                     
-                    insert_listing(city, district, area, price_sqm, floor)
+                    insert_listing(city=city, district=district, district_parent=district, area=area, price_per_sqm=price_sqm, floor=floor)
                     inserted_rows += 1
             
             if inserted_rows > 0:
@@ -467,9 +535,16 @@ class OtodomScraper:
             # Clear existing listings
             clear_listings()
             
-            total_cities = len(CITIES)
+            # Filter cities if city_filter is specified
+            cities_to_scrape = [city for city in CITIES if self.city_filter is None or city.lower() in [c.lower() for c in self.city_filter]]
             
-            for city_idx, city in enumerate(CITIES):
+            if self.city_filter and not cities_to_scrape:
+                logging.warning(f"None of the specified cities {self.city_filter} match available cities. Using all cities.")
+                cities_to_scrape = CITIES
+            
+            total_cities = len(cities_to_scrape)
+            
+            for city_idx, city in enumerate(cities_to_scrape):
                 logging.info(f"Starting scrape for city: {city}")
                 self.status = f"Starting {city}"
                 self.progress = (city_idx / total_cities) * 100
@@ -498,9 +573,17 @@ class OtodomScraper:
                         has_next_page, listing_count = self.scrape_page(city, district, page)
                         
                         if listing_count is None or listing_count == 0:
+                            if page == 1:
+                                logging.info(f"No listings found for {city} - {district_name}, skipping")
                             break
                         
                         page += 1
+                        
+                        # Stop pagination if max_pages is set
+                        if self.max_pages and page > self.max_pages:
+                            logging.info(f"Reached max pages ({self.max_pages}) for {city} - {district_name}")
+                            break
+                            
                         time.sleep(1.5)  # Sleep between pages to avoid rate limiting
                 
                 logging.info(f"Finished scraping {city}")
