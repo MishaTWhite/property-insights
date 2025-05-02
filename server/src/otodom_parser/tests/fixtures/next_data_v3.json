@@ -1,0 +1,30 @@
+{
+  "props": {
+    "pageProps": {
+      "dehydratedState": {
+        "queries": [
+          {
+            "state": {
+              "data": {
+                "searchAds": {
+                  "items": [
+                    {
+                      "id": "65271823",
+                      "areaInM2": 35.5,
+                      "pricePerSqm": 11268,
+                      "floorNumber": 2,
+                      "location": {
+                        "city": "Warszawa",
+                        "district": "Śródmieście"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

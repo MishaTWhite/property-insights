@@ -3,6 +3,7 @@ const cors = require('cors');
 const ratesRoutes = require('./routes/rates');
 const baseRateRoutes = require('./routes/base-rate');
 const bankOffersRoutes = require('./routes/bank-offers');
+const otodomAnalyzerRoutes = require('./routes/otodom-analyzer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/api', ratesRoutes);
 app.use('/api', baseRateRoutes);
 app.use('/api', bankOffersRoutes);
+app.use('/api/otodom-analyzer', otodomAnalyzerRoutes);
 
 // Health check endpoint
 app.get('/', (req, res) => {
