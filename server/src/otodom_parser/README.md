@@ -33,6 +33,32 @@ The process works as follows:
 
 This approach is more efficient than HTML parsing and eliminates the need for complex CSS selectors.
 
+### District Filtering
+
+The parser supports two district filtering modes:
+
+- **Exact mode** (`--district-mode exact`): Only keeps listings where the district or district_parent exactly matches one of the specified districts.
+- **Prefix mode** (`--district-mode prefix`, default): Keeps listings where the district or district_parent starts with one of the specified districts.
+
+Example usage:
+```bash
+# Only get listings in exactly "mokotow" district
+python run_scraper.py --cities warszawa --districts mokotow --district-mode exact
+
+# Get listings in "mokotow" and any sub-districts (default behavior)
+python run_scraper.py --cities warszawa --districts mokotow
+```
+
+### Price Per Square Meter Calculation
+
+When price per square meter (`pricePerSquareMeter`) is missing from the listing data:
+1. First attempts to retrieve it directly from the listing data
+2. If not available, looks for alternative fields like `pricePerSqm`
+3. If still not available, calculates it by dividing the total price by the area:
+   - `price_per_sqm = total_price / area`
+
+This ensures price per square meter data is available for all listings.
+
 ### Testing
 
 Unit tests are available to verify that the JSON parsing works correctly. The tests use sample JSON fixtures that represent the actual data structure from the Otodom website.

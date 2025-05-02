@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": "test-id-mokotow-1",
+      "totalPrice": {
+        "value": 800000
+      },
+      "areaInSquareMeters": 40,
+      "floorNumber": "FIRST",
+      "location": {
+        "address": {
+          "city": "Warszawa"
+        },
+        "reverseGeocoding": {
+          "locations": [
+            {
+              "id": "warsaw/mokotow/stary-mokotow"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "test-id-mokotow-2",
+      "totalPrice": {
+        "value": 500000
+      },
+      "areaInSquareMeters": 25,
+      "floorNumber": "SECOND",
+      "location": {
+        "address": {
+          "city": "Warszawa"
+        },
+        "reverseGeocoding": {
+          "locations": [
+            {
+              "id": "warsaw/mokotow"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "test-id-czechowice",
+      "totalPrice": {
+        "value": 600000
+      },
+      "areaInSquareMeters": 30,
+      "floorNumber": "THIRD",
+      "location": {
+        "address": {
+          "city": "Warszawa"
+        },
+        "reverseGeocoding": {
+          "locations": [
+            {
+              "id": "warsaw/czechowice"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -315,7 +315,12 @@ class OtodomScraper:
                 return None
             
             # Extract price per sqm from JSON or calculate if missing
-            ppsm = self.to_float(offer.get("pricePerSquareMeter", {}).get("value"))
+            ppsm_data = offer.get("pricePerSquareMeter")
+            if isinstance(ppsm_data, dict):
+                ppsm = self.to_float(ppsm_data.get("value"))
+            else:
+                ppsm = None
+                
             if ppsm is not None:
                 price_per_sqm = int(ppsm)
                 logging.debug(f"Found price per sqm (pricePerSquareMeter.value): {price_per_sqm}")
@@ -329,12 +334,25 @@ class OtodomScraper:
                 total = self.to_float(offer.get("totalPrice", {}).get("value"))
                 if total is None:
                     total = self.to_float(offer.get("price"))
-                    
-                price_per_sqm = int(total / area) if total else None
-                if price_per_sqm is not None:
-                    logging.debug(f"Calculated price per sqm from price: {price_per_sqm}")
+                
+                if total is not None and area > 0:
+                    price_per_sqm = int(round(total / area))
+                    logging.debug(f"Calculated price per sqm from price ({total}) / area ({area}) = {price_per_sqm}")
                 else:
-                    logging.debug("Price per sqm not found and could not be calculated")
+                    # Second fallback: try priceFromPerSquareMeter
+                    pfsqm = offer.get("priceFromPerSquareMeter")
+                    if isinstance(pfsqm, dict):
+                        ppsm = self.to_float(pfsqm.get("value"))
+                        if ppsm is not None:
+                            price_per_sqm = int(ppsm)
+                            logging.debug(f"Found price per sqm (priceFromPerSquareMeter.value): {price_per_sqm}")
+                        else:
+                            price_per_sqm = None
+                    else:
+                        price_per_sqm = None
+                    
+                    if price_per_sqm is None:
+                        logging.debug(f"Price per sqm not found and could not be calculated (price={total}, area={area})")
             
             # Skip offers with missing price_per_sqm
             if price_per_sqm is None:
@@ -496,8 +514,7 @@ class OtodomScraper:
                         if match_found:
                             filtered_offers.append(offer)
                 
-                logging.debug(f"Kept {len(filtered_offers)}/{total_offers} offers after district filter")
-                logging.debug(f"District filter kept {len(filtered_offers)}/{total_offers} offers")
+                logging.debug(f"District filter kept {len(filtered_offers)}/{total_offers} offers (filter={self.district_filter}, mode={self.district_mode})")
                 offers = filtered_offers
             
             for offer in offers:
@@ -512,7 +529,10 @@ class OtodomScraper:
                         logging.warning("Missing required field - skipping")
                         continue
                     
-                    insert_listing(city=city, district=district, district_parent=district, area=area, price_per_sqm=price_sqm, floor=floor)
+                    # Use district values from parsed data, not from URL parameters
+                    district_sub = listing_data['district']  
+                    district_parent = listing_data['district_parent']
+                    insert_listing(city=city, district=district_sub, district_parent=district_parent, area=area, price_per_sqm=price_sqm, floor=floor)
                     inserted_rows += 1
             
             if inserted_rows > 0:
