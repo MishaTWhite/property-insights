@@ -23,7 +23,7 @@ CITIES = [
 ]
 
 class OtodomScraper:
-    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False):
+    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False, days_since_created=None):
         self.debug = debug
         self.preserve = preserve
         # Define debug directory relative to script location

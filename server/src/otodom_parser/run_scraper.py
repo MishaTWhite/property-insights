@@ -27,10 +27,11 @@ parser.add_argument("--debug", action="store_true", help="Enable debug logging")
 parser.add_argument("--cities", type=str, help="Comma or space separated list of cities to scrape (default: all major cities)")
 parser.add_argument("--districts", type=str, default="all", help="Comma or space separated list of districts to scrape (default: all)")
 parser.add_argument("--district-mode", type=str, choices=["exact", "prefix"], default="prefix", 
-                    help="How to match districts: 'exact' (exact match only) or 'prefix' (match prefix or parent slugs, default)")
+                     help="How to match districts: 'exact' (exact match only) or 'prefix' (match prefix or parent slugs, default)")
 parser.add_argument("--rooms", type=str, help="Integer or comma-separated list of room numbers to filter (e.g. 1,2)")
 parser.add_argument("--max-pages", type=int, help="Maximum number of pages to scrape per city/district combination")
 parser.add_argument("--preserve", action="store_true", help="Preserve existing listings in the database")
+parser.add_argument("--days", type=int, help="Filter listings created within the specified number of days")
 args = parser.parse_args()
 
 # Configure logging level based on --debug flag or LOG_LEVEL environment variable
@@ -38,11 +39,11 @@ log_level = logging.DEBUG if args.debug or os.getenv("LOG_LEVEL") == "DEBUG" els
 
 # Configure logging before any imports that might use logging
 logging.basicConfig(level=log_level, 
-                   format="%(asctime)s [%(levelname)s] %(message)s",
-                   handlers=[
-                       logging.FileHandler("parser_errors.log", encoding="utf-8"),
-                       logging.StreamHandler(sys.stdout)
-                   ])
+                    format="%(asctime)s [%(levelname)s] %(message)s",
+                    handlers=[
+                        logging.FileHandler("parser_errors.log", encoding="utf-8"),
+                        logging.StreamHandler(sys.stdout)
+                    ])
 
 try:
     from otodom_parser.scraper import OtodomScraper
@@ -71,9 +72,9 @@ try:
 
     # Create scraper with debug flag and filters
     scraper = OtodomScraper(debug=args.debug, city_filter=city_filter, 
-                          district_filter=district_filter, district_mode=args.district_mode,
-                          room_filter=room_filter, max_pages=max_pages,
-                          preserve=args.preserve)
+                           district_filter=district_filter, district_mode=args.district_mode,
+                           room_filter=room_filter, max_pages=max_pages,
+                           preserve=args.preserve, days_since_created=args.days)
     scraper.start_scraping(callback=update_status)
 
 except Exception as e:

@@ -1,0 +1,4456 @@
+[
+  {
+    "id": 66776016,
+    "title": "744109",
+    "slug": "744109-ID4vbuv",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "rynek Rynek",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/stare-miasto",
+            "fullName": "Stare Miasto, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN1cncyZTVlbXVjazMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QxwYLi3Y5GQkKv5pphDwyWcIzuRwefLUPwe3A7wPQWA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN1cncyZTVlbXVjazMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QxwYLi3Y5GQkKv5pphDwyWcIzuRwefLUPwe3A7wPQWA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Img0anE0cGVpZ3poZTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.n8pJBIRYr0UI9tRWGXmWLoVWMRYS3DcnZQHJ44qKeoA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Img0anE0cGVpZ3poZTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.n8pJBIRYr0UI9tRWGXmWLoVWMRYS3DcnZQHJ44qKeoA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 863502,
+      "name": "CHATA Agencja Nieruchomości",
+      "slug": "chata-agencja-nieruchomosci-ID863502",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjltaDlhcWtrc3YwbjItQVBMIn0.uLfdLfmkoLk3fS8YWKvppBh667N5bLBX5a88zZKzQe8/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1383360,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 730,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 33000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 41.92,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:57:55",
+    "dateCreatedFirst": "2025-04-30 13:57:45",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Kamienica Pod Siedmioma Elektorami, Wrocław Rynek 8. Renesansowa zabytkowa kamienica, jej powstanie jest datowane na drugą połowę XIII wieku. To jeden z najstarszych zabytkowych budynków we Wrocławiu....",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/744109-ID4vbuv"
+  },
+  {
+    "id": 66710047,
+    "title": "OKAZJA|WYKOŃCZONE|wróciło|OGRÓDEK|bez pcc|tramwaj",
+    "slug": "okazja-wykonczone-wrocilo-ogrodek-bez-pcc-tramwaj-ID4wUkw",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/ksieze",
+            "fullName": "Księże, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRnY293bzRlb2l4bzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.V21U7yYmzkIxbVSqDGlqtBm_hs7Cd4jvppAUJZo6ogM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRnY293bzRlb2l4bzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.V21U7yYmzkIxbVSqDGlqtBm_hs7Cd4jvppAUJZo6ogM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNxOWQ5cWM3MDIxYzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uiHAWbm-ytGU2jmXFcDaNfSy3fzQWUd5O6248jVk-HU/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNxOWQ5cWM3MDIxYzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uiHAWbm-ytGU2jmXFcDaNfSy3fzQWUd5O6248jVk-HU/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 9,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 8314411,
+      "name": "Lokum Marzeń",
+      "slug": "lokum-marzen-ID8314411",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imc1MXpwdHFlanFmOTItQVBMIn0.3BoF3gPULwqekEs1B4rt_t8f6NyiPiVi5IktmFaLROk/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 599000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 400,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12745,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 47,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:53:53",
+    "dateCreatedFirst": "2025-04-10 17:28:59",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:53:53+02:00",
+    "specialOffer": null,
+    "shortDescription": "NA SPRZEDAŻ NOWE WYKOŃCZONE MIESZKANIE.\r\n\r\nNa powierzchnie mieszkania składa się:\r\n\r\nsłoneczny salon z wyjściem na dwunastometrowy ogródek,\r\nkuchnia wykonana na wymiar wraz z całym sprzętem AGD (kuchn...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/okazja-wykonczone-wrocilo-ogrodek-bez-pcc-tramwaj-ID4wUkw"
+  },
+  {
+    "id": 66775712,
+    "title": "Mieszkanie Po Remoncie II Okolice Parku Tołpy II Top Lokalizacja",
+    "slug": "mieszkanie-po-remoncie-ii-okolice-parku-tolpy-ii-top-lokalizacja-ID4vbpC",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie",
+            "fullName": "Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie/olbin",
+            "fullName": "Ołbin, Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjlwMjkxb3JtNHdpbjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ms524Ok-cYmKr8MpgaZnHjUIaShFbYQVPFWF5gHWMzs/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjlwMjkxb3JtNHdpbjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ms524Ok-cYmKr8MpgaZnHjUIaShFbYQVPFWF5gHWMzs/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF4MXNkNHdmeGEycy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.I9szkwybpJRekNdokcMMp6okNMUAK72GoDK__gEukto/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF4MXNkNHdmeGEycy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.I9szkwybpJRekNdokcMMp6okNMUAK72GoDK__gEukto/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 2,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 450000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12857,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 35,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:51:37",
+    "dateCreatedFirst": "2025-04-30 13:34:09",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Sprzedam mieszkanie o powierzchni 35 m² znajdujące się na czwartym piętrze bloku w atrakcyjnej części Wrocławia. Lokal przeszedł gruntowny remont i jest przygotowany do wykończenia według indywidualny...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/mieszkanie-po-remoncie-ii-okolice-parku-tolpy-ii-top-lokalizacja-ID4vbpC"
+  },
+  {
+    "id": 66726205,
+    "title": "Wynajmowany dwupak kawalerek,50 m2, gotowiec,Ołbin",
+    "slug": "wynajmowany-dwupak-kawalerek-50-m2-gotowiec-olbin-ID4wYx7",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Jedności Narodowej",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie",
+            "fullName": "Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie/olbin",
+            "fullName": "Ołbin, Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InlsdWZycGhrOHlyejEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.tzIYSeJSQ9JSfZVAqFZHRY21MLakJDl59qB_rf_PPCE/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InlsdWZycGhrOHlyejEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.tzIYSeJSQ9JSfZVAqFZHRY21MLakJDl59qB_rf_PPCE/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imk2OTZlY3V1MWN4bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.oMvU-LuZTtJVkecVGhuFOaLUBi7Lt57DhSe7hzcwbas/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imk2OTZlY3V1MWN4bzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.oMvU-LuZTtJVkecVGhuFOaLUBi7Lt57DhSe7hzcwbas/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 12,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 739700,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 730,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 14794,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 50,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:49:56",
+    "dateCreatedFirst": "2025-04-15 13:48:19",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:49:57+02:00",
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż bezpośrednio od właściciela: Gotowiec inwestycyjny – dwupak kawalerek, 50 m², ul. Jedności Narodowej – Ołbin, Wrocław\r\n\r\nNajważniejsze atuty inwestycji:\r\n\r\n\r\nDwupak – 2 niezależne kawalerk...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/wynajmowany-dwupak-kawalerek-50-m2-gotowiec-olbin-ID4wYx7"
+  },
+  {
+    "id": 66775819,
+    "title": "ROZKŁADOWE,3pok,56m2,Miejskie Media,II piętro,Do Remontu,OKAZJA",
+    "slug": "rozkladowe-3pok-56m2-miejskie-media-ii-pietro-do-remontu-okazja-ID4vbrl",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Cesarzowicka",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/oporow",
+            "fullName": "Oporów, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IngyNTk0NXk3N3htODMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0l6yy0PTGJe41aI3TXEEaMH_QkHtPyxO3KXjydf7qCA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IngyNTk0NXk3N3htODMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0l6yy0PTGJe41aI3TXEEaMH_QkHtPyxO3KXjydf7qCA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd5a3QxaHZoNmxvdTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._LO0REp0iJ9jD5VfmC5iIkP_rAdK0ztCDElBRQn90sA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd5a3QxaHZoNmxvdTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._LO0REp0iJ9jD5VfmC5iIkP_rAdK0ztCDElBRQn90sA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 7,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 9181524,
+      "name": "HOME EXPRESS",
+      "slug": "home-express-ID9181524",
+      "imageUrl": null,
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 535000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 9554,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 56,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "SECOND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:49:54",
+    "dateCreatedFirst": "2025-04-30 13:49:50",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż ROZKŁADOWE, DWUSTRONNE mieszkanie 3 pokojowe o pow. 56m2, położone w dzielnicy Fabryczna, osiedle Oporów, okolice ul. Cesarzowickiej.Usytuowane jest na drugim piętrze/4p., ocieplonego blok...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/rozkladowe-3pok-56m2-miejskie-media-ii-pietro-do-remontu-okazja-ID4vbrl"
+  },
+  {
+    "id": 66726968,
+    "title": "3M| piwnica_parking | do generalnego remontu!",
+    "slug": "3m-piwnica-parking-do-generalnego-remontu-ID4wYJq",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 500,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/powstancow-slaskich",
+            "fullName": "Powstańców Śląskich, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InZ3ZTFtbDBlbzg3cC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KuWhOdd_9jz-H9-uqQ-OKzo0HQ6bKzyJUtjzl6bwKLg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InZ3ZTFtbDBlbzg3cC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KuWhOdd_9jz-H9-uqQ-OKzo0HQ6bKzyJUtjzl6bwKLg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjM1bzg4dGNhOWdycTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.HobF2in13gnbzgDTGRWGXPow6_zIWeKcvlbcsQdPaoA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjM1bzg4dGNhOWdycTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.HobF2in13gnbzgDTGRWGXPow6_zIWeKcvlbcsQdPaoA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 7,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 7580370,
+      "name": "Globfinanse",
+      "slug": "globfinanse-ID7580370",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFtNXlnYjllMzh6YTMtQVBMIn0.9buijqZUnECAlh6F9Y7KOU6U2m3I7eI750Aex56goyI/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 489000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10188,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 48,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "SIXTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:40:11",
+    "dateCreatedFirst": "2025-04-15 15:35:31",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:40:11+02:00",
+    "specialOffer": null,
+    "shortDescription": "Przedstawiam Państwu na sprzedaż 3 pokojowe mieszkanie blisko centrum Wrocławia do generalnego remontu!Nasza rekomendacja: idealne na inwestycję lub na start dla studentów - bliskość kampusu Uniwersyt...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/3m-piwnica-parking-do-generalnego-remontu-ID4wYJq"
+  },
+  {
+    "id": 66775764,
+    "title": "ROZKŁADOWE,PO REMONCIE KAPITALNYM,3pok,56m2+Balkon 6,60m2,Miejskie Med",
+    "slug": "rozkladowe-po-remoncie-kapitalnym-3pok-56m2-balkon-6-60m2-miejskie-med-ID4vbqs",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Włodzimierza Majakowskiego",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/kuzniki",
+            "fullName": "Kuźniki, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InJmNXVsc2hsNmZ1MS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.I8lFdCv7RpC7LYkbq5-KKf4Q8ZoDb5WIMAyiU88htkU/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InJmNXVsc2hsNmZ1MS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.I8lFdCv7RpC7LYkbq5-KKf4Q8ZoDb5WIMAyiU88htkU/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImptNmRlN2djeHBkby1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.c7mFhaWHE21cEgLlBEVx4QLcMt-4lgyWJXxiTYg34Is/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImptNmRlN2djeHBkby1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.c7mFhaWHE21cEgLlBEVx4QLcMt-4lgyWJXxiTYg34Is/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 12,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 9181524,
+      "name": "HOME EXPRESS",
+      "slug": "home-express-ID9181524",
+      "imageUrl": null,
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 599000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10696,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 56,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:39:42",
+    "dateCreatedFirst": "2025-04-30 13:39:39",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż po KAPITALNYM REMONCIE rozkładowe mieszkanie we Wrocławiu w bloku na Kuźnikach, okolice ul. Majakowskiego. Powierzchnia 56,09 m2 + balkon 6,60 m2 + piwnica 2,15 m2. Usytuowane jest na pier...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/rozkladowe-po-remoncie-kapitalnym-3pok-56m2-balkon-6-60m2-miejskie-med-ID4vbqs"
+  },
+  {
+    "id": 66775747,
+    "title": "Zamieszkaj w samym centrum - inwestycja na lata",
+    "slug": "zamieszkaj-w-samym-centrum-inwestycja-na-lata-ID4vbqb",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/przedmiescie-swidnickie",
+            "fullName": "Przedmieście Świdnickie, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBpbmIxcnpybmN2cjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uZ4ZGUcRbZ3KHv4w4OTqxVmXO_mV4kfA0BRFJbeK3wM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBpbmIxcnpybmN2cjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uZ4ZGUcRbZ3KHv4w4OTqxVmXO_mV4kfA0BRFJbeK3wM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjdmbmkxbWcydmNzMjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.plRHbUfHfOjKLiYsEH-bwqdXUWXach7CY5bfqWBRgVA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjdmbmkxbWcydmNzMjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.plRHbUfHfOjKLiYsEH-bwqdXUWXach7CY5bfqWBRgVA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 9,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 886522,
+      "name": "Expander Advisors",
+      "slug": "expander-advisors-ID886522",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpiZmMxNXhvcmhlNC1BUEwifQ.dcVYGKuVagY4pCNQGq5UrP3aN9FdxC1dOfO6EP5E2EM/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 848700,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 0,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 22500,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 37.72,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:38:35",
+    "dateCreatedFirst": "2025-04-30 13:37:32",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Funkcjonalne mieszkanie z prywatnym ogrodem 63 m2***Bezpośrednio bez podatku PCC, 0% prowizji***Na sprzedaż parterowe 2-pokojowe mieszkanie z ogrodem w nowoczesnej inwestycji łączącej elegancję, funkc...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/zamieszkaj-w-samym-centrum-inwestycja-na-lata-ID4vbqb"
+  },
+  {
+    "id": 66775745,
+    "title": "Rozkładowe 2 pokoje z ogródkiem – ul. Gorlicka",
+    "slug": "rozkladowe-2-pokoje-z-ogrodkiem-ul-gorlicka-ID4vbq9",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Gorlicka",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole",
+            "fullName": "Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole/psie-pole",
+            "fullName": "Psie Pole, Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhqaWc3cTNtZHh4azItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.-TvDq_8iYJd0E0Z8CKb1br3JTUECsQMgfqb0oEkdXck/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhqaWc3cTNtZHh4azItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.-TvDq_8iYJd0E0Z8CKb1br3JTUECsQMgfqb0oEkdXck/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijc3MDF3cndwdzZpYjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hPm5B1bDvcdI3HuPRNIsXN0ElXTT6LGyYfWzkQ72SRI/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijc3MDF3cndwdzZpYjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hPm5B1bDvcdI3HuPRNIsXN0ElXTT6LGyYfWzkQ72SRI/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 886522,
+      "name": "Expander Advisors",
+      "slug": "expander-advisors-ID886522",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpiZmMxNXhvcmhlNC1BUEwifQ.dcVYGKuVagY4pCNQGq5UrP3aN9FdxC1dOfO6EP5E2EM/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 590000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 500,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12939,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 45.6,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:37:41",
+    "dateCreatedFirst": "2025-04-30 13:37:29",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "W pełni rozkładowe 2-pokojowe mieszkanie z ogrodem - Wrocław, Psie Pole, ul. GorlickaNa sprzedaż zadbane i gotowe do wprowadzenia mieszkanie z ogrodem, zlokalizowane na spokojnym i zielonym osiedlu pr...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/rozkladowe-2-pokoje-z-ogrodkiem-ul-gorlicka-ID4vbq9"
+  },
+  {
+    "id": 66421031,
+    "title": "3-pokojowe mieszkanie 62m2 + taras Bez Prowizji",
+    "slug": "3-pokojowe-mieszkanie-62m2-taras-bez-prowizji-ID4uH8X",
+    "estate": "FLAT",
+    "development": {
+      "id": 66420949,
+      "title": "Augustowska Vita",
+      "slug": "augustowska-vita-ID4uH7D",
+      "estate": "INVESTMENT",
+      "developmentId": 0,
+      "developmentTitle": "",
+      "developmentUrl": "",
+      "transaction": "SELL",
+      "location": {
+        "mapDetails": {
+          "radius": 0,
+          "__typename": "MapDetails"
+        },
+        "address": {
+          "street": {
+            "name": "ul. Reszelska",
+            "number": "",
+            "__typename": "Street"
+          },
+          "city": {
+            "name": "Wrocław",
+            "__typename": "City"
+          },
+          "province": {
+            "name": "dolnośląskie",
+            "__typename": "Province"
+          },
+          "__typename": "Address"
+        },
+        "reverseGeocoding": {
+          "locations": [
+            {
+              "id": "dolnoslaskie",
+              "fullName": "dolnośląskie",
+              "__typename": "BasicLocationObject"
+            },
+            {
+              "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+              "fullName": "Wrocław, dolnośląskie",
+              "__typename": "BasicLocationObject"
+            },
+            {
+              "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+              "fullName": "Fabryczna, Wrocław, dolnośląskie",
+              "__typename": "BasicLocationObject"
+            },
+            {
+              "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/maslice",
+              "fullName": "Maślice, Fabryczna, Wrocław, dolnośląskie",
+              "__typename": "BasicLocationObject"
+            }
+          ],
+          "__typename": "ReverseGeocoding"
+        },
+        "__typename": "LocationDetails"
+      },
+      "images": [
+        {
+          "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlnYzNtZzdpZW1qeC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.BkpPvbHGPcGmuB04kx-eJcMFcrshKFW1F_M1NAiHUmM/image;s=655x491;q=80",
+          "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlnYzNtZzdpZW1qeC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.BkpPvbHGPcGmuB04kx-eJcMFcrshKFW1F_M1NAiHUmM/image;s=1280x1024;q=80",
+          "__typename": "AdImage"
+        },
+        {
+          "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNxa2pvcWs2aWsydzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.VXV_g_4lRjsH0WpinkyZnd1UrF0uIgwrYNZ4MvltSog/image;s=655x491;q=80",
+          "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNxa2pvcWs2aWsydzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.VXV_g_4lRjsH0WpinkyZnd1UrF0uIgwrYNZ4MvltSog/image;s=1280x1024;q=80",
+          "__typename": "AdImage"
+        },
+        {
+          "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd4dzJkNDV4bmtydTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hZXdNeA-X8jP-6AI9wIBi5zVnT7dTdMKLzArrc53v8s/image;s=655x491;q=80",
+          "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd4dzJkNDV4bmtydTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hZXdNeA-X8jP-6AI9wIBi5zVnT7dTdMKLzArrc53v8s/image;s=1280x1024;q=80",
+          "__typename": "AdImage"
+        },
+        {
+          "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InU2NnEycWZrcmxweTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.VubVpX-DhzwNqyr5QwBkZ3I-yl9sM2NZagWODeRhnpU/image;s=655x491;q=80",
+          "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InU2NnEycWZrcmxweTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.VubVpX-DhzwNqyr5QwBkZ3I-yl9sM2NZagWODeRhnpU/image;s=1280x1024;q=80",
+          "__typename": "AdImage"
+        },
+        {
+          "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im83c2RndDJlenNhZzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8aEGDUNrbqLhMV5HoFsdFJFD5TxL7gXToZe0ia5n-Vg/image;s=655x491;q=80",
+          "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im83c2RndDJlenNhZzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8aEGDUNrbqLhMV5HoFsdFJFD5TxL7gXToZe0ia5n-Vg/image;s=1280x1024;q=80",
+          "__typename": "AdImage"
+        }
+      ],
+      "totalPossibleImages": 5,
+      "isExclusiveOffer": false,
+      "isPrivateOwner": false,
+      "isPromoted": false,
+      "agency": {
+        "id": 10556359,
+        "name": "DEVELIA",
+        "slug": "develia-ID10556359",
+        "imageUrl": null,
+        "type": "DEVELOPER",
+        "brandingVisible": true,
+        "highlightedAds": false,
+        "__typename": "AgencyListingDetails"
+      },
+      "openDays": "",
+      "totalPrice": null,
+      "rentPrice": null,
+      "priceFromPerSquareMeter": null,
+      "pricePerSquareMeter": null,
+      "areaInSquareMeters": null,
+      "terrainAreaInSquareMeters": null,
+      "roomsNumber": null,
+      "hidePrice": true,
+      "floorNumber": null,
+      "investmentState": "in_building",
+      "investmentUnitsAreaInSquareMeters": {
+        "from": 44,
+        "to": 79,
+        "__typename": "InvestmentUnitsArea"
+      },
+      "peoplePerRoom": null,
+      "dateCreated": "2025-01-30 16:56:07",
+      "dateCreatedFirst": "2025-01-30 16:56:03",
+      "investmentUnitsNumber": 45,
+      "investmentUnitsFloorsRange": {
+        "min": "GROUND",
+        "max": "THIRD",
+        "__typename": "InvestmentUnitsFloorsRange"
+      },
+      "investmentUnitsRoomsNumber": {
+        "min": "TWO",
+        "max": "FOUR",
+        "__typename": "InvestmentUnitsRoomsNumber"
+      },
+      "investmentEstimatedDelivery": {
+        "quarter": 1,
+        "year": 2026,
+        "__typename": "InvestmentEstimatedDelivery"
+      },
+      "pushedUpAt": null,
+      "specialOffer": null,
+      "shortDescription": "2, 3 i 4-pokojowe mieszkania od44m2 do79m2 od dewelopera DEVELIAPark Maślicki (12 minut spacerem)Park Świetlików (16 minut spacerem)Przystanek autobusowy (9 minut spacerem)Lidl (12 minut spacerem), Bi...",
+      "__typename": "AdvertListItem"
+    },
+    "developmentId": 66420949,
+    "developmentTitle": "Augustowska Vita",
+    "developmentUrl": "https://www.otodom.pl/pl/oferta/augustowska-vita-ID4uH7D",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Reszelska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/maslice",
+            "fullName": "Maślice, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im83c2RndDJlenNhZzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8aEGDUNrbqLhMV5HoFsdFJFD5TxL7gXToZe0ia5n-Vg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im83c2RndDJlenNhZzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.8aEGDUNrbqLhMV5HoFsdFJFD5TxL7gXToZe0ia5n-Vg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im93bTVuYXE3Y2JiNDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.gc_y1FR-WFTGg2POTVy_NY2CVJmkbNXAq5eaFlplUeY/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im93bTVuYXE3Y2JiNDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.gc_y1FR-WFTGg2POTVy_NY2CVJmkbNXAq5eaFlplUeY/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 8,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:obidointegration",
+    "agency": {
+      "id": 10556359,
+      "name": "DEVELIA",
+      "slug": "develia-ID10556359",
+      "imageUrl": null,
+      "type": "DEVELOPER",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": null,
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": null,
+    "areaInSquareMeters": 62.08,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": true,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:37:15",
+    "dateCreatedFirst": "2025-01-30 17:07:03",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:37:16+02:00",
+    "specialOffer": null,
+    "shortDescription": "3-pokojowe mieszkanie numer B/C/4  na parterze w budynku B w Inwestycji Augustowska Vita Dewelopera DEVELIAPark Maślicki (12 minut spacerem)Park Świetlików (16 minut spacerem)Przystanek autobusowy (9 ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/3-pokojowe-mieszkanie-62m2-taras-bez-prowizji-ID4uH8X"
+  },
+  {
+    "id": 66775723,
+    "title": "43m²/2 pokoje/Taras/1 piętro/2019/Legnicka!",
+    "slug": "43m-2-pokoje-taras-1-pietro-2019-legnicka-ID4vbpN",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Przedmiejska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/szczepin",
+            "fullName": "Szczepin, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im56dnIzMDlmY3VvazMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.TnlOKKK0iyK0_v6btNBS5R3yGj6hskgmPtXcEIQMTDs/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im56dnIzMDlmY3VvazMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.TnlOKKK0iyK0_v6btNBS5R3yGj6hskgmPtXcEIQMTDs/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImR2bDh0dDQxYnhybjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.-fcA-87wgwC4eYUrhBKmzDb0WfusZKt0ZEBq3a4uUDA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImR2bDh0dDQxYnhybjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.-fcA-87wgwC4eYUrhBKmzDb0WfusZKt0ZEBq3a4uUDA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 18,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 8011467,
+      "name": "MK PRESTIGE NIERUCHOMOŚCI",
+      "slug": "mk-prestige-nieruchomosci-ID8011467",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtsYTZjb29yOGkwYTItQVBMIn0.196I_0CwCaXWijiq-eALAd7NnZ4AvQc0apN8jqWlfBw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 699000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 16256,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 43,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": null,
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:35:39",
+    "dateCreatedFirst": "2025-04-30 13:35:24",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Oferta dostępna wyłącznie w MK Prestige Nieruchomości!Z przyjemnością prezentujemy nowoczesne 2-pokojowe mieszkanie o powierzchni ok. 43 m², usytuowane na 1. piętrze 6-piętrowego budynku z 2019 roku, ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/43m-2-pokoje-taras-1-pietro-2019-legnicka-ID4vbpN"
+  },
+  {
+    "id": 66775703,
+    "title": "Stare Miasto/1 pokój/piwnica/centrum",
+    "slug": "stare-miasto-1-pokoj-piwnica-centrum-ID4vbpt",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/przedmiescie-olawskie",
+            "fullName": "Przedmieście Oławskie, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjRkcXMyOWViZDZ6NjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.GZ9XCejypYwnMt-cL1Rui8rJ9ufSPOpBK3xSpfzVnwk/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjRkcXMyOWViZDZ6NjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.GZ9XCejypYwnMt-cL1Rui8rJ9ufSPOpBK3xSpfzVnwk/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijk3aDZzdmg3Y2VzMDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.IoRRb4upou8nivYctwC1C56e6iFW89Px1HoxoyBEORo/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijk3aDZzdmg3Y2VzMDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.IoRRb4upou8nivYctwC1C56e6iFW89Px1HoxoyBEORo/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 6,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 7704453,
+      "name": "Home&Invest",
+      "slug": "home-invest-ID7704453",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImM5NG1rZXA4eDNpbTMtQVBMIn0.qVO5Ojq-L7VBD9OXlFp4LNzEcNWeeTiSUioiLeOGXUY/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 411000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 330,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 17870,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 23,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "SECOND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:30:59",
+    "dateCreatedFirst": "2025-04-30 13:30:54",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Home&amp;Invest Oddział Wrocławtel. 728 538 635Na sprzedaż mieszkanie 1 pokojowe o powierzchni 23 m² na 2 piętrze 4 piętrowego bloku na Starym Mieście.Do mieszkania przynależy również piwnica. Mieszka...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/stare-miasto-1-pokoj-piwnica-centrum-ID4vbpt"
+  },
+  {
+    "id": 66726030,
+    "title": "Widok - Balkon - Klima - Ochrona - Komórka - Garaż",
+    "slug": "widok-balkon-klima-ochrona-komorka-garaz-ID4wYui",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Jodłowicka",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/pracze-odrzanskie",
+            "fullName": "Pracze Odrzańskie, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwaWVmN2U2NjNyNTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hKO53TUUDqdaXvm6YbEx0agDYZqMFBg8T8t4UsBzt74/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwaWVmN2U2NjNyNTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.hKO53TUUDqdaXvm6YbEx0agDYZqMFBg8T8t4UsBzt74/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im1rZmNza3Y1eXl4ZjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WamfIb0Uoc5V406lgsIhCEBEre_zdXcmEtPa6bvLkzg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im1rZmNza3Y1eXl4ZjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WamfIb0Uoc5V406lgsIhCEBEre_zdXcmEtPa6bvLkzg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 18,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 585000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 600,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 13146,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 44.5,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "SECOND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:27:45",
+    "dateCreatedFirst": "2025-04-15 13:20:18",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:27:45+02:00",
+    "specialOffer": null,
+    "shortDescription": "Czego nie znajdziesz w żadnym innym mieszkaniu:\r\n\r\n- wspaniały widok na pasące się krowy i kury (żaden smród - to dokładnie 3 krowy na wielkim terenie zielonym),\r\n- piękny zielony krajobrazu za oknem,...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/widok-balkon-klima-ochrona-komorka-garaz-ID4wYui"
+  },
+  {
+    "id": 66775668,
+    "title": "Przestronne 4M_BALKON | miejsce postojowe_piwnica!",
+    "slug": "przestronne-4m-balkon-miejsce-postojowe-piwnica-ID4vboU",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 500,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole",
+            "fullName": "Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole/karlowice",
+            "fullName": "Karłowice, Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InY2eW5hMmxtd2F3ZDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.83NFMqxEpUS2fmlCrbgqKvIeDGwlhlt0XHoKWaDlW60/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InY2eW5hMmxtd2F3ZDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.83NFMqxEpUS2fmlCrbgqKvIeDGwlhlt0XHoKWaDlW60/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZwaDF1ZXJuOHNhdy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.CZ4swPWFJ7RU3gNZ4CdApNfr1T4lheI3AoJ4RAsWzgE/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZwaDF1ZXJuOHNhdy1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.CZ4swPWFJ7RU3gNZ4CdApNfr1T4lheI3AoJ4RAsWzgE/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 16,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 7580370,
+      "name": "Globfinanse",
+      "slug": "globfinanse-ID7580370",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFtNXlnYjllMzh6YTMtQVBMIn0.9buijqZUnECAlh6F9Y7KOU6U2m3I7eI750Aex56goyI/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 699000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 9552,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 73.18,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "FOUR",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:24:04",
+    "dateCreatedFirst": "2025-04-30 13:23:52",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Przedstawiam Państwu na sprzedaż 4-pokojowe mieszkanie w pełnym rozkładzie! TYLKO U NAS!Nasza rekomendacja: Mieszkanie idealne dla rodziny, blisko szkół, przedszkola, terenów zielonych i z dobrym doja...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/przestronne-4m-balkon-miejsce-postojowe-piwnica-ID4vboU"
+  },
+  {
+    "id": 66747747,
+    "title": "Piękne dwupokojowe mieszkanie ul. Otmuchowska",
+    "slug": "piekne-dwupokojowe-mieszkanie-ul-otmuchowska-ID4v48z",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Otmuchowska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/tarnogaj",
+            "fullName": "Tarnogaj, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijh5MTAzbjRnMzdhbTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.xY7g8anJGK3-_EwSBnLLZK157ebZIn0EVZI74lBSRbc/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijh5MTAzbjRnMzdhbTMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.xY7g8anJGK3-_EwSBnLLZK157ebZIn0EVZI74lBSRbc/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVtMmt1c3cycG1rcDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.3hk0FbOQV_0keY-P67hG3JcCS9ohQplEesD_DmlZF7A/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVtMmt1c3cycG1rcDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.3hk0FbOQV_0keY-P67hG3JcCS9ohQplEesD_DmlZF7A/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 17,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 8173012,
+      "name": "Górczyński Nieruchomości",
+      "slug": "gorczynski-nieruchomosci-ID8173012",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjFjZndpdng2aDU3MDEtQVBMIn0.HTO-kjeq2jDNa5k4HsES5q4izAZKiSxfvKyhK4Tm9kQ/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 650000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 860,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 13910,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 46.73,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:23:28",
+    "dateCreatedFirst": "2025-04-22 18:12:38",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:23:28+02:00",
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż piękne dwupokojowe mieszkanie po generalnym remoncie przy ul. Otmuchowskiej.   Mieszkanie mieści się na wysokim parterze zadbanej przedwojennej kamienicy z lat '30. Kamienica jest po remon...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/piekne-dwupokojowe-mieszkanie-ul-otmuchowska-ID4v48z"
+  },
+  {
+    "id": 66775660,
+    "title": "Wyjątkowe mieszkanie zaraz przy Synagodze",
+    "slug": "wyjatkowe-mieszkanie-zaraz-przy-synagodze-ID4vboM",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. św. Antoniego",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/stare-miasto",
+            "fullName": "Stare Miasto, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImV0bzFidHV6MGw2ZDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.lB_6WgRw6pIaYsK3YZ8YWewYTbaTQzzGAK93uHRTUTU/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImV0bzFidHV6MGw2ZDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.lB_6WgRw6pIaYsK3YZ8YWewYTbaTQzzGAK93uHRTUTU/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImU3c2hrNzV1d2EyNC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.mS54T0sb60uy147mKIsyzKOVzwc0nRdtsQOKunBWH4U/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImU3c2hrNzV1d2EyNC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.mS54T0sb60uy147mKIsyzKOVzwc0nRdtsQOKunBWH4U/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 12,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 3713107,
+      "name": "Wojtula - Nieruchomości",
+      "slug": "wojtula-nieruchomosci-ID3713107",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNwdzFweHhybWFodDMtQVBMIn0.h_wvUYQbg-uJnDqJFwkCylFq3EAEFf1WkkD_yAULtIw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": false,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 599000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 600,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 16639,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 36,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:23:07",
+    "dateCreatedFirst": "2025-04-30 13:22:34",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "OpisZamieszkaj w CENTRUM z pięknym tarasem! w ciszy i zieleni!Do sprzedaży mieszkanie w kamienicy z pięknym małym tarasem na poddaszu do remontu.  Mieszkanie z widokiem na Synagogę i zielony skwer.Mie...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/wyjatkowe-mieszkanie-zaraz-przy-synagodze-ID4vboM"
+  },
+  {
+    "id": 66775653,
+    "title": "3 pokoje I Strzegomska I nowe budownictwo",
+    "slug": "3-pokoje-i-strzegomska-i-nowe-budownictwo-ID4vboF",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/muchobor-maly",
+            "fullName": "Muchobór Mały, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN5bmp2cmt1dzRsbi1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.GbV4S9n5E4J4HDgs1XgSaA7ldc5_ApbR4YnwbZj7SHY/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN5bmp2cmt1dzRsbi1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.GbV4S9n5E4J4HDgs1XgSaA7ldc5_ApbR4YnwbZj7SHY/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Indnc2xzc3V4cDJjZTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.2MQEPANJECkWRV5ZMehL3BsNBGxGWuPWqGEIEOXY0WY/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Indnc2xzc3V4cDJjZTItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.2MQEPANJECkWRV5ZMehL3BsNBGxGWuPWqGEIEOXY0WY/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 10,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 1288513,
+      "name": "WRE NIERUCHOMOŚCI SP.Z O.O.",
+      "slug": "wre-nieruchomosci-sp-z-o-o-ID1288513",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrOWlsbnJhanpwZTItQVBMIn0.G6yEmBiwHFFJiVQdPfoK4qRGE92uieZG34kTktz9oiE/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 819000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 1000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12527,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 65.38,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "EIGHTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:22:54",
+    "dateCreatedFirst": "2025-04-30 13:22:12",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Polecam Państwu na sprzedaż słoneczne trzypokojowe mieszkanie z 2 balkonami i 1 loggią w „Apartamentach Strzegomska” we Wrocławiu.„Apartamenty Strzegomska” to projekt nastawiony zarówno na klientów in...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/3-pokoje-i-strzegomska-i-nowe-budownictwo-ID4vboF"
+  },
+  {
+    "id": 66719018,
+    "title": "Apartament w centrum z widokiem na rzekę i tarasem",
+    "slug": "apartament-w-centrum-z-widokiem-na-rzeke-i-tarasem-ID4wVFc",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Walońska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/przedmiescie-olawskie",
+            "fullName": "Przedmieście Oławskie, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJvMXJjYndzYWljczEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Vut5yvAfPi_zFF8yDjmGBNIy8VZSeVvyjbhNyZFJRZk/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJvMXJjYndzYWljczEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Vut5yvAfPi_zFF8yDjmGBNIy8VZSeVvyjbhNyZFJRZk/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjFlbGhxYzRzOTFyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.AdjmW8HdH6aedminl7FGIP6aKvqmg60OSe-7BZTE6u4/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjFlbGhxYzRzOTFyNS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.AdjmW8HdH6aedminl7FGIP6aKvqmg60OSe-7BZTE6u4/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 177463,
+      "name": "SDP Nieruchomości",
+      "slug": "sdp-nieruchomosci-ID177463",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImE5OTl6d2NkN2FqNTEtQVBMIn0.h3JO3Fy7WLPidZxRAS-xt1sqwWxFdEz_lu1IqrURaPU/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1732000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 980,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 25000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 69.28,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "NINTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:17:33",
+    "dateCreatedFirst": "2025-04-14 08:40:27",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:17:33+02:00",
+    "specialOffer": null,
+    "shortDescription": "Oferta na wyłączność w SDP Nieruchomości!Niepowtarzalne narożne mieszkanie z tarasem położone na ostatnim piętrze w ekskluzywnym apartamentowcu Angel City wybudowanym w 2022 r. Apartament posiada bocz...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/apartament-w-centrum-z-widokiem-na-rzeke-i-tarasem-ID4wVFc"
+  },
+  {
+    "id": 66714978,
+    "title": "Kompletnie wyposażone, narożne z ogródkiem!",
+    "slug": "kompletnie-wyposazone-narozne-z-ogrodkiem-ID4wWC2",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Białowieska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/popowice-polnocne",
+            "fullName": "Popowice Północne, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwcWx5ZTRqdDdncjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.j9LLmoNGFnIN6j7BhYzabYaW9epHPacjk8PAM6YZxbk/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwcWx5ZTRqdDdncjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.j9LLmoNGFnIN6j7BhYzabYaW9epHPacjk8PAM6YZxbk/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inp0Y3gzeno0MGhiMTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.PhNEocwWGNPgdTCD4hvS6mZB78mE_Zj2poEodQRVMac/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inp0Y3gzeno0MGhiMTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.PhNEocwWGNPgdTCD4hvS6mZB78mE_Zj2poEodQRVMac/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 177463,
+      "name": "SDP Nieruchomości",
+      "slug": "sdp-nieruchomosci-ID177463",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImE5OTl6d2NkN2FqNTEtQVBMIn0.h3JO3Fy7WLPidZxRAS-xt1sqwWxFdEz_lu1IqrURaPU/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1249000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 420,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 17228,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 72.5,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:17:31",
+    "dateCreatedFirst": "2025-04-11 17:35:08",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:17:31+02:00",
+    "specialOffer": null,
+    "shortDescription": "Port Popowice | Ogródek | Wyposażone | Gotowe do wprowadzenia | Wysoki standard wykończenia | PopowiceOpiekun oferty:Daniel Gutowskitel. 602 101 602O nieruchomości:Na sprzedaż 3-pokojowe mieszkanie o ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/kompletnie-wyposazone-narozne-z-ogrodkiem-ID4wWC2"
+  },
+  {
+    "id": 66775609,
+    "title": "Ścisłe Centrum Wrocawia✔️Bestseller Inwestycyjny",
+    "slug": "scisle-centrum-wrocawiabestseller-inwestycyjny-ID4vbnX",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Gwarna",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/przedmiescie-swidnickie",
+            "fullName": "Przedmieście Świdnickie, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ3dWo0dmtvdmExNS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.kKfrGI4w9UHwBpTZNlJPG4deboMdtx0GavEh25Iwjng/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ3dWo0dmtvdmExNS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.kKfrGI4w9UHwBpTZNlJPG4deboMdtx0GavEh25Iwjng/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijh1NThxc2ttZWV5eS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.kf6oOnbhDJ4Q4RKcLI7pd0mXarrxvqf2mVo-EayLKnM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijh1NThxc2ttZWV5eS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.kf6oOnbhDJ4Q4RKcLI7pd0mXarrxvqf2mVo-EayLKnM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 7,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:virgo",
+    "agency": {
+      "id": 7689503,
+      "name": "Alfama Nieruchomości",
+      "slug": "alfama-nieruchomosci-ID7689503",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InV2MTNsc3U0ZmI2MzEtQVBMIn0.Bx8oVbeL1YzNDx2dQvPMc7z3CwtDKylx60VBa7sCm7g/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 517000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 18800,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 27.5,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:17:06",
+    "dateCreatedFirst": "2025-04-30 13:16:58",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Ścisłe Centrum|Tuż Przy Dworcu Głównym|Idealne pod Inwestycję   Do sprzedaży ustawne  mieszkanie o powierzchni 27,50m2 na nowym osiedlu w samym centrum Wrocławia. W sąsiedztwie inwestycji m.in.Dworzec...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/scisle-centrum-wrocawiabestseller-inwestycyjny-ID4vbnX"
+  },
+  {
+    "id": 66775593,
+    "title": "Mieszkanie - inwestycja / Reja / Ołbin",
+    "slug": "mieszkanie-inwestycja-reja-olbin-ID4vbnH",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Mikołaja Reja",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie",
+            "fullName": "Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie/plac-grunwaldzki",
+            "fullName": "Plac Grunwaldzki, Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imk4dHhkNDlnODA5bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KaU8q9RU9uqki8H2WBFXeCq_TpJ2ryJ4toQZHS3GDTw/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imk4dHhkNDlnODA5bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KaU8q9RU9uqki8H2WBFXeCq_TpJ2ryJ4toQZHS3GDTw/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjhycWRhZnJmdjE0bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.jYNtSm7TnsqP16EvhAiQrtJddb1lMeB_box8Z8tOnl8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjhycWRhZnJmdjE0bC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.jYNtSm7TnsqP16EvhAiQrtJddb1lMeB_box8Z8tOnl8/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 9,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 4160900,
+      "name": "Północ Nieruchomości                                                       Franczyza",
+      "slug": "polnoc-nieruchomosci-franczyza-ID4160900",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InR3czF5MXZid3hsbTMtQVBMIn0.hdgVLn6CfGM--CwKrJlxkhTgCZLDiAME47s8bOUSJ4k/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 480000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 8764,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 54.77,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:16:21",
+    "dateCreatedFirst": "2025-04-30 13:15:45",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "CO SPRZEDAJEMY?Dwupokojowe mieszkanie o powierzchni prawie 55 m2 położone na 4 piętrze sześciopiętrowej kamienicy z lat 50.Cena: 480 000 PLN (do negocjacji)GDZIE ZNAJDUJE SIĘ MIESZKANIEPołożone jest p...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/mieszkanie-inwestycja-reja-olbin-ID4vbnH"
+  },
+  {
+    "id": 66703342,
+    "title": "Mikroapartament - zielony i spokojny Gądów Mały",
+    "slug": "mikroapartament-zielony-i-spokojny-gadow-maly-ID4wSAm",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Balonowa",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/gadow",
+            "fullName": "Gądów, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjAyeW5qc2pkNGVuYy1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.l0KAvD6xUKQtWeef7lR2hegUxBGmzHJKuSTmrvNIwyk/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjAyeW5qc2pkNGVuYy1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.l0KAvD6xUKQtWeef7lR2hegUxBGmzHJKuSTmrvNIwyk/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVwZG5sb2hxN3RucjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rmjUPAlIEc039hNRlW5rU69mbxUC15pGkSAjYMp4--g/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVwZG5sb2hxN3RucjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.rmjUPAlIEc039hNRlW5rU69mbxUC15pGkSAjYMp4--g/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 9,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 4050488,
+      "name": "Kapital Nieruchomości Kancelaria Prawna",
+      "slug": "kapital-nieruchomosci-kancelaria-prawna-ID4050488",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImJ0cmUyN2xldWI4di1BUEwifQ.E04Pu8_R33XjQlFZrjGKsGXz7AdVVpQVao-9Derr5Ag/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 395000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12584,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 31.39,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:13:31",
+    "dateCreatedFirst": "2025-04-09 13:55:40",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:13:33+02:00",
+    "specialOffer": null,
+    "shortDescription": "WYŁĄCZNOŚĆ - NIE SZUKAJ DALEJ!STANDARD DEWELOPERSKIWrocław, ul. Balonowa Stan deweloperski - do wykończenia wg własnego pomysłubudynek z 2024r.1 piętrowindaIDEALNE POD WYNAJEM I INWESTYCJALokal 27.64 ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/mikroapartament-zielony-i-spokojny-gadow-maly-ID4wSAm"
+  },
+  {
+    "id": 66708372,
+    "title": "2 pokojowe przy Parku Skowronim",
+    "slug": "2-pokojowe-przy-parku-skowronim-ID4wTTu",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Ślężna",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/gaj",
+            "fullName": "Gaj, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inhmb2J5cm42N2l3NjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uAVVR02l_JOzWyjA4rxpY3g_3X-IMtF2aoziypbrZpE/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inhmb2J5cm42N2l3NjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uAVVR02l_JOzWyjA4rxpY3g_3X-IMtF2aoziypbrZpE/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InU1YXFnbzNkNmQybjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KNlsPrcfnGLzaC6c8ndQYdU67xWEIfskM4LpR95eZpA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InU1YXFnbzNkNmQybjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KNlsPrcfnGLzaC6c8ndQYdU67xWEIfskM4LpR95eZpA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 10,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 575000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 390,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 13684,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 42.02,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:06:36",
+    "dateCreatedFirst": "2025-04-10 13:03:03",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:06:37+02:00",
+    "specialOffer": null,
+    "shortDescription": "Uniwersytet Medyczny we Wrocławiu w trybie przetargowym sprzeda 2 pokojowe mieszkanie położone na 1 piętrze w budynku przy ul. Ślężnej 88. Mieszkanie posiada 2 duże balkony. Nieruchomość położona jest...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/2-pokojowe-przy-parku-skowronim-ID4wTTu"
+  },
+  {
+    "id": 65637117,
+    "title": "Gotowe do wejścia|2 pokoje|nowe|centrum",
+    "slug": "gotowe-do-wejscia-2-pokoje-nowe-centrum-ID4rpdb",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Miedziana",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/gajowice",
+            "fullName": "Gajowice, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhseTJtMHloemo0ZS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.TPaQlv-9cm9cpV0BnWHNRz_f79rXeGm13C0ig0vjXG8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhseTJtMHloemo0ZS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.TPaQlv-9cm9cpV0BnWHNRz_f79rXeGm13C0ig0vjXG8/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp6OGk3NmNocW5iZDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1Z4QU1uufbmTmlvx5RqtTgblOhZjvXvaouP4UcGRpGw/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imp6OGk3NmNocW5iZDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1Z4QU1uufbmTmlvx5RqtTgblOhZjvXvaouP4UcGRpGw/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 177463,
+      "name": "SDP Nieruchomości",
+      "slug": "sdp-nieruchomosci-ID177463",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImE5OTl6d2NkN2FqNTEtQVBMIn0.h3JO3Fy7WLPidZxRAS-xt1sqwWxFdEz_lu1IqrURaPU/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 689000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 620,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 17845,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 38.61,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "SIXTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:03:50",
+    "dateCreatedFirst": "2024-07-05 02:30:36",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:03:51+02:00",
+    "specialOffer": null,
+    "shortDescription": "Opiekun Oferty:Magdalena Kowalczuk602 101 6022-pokojowe mieszkanie o metrażu 38,61 m2 w bloku z windą, położonym w bardzo atrakcyjnej lokalizacji w centrum Wrocławia na osiedlu Nowy Grabiszyn. Mieszka...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/gotowe-do-wejscia-2-pokoje-nowe-centrum-ID4rpdb"
+  },
+  {
+    "id": 66715517,
+    "title": "Promenady Wrocławskie_ul.Zakładowa_Kawalerka",
+    "slug": "promenady-wroclawskie-ul-zakladowa-kawalerka-ID4wWKJ",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Zakładowa",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole",
+            "fullName": "Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole/kleczkow",
+            "fullName": "Kleczków, Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImU3Z3JmYmh2YWQyajItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.RhveJ6CTcyglEig4GkNeHNamDkt3co69DTR3zdi0ilg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImU3Z3JmYmh2YWQyajItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.RhveJ6CTcyglEig4GkNeHNamDkt3co69DTR3zdi0ilg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InlwNW85MTExMjZ6ZTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5pCNP0mmbH0ZOxau-IwLoWofjK8_QQX2BTDSkUkY1gg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InlwNW85MTExMjZ6ZTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5pCNP0mmbH0ZOxau-IwLoWofjK8_QQX2BTDSkUkY1gg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 14,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 4561884,
+      "name": "Your Home- Your Life Nieruchomości Patrycja Batijewska",
+      "slug": "your-home-your-life-nieruchomosci-patrycja-batijewska-ID4561884",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZwa3QzNGxneWJrZTEtQVBMIn0.Jr_lXp9Sf9pX595v4Oh_9cHwRZKWEjX5cKI1mmWurb0/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 535000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 396,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 18885,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 28.33,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:03:19",
+    "dateCreatedFirst": "2025-04-11 20:31:51",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:03:20+02:00",
+    "specialOffer": null,
+    "shortDescription": "Polecam do kupna kompaktową , słoneczną kawalerkę z wydzieloną sypialnią  w sercu Wrocławia, na nowoczesnym osiedlu Promenady Wrocławskie. To idealna propozycja zarówno dla osób poszukujących nowego m...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/promenady-wroclawskie-ul-zakladowa-kawalerka-ID4wWKJ"
+  },
+  {
+    "id": 66775507,
+    "title": "okolice Olszewskiego - możliwość 3 pokoi - pod najem",
+    "slug": "okolice-olszewskiego-mozliwosc-3-pokoi-pod-najem-ID4vbmj",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Stefanii Sempołowskiej",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie",
+            "fullName": "Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/srodmiescie/biskupin",
+            "fullName": "Biskupin, Śródmieście, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZnanpjemFhdms3ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KnXpN1Uwe0DPkKjtwBQ1raLkj3L4gX3hTg7E4JNTeW8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZnanpjemFhdms3ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KnXpN1Uwe0DPkKjtwBQ1raLkj3L4gX3hTg7E4JNTeW8/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVyaGo1aWVmNDVqbzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.vL1PbG0UFyP2q0s0_LApPevIrFabRdikWx6qsP4n4Mc/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InVyaGo1aWVmNDVqbzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.vL1PbG0UFyP2q0s0_LApPevIrFabRdikWx6qsP4n4Mc/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 15,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 3713107,
+      "name": "Wojtula - Nieruchomości",
+      "slug": "wojtula-nieruchomosci-ID3713107",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNwdzFweHhybWFodDMtQVBMIn0.h_wvUYQbg-uJnDqJFwkCylFq3EAEFf1WkkD_yAULtIw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": false,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 509000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 515,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 11065,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 46,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:03:07",
+    "dateCreatedFirst": "2025-04-30 13:02:55",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Świetne mieszkanie w którym można wydzielić dodatkowy pokój!Mieszkanie jest dwustronne, rozkładowe i nadaje się do remontu, składa się na chwilę obecną z: Salonu z pięknym widokiem na korony drzew z o...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/okolice-olszewskiego-mozliwosc-3-pokoi-pod-najem-ID4vbmj"
+  },
+  {
+    "id": 66751941,
+    "title": "2pokojeWrocław/WykończoneWcenie/10minutStareMiasto",
+    "slug": "2pokojewroclaw-wykonczonewcenie-10minutstaremiasto-ID4v5ed",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/szczepin",
+            "fullName": "Szczepin, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImNwY2pnY3draWxyMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KnZMXf8kY6k17zhgrKiDe3owTJ0iqyAeDexEmrz4IYQ/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImNwY2pnY3draWxyMDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KnZMXf8kY6k17zhgrKiDe3owTJ0iqyAeDexEmrz4IYQ/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRzZnMwM2dwbWFqcDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qzed4YRAnrKzJlUhTiOZ3mG9MTVMz_bFO0eSwWuNOIE/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImRzZnMwM2dwbWFqcDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.qzed4YRAnrKzJlUhTiOZ3mG9MTVMz_bFO0eSwWuNOIE/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 4,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 4057980,
+      "name": "Biuro Nieruchomości VIEW",
+      "slug": "biuro-nieruchomosci-view-ID4057980",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InZyb2s4YWtsNjV0eC1BUEwifQ.qV6PnN_j75tBHLapQ2L9zIqXGhkYcPkX5sukzCWawzc/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "09 maja",
+    "totalPrice": {
+      "value": 451658,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 650,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 9944,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 45.42,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "SECOND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:01:53",
+    "dateCreatedFirst": "2025-04-23 17:25:14",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:01:54+02:00",
+    "specialOffer": null,
+    "shortDescription": "Wyjątkowa okazja! Apartament wykończony pod kluczw cenie zakupu,trzech stylach aranżacyjnych do wyboru.ZAINWESTUJ WE WROCŁAWIU JEDYNIE 3 KM DO STAREGO MIASTA – APARTAMENT Z 23% VAT IDEALNY NA WYNAJEM ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/2pokojewroclaw-wykonczonewcenie-10minutstaremiasto-ID4v5ed"
+  },
+  {
+    "id": 66747467,
+    "title": "Wykończenie w cenie/10min do Rynku/Obok przystane",
+    "slug": "wykonczenie-w-cenie-10min-do-rynku-obok-przystane-ID4v443",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/szczepin",
+            "fullName": "Szczepin, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBhdXBxZ3ZmNDNvajMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WVpNpft-o6h-mHYgc11sa8IKHz98W7wnSJlqNtOpqgw/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBhdXBxZ3ZmNDNvajMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WVpNpft-o6h-mHYgc11sa8IKHz98W7wnSJlqNtOpqgw/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFvc3hmb2VmaHJjOTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.wVuw__QBU4xRemEQmOEfe1YjusbRhsu7gMF5Va1mI-8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InFvc3hmb2VmaHJjOTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.wVuw__QBU4xRemEQmOEfe1YjusbRhsu7gMF5Va1mI-8/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 5,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 4057980,
+      "name": "Biuro Nieruchomości VIEW",
+      "slug": "biuro-nieruchomosci-view-ID4057980",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InZyb2s4YWtsNjV0eC1BUEwifQ.qV6PnN_j75tBHLapQ2L9zIqXGhkYcPkX5sukzCWawzc/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "09 maja",
+    "totalPrice": {
+      "value": 383333,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10502,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 36.5,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:51",
+    "dateCreatedFirst": "2025-04-22 17:01:39",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:51+02:00",
+    "specialOffer": null,
+    "shortDescription": "Wyjątkowa okazja! Apartament wykończony pod klucz  w cenie zakupu! W trzech stylach aranżacyjnych do wyboru.ZAINWESTUJ WE WROCŁAWIU JEDYNIE 3 KM DO STAREGO MIASTA – APARTAMENT  Z 23% VAT IDEALNY NA WY...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/wykonczenie-w-cenie-10min-do-rynku-obok-przystane-ID4v443"
+  },
+  {
+    "id": 66732097,
+    "title": "60 m2/2pokoje + jadalnia z kuchnią/blisko CH Borek",
+    "slug": "60-m2-2pokoje-jadalnia-z-kuchnia-blisko-ch-borek-ID4v049",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "al. gen. Józefa Hallera",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/grabiszyn",
+            "fullName": "Grabiszyn, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im9zcG51NTN1d3AzbC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Cay7HOKTHYr_m1CCfgiyOtOB0CzB7zAOQMZBDZgHZ74/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im9zcG51NTN1d3AzbC1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Cay7HOKTHYr_m1CCfgiyOtOB0CzB7zAOQMZBDZgHZ74/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imc0NjIxMjd2NDlzOTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.jQ50aXOET5qUOSnIEEfIalH6bh-vrZMXk7nMr1nUfE0/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imc0NjIxMjd2NDlzOTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.jQ50aXOET5qUOSnIEEfIalH6bh-vrZMXk7nMr1nUfE0/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 1288513,
+      "name": "WRE NIERUCHOMOŚCI SP.Z O.O.",
+      "slug": "wre-nieruchomosci-sp-z-o-o-ID1288513",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrOWlsbnJhanpwZTItQVBMIn0.G6yEmBiwHFFJiVQdPfoK4qRGE92uieZG34kTktz9oiE/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 650000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 400,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10574,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 61.47,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:49",
+    "dateCreatedFirst": "2025-04-16 18:22:13",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:50+02:00",
+    "specialOffer": null,
+    "shortDescription": "Mieszkanie w 2019-2020 r. przeszło całkowity remont.Nieruchomość, dzięki swojej bliskości do centrum miasta oraz dostępnych licznych linii komunikacyjnych, pozwala na sprawny dojazd do każdej części m...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/60-m2-2pokoje-jadalnia-z-kuchnia-blisko-ch-borek-ID4v049"
+  },
+  {
+    "id": 66732096,
+    "title": "3 pokoje+aneks/blisko CH Borek",
+    "slug": "3-pokoje-aneks-blisko-ch-borek-ID4v048",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "al. gen. Józefa Hallera",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/grabiszyn",
+            "fullName": "Grabiszyn, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtvNW1ic2U3cGpwdjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1VNDTd2K1AR_rJt7tP9_hbLjaazWO9Fe1583ZSkqE34/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtvNW1ic2U3cGpwdjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1VNDTd2K1AR_rJt7tP9_hbLjaazWO9Fe1583ZSkqE34/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InM5bzlybDE3aW0zcDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Kf4NcQmZWyNHC-V9E_JG9GYSjKXyC9Neg6pZk5f9haQ/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InM5bzlybDE3aW0zcDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Kf4NcQmZWyNHC-V9E_JG9GYSjKXyC9Neg6pZk5f9haQ/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 1288513,
+      "name": "WRE NIERUCHOMOŚCI SP.Z O.O.",
+      "slug": "wre-nieruchomosci-sp-z-o-o-ID1288513",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrOWlsbnJhanpwZTItQVBMIn0.G6yEmBiwHFFJiVQdPfoK4qRGE92uieZG34kTktz9oiE/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 650000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 400,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10574,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 61.47,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:49",
+    "dateCreatedFirst": "2025-04-16 18:22:12",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:49+02:00",
+    "specialOffer": null,
+    "shortDescription": "Mieszkanie w 2019-2020 r. przeszło całkowity remont.Nieruchomość, dzięki swojej bliskości do centrum miasta oraz dostępnych licznych linii komunikacyjnych, pozwala na sprawny dojazd do każdej części m...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/3-pokoje-aneks-blisko-ch-borek-ID4v048"
+  },
+  {
+    "id": 66686375,
+    "title": "Widok na Wrocław i Śleżę/2 pokoje blisko Centrum",
+    "slug": "widok-na-wroclaw-i-sleze-2-pokoje-blisko-centrum-ID4wOaH",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Śliczna",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/huby",
+            "fullName": "Huby, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im14M3p4OHpheTNjNjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.jhCBNnHCR1tS48hEgGyAXXZW9EDBpsCyDox4eNwvSIM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im14M3p4OHpheTNjNjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.jhCBNnHCR1tS48hEgGyAXXZW9EDBpsCyDox4eNwvSIM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJhMGV5YTU0MjFqaDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.d9rnpwsnjwj4tnyySdi8wTWWG8OcxEEoNIbc8oJ3e5g/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJhMGV5YTU0MjFqaDItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.d9rnpwsnjwj4tnyySdi8wTWWG8OcxEEoNIbc8oJ3e5g/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 7,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 1288513,
+      "name": "WRE NIERUCHOMOŚCI SP.Z O.O.",
+      "slug": "wre-nieruchomosci-sp-z-o-o-ID1288513",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrOWlsbnJhanpwZTItQVBMIn0.G6yEmBiwHFFJiVQdPfoK4qRGE92uieZG34kTktz9oiE/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 599000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 700,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 14262,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 42,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "TENTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:48",
+    "dateCreatedFirst": "2025-04-04 21:22:52",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:48+02:00",
+    "specialOffer": null,
+    "shortDescription": "Polecam na sprzedaż 2-pokojowe mieszkanie z osobną kuchnią, o łącznej powierzchni 42 m2,  usytuowane na X piętrze budynku przy ul. Ślicznej.Nieruchomość, dzięki swojej bliskości do centrum miasta oraz...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/widok-na-wroclaw-i-sleze-2-pokoje-blisko-centrum-ID4wOaH"
+  },
+  {
+    "id": 66749658,
+    "title": "Styl, Wygoda i Funkcjonalność + Taras 28m2!",
+    "slug": "styl-wygoda-i-funkcjonalnosc-taras-28m2-ID4v4Do",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Piękna",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki",
+            "fullName": "Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/krzyki/tarnogaj",
+            "fullName": "Tarnogaj, Krzyki, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjkzOXRiajg0ZmlkeTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.2WlJEBN_KduMTkvAXtp_kQFTBMQ3CEtVxWIXLXF236w/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjkzOXRiajg0ZmlkeTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.2WlJEBN_KduMTkvAXtp_kQFTBMQ3CEtVxWIXLXF236w/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InV0MHcyYXF3ZHVqdjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.l2Yf0AqNI-jsSneyYTu5TezfaQA8fbAC-cN61hjhzzc/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InV0MHcyYXF3ZHVqdjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.l2Yf0AqNI-jsSneyYTu5TezfaQA8fbAC-cN61hjhzzc/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 16,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 1288513,
+      "name": "WRE NIERUCHOMOŚCI SP.Z O.O.",
+      "slug": "wre-nieruchomosci-sp-z-o-o-ID1288513",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZrOWlsbnJhanpwZTItQVBMIn0.G6yEmBiwHFFJiVQdPfoK4qRGE92uieZG34kTktz9oiE/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 879978,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 0,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 14666,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 60,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:25",
+    "dateCreatedFirst": "2025-04-23 11:21:59",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:26+02:00",
+    "specialOffer": null,
+    "shortDescription": "Nowoczesne 3-pokojowe mieszkanie z ogromnym tarasem | Wrocław, ul. PięknaNa sprzedaż komfortowe i w pełni urządzone mieszkanie o powierzchni 60 m², zlokalizowane na nowoczesnym osiedlu przy ul. Piękne...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/styl-wygoda-i-funkcjonalnosc-taras-28m2-ID4v4Do"
+  },
+  {
+    "id": 66731961,
+    "title": "2pokoje/Wrocław/Wykończone pod klucz/Obok Uczelnie",
+    "slug": "2pokoje-wroclaw-wykonczone-pod-klucz-obok-uczelnie-ID4v01X",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/szczepin",
+            "fullName": "Szczepin, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imo3NnY2ZzJxNXQwajEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.doG80fTiJf9s2cm2RH9qVI31wOL7N-ja2y5aep7An4Y/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imo3NnY2ZzJxNXQwajEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.doG80fTiJf9s2cm2RH9qVI31wOL7N-ja2y5aep7An4Y/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im05dzd6d2xtY3p1cDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.D_X9RwwxMBFINdtwsPEAFDTo99-8ZUD_D413NUcYpYM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im05dzd6d2xtY3p1cDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.D_X9RwwxMBFINdtwsPEAFDTo99-8ZUD_D413NUcYpYM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 5,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 4057980,
+      "name": "Biuro Nieruchomości VIEW",
+      "slug": "biuro-nieruchomosci-view-ID4057980",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InZyb2s4YWtsNjV0eC1BUEwifQ.qV6PnN_j75tBHLapQ2L9zIqXGhkYcPkX5sukzCWawzc/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "09 maja",
+    "totalPrice": {
+      "value": 366533,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 11107,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 33,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "SEVENTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 13:00:24",
+    "dateCreatedFirst": "2025-04-16 17:45:06",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T13:00:24+02:00",
+    "specialOffer": null,
+    "shortDescription": "Wyjątkowa okazja! Apartament wykończony pod klucz w cenie zakupu! W trzech stylach aranżacyjnych do wyboru.ZAINWESTUJ WE WROCŁAWIU JEDYNIE 3 KM DO STAREGO MIASTA – APARTAMENT Z 23% VAT IDEALNY NA WYNA...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/2pokoje-wroclaw-wykonczone-pod-klucz-obok-uczelnie-ID4v01X"
+  },
+  {
+    "id": 66745851,
+    "title": "Funkcjonalne Dwupoziomowe mieszkanie Pilczyce",
+    "slug": "funkcjonalne-dwupoziomowe-mieszkanie-pilczyce-ID4v3DZ",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Szklarska",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/pilczyce",
+            "fullName": "Pilczyce, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBlc3gzY2x4eWx2MjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0I3wEVV8hp9KbHX-Xzs454L9mZDW8dtMwaBTkW87LHA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBlc3gzY2x4eWx2MjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.0I3wEVV8hp9KbHX-Xzs454L9mZDW8dtMwaBTkW87LHA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNoZ241NDQzZDQwaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Nih_Br-ARxOLB90u3DVhqqdUdRMgdXHCqgN1bwFE7Gg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNoZ241NDQzZDQwaS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Nih_Br-ARxOLB90u3DVhqqdUdRMgdXHCqgN1bwFE7Gg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 11,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 650000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10656,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 61,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 12:58:18",
+    "dateCreatedFirst": "2025-04-22 12:57:17",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T12:58:18+02:00",
+    "specialOffer": null,
+    "shortDescription": "Dwupoziomowe mieszkanie z sauną, dużą garderobą i balkonem — komfort, styl i świetna inwestycja na Pilczycach\r\n\r\nZapraszamy do zapoznania się z wyjątkową ofertą sprzedaży dwupoziomowego mieszkania, po...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/funkcjonalne-dwupoziomowe-mieszkanie-pilczyce-ID4v3DZ"
+  },
+  {
+    "id": 66714277,
+    "title": "Maślice | 3 pokoje | 2 balkony | garaż",
+    "slug": "maslice-3-pokoje-2-balkony-garaz-ID4wWqJ",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "al. Śliwowa",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna",
+            "fullName": "Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/fabryczna/maslice",
+            "fullName": "Maślice, Fabryczna, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndpdjJvaWNzZXNjbC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Cgz95iUx1WqE7FKsCoTWWjp01XIB9LR6DeAAZxsmK0g/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndpdjJvaWNzZXNjbC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Cgz95iUx1WqE7FKsCoTWWjp01XIB9LR6DeAAZxsmK0g/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd2Zmt6bm85MzNwaDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.3ZWL7ZvsmE0RBSb2hNtyimh-avjfZGV5YY-adhs7dgI/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd2Zmt6bm85MzNwaDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.3ZWL7ZvsmE0RBSb2hNtyimh-avjfZGV5YY-adhs7dgI/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 19,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 2709694,
+      "name": "Cimerman Nieruchomości sp. z o.o.",
+      "slug": "cimerman-nieruchomosci-sp-z-o-o-ID2709694",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InlqanZjbDhnejFraDItQVBMIn0.FbwrB7jq0Ug6eK2CxP0xprG9SfEBwsGffVcibUQenC4/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 555000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 600,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 10882,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 51,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 12:57:28",
+    "dateCreatedFirst": "2025-04-11 15:35:04",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": "2025-04-30T12:57:28+02:00",
+    "specialOffer": null,
+    "shortDescription": "Do sprzedaży dwu poziomowe 3-pokojowe mieszkanie z możliwością dokupienia garażu.LOKALIZACJAWrocław - Maślice, al. ŚliwowaMIESZKANIE- 3 piętro- całkowita powierzchnia mieszkania 51 m2- 2 balkony (w su...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/maslice-3-pokoje-2-balkony-garaz-ID4wWqJ"
+  },
+  {
+    "id": 66775458,
+    "title": "M4 | I piętro | 2 balkony | Wysoki sufit!",
+    "slug": "m4-i-pietro-2-balkony-wysoki-sufit-ID4vblv",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Redycka",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole",
+            "fullName": "Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/psie-pole/soltysowice",
+            "fullName": "Sołtysowice, Psie Pole, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwNGNjYWw1dHI3OTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WArZWmYIg0aCafs3O0-4vUK_BMyhZN3LM_TTYO7GoRE/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjQwNGNjYWw1dHI3OTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.WArZWmYIg0aCafs3O0-4vUK_BMyhZN3LM_TTYO7GoRE/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ink0cWw5MXowMXNxNTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.b5mRwYaWL6jHFG2DI46FM1F4JfbpKBdwFuEfE4ceNPM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ink0cWw5MXowMXNxNTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.b5mRwYaWL6jHFG2DI46FM1F4JfbpKBdwFuEfE4ceNPM/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 11,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 2536902,
+      "name": "N-HOME Nieruchomości",
+      "slug": "n-home-nieruchomosci-ID2536902",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjU1eHJvdGl3MnNwczEtQVBMIn0.5sKy1oTogb-oXfDt-OEEUqoEdkwgtoYVYEzJilOCZg8/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1060000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 12679,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 83.6,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "FOUR",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-04-30 12:52:40",
+    "dateCreatedFirst": "2025-04-30 12:52:26",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na sprzedażgotowemieszkaniew stanie deweloperskimopowierzchni83,58 m2z2 balkonami o pow. 16,0 m2 i 3,5 m2.Mieszkanie usytuowane jestnaI piętrze- zabudowa willowa.W każdym budynku znajduje się6 lokali,...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/m4-i-pietro-2-balkony-wysoki-sufit-ID4vblv"
+  },
+  {
+    "id": 966776016000,
+    "title": "744109",
+    "slug": "744109-ID4vbuv",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "rynek Rynek",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Wrocław",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "dolnośląskie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "dolnoslaskie",
+            "fullName": "dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw",
+            "fullName": "Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto",
+            "fullName": "Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "dolnoslaskie/wroclaw/wroclaw/wroclaw/stare-miasto/stare-miasto",
+            "fullName": "Stare Miasto, Stare Miasto, Wrocław, dolnośląskie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 863502,
+      "name": "CHATA Agencja Nieruchomości",
+      "slug": "chata-agencja-nieruchomosci-ID863502",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjltaDlhcWtrc3YwbjItQVBMIn0.uLfdLfmkoLk3fS8YWKvppBh667N5bLBX5a88zZKzQe8/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1383360,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 730,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 33000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 41.92,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "1999-02-29 00:00:01",
+    "dateCreatedFirst": "2025-04-30 13:57:45",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Kamienica Pod Siedmioma Elektorami, Wrocław Rynek 8. Renesansowa zabytkowa kamienica, jej powstanie jest datowane na drugą połowę XIII wieku. To jeden z najstarszych zabytkowych budynków we Wrocławiu....",
+    "__typename": "AdvertListItem",
+    "href": "hpr/[lang]/ad/744109-ID4vbuv"
+  }
+]

@@ -1,0 +1,249 @@
+const express = require('express');
+const { spawn } = require('child_process');
+const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
+
+const router = express.Router();
+const DB_PATH = path.join(__dirname, '../otodom.db');
+const LOG_PATH = path.resolve(process.cwd(), 'parser_errors.log');
+
+// Script paths
+const SCRIPT_DIR = path.resolve(__dirname, '../otodom_parser');
+const SCRIPT = path.join(__dirname, '../otodom_parser/run_scraper.py');
+
+// Scraper process state
+let scraperProcess = null;
+let scraperStatus = {
+  status: "Ready",
+  progress: 0,
+  error: false,
+  lastStarted: null,
+  isRunning: false
+};
+
+// Function to read error logs
+function readErrorLogs() {
+  try {
+    if (fs.existsSync(LOG_PATH)) {
+      return fs.readFileSync(LOG_PATH, 'utf8').split('\n').slice(-100).join('\n'); // Last 100 lines
+    }
+    return '';
+  } catch (error) {
+    console.error('Error reading log file:', error);
+    return 'Error reading log file';
+  }
+}
+
+// Start the scraper
+router.post('/start-scrape', (req, res) => {
+  if (scraperProcess && scraperStatus.isRunning) {
+    return res.status(400).json({ error: 'Scraper is already running' });
+  }
+
+  try {
+    // Create directory if it doesn't exist
+    if (!fs.existsSync(SCRIPT_DIR)) {
+      fs.mkdirSync(SCRIPT_DIR, { recursive: true });
+    }
+
+    // Get days parameter from request body (default to 7 if not provided)
+    const days = req.body.days || 7;
+    
+    // Start the scraper process with days parameter
+    scraperProcess = spawn('python', [SCRIPT, '--days', days.toString()], { env: { ...process.env } });
+    scraperStatus = {
+      status: `Starting with ${days} days filter...`,
+      progress: 0,
+      error: false,
+      lastStarted: new Date().toISOString(),
+      isRunning: true
+    };
+
+    scraperProcess.stdout.on('data', (data) => {
+      const output = data.toString();
+      
+      // Parse status updates
+      if (output.includes('STATUS:')) {
+        const statusMatch = output.match(/STATUS: (.+)/);
+        if (statusMatch) {
+          scraperStatus.status = statusMatch[1];
+        }
+      }
+      
+      if (output.includes('PROGRESS:')) {
+        const progressMatch = output.match(/PROGRESS: ([0-9.]+)/);
+        if (progressMatch) {
+          scraperStatus.progress = parseFloat(progressMatch[1]);
+        }
+      }
+      
+      if (output.includes('ERROR:')) {
+        const errorMatch = output.match(/ERROR: ([01])/);
+        if (errorMatch) {
+          scraperStatus.error = errorMatch[1] === '1';
+        }
+      }
+      
+      console.log(`Scraper output: ${output}`);
+    });
+
+    scraperProcess.stderr.on('data', (data) => {
+      console.error(`Scraper error: ${data}`);
+      scraperStatus.error = true;
+    });
+
+    scraperProcess.on('close', (code) => {
+      console.log(`Scraper process exited with code ${code}`);
+      scraperStatus.isRunning = false;
+      
+      if (code !== 0) {
+        scraperStatus.error = true;
+        scraperStatus.status = `Failed with code ${code}`;
+      } else {
+        scraperStatus.status = 'Completed';
+        scraperStatus.progress = 100;
+      }
+    });
+
+    res.json({ status: 'Scraper started' });
+  } catch (error) {
+    console.error('Error starting scraper:', error);
+    res.status(500).json({ error: 'Failed to start scraper' });
+  }
+});
+
+// Get scraper status
+router.get('/status', (req, res) => {
+  res.json(scraperStatus);
+});
+
+// Get error logs
+router.get('/error-logs', (req, res) => {
+  res.json({ logs: readErrorLogs() });
+});
+
+// Get cities with stats
+router.get('/cities', (req, res) => {
+  const db = new sqlite3.Database(DB_PATH);
+  
+  const query = `
+    SELECT 
+      city,
+      COUNT(*) as listing_count,
+      ROUND(AVG(price_per_sqm), 2) as avg_price_sqm
+    FROM listings
+    GROUP BY city
+    ORDER BY listing_count DESC
+  `;
+  
+  db.all(query, [], (err, rows) => {
+    if (err) {
+      console.error('Database error:', err);
+      return res.status(500).json({ error: 'Database error' });
+    }
+    
+    res.json({ cities: rows });
+  });
+  
+  db.close();
+});
+
+// Get stats for a specific city
+router.get('/city/:city', (req, res) => {
+  const city = req.params.city;
+  const db = new sqlite3.Database(DB_PATH);
+  
+  // Get overall stats for the city
+  const cityQuery = `
+    SELECT 
+      city,
+      COUNT(*) as listing_count,
+      ROUND(AVG(price_per_sqm), 2) as avg_price_sqm
+    FROM listings
+    WHERE city = ?
+    GROUP BY city
+  `;
+  
+  // Get stats by district and rooms count
+  const districtQuery = `
+    SELECT 
+      district,
+      rooms,
+      COUNT(*) as listing_count,
+      ROUND(AVG(price_per_sqm), 2) as avg_price_sqm,
+      ROUND(MIN(price_per_sqm), 2) as min_price_sqm,
+      ROUND(MAX(price_per_sqm), 2) as max_price_sqm
+    FROM listings
+    WHERE city = ? AND district IS NOT NULL AND district != '' AND rooms IS NOT NULL
+    GROUP BY district, rooms
+    ORDER BY district, rooms
+  `;
+  
+  db.get(cityQuery, [city], (err, cityStats) => {
+    if (err) {
+      console.error('Database error:', err);
+      db.close();
+      return res.status(500).json({ error: 'Database error' });
+    }
+    
+    if (!cityStats) {
+      db.close();
+      return res.status(404).json({ error: 'City not found' });
+    }
+    
+    db.all(districtQuery, [city], (err, districtStats) => {
+      if (err) {
+        console.error('Database error:', err);
+        db.close();
+        return res.status(500).json({ error: 'Database error' });
+      }
+      
+      // Process district stats to create a nested structure
+      const districts = {};
+      districtStats.forEach(row => {
+        if (!districts[row.district]) {
+          districts[row.district] = {
+            name: row.district,
+            rooms: {}
+          };
+        }
+        
+        districts[row.district].rooms[row.rooms] = {
+          count: row.listing_count,
+          avg_price_sqm: row.avg_price_sqm,
+          min_price_sqm: row.min_price_sqm,
+          max_price_sqm: row.max_price_sqm
+        };
+      });
+      
+      // Convert districts object to array
+      cityStats.districts = Object.values(districts);
+      
+      res.json({ cityStats });
+    });
+  });
+  
+  db.close();
+});
+
+// Get last updated timestamp
+router.get('/last-updated', (req, res) => {
+  if (scraperStatus.lastStarted) {
+    return res.json({ lastUpdated: scraperStatus.lastStarted });
+  }
+  
+  // If no timestamp in memory, try to get from database
+  const db = new sqlite3.Database(DB_PATH);
+  db.get('SELECT MAX(updated_at) as last_updated FROM listings', [], (err, row) => {
+    db.close();
+    
+    if (err || !row || !row.last_updated) {
+      return res.json({ lastUpdated: null });
+    }
+    
+    res.json({ lastUpdated: row.last_updated });
+  });
+});
+
+module.exports = router;
