@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Table,
   TableBody,
@@ -9,8 +9,12 @@ import {
   Paper,
   Typography,
   Box,
-  CircularProgress
+  CircularProgress,
+  IconButton,
+  Collapse
 } from '@mui/material';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 // Component to display district statistics with room data
 function DistrictRoomsTable({ selectedCity }) {
@@ -18,6 +22,7 @@ function DistrictRoomsTable({ selectedCity }) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [filteredData, setFilteredData] = useState([]);
+  const [expandedDistricts, setExpandedDistricts] = useState({});
 
   // Fetch district rooms data
   useEffect(() => {
@@ -84,11 +89,20 @@ function DistrictRoomsTable({ selectedCity }) {
     );
   }
 
+  // Function to toggle expansion of parent districts
+  const toggleDistrictExpansion = (districtId) => {
+    setExpandedDistricts(prev => ({
+      ...prev,
+      [districtId]: !prev[districtId]
+    }));
+  };
+
   return (
     <TableContainer component={Paper} sx={{ mt: 4 }}>
       <Table size="small" aria-label="district rooms data">
         <TableHead>
           <TableRow sx={{ backgroundColor: '#f5f5f5' }}>
+            <TableCell padding="checkbox"></TableCell>
             <TableCell><Typography variant="subtitle2" fontWeight="bold">District</Typography></TableCell>
             <TableCell align="right"><Typography variant="subtitle2" fontWeight="bold">Listings</Typography></TableCell>
             <TableCell align="right"><Typography variant="subtitle2" fontWeight="bold">Avg price / m²</Typography></TableCell>
@@ -98,38 +112,120 @@ function DistrictRoomsTable({ selectedCity }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredData.map((district) => (
-            <TableRow key={district.district}>
-              <TableCell component="th" scope="row">
-                <Typography variant="body2" fontWeight="medium">
-                  {district.district}
-                </Typography>
-              </TableCell>
-              <TableCell align="right">{district.count}</TableCell>
-              <TableCell align="right">{district.avg_ppsqm} zł</TableCell>
-              <TableCell align="right">
-                {district.rooms["1"] ? (
-                  <Typography variant="body2">
-                    {district.rooms["1"].count} ({district.rooms["1"].avg_ppsqm} zł)
-                  </Typography>
-                ) : "-"}
-              </TableCell>
-              <TableCell align="right">
-                {district.rooms["2"] ? (
-                  <Typography variant="body2">
-                    {district.rooms["2"].count} ({district.rooms["2"].avg_ppsqm} zł)
-                  </Typography>
-                ) : "-"}
-              </TableCell>
-              <TableCell align="right">
-                {district.rooms["3+"] ? (
-                  <Typography variant="body2">
-                    {district.rooms["3+"].count} ({district.rooms["3+"].avg_ppsqm} zł)
-                  </Typography>
-                ) : "-"}
-              </TableCell>
-            </TableRow>
-          ))}
+          {filteredData.map((parentDistrict) => {
+            const districtId = `${parentDistrict.city}-${parentDistrict.district}`;
+            const isExpanded = Boolean(expandedDistricts[districtId]);
+            const hasChildDistricts = parentDistrict.childDistricts && parentDistrict.childDistricts.length > 0;
+            
+            return (
+              <React.Fragment key={districtId}>
+                {/* Parent District Row */}
+                <TableRow 
+                  sx={{ 
+                    backgroundColor: '#f9f9f9',
+                    '&:hover': { backgroundColor: '#f0f0f0' },
+                    cursor: hasChildDistricts ? 'pointer' : 'default'
+                  }}
+                  onClick={() => hasChildDistricts && toggleDistrictExpansion(districtId)}
+                >
+                  <TableCell padding="checkbox">
+                    {hasChildDistricts && (
+                      <IconButton
+                        aria-label="expand row"
+                        size="small"
+                        onClick={(e) => {
+                          e.stopPropagation(); // Prevent the row click from being triggered
+                          toggleDistrictExpansion(districtId);
+                        }}
+                      >
+                        {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+                      </IconButton>
+                    )}
+                  </TableCell>
+                  <TableCell component="th" scope="row">
+                    <Typography variant="body2" fontWeight="bold">
+                      {parentDistrict.district}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="right">{parentDistrict.count}</TableCell>
+                  <TableCell align="right">{parentDistrict.avg_ppsqm} zł</TableCell>
+                  <TableCell align="right">
+                    {parentDistrict.rooms["1"] ? (
+                      <Typography variant="body2">
+                        {parentDistrict.rooms["1"].count} ({parentDistrict.rooms["1"].avg_ppsqm} zł)
+                      </Typography>
+                    ) : "-"}
+                  </TableCell>
+                  <TableCell align="right">
+                    {parentDistrict.rooms["2"] ? (
+                      <Typography variant="body2">
+                        {parentDistrict.rooms["2"].count} ({parentDistrict.rooms["2"].avg_ppsqm} zł)
+                      </Typography>
+                    ) : "-"}
+                  </TableCell>
+                  <TableCell align="right">
+                    {parentDistrict.rooms["3+"] ? (
+                      <Typography variant="body2">
+                        {parentDistrict.rooms["3+"].count} ({parentDistrict.rooms["3+"].avg_ppsqm} zł)
+                      </Typography>
+                    ) : "-"}
+                  </TableCell>
+                </TableRow>
+                
+                {/* Child District Rows (Expandable) */}
+                {hasChildDistricts && (
+                  <TableRow>
+                    <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
+                      <Collapse in={isExpanded} timeout="auto" unmountOnExit>
+                        <Box sx={{ margin: 1 }}>
+                          <Typography variant="subtitle2" gutterBottom component="div" sx={{ fontStyle: 'italic' }}>
+                            Districts in {parentDistrict.district}
+                          </Typography>
+                          <Table size="small" aria-label="child districts">
+                            <TableBody>
+                              {parentDistrict.childDistricts.map((childDistrict) => (
+                                <TableRow key={childDistrict.district} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                  <TableCell padding="checkbox"></TableCell>
+                                  <TableCell component="th" scope="row" sx={{ pl: 3 }}>
+                                    <Typography variant="body2">
+                                      {childDistrict.district}
+                                    </Typography>
+                                  </TableCell>
+                                  <TableCell align="right">{childDistrict.count}</TableCell>
+                                  <TableCell align="right">{childDistrict.avg_ppsqm} zł</TableCell>
+                                  <TableCell align="right">
+                                    {childDistrict.rooms["1"] ? (
+                                      <Typography variant="body2">
+                                        {childDistrict.rooms["1"].count} ({childDistrict.rooms["1"].avg_ppsqm} zł)
+                                      </Typography>
+                                    ) : "-"}
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    {childDistrict.rooms["2"] ? (
+                                      <Typography variant="body2">
+                                        {childDistrict.rooms["2"].count} ({childDistrict.rooms["2"].avg_ppsqm} zł)
+                                      </Typography>
+                                    ) : "-"}
+                                  </TableCell>
+                                  <TableCell align="right">
+                                    {childDistrict.rooms["3+"] ? (
+                                      <Typography variant="body2">
+                                        {childDistrict.rooms["3+"].count} ({childDistrict.rooms["3+"].avg_ppsqm} zł)
+                                      </Typography>
+                                    ) : "-"}
+                                  </TableCell>
+                                </TableRow>
+                              ))}
+                            </TableBody>
+                          </Table>
+                        </Box>
+                      </Collapse>
+                    </TableCell>
+                  </TableRow>
+                )}
+              </React.Fragment>
+            );
+          })}
         </TableBody>
       </Table>
     </TableContainer>

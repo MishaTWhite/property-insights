@@ -161,6 +161,7 @@ router.get('/district-rooms', (req, res) => {
       SELECT 
         city,
         district,
+        district_parent,
         ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
         COUNT(*) AS count
       FROM listings
@@ -201,8 +202,12 @@ router.get('/district-rooms', (req, res) => {
           return res.status(500).json({ error: 'Failed to query database for room stats' });
         }
         
-        // Merge room stats with district data
-        const result = districts.map(district => {
+        // Use district_parent field instead of extracting from district name
+        const districtsWithParent = districts.map(district => {
+          // Use district_parent field directly, or fallback to district if parent is not available
+          let parentDistrict = district.district_parent || district.district;
+          
+          // Process rooms data for this district
           // Match rooms by both city and district to avoid mixing data from different cities
           const districtRooms = roomStats.filter(r => 
             r.district === district.district && r.city === district.city
@@ -219,13 +224,73 @@ router.get('/district-rooms', (req, res) => {
           });
           
           return {
-            city: district.city, // Include city in the result
+            city: district.city,
             district: district.district,
+            parentDistrict: parentDistrict,
             avg_ppsqm: district.avg_ppsqm,
             count: district.count,
             rooms: rooms
           };
         });
+        
+        // Group by parent district
+        const parentDistrictMap = {};
+        districtsWithParent.forEach(district => {
+          const parentKey = `${district.city}|${district.parentDistrict}`;
+          
+          if (!parentDistrictMap[parentKey]) {
+            parentDistrictMap[parentKey] = {
+              city: district.city,
+              district: district.parentDistrict, // Use parent district name as district
+              avg_ppsqm: 0,
+              count: 0,
+              rooms: { "1": {count: 0, avg_ppsqm: 0}, "2": {count: 0, avg_ppsqm: 0}, "3+": {count: 0, avg_ppsqm: 0} },
+              childDistricts: []
+            };
+          }
+          
+          const parent = parentDistrictMap[parentKey];
+          
+          // Add this district to the parent's children
+          parent.childDistricts.push({
+            district: district.district,
+            avg_ppsqm: district.avg_ppsqm,
+            count: district.count,
+            rooms: district.rooms
+          });
+          
+          // Update parent district aggregates
+          parent.count += district.count;
+          
+          // Calculate weighted average price per square meter
+          parent.avg_ppsqm = Math.round(
+            (parent.avg_ppsqm * (parent.count - district.count) + district.avg_ppsqm * district.count) / parent.count
+          );
+          
+          // Aggregate room counts and prices
+          for (const roomType in district.rooms) {
+            if (!parent.rooms[roomType]) {
+              parent.rooms[roomType] = { count: 0, avg_ppsqm: 0 };
+            }
+            
+            const parentRoom = parent.rooms[roomType];
+            const districtRoom = district.rooms[roomType];
+            
+            // Calculate weighted average for room prices
+            if (districtRoom && districtRoom.count) {
+              const newCount = parentRoom.count + districtRoom.count;
+              parentRoom.avg_ppsqm = Math.round(
+                (parentRoom.avg_ppsqm * parentRoom.count + districtRoom.avg_ppsqm * districtRoom.count) / 
+                (newCount || 1) // Avoid division by zero
+              );
+              parentRoom.count = newCount;
+            }
+          }
+        });
+        
+        // Convert to array and sort by price
+        const result = Object.values(parentDistrictMap);
+        result.sort((a, b) => b.avg_ppsqm - a.avg_ppsqm);
         
         res.json(result);
       });

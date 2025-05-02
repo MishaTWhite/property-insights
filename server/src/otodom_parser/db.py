@@ -146,16 +146,16 @@ def get_all_cities():
         return []
 
 def get_city_district_stats(city):
-    """Get district statistics for a specific city, including room breakdowns"""
+    """Get district statistics for a specific city, including room breakdowns, aggregated by parent district"""
     try:
         conn = get_connection()
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
         
-        # Execute a single complex query that gets all needed stats in one go
+        # Execute a query that gets all needed stats grouped by district_parent
         cursor.execute('''
         SELECT 
-            district,
+            district_parent AS district,
             COUNT(*) AS count,
             ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
             
@@ -170,9 +170,9 @@ def get_city_district_stats(city):
         FROM 
             listings
         WHERE 
-            city = ?
+            city = ? AND district_parent IS NOT NULL
         GROUP BY 
-            district
+            district_parent
         ORDER BY 
             avg_ppsqm DESC
         ''', (city,))
@@ -199,6 +199,58 @@ def get_city_district_stats(city):
                     "avg_ppsqm": district_data.pop("room3plus_avg")
                 }
             }
+            
+            # Get all child districts for this parent district
+            cursor.execute('''
+            SELECT 
+                district,
+                COUNT(*) AS count,
+                ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
+                
+                COUNT(CASE WHEN rooms = '1' THEN 1 END) AS room1_count,
+                ROUND(AVG(CASE WHEN rooms = '1' THEN price_per_sqm END), 0) AS room1_avg,
+                
+                COUNT(CASE WHEN rooms = '2' THEN 1 END) AS room2_count,
+                ROUND(AVG(CASE WHEN rooms = '2' THEN price_per_sqm END), 0) AS room2_avg,
+                
+                COUNT(CASE WHEN rooms IS NOT NULL AND rooms != '1' AND rooms != '2' THEN 1 END) AS room3plus_count,
+                ROUND(AVG(CASE WHEN rooms IS NOT NULL AND rooms != '1' AND rooms != '2' THEN price_per_sqm END), 0) AS room3plus_avg
+            FROM 
+                listings
+            WHERE 
+                city = ? AND district_parent = ?
+            GROUP BY 
+                district
+            ORDER BY 
+                avg_ppsqm DESC
+            ''', (city, district_data['district']))
+            
+            child_rows = cursor.fetchall()
+            child_districts = []
+            
+            for child_row in child_rows:
+                child_data = dict(child_row)
+                
+                # Create nested room stats structure for child district
+                child_data["rooms"] = {
+                    "1": {
+                        "count": child_data.pop("room1_count") or 0,
+                        "avg_ppsqm": child_data.pop("room1_avg")
+                    },
+                    "2": {
+                        "count": child_data.pop("room2_count") or 0,
+                        "avg_ppsqm": child_data.pop("room2_avg")
+                    },
+                    "3+": {
+                        "count": child_data.pop("room3plus_count") or 0,
+                        "avg_ppsqm": child_data.pop("room3plus_avg")
+                    }
+                }
+                
+                child_districts.append(child_data)
+            
+            # Add child districts to parent district data
+            district_data["child_districts"] = child_districts
             
             results.append(district_data)
         
