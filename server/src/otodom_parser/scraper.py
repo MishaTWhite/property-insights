@@ -370,6 +370,27 @@ class OtodomScraper:
             floor = floor_map.get(str(floor_number).upper(), 0) if floor_number else 0
             logging.debug(f"Mapped floorNumber '{floor_number}' to: {floor}")
             
+            # Extract number of rooms
+            _ROOMS_MAP = {
+                "STUDIO": 0,
+                "ONE": 1, "TWO": 2, "THREE": 3, "FOUR": 4,
+                "FIVE": 5, "SIX": 6, "SEVEN": 7,
+                "EIGHT": 8, "NINE": 9, "TEN": 10,
+                "FIVE_OR_MORE": 5,  # fallback
+                "TEN_OR_MORE": 10,
+            }
+            
+            rooms = None
+            rooms_raw = offer.get("roomsNumber")
+            if isinstance(rooms_raw, int):
+                rooms = rooms_raw
+            elif isinstance(rooms_raw, str):
+                rooms = _ROOMS_MAP.get(rooms_raw.upper())
+            else:
+                rooms = None
+                
+            logging.debug(f"rooms={rooms_raw}->{rooms}")
+            
             # Extract city and district from new format if available
             city = ""
             district_sub = "unknown"
@@ -410,6 +431,7 @@ class OtodomScraper:
                 'area': area,
                 'price_per_sqm': price_per_sqm,
                 'floor': floor,
+                'rooms': rooms,
                 'city': city,
                 'district': district_sub,
                 'district_parent': district_parent
@@ -523,6 +545,7 @@ class OtodomScraper:
                     area = listing_data['area']
                     price_sqm = listing_data['price_per_sqm']
                     floor = listing_data['floor']
+                    rooms = listing_data['rooms']
                     
                     # Skip incomplete offers
                     if not all((area, price_sqm)):  # Floor can be 0
@@ -532,7 +555,7 @@ class OtodomScraper:
                     # Use district values from parsed data, not from URL parameters
                     district_sub = listing_data['district']  
                     district_parent = listing_data['district_parent']
-                    insert_listing(city=city, district=district_sub, district_parent=district_parent, area=area, price_per_sqm=price_sqm, floor=floor)
+                    insert_listing(city=city, district=district_sub, district_parent=district_parent, area=area, price_per_sqm=price_sqm, floor=floor, rooms=rooms)
                     inserted_rows += 1
             
             if inserted_rows > 0:

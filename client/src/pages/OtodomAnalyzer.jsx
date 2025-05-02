@@ -22,6 +22,7 @@ import {
   TextField
 } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
+import DistrictRoomsTable from '../components/DistrictRoomsTable';
 
 // Base URL for API requests
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
@@ -243,6 +244,12 @@ function OtodomAnalyzer() {
           </TableBody>
         </Table>
       </TableContainer>
+      
+      {/* District stats with room data */}
+      <Typography variant="h6" component="h3" sx={{ mt: 4, mb: 2 }}>
+        District Statistics by Room Count
+      </Typography>
+      <DistrictRoomsTable />
       
       <Dialog 
         open={openErrorLog} 

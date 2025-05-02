@@ -20,6 +20,9 @@ python run_scraper.py --debug
 
 ## Implementation Notes
 
+### Room Number Processing
+The parser automatically handles the `roomsNumber` field in both numeric format and string enum format. String values like "ONE", "TWO", "THREE", etc. are automatically mapped to their corresponding integer values (1, 2, 3). Studio apartments ("STUDIO") are mapped to 0 rooms.
+
 ### JSON Data Extraction
 
 The scraper now pulls data directly from the official JSON API embedded in the Next.js page structure. This makes the scraper more reliable as it no longer depends on CSS selectors that can change frequently.

@@ -100,15 +100,24 @@ def test_parse_offer_json_null_area():
     
     # Offer with null area should be skipped (return None)
     assert result is None
+
+def test_parse_offer_json_string_rooms():
+    """Test parsing JSON offer data with roomsNumber as string enum"""
+    # Create a test offer with roomsNumber as a string enum
+    offer = {
+        "id": "test456",
+        "areaInSquareMeters": 50.0,
+        "pricePerSquareMeter": {"value": 10000},
+        "roomsNumber": "TWO",
+        "location": {"city": "warszawa", "district": "mokotów"}
+    }
     
-    # Old test part - not needed anymore since we split the tests
-    offer2 = fixture_data["props"]["pageProps"]["initialState"]["listingSearch"]["offers"][1]
-    result2 = scraper.parse_offer_json(offer2)
+    # Create a scraper instance and parse the offer
+    scraper = OtodomScraper()
+    result = scraper.parse_offer_json(offer)
     
-    # Assert the parsed values
-    assert result2 is not None
-    assert result2['area'] == 45.5
-    assert result2['price_per_sqm'] == 16800
-    assert result2['floor'] == 2
-    assert result2['city'] == 'warszawa'
-    assert result2['district'] == 'wola'
+    # Assert the rooms value was correctly mapped from string enum to int
+    assert result is not None
+    assert result['area'] == 50.0
+    assert result['price_per_sqm'] == 10000
+    assert result['rooms'] == 2

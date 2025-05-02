@@ -148,6 +148,85 @@ router.get('/data', (req, res) => {
   });
 });
 
+// Get district data with room aggregation
+router.get('/district-rooms', (req, res) => {
+  const db = new sqlite3.Database(DB_PATH, sqlite3.OPEN_READONLY, (err) => {
+    if (err) {
+      console.error(err.message);
+      return res.status(500).json({ error: 'Failed to connect to database' });
+    }
+
+    // First get all districts with their stats
+    const query = `
+      SELECT 
+        district,
+        ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
+        COUNT(*) AS count
+      FROM listings
+      GROUP BY district
+      ORDER BY avg_ppsqm DESC
+    `;
+    
+    db.all(query, [], (err, districts) => {
+      if (err) {
+        console.error(err.message);
+        db.close();
+        return res.status(500).json({ error: 'Failed to query database for districts' });
+      }
+      
+      // Now get rooms data for each district
+      const roomQuery = `
+        SELECT 
+          district,
+          CASE 
+            WHEN rooms >= 3 THEN '3+'
+            WHEN rooms = 2 THEN '2'
+            WHEN rooms = 1 THEN '1'
+            ELSE 'unknown'
+          END AS room_category,
+          ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
+          COUNT(*) AS count
+        FROM listings
+        WHERE rooms IS NOT NULL
+        GROUP BY district, room_category
+      `;
+      
+      db.all(roomQuery, [], (err, roomStats) => {
+        db.close();
+        
+        if (err) {
+          console.error(err.message);
+          return res.status(500).json({ error: 'Failed to query database for room stats' });
+        }
+        
+        // Merge room stats with district data
+        const result = districts.map(district => {
+          const districtRooms = roomStats.filter(r => r.district === district.district);
+          
+          const rooms = {};
+          districtRooms.forEach(room => {
+            if (room.room_category !== 'unknown') {
+              rooms[room.room_category] = {
+                avg_ppsqm: room.avg_ppsqm,
+                count: room.count
+              };
+            }
+          });
+          
+          return {
+            district: district.district,
+            avg_ppsqm: district.avg_ppsqm,
+            count: district.count,
+            rooms: rooms
+          };
+        });
+        
+        res.json(result);
+      });
+    });
+  });
+});
+
 // Get last updated timestamp
 router.get('/last-updated', (req, res) => {
   const db = new sqlite3.Database(DB_PATH, sqlite3.OPEN_READONLY, (err) => {
