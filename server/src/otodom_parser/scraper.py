@@ -19,8 +19,7 @@ logging.basicConfig(
 
 # Define cities to scrape
 CITIES = [
-    "warszawa", "krakow", "wroclaw", "gdansk", 
-    "poznan", "lodz", "katowice", "szczecin"
+    "warszawa", "wroclaw", "gdansk"
 ]
 
 class OtodomScraper:
@@ -332,7 +331,11 @@ class OtodomScraper:
                     logging.debug(f"Found price per sqm (pricePerSqm): {price_per_sqm}")
             else:
                 # Try to calculate price per sqm from total price if available
-                total = self.to_float(offer.get("totalPrice", {}).get("value"))
+                total_price = offer.get("totalPrice")
+                if isinstance(total_price, dict):
+                    total = self.to_float(total_price.get("value"))
+                else:
+                    total = None
                 if total is None:
                     total = self.to_float(offer.get("price"))
                 

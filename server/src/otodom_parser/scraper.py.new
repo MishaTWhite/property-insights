@@ -1,0 +1,630 @@
+import requests
+import time
+import re
+import logging
+import json
+import traceback
+import unicodedata
+from pathlib import Path
+from bs4 import BeautifulSoup
+from typing import Optional, List, Tuple, Dict, Any, Union
+from datetime import datetime
+
+from .db import setup_database, save_listing, clear_listings
+
+# List of major cities in Poland that Otodom has listings for
+CITIES = [
+    "warszawa", "krakow", "lodz", "wroclaw", "poznan", "gdansk", 
+    "szczecin", "bydgoszcz", "lublin", "bialystok", "katowice", 
+    "gdynia", "czestochowa", "radom", "sosnowiec", "torun", 
+    "kielce", "rzeszow", "gliwice", "zabrze", "olsztyn", "sopot"
+]
+
+class OtodomScraper:
+    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False, days_since_created=None):
+        self.debug = debug
+        self.preserve = preserve
+        # Define debug directory relative to script location
+        self.debug_dir = Path(__file__).parent / "debug"
+        self.debug_dir.mkdir(exist_ok=True)
+        self.status = "Ready"
+        self.progress = 0
+        self.error_occurred = False
+        self.headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
+        }
+        self.base_url = "https://www.otodom.pl/pl/oferty/sprzedaz/mieszkanie"
+        self.districts_cache = {}
+        self.city_filter = city_filter
+        self.district_filter = district_filter if district_filter else ["all"]
+        self.district_mode = district_mode.lower()  # "exact" or "prefix"
+        self.room_filter = room_filter
+        self.max_pages = max_pages
+        
+        # Validate days_since_created parameter
+        if days_since_created is not None:
+            try:
+                self.days_since_created = int(days_since_created)
+                if self.days_since_created <= 0:
+                    logging.warning(f"Invalid days_since_created value: {days_since_created}. Must be a positive integer. Ignoring filter.")
+                    self.days_since_created = None
+            except (ValueError, TypeError):
+                logging.warning(f"Invalid days_since_created value: {days_since_created}. Must be a positive integer. Ignoring filter.")
+                self.days_since_created = None
+        else:
+            self.days_since_created = None
+            
+        setup_database()
+
+    def get_districts(self, city):
+        """Get districts for a given city, either from cache or from API"""
+        if city in self.districts_cache:
+            return self.districts_cache[city]
+        
+        # Check if we're trying to scrape all districts or specific ones
+        if city in self.city_filter and "all" not in self.district_filter:
+            # Filter mode: exact or prefix matching
+            if self.district_mode == "exact":
+                return [d for d in self.district_filter]
+            else:  # prefix mode (default)
+                return [f"{d}" for d in self.district_filter]
+        
+        return [""]  # Empty string means no district filter (all districts)
+    
+    def _make_request(self, url, max_retries=3):
+        """Make a request with retry logic"""
+        for attempt in range(max_retries):
+            try:
+                response = requests.get(url, headers=self.headers, timeout=30)
+                response.raise_for_status()
+                return response
+            except requests.exceptions.RequestException as e:
+                if attempt < max_retries - 1:
+                    wait_time = 2 ** attempt  # Exponential backoff
+                    logging.warning(f"Request failed: {str(e)}. Retrying in {wait_time}s...")
+                    time.sleep(wait_time)
+                else:
+                    logging.error(f"Request failed after {max_retries} attempts: {str(e)}")
+                    self.error_occurred = True
+                    return None
+    
+    def to_float(self, v):
+        """Convert string value to float, handling different number formats"""
+        if isinstance(v, (int, float)):
+            return float(v)
+        
+        if not v:
+            return None
+            
+        # Remove whitespace, replace commas with periods for decimal places
+        v = re.sub(r'\s', '', str(v))
+        v = v.replace(',', '.')
+        
+        # Extract just the numeric part
+        match = re.search(r'([\d]+(?:\.[\d]+)?)', v)
+        if match:
+            try:
+                return float(match.group(1))
+            except (ValueError, TypeError):
+                pass
+        return None
+    
+    def extract_offers(self, next_json: dict, city=None, page=None, soup=None) -> list[dict]:
+        """Extract offers from the NEXT_DATA JSON structure.
+        Handles different JSON structures seen on the site.
+        """
+        try:
+            if not next_json:
+                return []
+            
+            props = next_json.get('props', {})
+            
+            # Extraction method 1: direct listing data in pageProps
+            page_props = props.get('pageProps', {})
+            
+            # Try to find AdGridData directly
+            ad_grid_data = page_props.get("data", {}).get("searchAds", {}).get("items", [])
+            
+            if ad_grid_data:
+                return ad_grid_data
+            
+            # Try extracting from searchAdsResult
+            search_ads_result = page_props.get("searchAdsResult", {})
+            if search_ads_result:
+                return search_ads_result.get("items", [])
+            
+            # Try extracting from adSearch or adGridItems (seen in different versions)
+            ad_search = page_props.get("adSearch", {}) or {}
+            if ad_search:
+                return ad_search.get("items", [])
+            
+            # Extraction method 2: check for data in dehydratedState
+            dehydrated_state = props.get('dehydratedState', {})
+            if dehydrated_state:
+                queries = dehydrated_state.get('queries', [])
+                if queries and len(queries) > 0:
+                    # Look for searchAds data in query results
+                    for query in queries:
+                        if 'state' not in query:
+                            continue
+                            
+                        state = query['state']
+                        if not state.get('data'):
+                            continue
+                        
+                        # Try different data structures seen in different versions
+                        data = state['data']
+                        
+                        # Try direct items list
+                        if isinstance(data, list):
+                            return data
+                        
+                        # Try data.searchAds.items
+                        search_ads = data.get('searchAds', {})
+                        if search_ads and 'items' in search_ads:
+                            return search_ads.get('items', [])
+                            
+                        # Try data.searchAdsResult.items
+                        search_result = data.get('searchAdsResult', {}) or {}
+                        if search_result and 'items' in search_result:
+                            return search_result.get('items', [])
+                            
+                        # Try data.listing
+                        listing = data.get('listing', []) 
+                        if listing and isinstance(listing, list):
+                            return listing
+                            
+                        # Try data.adSearch.items
+                        ad_search = data.get('adSearch', {}) or {}
+                        if ad_search and 'items' in ad_search:
+                            return ad_search.get('items', [])
+            
+            # Extraction method 3: embedded JSON from a <script> tag
+            if soup:
+                data_elem_list = soup.select('script[data-type="application/json"]')
+                if data_elem_list:
+                    for data_elem in data_elem_list:
+                        try:
+                            json_data = json.loads(data_elem.string)
+                            if 'props' in json_data:
+                                props_data = json_data['props']
+                                if 'pageProps' in props_data and 'data' in props_data['pageProps']:
+                                    data = props_data['pageProps']['data']
+                                    if 'searchAds' in data:
+                                        return data['searchAds'].get('items', [])
+                        except (json.JSONDecodeError, TypeError, AttributeError):
+                            continue
+                            
+            # Extraction method 4: Try to extract from JSON-LD (structured data)
+            if soup:
+                json_ld_tags = soup.select('script[type="application/ld+json"]')
+                for json_ld_tag in json_ld_tags:
+                    try:
+                        json_data = json.loads(json_ld_tag.string)
+                        if isinstance(json_data, list):
+                            for item in json_data:
+                                if isinstance(item, dict) and item.get('@type') == 'ItemList':
+                                    items = item.get('itemListElement', [])
+                                    if items:
+                                        return items
+                    except (json.JSONDecodeError, TypeError, AttributeError):
+                        continue
+            
+            # If we get here, we couldn't find any listing data
+            if city and page:
+                logging.warning(f"Failed to extract offers for {city} page {page}")
+                
+            return []
+            
+        except Exception as e:
+            logging.error(f"Error extracting offers: {str(e)}")
+            logging.error(traceback.format_exc())
+            return []
+    
+    def safe_lower(self, x, default="unknown"):
+        """Safely convert a value to lowercase string"""
+        if x is None:
+            return default
+        try:
+            return str(x).lower().strip()
+        except:
+            return default
+    
+    def normalize_text(self, text):
+        """Normalize text by removing accents and other diacritics"""
+        if not text:
+            return ""
+        return ''.join(c for c in unicodedata.normalize('NFD', text)
+                      if unicodedata.category(c) != 'Mn').lower()
+    
+    def parse_offer_json(self, offer):
+        """Parse a single offer JSON into a structured dict for database storage"""
+        if not offer:
+            return None
+
+        try:
+            # Extract offer ID - different JSON structures may have this in different places
+            offer_id = None
+            if 'id' in offer:
+                offer_id = offer['id']
+            elif 'slug' in offer:
+                # Extract ID from slug (e.g. "my-listing-123456")
+                slug = offer['slug']
+                id_match = re.search(r'-(\d+)$', slug)
+                if id_match:
+                    offer_id = id_match.group(1)
+                else:
+                    offer_id = slug
+            elif 'item' in offer and isinstance(offer['item'], dict):
+                offer_id = offer['item'].get('id')
+            
+            if not offer_id:
+                logging.warning(f"Could not extract ID from offer: {offer}")
+                return None
+                
+            # Normalize data structure - some versions have nested 'item' or 'listing'
+            data = offer
+            if 'item' in offer:
+                data = offer['item']
+            elif 'listing' in offer:
+                data = offer['listing']
+                
+            # Basic details
+            title = data.get('title', '')
+            
+            # Handle URL - observed in different formats
+            url = data.get('url', None)
+            if not url:
+                slug = data.get('slug', '')
+                if slug:
+                    url = f"https://www.otodom.pl/pl/oferta/{slug}"
+            
+            # Location data
+            address = data.get('address', {}) or {}
+            location = data.get('location', {}) or {}
+            
+            # Combine address info from various possible fields
+            location_parts = []
+            
+            # From address object
+            for field in ['street', 'district', 'city', 'province']:
+                value = address.get(field)
+                if value and value not in location_parts:
+                    location_parts.append(value)
+                    
+            # From location object (varies in different versions)
+            for field in ['address', 'street', 'district', 'subdistrict', 'city', 'province']:
+                value = location.get(field)
+                if value and value not in location_parts:
+                    location_parts.append(value)
+            
+            # Direct location fields at root level
+            for field in ['locationLabel', 'address', 'addressLocality', 'geoPoint']:
+                if field in data and data[field] and data[field] not in location_parts:
+                    location_parts.append(data[field])
+                    
+            # Extract city and district
+            city_name = address.get('city', '') or location.get('city', '')
+            district_name = address.get('district', '') or location.get('district', '')
+            
+            full_address = ", ".join(filter(None, location_parts))
+            
+            # Price information - various formats observed
+            advertised_price = None
+            currency = None
+            
+            # Try different paths to price info
+            price_data = data.get('price', {})
+            if price_data:
+                if isinstance(price_data, dict):
+                    advertised_price = price_data.get('value')
+                    currency = price_data.get('currency', 'PLN')
+                elif isinstance(price_data, (int, float, str)):
+                    advertised_price = self.to_float(price_data)
+                    currency = 'PLN'  # Default currency
+            
+            # Alternative price paths
+            if advertised_price is None:
+                price_value = data.get('priceValue', None) or data.get('totalPrice', None)
+                if price_value is not None:
+                    advertised_price = self.to_float(price_value)
+                    currency = 'PLN'
+            
+            # Property characteristics from various nested structures
+            characteristics = {}
+            
+            # Method 1: target.Property structure
+            target = data.get('target', {}) or {}
+            property_data = target.get('Property', {}) if target else {}
+            
+            if property_data:
+                # Basic details
+                characteristics.update({
+                    'property_type': property_data.get('type', ''),
+                    'area': self.to_float(property_data.get('areaInSquareMeters')),
+                    'rooms': property_data.get('rooms'),
+                    'floor': str(property_data.get('floor', '')),
+                    'rent': self.to_float(property_data.get('rent')),
+                })
+            
+            # Method 2: direct characteristics field
+            char_list = data.get('characteristics', [])
+            if char_list and isinstance(char_list, list):
+                for char in char_list:
+                    if isinstance(char, dict) and 'key' in char:
+                        key = self.safe_lower(char.get('key'))
+                        value = char.get('value')
+                        
+                        # Map common fields
+                        if key in ['powierzchnia', 'area', 'metraz']:
+                            characteristics['area'] = self.to_float(value)
+                        elif key in ['liczba pokoi', 'room_number', 'pokoje', 'rooms']:
+                            try:
+                                characteristics['rooms'] = int(float(str(value).split()[0]))
+                            except (ValueError, TypeError, IndexError):
+                                characteristics['rooms'] = value
+                        elif key in ['piętro', 'floor', 'pietro']:
+                            characteristics['floor'] = value
+                        elif key in ['czynsz', 'rent']:
+                            characteristics['rent'] = self.to_float(value)
+                        else:
+                            characteristics[key] = value
+            
+            # Method 3: check for direct property fields
+            for key, field_name in [
+                ('area', 'area'), 
+                ('areaInSquareMeters', 'area'),
+                ('flatArea', 'area'),
+                ('rooms', 'rooms'),
+                ('roomNumber', 'rooms'),
+                ('floor', 'floor'),
+                ('buildYear', 'year_built')
+            ]:
+                if key in data:
+                    characteristics[field_name] = data[key]
+            
+            # Try to get room number from features (another alternative path)
+            features = data.get('features', [])
+            if features and isinstance(features, list):
+                for feature in features:
+                    if isinstance(feature, dict):
+                        # Check if it looks like room info
+                        label = feature.get('label', '')
+                        if label and ('pokoje' in self.normalize_text(label) or 'rooms' in self.normalize_text(label)):
+                            value = feature.get('value')
+                            try:
+                                characteristics['rooms'] = int(float(str(value).split()[0]))
+                            except (ValueError, TypeError, IndexError):
+                                characteristics['rooms'] = value
+                                
+                        # Check for area info
+                        if label and ('powierzchnia' in self.normalize_text(label) or 'area' in self.normalize_text(label)):
+                            characteristics['area'] = self.to_float(feature.get('value'))
+            
+            # Prepare the result with all available data
+            result = {
+                'offer_id': str(offer_id),
+                'url': url,
+                'title': title,
+                'address': full_address,
+                'city': city_name or "",
+                'district': district_name or "",
+                'advertised_price': advertised_price,
+                'currency': currency or 'PLN',
+                'area': characteristics.get('area'),
+                'price_per_sqm': None,  # Will calculate below if area is available
+                'rooms': characteristics.get('rooms'),
+                'floor': characteristics.get('floor'),
+                'rent': characteristics.get('rent'),
+                'date_scraped': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                'raw_json': json.dumps(offer)  # Store the entire JSON for reference/debugging
+            }
+            
+            # Calculate price per square meter if both price and area are available
+            if result['advertised_price'] is not None and result['area'] is not None and result['area'] > 0:
+                result['price_per_sqm'] = result['advertised_price'] / result['area']
+            
+            return result
+            
+        except Exception as e:
+            logging.error(f"Error parsing offer: {str(e)}")
+            logging.error(traceback.format_exc())
+            return None
+    
+    def scrape_page(self, city, district, page=1):
+        """Scrape a single page of listings"""
+        url_path = f"{self.base_url}/{city}"
+        if district:
+            url_path += f"/{district}"
+        
+        # Start with base query parameters
+        params = [f"page={page}", "viewType=list"]
+        
+        # Add room filter parameters if specified
+        if self.room_filter:
+            room_params = ",".join(str(room) for room in self.room_filter)
+            params.append(f"roomsNumber=%5B{room_params}%5D")
+        
+        # Add days since creation filter if specified
+        if self.days_since_created is not None:
+            params.append(f"daysSinceCreated={self.days_since_created}")
+            
+        # Join all parameters
+        url = f"{url_path}?{'&'.join(params)}"
+        
+        logging.debug(f"Scraping URL: {url}")
+        response = self._make_request(url)
+        if not response:
+            return False, None
+        
+        logging.debug(f"GET {url} -> {response.status_code} {len(response.content)}B")
+        
+        # Parse HTML to find the JSON data
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Find the __NEXT_DATA__ script tag containing JSON data
+        data_script = soup.find("script", id="__NEXT_DATA__")
+        
+        # Save response for offline analysis when in debug mode
+        if self.debug:
+            dump_file = self.debug_dir / f"{city}_{district}_{page}.html"
+            dump_file.write_bytes(response.content)
+            logging.debug(f"Saved raw page → {dump_file}")
+        
+        if not data_script:
+            logging.warning(f"No __NEXT_DATA__ found for {city}/{district} page {page}")
+            return False, 0
+        
+        try:
+            # Parse the JSON data
+            data = json.loads(data_script.string)
+            
+            # Extract offers list using helper function that handles different JSON structures
+            offers = self.extract_offers(data, city=city, page=page, soup=soup)
+            
+            logging.debug(f"offers_found={len(offers)}")
+            
+            if self.debug and offers:
+                # Save JSON for debugging
+                json_dump_file = self.debug_dir / f"{city}_{district}_{page}_data.json"
+                with open(json_dump_file, 'w', encoding='utf-8') as f:
+                    json.dump(offers, f, indent=2, ensure_ascii=False)
+                logging.debug(f"Saved JSON data → {json_dump_file}")
+                
+            # Check if we have more pages
+            has_next_page = False
+            total_pages = 1
+            
+            # Try to find pagination info in different places
+            try:
+                # Method 1: Check pagination directly
+                pagination = data.get('props', {}).get('pageProps', {}).get('pagination', {})
+                if pagination:
+                    total_pages = pagination.get('totalPages', 1)
+                    has_next_page = page < total_pages
+
+                # Method 2: Check searchAdsResult paths
+                if not pagination:
+                    search_result = data.get('props', {}).get('pageProps', {}).get('searchAdsResult', {})
+                    if search_result:
+                        total_pages = search_result.get('pagination', {}).get('totalPages', 1)
+                        has_next_page = page < total_pages
+                
+                # Method 3: Check dehydratedState queries
+                if not has_next_page:
+                    queries = data.get('props', {}).get('dehydratedState', {}).get('queries', [])
+                    if queries:
+                        for query in queries:
+                            if query.get('state', {}).get('data', {}).get('pagination', {}):
+                                total_pages = query['state']['data']['pagination'].get('totalPages', 1)
+                                has_next_page = page < total_pages
+                                break
+                    
+                logging.debug(f"Pagination: page {page}/{total_pages}, has_next={has_next_page}")
+            except Exception as e:
+                logging.warning(f"Error determining pagination: {str(e)}")
+                # Default behavior: continue to next page if we have results
+                has_next_page = bool(offers)
+            
+            # Process each offer
+            successful_saves = 0
+            for offer in offers:
+                try:
+                    parsed_offer = self.parse_offer_json(offer)
+                    if parsed_offer:
+                        save_listing(parsed_offer)
+                        successful_saves += 1
+                except Exception as e:
+                    logging.error(f"Error processing offer: {str(e)}")
+                    logging.error(traceback.format_exc())
+                    
+            logging.info(f"Saved {successful_saves}/{len(offers)} listings from {city}/{district} page {page}")
+            
+            return has_next_page, len(offers)
+        
+        except Exception as e:
+            logging.error(f"Error processing page: {str(e)}")
+            logging.error(traceback.format_exc())
+            self.error_occurred = True
+            return False, None
+    
+    def start_scraping(self, callback=None):
+        """Start the scraping process for all cities and districts"""
+        try:
+            # Clear existing listings if preserve flag is not set
+            if not self.preserve:
+                clear_listings()
+            
+            # Filter cities if city_filter is specified
+            cities_to_scrape = [city for city in CITIES if self.city_filter is None or city.lower() in [c.lower() for c in self.city_filter]]
+            
+            if self.city_filter and not cities_to_scrape:
+                logging.warning(f"None of the specified cities {self.city_filter} match available cities. Using all cities.")
+                cities_to_scrape = CITIES
+            
+            total_cities = len(cities_to_scrape)
+            
+            for city_idx, city in enumerate(cities_to_scrape):
+                logging.info(f"Starting scrape for city: {city}")
+                self.status = f"Starting {city}"
+                self.progress = (city_idx / total_cities) * 100
+                
+                if callback:
+                    callback(self.status, self.progress, self.error_occurred)
+                
+                districts = self.get_districts(city)
+                
+                for district_idx, district in enumerate(districts):
+                    district_name = district if district else "all districts"
+                    logging.info(f"Scraping {city} - {district_name}")
+                    
+                    page = 1
+                    has_next_page = True
+                    
+                    while has_next_page:
+                        self.status = f"{city} - {district_name} p{page}"
+                        total_progress = ((city_idx + (district_idx / len(districts))) / total_cities) * 100
+                        self.progress = total_progress
+                        
+                        if callback:
+                            callback(self.status, self.progress, self.error_occurred)
+                        
+                        logging.info(f"Scraping {city} - {district_name} - page {page}")
+                        has_next_page, listing_count = self.scrape_page(city, district, page)
+                        
+                        if listing_count is None or listing_count == 0:
+                            if page == 1:
+                                logging.info(f"No listings found for {city} - {district_name}, skipping")
+                            break
+                        
+                        page += 1
+                        
+                        # Stop pagination if max_pages is set
+                        if self.max_pages and page > self.max_pages:
+                            logging.info(f"Reached max pages ({self.max_pages}) for {city} - {district_name}")
+                            break
+                            
+                        time.sleep(1.5)  # Sleep between pages to avoid rate limiting
+                
+                logging.info(f"Finished scraping {city}")
+            
+            self.status = "Completed" if not self.error_occurred else "Completed with errors - see log"
+            self.progress = 100
+            
+            if callback:
+                callback(self.status, self.progress, self.error_occurred)
+            
+            logging.info("Scraping process completed")
+            return True
+        
+        except Exception as e:
+            logging.error(f"Scraping process failed: {str(e)}")
+            logging.error(f"Traceback: {traceback.format_exc()}")
+            self.error_occurred = True
+            self.status = "Failed - see log"
+            
+            if callback:
+                callback(self.status, self.progress, self.error_occurred)
+            
+            return False
