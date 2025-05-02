@@ -130,6 +130,128 @@ def get_last_updated_timestamp():
         logging.error(f"Error getting last updated timestamp: {str(e)}")
         return None
 
+def get_all_cities():
+    """Get a list of all distinct cities in the database"""
+    try:
+        conn = get_connection()
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT DISTINCT city FROM listings ORDER BY city')
+        cities = [row[0] for row in cursor.fetchall()]
+        
+        conn.close()
+        return cities
+    except sqlite3.Error as e:
+        logging.error(f"Error getting cities: {str(e)}")
+        return []
+
+def get_city_district_stats(city):
+    """Get district statistics for a specific city, including room breakdowns"""
+    try:
+        conn = get_connection()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        # Execute a single complex query that gets all needed stats in one go
+        cursor.execute('''
+        SELECT 
+            district,
+            COUNT(*) AS count,
+            ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
+            
+            COUNT(CASE WHEN rooms = '1' THEN 1 END) AS room1_count,
+            ROUND(AVG(CASE WHEN rooms = '1' THEN price_per_sqm END), 0) AS room1_avg,
+            
+            COUNT(CASE WHEN rooms = '2' THEN 1 END) AS room2_count,
+            ROUND(AVG(CASE WHEN rooms = '2' THEN price_per_sqm END), 0) AS room2_avg,
+            
+            COUNT(CASE WHEN rooms IS NOT NULL AND rooms != '1' AND rooms != '2' THEN 1 END) AS room3plus_count,
+            ROUND(AVG(CASE WHEN rooms IS NOT NULL AND rooms != '1' AND rooms != '2' THEN price_per_sqm END), 0) AS room3plus_avg
+        FROM 
+            listings
+        WHERE 
+            city = ?
+        GROUP BY 
+            district
+        ORDER BY 
+            avg_ppsqm DESC
+        ''', (city,))
+        
+        rows = cursor.fetchall()
+        results = []
+        
+        for row in rows:
+            # Convert SQLite Row to dictionary and restructure for the API
+            district_data = dict(row)
+            
+            # Create nested room stats structure
+            district_data["rooms"] = {
+                "1": {
+                    "count": district_data.pop("room1_count") or 0,
+                    "avg_ppsqm": district_data.pop("room1_avg")
+                },
+                "2": {
+                    "count": district_data.pop("room2_count") or 0,
+                    "avg_ppsqm": district_data.pop("room2_avg")
+                },
+                "3+": {
+                    "count": district_data.pop("room3plus_count") or 0,
+                    "avg_ppsqm": district_data.pop("room3plus_avg")
+                }
+            }
+            
+            results.append(district_data)
+        
+        conn.close()
+        return results
+    except sqlite3.Error as e:
+        logging.error(f"Error getting district stats: {str(e)}")
+        return []
+
+def get_city_stats(city):
+    """Get overall statistics for a specific city"""
+    try:
+        conn = get_connection()
+        conn.row_factory = sqlite3.Row
+        cursor = conn.cursor()
+        
+        cursor.execute('''
+        SELECT
+            city,
+            ROUND(AVG(price_per_sqm), 0) AS avg_price_sqm,
+            COUNT(*) AS listing_count
+        FROM 
+            listings
+        WHERE
+            city = ?
+        GROUP BY
+            city
+        ''', (city,))
+        
+        result = cursor.fetchone()
+        
+        if result:
+            # Convert to dict for JSON serialization
+            city_stats = dict(result)
+            # Get district stats
+            city_stats["districts"] = get_city_district_stats(city)
+            return city_stats
+        else:
+            return {
+                "city": city,
+                "avg_price_sqm": None,
+                "listing_count": 0,
+                "districts": []
+            }
+    except sqlite3.Error as e:
+        logging.error(f"Error getting city stats: {str(e)}")
+        return {
+            "city": city,
+            "avg_price_sqm": None,
+            "listing_count": 0,
+            "districts": []
+        }
+
 def database_exists():
     """Check if the database file exists"""
     return db_path.exists()

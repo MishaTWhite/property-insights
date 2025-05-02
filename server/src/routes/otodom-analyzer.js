@@ -159,11 +159,12 @@ router.get('/district-rooms', (req, res) => {
     // First get all districts with their stats
     const query = `
       SELECT 
+        city,
         district,
         ROUND(AVG(price_per_sqm), 0) AS avg_ppsqm,
         COUNT(*) AS count
       FROM listings
-      GROUP BY district
+      GROUP BY city, district
       ORDER BY avg_ppsqm DESC
     `;
     
@@ -177,6 +178,7 @@ router.get('/district-rooms', (req, res) => {
       // Now get rooms data for each district
       const roomQuery = `
         SELECT 
+          city,
           district,
           CASE 
             WHEN rooms >= 3 THEN '3+'
@@ -188,7 +190,7 @@ router.get('/district-rooms', (req, res) => {
           COUNT(*) AS count
         FROM listings
         WHERE rooms IS NOT NULL
-        GROUP BY district, room_category
+        GROUP BY city, district, room_category
       `;
       
       db.all(roomQuery, [], (err, roomStats) => {
@@ -201,7 +203,10 @@ router.get('/district-rooms', (req, res) => {
         
         // Merge room stats with district data
         const result = districts.map(district => {
-          const districtRooms = roomStats.filter(r => r.district === district.district);
+          // Match rooms by both city and district to avoid mixing data from different cities
+          const districtRooms = roomStats.filter(r => 
+            r.district === district.district && r.city === district.city
+          );
           
           const rooms = {};
           districtRooms.forEach(room => {
@@ -214,6 +219,7 @@ router.get('/district-rooms', (req, res) => {
           });
           
           return {
+            city: district.city, // Include city in the result
             district: district.district,
             avg_ppsqm: district.avg_ppsqm,
             count: district.count,

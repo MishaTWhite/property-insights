@@ -13,10 +13,11 @@ import {
 } from '@mui/material';
 
 // Component to display district statistics with room data
-function DistrictRoomsTable() {
+function DistrictRoomsTable({ selectedCity }) {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [filteredData, setFilteredData] = useState([]);
 
   // Fetch district rooms data
   useEffect(() => {
@@ -42,6 +43,30 @@ function DistrictRoomsTable() {
     
     fetchData();
   }, []);
+  
+  // Filter data when selectedCity changes
+  useEffect(() => {
+    if (selectedCity && data.length > 0) {
+      const filtered = data.filter(item => 
+        item.city && item.city.toLowerCase() === selectedCity.toLowerCase()
+      );
+      setFilteredData(filtered);
+      
+      // If no data found after filtering, check if there might be a city name mismatch
+      if (filtered.length === 0) {
+        // Try partial matching as a fallback
+        const partialMatched = data.filter(item => 
+          item.city && item.city.toLowerCase().includes(selectedCity.toLowerCase())
+        );
+        
+        if (partialMatched.length > 0) {
+          setFilteredData(partialMatched);
+        }
+      }
+    } else {
+      setFilteredData(data);
+    }
+  }, [selectedCity, data]);
 
   if (loading) {
     return (
@@ -73,7 +98,7 @@ function DistrictRoomsTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((district) => (
+          {filteredData.map((district) => (
             <TableRow key={district.district}>
               <TableCell component="th" scope="row">
                 <Typography variant="body2" fontWeight="medium">

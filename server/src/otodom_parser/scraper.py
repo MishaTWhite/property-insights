@@ -24,8 +24,9 @@ CITIES = [
 ]
 
 class OtodomScraper:
-    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None):
+    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False):
         self.debug = debug
+        self.preserve = preserve
         # Define debug directory relative to script location
         self.debug_dir = Path(__file__).parent / "debug"
         self.debug_dir.mkdir(exist_ok=True)
@@ -575,8 +576,9 @@ class OtodomScraper:
     def start_scraping(self, callback=None):
         """Start the scraping process for all cities and districts"""
         try:
-            # Clear existing listings
-            clear_listings()
+            # Clear existing listings if preserve flag is not set
+            if not self.preserve:
+                clear_listings()
             
             # Filter cities if city_filter is specified
             cities_to_scrape = [city for city in CITIES if self.city_filter is None or city.lower() in [c.lower() for c in self.city_filter]]

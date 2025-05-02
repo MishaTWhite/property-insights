@@ -7,7 +7,8 @@ import {
   Paper, 
   LinearProgress, 
   Table, 
-  TableBody, 
+  TableBody,
+  CircularProgress, 
   TableCell, 
   TableContainer, 
   TableHead, 
@@ -19,10 +20,14 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  TextField
+  TextField,
+  Card,
+  CardContent,
+  Divider
 } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import DistrictRoomsTable from '../components/DistrictRoomsTable';
+import CitySelector from '../components/CitySelector';
 
 // Base URL for API requests
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
@@ -34,6 +39,9 @@ function OtodomAnalyzer() {
   const [isError, setIsError] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [cityData, setCityData] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(null);
+  const [selectedCityStats, setSelectedCityStats] = useState(null);
+  const [loadingCityStats, setLoadingCityStats] = useState(false);
   const [lastUpdated, setLastUpdated] = useState(null);
   const [openErrorLog, setOpenErrorLog] = useState(false);
   const [errorLogContent, setErrorLogContent] = useState('');
@@ -64,6 +72,38 @@ function OtodomAnalyzer() {
     fetchData();
     fetchLastUpdated();
   }, []);
+
+  // Fetch city stats when selected city changes
+  useEffect(() => {
+    if (selectedCity) {
+      fetchCityStats(selectedCity);
+    }
+  }, [selectedCity]);
+
+  // Handle city selection change
+  const handleCityChange = (city) => {
+    setSelectedCity(city);
+  };
+
+  // Fetch stats for a specific city
+  const fetchCityStats = async (city) => {
+    try {
+      setLoadingCityStats(true);
+      const response = await axios.get(`${API_BASE_URL}/otodom-stats/stats?city=${encodeURIComponent(city)}`);
+      setSelectedCityStats(response.data);
+    } catch (error) {
+      console.error('Failed to fetch city stats:', error);
+      showAlert(`Failed to fetch stats for ${city}`, 'error');
+      setSelectedCityStats({
+        city,
+        avg_price_sqm: null,
+        listing_count: 0,
+        districts: []
+      });
+    } finally {
+      setLoadingCityStats(false);
+    }
+  };
 
   // Fetch scraper status
   const fetchStatus = async () => {
@@ -183,6 +223,48 @@ function OtodomAnalyzer() {
     );
   };
 
+  // Render city statistics section
+  const renderCityStats = () => {
+    if (!selectedCityStats) {
+      return (
+        <Typography variant="body1" color="text.secondary" sx={{ my: 2 }}>
+          Select a city to view statistics
+        </Typography>
+      );
+    }
+
+    return (
+      <Card variant="outlined" sx={{ mb: 3 }}>
+        <CardContent>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', mb: 2 }}>
+            <Typography variant="h6" component="div">
+              {selectedCityStats.city}
+            </Typography>
+            <Box>
+              <Typography variant="body1" component="span" sx={{ mr: 2 }}>
+                <strong>Listings:</strong> {selectedCityStats.listing_count}
+              </Typography>
+              <Typography variant="body1" component="span">
+                <strong>Avg Price/m²:</strong> {selectedCityStats.avg_price_sqm ? `${selectedCityStats.avg_price_sqm} zł` : 'N/A'}
+              </Typography>
+            </Box>
+          </Box>
+          
+          <Divider sx={{ my: 2 }} />
+          
+          <Typography variant="subtitle1" gutterBottom>
+            District Statistics by Room Count
+          </Typography>
+          
+          <DistrictRoomsTable 
+            districts={selectedCityStats.districts} 
+            isLoading={loadingCityStats}
+          />
+        </CardContent>
+      </Card>
+    );
+  };
+
   return (
     <Box sx={{ p: 3, maxWidth: 1200, mx: 'auto' }}>
       <Collapse in={openAlert}>
@@ -214,42 +296,105 @@ function OtodomAnalyzer() {
         </Box>
       </Paper>
       
-      <TableContainer component={Paper} sx={{ mb: 3 }}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>City</TableCell>
-              <TableCell align="right">Avg. Price per m² (zł)</TableCell>
-              <TableCell align="right">Listing Count</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {cityData.length > 0 ? (
-              cityData.map((row, index) => (
-                <TableRow key={index}>
-                  <TableCell component="th" scope="row">
-                    {row.city.charAt(0).toUpperCase() + row.city.slice(1)}
-                  </TableCell>
-                  <TableCell align="right">{row.avg_price_sqm.toLocaleString()} zł</TableCell>
-                  <TableCell align="right">{row.listing_count}</TableCell>
-                </TableRow>
-              ))
-            ) : (
+      {/* City Selector Dropdown */}
+      <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
+        <CitySelector 
+          selectedCity={selectedCity} 
+          onCityChange={(city) => {
+            setSelectedCity(city);
+            fetchCityStats(city);
+          }} 
+        />
+        {selectedCity && (
+          <Button 
+            sx={{ ml: 2 }}
+            variant="outlined" 
+            size="small"
+            onClick={() => {
+              setSelectedCity(null);
+              setSelectedCityStats(null);
+            }}
+          >
+            Clear Selection
+          </Button>
+        )}
+      </Box>
+      
+      {!selectedCity ? (
+        // Show the city summary table when no city is selected
+        <TableContainer component={Paper} sx={{ mb: 3 }}>
+          <Table>
+            <TableHead>
               <TableRow>
-                <TableCell colSpan={3} align="center">
-                  No data available. Start scraping to collect data.
-                </TableCell>
+                <TableCell>City</TableCell>
+                <TableCell align="right">Avg. Price per m² (zł)</TableCell>
+                <TableCell align="right">Listing Count</TableCell>
               </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {cityData.length > 0 ? (
+                cityData.map((row, index) => (
+                  <TableRow key={index}>
+                    <TableCell component="th" scope="row">
+                      {row.city.charAt(0).toUpperCase() + row.city.slice(1)}
+                    </TableCell>
+                    <TableCell align="right">{row.avg_price_sqm.toLocaleString()} zł</TableCell>
+                    <TableCell align="right">{row.listing_count}</TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={3} align="center">
+                    No data available. Start scraping to collect data.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      ) : (
+        // Show a summary card when a city is selected
+        <Paper elevation={2} sx={{ p: 3, mb: 3 }}>
+          {loadingCityStats ? (
+            <Box display="flex" justifyContent="center">
+              <CircularProgress size={24} />
+            </Box>
+          ) : selectedCityStats ? (
+            <Box>
+              <Typography variant="h5" gutterBottom>
+                {selectedCityStats.city.charAt(0).toUpperCase() + selectedCityStats.city.slice(1)}
+              </Typography>
+              <Box sx={{ display: 'flex', gap: 4 }}>
+                <Box>
+                  <Typography variant="body2" color="text.secondary">
+                    Listings
+                  </Typography>
+                  <Typography variant="h6">
+                    {selectedCityStats.listing_count}
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography variant="body2" color="text.secondary">
+                    Average Price per m²
+                  </Typography>
+                  <Typography variant="h6">
+                    {selectedCityStats.avg_price_sqm ? `${selectedCityStats.avg_price_sqm.toLocaleString()} zł` : 'N/A'}
+                  </Typography>
+                </Box>
+              </Box>
+            </Box>
+          ) : (
+            <Typography>No data available for this city.</Typography>
+          )}
+        </Paper>
+      )}
       
       {/* District stats with room data */}
       <Typography variant="h6" component="h3" sx={{ mt: 4, mb: 2 }}>
         District Statistics by Room Count
+        {selectedCity && ` - ${selectedCity.charAt(0).toUpperCase() + selectedCity.slice(1)}`}
       </Typography>
-      <DistrictRoomsTable />
+      <DistrictRoomsTable selectedCity={selectedCity} />
       
       <Dialog 
         open={openErrorLog} 

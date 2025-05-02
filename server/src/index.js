@@ -4,6 +4,7 @@ const ratesRoutes = require('./routes/rates');
 const baseRateRoutes = require('./routes/base-rate');
 const bankOffersRoutes = require('./routes/bank-offers');
 const otodomAnalyzerRoutes = require('./routes/otodom-analyzer');
+const otodomStatsRoutes = require('./routes/otodom-stats');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,7 @@ app.use('/api', ratesRoutes);
 app.use('/api', baseRateRoutes);
 app.use('/api', bankOffersRoutes);
 app.use('/api/otodom-analyzer', otodomAnalyzerRoutes);
+app.use('/api/otodom-stats', otodomStatsRoutes);
 
 // Health check endpoint
 app.get('/', (req, res) => {

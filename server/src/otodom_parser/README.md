@@ -10,6 +10,21 @@ To run the scraper normally:
 python run_scraper.py
 ```
 
+### Scraping Multiple Cities Sequentially
+
+To scrape multiple cities without clearing the database between runs (preserving data between runs), use the `--preserve` flag:
+
+```bash
+# First scrape Warsaw
+python run_scraper.py --cities warszawa
+
+# Then add Krakow data without clearing Warsaw data
+python run_scraper.py --cities krakow --preserve
+
+# Then add Wroclaw data
+python run_scraper.py --cities wroclaw --preserve
+```
+
 ## Debug Mode
 
 To run the scraper in debug mode:
