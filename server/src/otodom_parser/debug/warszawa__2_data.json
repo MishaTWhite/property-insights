@@ -1,5 +1,226 @@
 [
   {
+    "id": 66784222,
+    "title": "0% prowizja. Apartament z tarasem i ogródkiem",
+    "slug": "0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow",
+            "fullName": "Mokotów, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow/wierzbno",
+            "fullName": "Wierzbno, Mokotów, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF5ZGt5b3d6c3p6bTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.FoAHldnNbx8bl6ZC_8X6RhtX9Dvo4Dgi5IAaFxHk_xg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF5ZGt5b3d6c3p6bTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.FoAHldnNbx8bl6ZC_8X6RhtX9Dvo4Dgi5IAaFxHk_xg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImsyczAzbDY0ZG1wbzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AhePefH9jf84LQB4WUb3BgXhNfUZNdnzi1RxJvbmyc8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImsyczAzbDY0ZG1wbzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AhePefH9jf84LQB4WUb3BgXhNfUZNdnzi1RxJvbmyc8/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 2,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 6348536,
+      "name": "ALL Estate",
+      "slug": "all-estate-ID6348536",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ6djkwcnY2YjJucDEtQVBMIn0.5o1i62iDK_DEVt2Hj2qM0Fd-TDd1AB9uujgwFgFUfSw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 1163329,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 21555,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 53.97,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 16:22:54",
+    "dateCreatedFirst": "2025-05-04 16:22:44",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Oferujemy różnorodne mieszkania z rynku pierwotnego, dostosowane do potrzeb każdego klienta. Dzięki szerokiemu wyborowi lokalizacji, powierzchni oraz liczby pokoi, każdy znajdzie coś dla siebie.Nasza ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS"
+  },
+  {
+    "id": 66784219,
+    "title": "Nowe Apartamenty w Warszawie – Bez Prowizji!",
+    "slug": "nowe-apartamenty-w-warszawie-bez-prowizji-ID4vdCP",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 100,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie",
+            "fullName": "Praga-Południe, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie/saska-kepa",
+            "fullName": "Saska Kępa, Praga-Południe, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjByeWg5YXB3d3czMjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yolKehi3LUq4MPz6dY_myXV1fMlXnpk7qV534pzal90/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjByeWg5YXB3d3czMjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yolKehi3LUq4MPz6dY_myXV1fMlXnpk7qV534pzal90/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 1,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 6348536,
+      "name": "ALL Estate",
+      "slug": "all-estate-ID6348536",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ6djkwcnY2YjJucDEtQVBMIn0.5o1i62iDK_DEVt2Hj2qM0Fd-TDd1AB9uujgwFgFUfSw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 800000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": null,
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 13333,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 60,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "SEVENTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 16:22:33",
+    "dateCreatedFirst": "2025-05-04 16:22:27",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Szukasz wymarzonego mieszkania? Mamy dla Ciebie najlepsze oferty apartamentów z rynku pierwotnego w całej Warszawie! ✅ Atrakcyjne ceny ✅ Różne metraże i lokalizacje – idealne dla rodzin i inwestorów ✅...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/nowe-apartamenty-w-warszawie-bez-prowizji-ID4vdCP"
+  },
+  {
     "id": 66784127,
     "title": "Mieszkanie 2-pokojowe z balkonem",
     "slug": "mieszkanie-2-pokojowe-z-balkonem-ID4vdBl",
@@ -3931,130 +4152,9 @@
     "href": "[lang]/ad/2-pokoje-metro-chodecka-bezposrednio-po-remoncie-ID4vdoW"
   },
   {
-    "id": 66783345,
-    "title": "Białołęka  Mehoffera 49,5m2 2 pok Balkon Nowe Bud",
-    "slug": "bialoleka-mehoffera-49-5m2-2-pok-balkon-nowe-bud-ID4vdoJ",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 0,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": {
-          "name": "ul. Józefa Mehoffera",
-          "number": "",
-          "__typename": "Street"
-        },
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/bialoleka",
-            "fullName": "Białołęka, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/bialoleka/dabrowka-szlachecka",
-            "fullName": "Dąbrówka Szlachecka, Białołęka, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtoZXF0bDFwanV2ajMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QYP_yMf1A0iusad6-H6gZnjTbUtl1vfHPdrZ4d-siik/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtoZXF0bDFwanV2ajMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QYP_yMf1A0iusad6-H6gZnjTbUtl1vfHPdrZ4d-siik/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNoM2drZmowNnM4czMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1M4CQ65F-2dyAdogHuGuqvqhVrrpN2ZFysrroOJlMfo/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNoM2drZmowNnM4czMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1M4CQ65F-2dyAdogHuGuqvqhVrrpN2ZFysrroOJlMfo/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 13,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:imo-qa",
-    "agency": {
-      "id": 1315157,
-      "name": "Forma Estates",
-      "slug": "forma-estates-ID1315157",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InpjOHk0dDl2Y2QwbTEtQVBMIn0.QSedX8ic3Fwzmo7uCRK20d76oPfI-BetNUdioGFQuIQ/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 689800,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 630,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 13935,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 49.5,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "SECOND",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 07:05:01",
-    "dateCreatedFirst": "2025-05-04 07:02:53",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "Warszawa Białołęka , ul. Mehoffera 49,5m2, 2 pokoje + BALKON  do zamieszkaniaWE SPEAK ENGLISHZapraszamy do zapoznania się z ofertą widnego, przytulnego i ustawnego mieszkania na warszawskiej Białołęce...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/bialoleka-mehoffera-49-5m2-2-pok-balkon-nowe-bud-ID4vdoJ"
-  },
-  {
-    "id": 66783306,
-    "title": "Toruń, Rynek Staromiejski, inwestycja",
-    "slug": "torun-rynek-staromiejski-inwestycja-ID4vdo6",
+    "id": 966784222000,
+    "title": "0% prowizja. Apartament z tarasem i ogródkiem",
+    "slug": "0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS",
     "estate": "FLAT",
     "development": null,
     "developmentId": 0,
@@ -4091,130 +4191,13 @@
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie",
-            "fullName": "Śródmieście, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow",
+            "fullName": "Mokotów, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie/srodmiescie-poludniowe",
-            "fullName": "Śródmieście Południowe, Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNsOHB3eWN6M3ZsejItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.73oH72AANRe0PhNEzUuoTNXrskEcUsrEjpwE1YnAPRk/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNsOHB3eWN6M3ZsejItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.73oH72AANRe0PhNEzUuoTNXrskEcUsrEjpwE1YnAPRk/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlnMjVnMHVyZjhkMS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Bg0YOaCE3melWAVcDAHax4HCC-JFmMpVU6FgFR2Yw0g/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImlnMjVnMHVyZjhkMS1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.Bg0YOaCE3melWAVcDAHax4HCC-JFmMpVU6FgFR2Yw0g/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 14,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:esticrm",
-    "agency": {
-      "id": 9835458,
-      "name": "LAROCA Nieruchomości",
-      "slug": "laroca-nieruchomosci-ID9835458",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImR6djd6YnY3aGU0ZS1BUEwifQ.FEJDg2Bd7UwZKvjDovpuv49SVn-2LHU8ej0q0m9qH2E/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 685000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 250,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 9579,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 71.51,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "FIRST",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 01:30:27",
-    "dateCreatedFirst": "2025-05-04 01:30:14",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "Mieszkanie na sprzedaż * 71.58 m2 * 2 pokoje * Toruń Stare MiastoMieszkanie zlokalizowane w samym sercu Starego Miasta w Toruniu. To idealna propozycja zarówno dla osób szukających unikalnego miejsca ...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/torun-rynek-staromiejski-inwestycja-ID4vdo6"
-  },
-  {
-    "id": 966784127000,
-    "title": "Mieszkanie 2-pokojowe z balkonem",
-    "slug": "mieszkanie-2-pokojowe-z-balkonem-ID4vdBl",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 500,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": null,
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/wlochy",
-            "fullName": "Włochy, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/wlochy/okecie",
-            "fullName": "Okęcie, Włochy, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow/wierzbno",
+            "fullName": "Wierzbno, Mokotów, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           }
         ],
@@ -4223,42 +4206,51 @@
       "__typename": "LocationDetails"
     },
     "images": [],
-    "totalPossibleImages": 4,
+    "totalPossibleImages": 2,
     "isExclusiveOffer": false,
-    "isPrivateOwner": true,
+    "isPrivateOwner": false,
     "isPromoted": false,
-    "source": "urn:site:local",
-    "agency": null,
+    "source": "urn:partner:asari",
+    "agency": {
+      "id": 6348536,
+      "name": "ALL Estate",
+      "slug": "all-estate-ID6348536",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ6djkwcnY2YjJucDEtQVBMIn0.5o1i62iDK_DEVt2Hj2qM0Fd-TDd1AB9uujgwFgFUfSw/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
     "openDays": "",
     "totalPrice": {
-      "value": 645000,
+      "value": 1163329,
       "currency": "PLN",
       "__typename": "Money"
     },
     "rentPrice": null,
     "priceFromPerSquareMeter": null,
     "pricePerSquareMeter": {
-      "value": 18860,
+      "value": 21555,
       "currency": "PLN",
       "__typename": "Money"
     },
-    "areaInSquareMeters": 34.2,
+    "areaInSquareMeters": 53.97,
     "terrainAreaInSquareMeters": null,
     "roomsNumber": "TWO",
     "hidePrice": false,
-    "floorNumber": null,
+    "floorNumber": "GROUND",
     "investmentState": null,
     "investmentUnitsAreaInSquareMeters": null,
     "peoplePerRoom": null,
     "dateCreated": "1999-02-29 00:00:01",
-    "dateCreatedFirst": "2025-05-04 15:40:25",
+    "dateCreatedFirst": "2025-05-04 16:22:44",
     "investmentUnitsNumber": null,
     "investmentUnitsRoomsNumber": null,
     "investmentEstimatedDelivery": null,
     "pushedUpAt": null,
     "specialOffer": null,
-    "shortDescription": "Mieszkanie położne na warszawskich Włochach, ul. Jutrzenki. 2-pokojowe, z aneksem kuchennym i wyjściem na balkon. Wyposażone oraz funkcjonalnie i stylowo umeblowane. Zapraszam do kontaktu w celu pozna...",
+    "shortDescription": "Oferujemy różnorodne mieszkania z rynku pierwotnego, dostosowane do potrzeb każdego klienta. Dzięki szerokiemu wyborowi lokalizacji, powierzchni oraz liczby pokoi, każdy znajdzie coś dla siebie.Nasza ...",
     "__typename": "AdvertListItem",
-    "href": "hpr/[lang]/ad/mieszkanie-2-pokojowe-z-balkonem-ID4vdBl"
+    "href": "hpr/[lang]/ad/0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS"
   }
 ]

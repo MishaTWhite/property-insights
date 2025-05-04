@@ -169,12 +169,30 @@ class OtodomScraper:
         # Join all parameters
         url = f"{url_path}?{'&'.join(params)}"
         
-        logging.debug(f"Scraping URL: {url}")
+        logging.debug(f"Requesting page {page} with filter URL: {url}")
         response = self._make_request(url)
         if not response:
             return False, None
         
-        logging.debug(f"GET {url} -> {response.status_code} {len(response.content)}B")
+        # Check if we were redirected and log the final URL
+        final_url = response.url
+        if url != final_url:
+            logging.warning(f"URL was redirected: {url} -> {final_url}")
+            # Ensure daysSinceCreated parameter is still present in the final URL
+            if f"daysSinceCreated={self.days_filter}" not in final_url:
+                logging.error(f"Critical: daysSinceCreated filter was lost in redirect for page {page}!")
+                # Re-add the days filter parameter if it's missing
+                if "?" in final_url:
+                    final_url = f"{final_url}&daysSinceCreated={self.days_filter}"
+                else:
+                    final_url = f"{final_url}?daysSinceCreated={self.days_filter}"
+                # Make a new request with the corrected URL
+                logging.debug(f"Retrying with corrected URL: {final_url}")
+                response = self._make_request(final_url)
+                if not response:
+                    return False, None
+        
+        logging.debug(f"GET {response.url} -> {response.status_code} {len(response.content)}B")
         
         # Parse HTML to find the JSON data
         soup = BeautifulSoup(response.text, 'html.parser')

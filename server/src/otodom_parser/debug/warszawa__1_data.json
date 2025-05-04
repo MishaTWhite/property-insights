@@ -1,5 +1,229 @@
 [
   {
+    "id": 66784952,
+    "title": "Po generalnym remoncie, piękne mieszkanie i piękna okolica :-)",
+    "slug": "po-generalnym-remoncie-piekne-mieszkanie-i-piekna-okolica-ID4vdOE",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Jana Kochanowskiego",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bielany",
+            "fullName": "Bielany, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bielany/piaski",
+            "fullName": "Piaski, Bielany, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imw3Z3c0bzd3d2ZycDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJagBpnUlWSL27V5nu0WZ9hnnaBnsUaXDMGja5HlTBU/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imw3Z3c0bzd3d2ZycDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yJagBpnUlWSL27V5nu0WZ9hnnaBnsUaXDMGja5HlTBU/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjY0bmFlZWhyOWZ5MzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Jd8PlwmGDeOWuVFYXHV2Z841ILT8QUGAzFGi26Uh--w/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjY0bmFlZWhyOWZ5MzMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Jd8PlwmGDeOWuVFYXHV2Z841ILT8QUGAzFGi26Uh--w/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 20,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 729000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 50388,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 19973,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 36.5,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 21:11:17",
+    "dateCreatedFirst": "2025-05-04 21:07:09",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Przedstawiamy Państwu ofertę wyjątkowego mieszkania w środku parku na granicy Bielan i Żoliborza. Mieszkanie jest po generalnym remoncie. Miała miejsce wymiana wszystkich okien (obecnie są antywłamani...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/po-generalnym-remoncie-piekne-mieszkanie-i-piekna-okolica-ID4vdOE"
+  },
+  {
+    "id": 66784946,
+    "title": "Apartament dwupoziomowy BEZPOŚREDNIO 101,24m2",
+    "slug": "apartament-dwupoziomowy-bezposrednio-101-24m2-ID4vdOy",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Liwiecka",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie",
+            "fullName": "Praga-Południe, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie/goclawek",
+            "fullName": "Gocławek, Praga-Południe, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5vamNma3lyMzlhbzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.b7DAxTBYnXihEL1yl8jaPcsHjG6gqg4mN0VlLODOHUA/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im5vamNma3lyMzlhbzEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.b7DAxTBYnXihEL1yl8jaPcsHjG6gqg4mN0VlLODOHUA/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imc4MHB2ODdrZ253ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KG8379vbEXdm6RJhgAlhgJtHpEYo6P7q3EV28Vsro7c/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imc4MHB2ODdrZ253ODEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.KG8379vbEXdm6RJhgAlhgJtHpEYo6P7q3EV28Vsro7c/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 9,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 1650000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 1800,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 16298,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 101.24,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": null,
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 21:06:58",
+    "dateCreatedFirst": "2025-05-04 21:05:06",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż piękny, doskonale nasłoneczniony i przestrzenny, dwupoziomowy apartament o powierzchni 101,24 m² . Sprzedaż bezpośredniaTen wyjątkowy apartament to połączenie najwyższej jakości wykończeni...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/apartament-dwupoziomowy-bezposrednio-101-24m2-ID4vdOy"
+  },
+  {
     "id": 66784822,
     "title": "Trzypokojowe mieszkanie na Woli (Ulrychów - Metro Księcia Janusza)",
     "slug": "trzypokojowe-mieszkanie-na-woli-ulrychow-metro-ksiecia-janusza-ID4vdMy",
@@ -920,248 +1144,6 @@
     "href": "[lang]/ad/nowe-budownictwo-metro-ulrychow-370cm-wys-ID4vdLb"
   },
   {
-    "id": 66784733,
-    "title": "Kamienica | Metro | Rewitalizacja | Do Wejścia",
-    "slug": "kamienica-metro-rewitalizacja-do-wejscia-ID4vdL7",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 0,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": {
-          "name": "ul. Zachariasza",
-          "number": "",
-          "__typename": "Street"
-        },
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc",
-            "fullName": "Praga-Północ, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc/szmulowizna",
-            "fullName": "Szmulowizna, Praga-Północ, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inl4ZGtxYnpieGJ3aDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Olp6xnho7L5cPa8cT9l655ZrmLI7xKcYUOh979aZo5Q/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inl4ZGtxYnpieGJ3aDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Olp6xnho7L5cPa8cT9l655ZrmLI7xKcYUOh979aZo5Q/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImhwcjZhOTg3NGdiei1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.6FxSdqZ6siVjuRdjW7ztMgVtM5y7p_C_w2gTMKVeJBo/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImhwcjZhOTg3NGdiei1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.6FxSdqZ6siVjuRdjW7ztMgVtM5y7p_C_w2gTMKVeJBo/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 7,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:esticrm",
-    "agency": {
-      "id": 8570469,
-      "name": "The Estate Warsaw",
-      "slug": "the-estate-warsaw-ID8570469",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZuNHcxM2YwdGc0cC1BUEwifQ.uf1kK1ScN55eyu1_C0mc307mqT4sr6TY-ZqIh8wgqIU/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 382000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 325,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 17960,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 21.27,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "ONE",
-    "hidePrice": false,
-    "floorNumber": "GROUND",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 19:45:45",
-    "dateCreatedFirst": "2025-05-04 19:45:35",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "*Wyłącznie u nas*Szukasz umeblowanego mieszkania w rewitalizowanej kamienicy? Trafiłeś idealnie.Chcesz umówić prezentację? Dzwoń -&gt; 881 353 685Potrzebujesz bardziej szczegółowych informacji? Wyślij...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/kamienica-metro-rewitalizacja-do-wejscia-ID4vdL7"
-  },
-  {
-    "id": 66784730,
-    "title": "Kamienica | Metro | Rewitalizacja | Stan Surowy",
-    "slug": "kamienica-metro-rewitalizacja-stan-surowy-ID4vdL4",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 0,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": {
-          "name": "ul. Zachariasza",
-          "number": "",
-          "__typename": "Street"
-        },
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc",
-            "fullName": "Praga-Północ, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc/szmulowizna",
-            "fullName": "Szmulowizna, Praga-Północ, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVqbDQ3dm5pZ2Z6YzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZV6FbWRe5ZNkYiM0yGsy6xcDqsKoxAbozUomeLwAOdg/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVqbDQ3dm5pZ2Z6YzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZV6FbWRe5ZNkYiM0yGsy6xcDqsKoxAbozUomeLwAOdg/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjA5YmI3c2x6bnAycjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._Q30gCnw-2k085UT4xFuoYaPkL4QvHbBNfcA6ewfeHo/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjA5YmI3c2x6bnAycjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._Q30gCnw-2k085UT4xFuoYaPkL4QvHbBNfcA6ewfeHo/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 4,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:esticrm",
-    "agency": {
-      "id": 8570469,
-      "name": "The Estate Warsaw",
-      "slug": "the-estate-warsaw-ID8570469",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZuNHcxM2YwdGc0cC1BUEwifQ.uf1kK1ScN55eyu1_C0mc307mqT4sr6TY-ZqIh8wgqIU/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 399000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 418,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 14615,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 27.3,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "ONE",
-    "hidePrice": false,
-    "floorNumber": "FOURTH",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 19:45:45",
-    "dateCreatedFirst": "2025-05-04 19:45:35",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "*Wyłącznie u nas*Szukasz mieszkania w rewitalizowanej kamienicy? Trafiłeś idealnie.Chcesz umówić prezentację? Dzwoń -&gt; 881 353 685Potrzebujesz bardziej szczegółowych informacji? Wyślij zapytanie e-...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/kamienica-metro-rewitalizacja-stan-surowy-ID4vdL4"
-  },
-  {
     "id": 66784732,
     "title": "Kamienica | Metro | Rewitalizacja | Do Wejścia",
     "slug": "kamienica-metro-rewitalizacja-do-wejscia-ID4vdL6",
@@ -1523,6 +1505,248 @@
     "shortDescription": "*Wyłącznie u nas*Szukasz klimatycznego mieszkania w prestiżowej lokalizacji? Zależy Ci na wyjątkowym wnętrzu, świetnej komunikacji i otoczeniu pełnym zieleni? Nie mogłeś lepiej trafić!Chcesz umówić pr...",
     "__typename": "AdvertListItem",
     "href": "[lang]/ad/stary-mokotow-kamienica-umeblowane-metro-ID4vdL8"
+  },
+  {
+    "id": 66784733,
+    "title": "Kamienica | Metro | Rewitalizacja | Do Wejścia",
+    "slug": "kamienica-metro-rewitalizacja-do-wejscia-ID4vdL7",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Zachariasza",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc",
+            "fullName": "Praga-Północ, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc/szmulowizna",
+            "fullName": "Szmulowizna, Praga-Północ, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inl4ZGtxYnpieGJ3aDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Olp6xnho7L5cPa8cT9l655ZrmLI7xKcYUOh979aZo5Q/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inl4ZGtxYnpieGJ3aDMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Olp6xnho7L5cPa8cT9l655ZrmLI7xKcYUOh979aZo5Q/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImhwcjZhOTg3NGdiei1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.6FxSdqZ6siVjuRdjW7ztMgVtM5y7p_C_w2gTMKVeJBo/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImhwcjZhOTg3NGdiei1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.6FxSdqZ6siVjuRdjW7ztMgVtM5y7p_C_w2gTMKVeJBo/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 7,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 8570469,
+      "name": "The Estate Warsaw",
+      "slug": "the-estate-warsaw-ID8570469",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZuNHcxM2YwdGc0cC1BUEwifQ.uf1kK1ScN55eyu1_C0mc307mqT4sr6TY-ZqIh8wgqIU/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 382000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 325,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 17960,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 21.27,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 19:45:45",
+    "dateCreatedFirst": "2025-05-04 19:45:35",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "*Wyłącznie u nas*Szukasz umeblowanego mieszkania w rewitalizowanej kamienicy? Trafiłeś idealnie.Chcesz umówić prezentację? Dzwoń -&gt; 881 353 685Potrzebujesz bardziej szczegółowych informacji? Wyślij...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/kamienica-metro-rewitalizacja-do-wejscia-ID4vdL7"
+  },
+  {
+    "id": 66784730,
+    "title": "Kamienica | Metro | Rewitalizacja | Stan Surowy",
+    "slug": "kamienica-metro-rewitalizacja-stan-surowy-ID4vdL4",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Zachariasza",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc",
+            "fullName": "Praga-Północ, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--polnoc/szmulowizna",
+            "fullName": "Szmulowizna, Praga-Północ, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVqbDQ3dm5pZ2Z6YzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZV6FbWRe5ZNkYiM0yGsy6xcDqsKoxAbozUomeLwAOdg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImVqbDQ3dm5pZ2Z6YzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.ZV6FbWRe5ZNkYiM0yGsy6xcDqsKoxAbozUomeLwAOdg/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjA5YmI3c2x6bnAycjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._Q30gCnw-2k085UT4xFuoYaPkL4QvHbBNfcA6ewfeHo/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjA5YmI3c2x6bnAycjItRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._Q30gCnw-2k085UT4xFuoYaPkL4QvHbBNfcA6ewfeHo/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 4,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:partner:esticrm",
+    "agency": {
+      "id": 8570469,
+      "name": "The Estate Warsaw",
+      "slug": "the-estate-warsaw-ID8570469",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjZuNHcxM2YwdGc0cC1BUEwifQ.uf1kK1ScN55eyu1_C0mc307mqT4sr6TY-ZqIh8wgqIU/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": true,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 399000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 418,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 14615,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 27.3,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "ONE",
+    "hidePrice": false,
+    "floorNumber": "FOURTH",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 19:45:45",
+    "dateCreatedFirst": "2025-05-04 19:45:35",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "*Wyłącznie u nas*Szukasz mieszkania w rewitalizowanej kamienicy? Trafiłeś idealnie.Chcesz umówić prezentację? Dzwoń -&gt; 881 353 685Potrzebujesz bardziej szczegółowych informacji? Wyślij zapytanie e-...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/kamienica-metro-rewitalizacja-stan-surowy-ID4vdL4"
   },
   {
     "id": 66784729,
@@ -2217,8 +2441,8 @@
   },
   {
     "id": 66784641,
-    "title": "Mieszkanie na sprzedaż 2 pokoje + garaż",
-    "slug": "mieszkanie-na-sprzedaz-2-pokoje-garaz-ID4vdJD",
+    "title": "Mieszkanie na sprzedaż 2 pokoje + garaż BEZPOŚREDNIO",
+    "slug": "mieszkanie-na-sprzedaz-2-pokoje-garaz-bezposrednio-ID4vdJD",
     "estate": "FLAT",
     "development": null,
     "developmentId": 0,
@@ -2275,13 +2499,13 @@
     },
     "images": [
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndvZXo4ZjFkMjlqZC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.mZYi3PaLeIO8T27qP8bfYis6AwwFZYLEnKdv2F-E-GA/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IndvZXo4ZjFkMjlqZC1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.mZYi3PaLeIO8T27qP8bfYis6AwwFZYLEnKdv2F-E-GA/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNsa3p0aGZ2dmplbTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5ToKV75RTx3GLqML8j-rQOC4q-Us_EnBdJp0arrxQcg/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InNsa3p0aGZ2dmplbTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.5ToKV75RTx3GLqML8j-rQOC4q-Us_EnBdJp0arrxQcg/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       },
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd2eDQ2eTE0NmdoNzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.NWhXkPJDhRzh0Z5FgyUTMShEapG52Ax_pGOt06TgsxM/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijd2eDQ2eTE0NmdoNzItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.NWhXkPJDhRzh0Z5FgyUTMShEapG52Ax_pGOt06TgsxM/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN0aWVxeG90bnEyZjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.HCEACRhMKp_qlUf2YxKNlqeLv2bncB4yRDVLpDPCNc8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImN0aWVxeG90bnEyZjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.HCEACRhMKp_qlUf2YxKNlqeLv2bncB4yRDVLpDPCNc8/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       }
     ],
@@ -2325,7 +2549,7 @@
     "specialOffer": null,
     "shortDescription": "Atrakcyjne, przytulne i gotowe do wprowadzenia mieszkanie z balkonem i garażem w inwestycji Młody Wilanów. Idealna propozycja dla osób, które cenią sobie spokój i dogodny dojazd do centrum. W pobliżu ...",
     "__typename": "AdvertListItem",
-    "href": "[lang]/ad/mieszkanie-na-sprzedaz-2-pokoje-garaz-ID4vdJD"
+    "href": "[lang]/ad/mieszkanie-na-sprzedaz-2-pokoje-garaz-bezposrednio-ID4vdJD"
   },
   {
     "id": 66784629,
@@ -3948,230 +4172,9 @@
     "href": "[lang]/ad/sloneczne-mieszkanie-z-silownia-i-basenem-miejsce-parkingowe-w-cenie-ID4vdDB"
   },
   {
-    "id": 66784222,
-    "title": "0% prowizja. Apartament z tarasem i ogródkiem",
-    "slug": "0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 100,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": null,
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow",
-            "fullName": "Mokotów, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/mokotow/wierzbno",
-            "fullName": "Wierzbno, Mokotów, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF5ZGt5b3d6c3p6bTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.FoAHldnNbx8bl6ZC_8X6RhtX9Dvo4Dgi5IAaFxHk_xg/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InF5ZGt5b3d6c3p6bTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.FoAHldnNbx8bl6ZC_8X6RhtX9Dvo4Dgi5IAaFxHk_xg/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImsyczAzbDY0ZG1wbzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AhePefH9jf84LQB4WUb3BgXhNfUZNdnzi1RxJvbmyc8/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImsyczAzbDY0ZG1wbzEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AhePefH9jf84LQB4WUb3BgXhNfUZNdnzi1RxJvbmyc8/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 2,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:asari",
-    "agency": {
-      "id": 6348536,
-      "name": "ALL Estate",
-      "slug": "all-estate-ID6348536",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ6djkwcnY2YjJucDEtQVBMIn0.5o1i62iDK_DEVt2Hj2qM0Fd-TDd1AB9uujgwFgFUfSw/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 1163329,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": null,
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 21555,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 53.97,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "GROUND",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 16:22:54",
-    "dateCreatedFirst": "2025-05-04 16:22:44",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "Oferujemy różnorodne mieszkania z rynku pierwotnego, dostosowane do potrzeb każdego klienta. Dzięki szerokiemu wyborowi lokalizacji, powierzchni oraz liczby pokoi, każdy znajdzie coś dla siebie.Nasza ...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/0-prowizja-apartament-z-tarasem-i-ogrodkiem-ID4vdCS"
-  },
-  {
-    "id": 66784219,
-    "title": "Nowe Apartamenty w Warszawie – Bez Prowizji!",
-    "slug": "nowe-apartamenty-w-warszawie-bez-prowizji-ID4vdCP",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 100,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": null,
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie",
-            "fullName": "Praga-Południe, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/praga--poludnie/saska-kepa",
-            "fullName": "Saska Kępa, Praga-Południe, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjByeWg5YXB3d3czMjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yolKehi3LUq4MPz6dY_myXV1fMlXnpk7qV534pzal90/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjByeWg5YXB3d3czMjMtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.yolKehi3LUq4MPz6dY_myXV1fMlXnpk7qV534pzal90/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 1,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:partner:asari",
-    "agency": {
-      "id": 6348536,
-      "name": "ALL Estate",
-      "slug": "all-estate-ID6348536",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImZ6djkwcnY2YjJucDEtQVBMIn0.5o1i62iDK_DEVt2Hj2qM0Fd-TDd1AB9uujgwFgFUfSw/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 800000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": null,
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 13333,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 60,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "SEVENTH",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 16:22:33",
-    "dateCreatedFirst": "2025-05-04 16:22:27",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "Szukasz wymarzonego mieszkania? Mamy dla Ciebie najlepsze oferty apartamentów z rynku pierwotnego w całej Warszawie! ✅ Atrakcyjne ceny ✅ Różne metraże i lokalizacje – idealne dla rodzin i inwestorów ✅...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/nowe-apartamenty-w-warszawie-bez-prowizji-ID4vdCP"
-  },
-  {
-    "id": 966784822000,
-    "title": "Trzypokojowe mieszkanie na Woli (Ulrychów - Metro Księcia Janusza)",
-    "slug": "trzypokojowe-mieszkanie-na-woli-ulrychow-metro-ksiecia-janusza-ID4vdMy",
+    "id": 966784952000,
+    "title": "Po generalnym remoncie, piękne mieszkanie i piękna okolica :-)",
+    "slug": "po-generalnym-remoncie-piekne-mieszkanie-i-piekna-okolica-ID4vdOE",
     "estate": "FLAT",
     "development": null,
     "developmentId": 0,
@@ -4185,7 +4188,7 @@
       },
       "address": {
         "street": {
-          "name": "ul. Pustola",
+          "name": "ul. Jana Kochanowskiego",
           "number": "",
           "__typename": "Street"
         },
@@ -4212,13 +4215,13 @@
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/wola",
-            "fullName": "Wola, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bielany",
+            "fullName": "Bielany, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/wola/ulrychow",
-            "fullName": "Ulrychów, Wola, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bielany/piaski",
+            "fullName": "Piaski, Bielany, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           }
         ],
@@ -4227,7 +4230,7 @@
       "__typename": "LocationDetails"
     },
     "images": [],
-    "totalPossibleImages": 12,
+    "totalPossibleImages": 20,
     "isExclusiveOffer": false,
     "isPrivateOwner": true,
     "isPromoted": true,
@@ -4235,38 +4238,38 @@
     "agency": null,
     "openDays": "",
     "totalPrice": {
-      "value": 870000,
+      "value": 729000,
       "currency": "PLN",
       "__typename": "Money"
     },
     "rentPrice": {
-      "value": 1040,
+      "value": 50388,
       "currency": "PLN",
       "__typename": "Money"
     },
     "priceFromPerSquareMeter": null,
     "pricePerSquareMeter": {
-      "value": 15919,
+      "value": 19973,
       "currency": "PLN",
       "__typename": "Money"
     },
-    "areaInSquareMeters": 54.65,
+    "areaInSquareMeters": 36.5,
     "terrainAreaInSquareMeters": null,
     "roomsNumber": "THREE",
     "hidePrice": false,
-    "floorNumber": "FOURTH",
+    "floorNumber": "GROUND",
     "investmentState": null,
     "investmentUnitsAreaInSquareMeters": null,
     "peoplePerRoom": null,
     "dateCreated": "1999-02-29 00:00:01",
-    "dateCreatedFirst": "2025-05-04 20:18:08",
+    "dateCreatedFirst": "2025-05-04 21:07:09",
     "investmentUnitsNumber": null,
     "investmentUnitsRoomsNumber": null,
     "investmentEstimatedDelivery": null,
     "pushedUpAt": null,
     "specialOffer": null,
-    "shortDescription": "Sprzedam bezpośrednio mieszkanie 3 - pokoje z oddzielną kuchnią położone w spokojnej, zielonej i dobrze skomunikowanej okolicy.Mieszkanie znajduje się w zadbanym bloku z lat 60 (Rama-H), na czwartym p...",
+    "shortDescription": "Przedstawiamy Państwu ofertę wyjątkowego mieszkania w środku parku na granicy Bielan i Żoliborza. Mieszkanie jest po generalnym remoncie. Miała miejsce wymiana wszystkich okien (obecnie są antywłamani...",
     "__typename": "AdvertListItem",
-    "href": "hpr/[lang]/ad/trzypokojowe-mieszkanie-na-woli-ulrychow-metro-ksiecia-janusza-ID4vdMy"
+    "href": "hpr/[lang]/ad/po-generalnym-remoncie-piekne-mieszkanie-i-piekna-okolica-ID4vdOE"
   }
 ]
