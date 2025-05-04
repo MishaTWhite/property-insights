@@ -5,6 +5,7 @@ import logging
 import sqlite3
 from pathlib import Path
 from typing import Optional, Dict, Any
+from datetime import datetime
 
 # Import database setup functions and path
 from ..db import setup_database, db_path
@@ -64,14 +65,14 @@ def insert_listing(
             price_per_sqm INTEGER,
             floor INTEGER,
             rooms INTEGER,
-            timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+            scraped_at TEXT
         )
         """)
         
         # Insert the listing
         cursor.execute(
-            "INSERT INTO listings (city, district, district_parent, area, price_per_sqm, floor, rooms) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            (city, district, district_parent, area, price_per_sqm, floor, rooms)
+            "INSERT INTO listings (city, district, district_parent, area, price_per_sqm, floor, rooms, scraped_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (city, district, district_parent, area, price_per_sqm, floor, rooms, datetime.utcnow().isoformat())
         )
         
         conn.commit()

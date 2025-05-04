@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const fs = require('fs');
 
 const router = express.Router();
-const DB_PATH = path.join(__dirname, '../otodom.db');
+const DB_PATH = path.join(__dirname, '../otodom_parser/otodom.db');
 const LOG_PATH = path.resolve(process.cwd(), 'parser_errors.log');
 
 // Script paths
