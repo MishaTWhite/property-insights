@@ -3,6 +3,7 @@ Main scraper module with the OtodomScraper class to orchestrate the scraping pro
 """
 import json
 import logging
+import re
 import time
 import traceback
 from bs4 import BeautifulSoup
@@ -47,6 +48,8 @@ class OtodomScraper:
         self.progress = 0
         self.error_occurred = False
         self.days_filter = days_filter
+        # Initialize max_filtered_pages dictionary to store pagination info per city/district
+        self.max_filtered_pages = {}
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
@@ -193,6 +196,25 @@ class OtodomScraper:
             # Parse the JSON data
             data = json.loads(data_script.string)
             
+            # On page 1, extract pagination information from meta description
+            if page == 1:
+                html_text = str(soup)
+                # Extract the total number of listings from meta description
+                meta_match = re.search(r'Zobacz (\d+) ogłoszeń', html_text)
+                if meta_match:
+                    import math
+                    total_listings = int(meta_match.group(1))
+                    total_pages = math.ceil(total_listings / 36)  # 36 listings per page
+                    self.max_filtered_pages[f"{city}-{district}"] = total_pages
+                    logging.debug(f"Found total listings for {city}-{district}: {total_listings}, calculated {total_pages} pages")
+                else:
+                    # Fallback to the old method if meta description not found
+                    pagination_match = re.findall(r'class="pagination__page"[^>]*>(\d+)<', html_text)
+                    if pagination_match:
+                        max_page = max(map(int, pagination_match))
+                        self.max_filtered_pages[f"{city}-{district}"] = max_page
+                        logging.debug(f"Fallback: Found max page for {city}-{district}: {max_page}")
+            
             # Extract offers list using helper function that handles different JSON structures
             offers = self.extract_offers(data, city=city, page=page, soup=soup)
             
@@ -247,7 +269,7 @@ class OtodomScraper:
                 logging.info(f"Inserted {inserted_rows} rows on page {page}")
             
             # Determine if we should continue to the next page
-            has_next_page = should_continue_pagination(page, inserted_rows)
+            has_next_page = should_continue_pagination(city, district, page, inserted_rows, self.max_filtered_pages)
             
             return has_next_page, len(offers)
             
