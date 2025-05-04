@@ -6,12 +6,23 @@ The Otodom Scraper is a Python-based web scraping system designed to extract rea
 
 ## Architecture
 
-The scraper consists of several key components:
+The scraper has been refactored into a modular architecture with the following components:
 
-1. **OtodomScraper Class** - The main scraper implementation
-2. **Database Module** - Handles data storage and retrieval
-3. **HTML Area Extractor** - Helper module for extracting area information from HTML
-4. **Run Scraper Script** - Command-line interface for running the scraper
+1. **Main Components**:
+   - `OtodomScraper` class - Core orchestration of the scraping process
+   - `run_scraper.py` - Command-line interface for running the scraper
+
+2. **Modular Components**:
+   - `scraper/offer_parser.py` - Handles parsing of offer JSON data
+   - `scraper/filters.py` - Contains filtering logic for offers
+   - `scraper/pagination.py` - Controls pagination behavior
+   - `scraper/storage.py` - Handles database operations for storing offers
+   - `db.py` - Database setup and query functions
+
+3. **Support Components**:
+   - `html_area_extractor.py` - Helper module for extracting area information from HTML
+
+This modular architecture improves maintainability and allows for easier testing of individual components.
 
 ## Scraping Mechanism
 
@@ -26,6 +37,7 @@ The scraper is initialized with several parameters:
 - `room_filter` - Filter by number of rooms
 - `max_pages` - Maximum number of pages to scrape per city/district
 - `preserve` - Whether to preserve existing listings in the database
+- `days_filter` - Only scrape listings from the last X days (default: 1)
 
 ### Scraping Process
 
@@ -48,6 +60,11 @@ The scraper is initialized with several parameters:
    retry_delays = [2, 4, 8]  # Backoff strategy
    ```
 
+6. **Days Filter**: The scraper can filter listings by how recently they were created:
+   ```python
+   params = [f"page={page}", "viewType=list", f"daysSinceCreated={self.days_filter}"]
+   ```
+
 ### Data Extraction
 
 The scraper extracts data from the Otodom website using several techniques:
@@ -63,18 +80,37 @@ The scraper extracts data from the Otodom website using several techniques:
 2. **Adaptive JSON Path Navigation**: The scraper tries multiple JSON paths to extract offers, adapting to different website versions:
 
    ```python
-   # Try the direct data path approach first (newest format)
-   items = (next_json.get("props", {})
-           .get("pageProps", {})
-           .get("data", {})
-           .get("searchAds", {})
-           .get("items"))
+   # Strategy 1: Try extracting from adSearchResult.searchAds.items
+   if ("props" in next_json and 
+       "pageProps" in next_json["props"] and 
+       "adSearchResult" in next_json["props"]["pageProps"] and 
+       "searchAds" in next_json["props"]["pageProps"]["adSearchResult"] and
+       "items" in next_json["props"]["pageProps"]["adSearchResult"]["searchAds"]):
+       
+       return next_json["props"]["pageProps"]["adSearchResult"]["searchAds"]["items"]
+   
+   # Strategy 2: Try extracting from __NEXT_DATA__ with different structure
+   if ("props" in next_json and 
+       "pageProps" in next_json["props"] and 
+       "data" in next_json["props"]["pageProps"] and 
+       "searchAds" in next_json["props"]["pageProps"]["data"] and
+       "items" in next_json["props"]["pageProps"]["data"]["searchAds"]):
+       
+       return next_json["props"]["pageProps"]["data"]["searchAds"]["items"]
    ```
 
-3. **JSON-LD Fallback**: If the primary extraction method fails, the scraper attempts to extract data from JSON-LD structured data in the HTML:
+3. **Legacy Format Support**: The scraper also supports the legacy OtoDom site format with embedded JS objects:
 
    ```python
-   json_ld_tags = soup.find_all("script", {"type": "application/ld+json"})
+   # Strategy 3: Legacy OtoDom site format with embedded JS object
+   if soup:
+       data_container_script = None
+       
+       # Look for script with window.__INITIAL_STATE__
+       for script in soup.find_all("script"):
+           if script.string and "window.__INITIAL_STATE__" in script.string:
+               data_container_script = script
+               break
    ```
 
 4. **HTML Parsing**: For specific fields like area, the scraper can fall back to direct HTML parsing using BeautifulSoup:
@@ -89,7 +125,7 @@ Once raw data is extracted, the scraper processes it to normalize and clean the 
 
 1. **Area Conversion**: Converts area values to float, handling different formats:
    ```python
-   def to_float(self, v):
+   def to_float(v):
        if v is None:
            return None
        if isinstance(v, str):
@@ -126,13 +162,13 @@ Once raw data is extracted, the scraper processes it to normalize and clean the 
    ```python
    locations = offer["location"]["reverseGeocoding"]["locations"]
    path = locations[-1]["id"].split("/") if locations else []
-   district_sub = self.safe_lower(path[-1]) if path else "unknown"
-   district_parent = self.safe_lower(path[-2]) if len(path) >= 2 else district_sub
+   district_sub = safe_lower(path[-1]) if path else "unknown"
+   district_parent = safe_lower(path[-2]) if len(path) >= 2 else district_sub
    ```
 
 ### Filtering Mechanisms
 
-The scraper supports several filtering mechanisms:
+The scraper supports several filtering mechanisms, now implemented in a dedicated `filters.py` module:
 
 1. **City Filtering**: Limits scraping to specific cities:
    ```python
@@ -141,17 +177,32 @@ The scraper supports several filtering mechanisms:
 
 2. **District Filtering**: Filters listings by district using either exact or prefix matching:
    ```python
-   if self.district_mode == "exact":
-       match_found = any(d.lower() == district or d.lower() == district_parent for d in self.district_filter)
-   else:  # prefix mode (default)
-       for d in self.district_filter:
-           d_lower = d.lower()
-           if (district.startswith(d_lower) or 
-               f"-{d_lower}" in district or
-               district_parent.startswith(d_lower) or
-               f"-{d_lower}" in district_parent):
-               match_found = True
-               break
+   def should_skip_offer(offer_data, district_filter, district_mode):
+       # If no district filter or "all" is specified, include all
+       if not district_filter or "all" in district_filter:
+           return False
+       
+       district = offer_data.get('district', '').lower()
+       district_parent = offer_data.get('district_parent', '').lower()
+       
+       if district_mode == "exact":
+           # Exact mode - either district or district_parent must be an exact match
+           match_found = any(d.lower() == district or d.lower() == district_parent 
+                           for d in district_filter)
+       else:  # prefix mode (default)
+           # Check if any filter is a prefix of either district or district_parent
+           match_found = False
+           for d in district_filter:
+               d_lower = d.lower()
+               if (district.startswith(d_lower) or 
+                   f"-{d_lower}" in district or
+                   district_parent.startswith(d_lower) or
+                   f"-{d_lower}" in district_parent):
+                   match_found = True
+                   break
+       
+       # Skip if no match found with the filters
+       return not match_found
    ```
 
 3. **Room Filtering**: Filters listings by number of rooms:
@@ -159,6 +210,11 @@ The scraper supports several filtering mechanisms:
    if self.room_filter:
        room_params = ",".join(str(room) for room in self.room_filter)
        params.append(f"roomsNumber=%5B{room_params}%5D")
+   ```
+
+4. **Days Since Created Filtering**: Filters listings by how recently they were created:
+   ```python
+   params = [f"page={page}", "viewType=list", f"daysSinceCreated={self.days_filter}"]
    ```
 
 ## Database Structure
@@ -178,6 +234,15 @@ CREATE TABLE IF NOT EXISTS listings (
     scraped_at TEXT              -- ISO timestamp
 )
 ```
+
+The database operations are now handled by two modules:
+
+1. **storage.py**: Handles basic insert and clear operations for the scraper
+2. **db.py**: Provides more advanced database functions including:
+   - Database setup and connection management
+   - Statistics retrieval for cities and districts
+   - Support for room-based statistics
+   - Hierarchical district data with parent-child relationships
 
 ## Error Handling and Debugging
 
@@ -215,6 +280,12 @@ The scraper implements comprehensive error handling and debugging features:
    self.progress = total_progress
    ```
 
+5. **Callback Mechanism**: The scraper supports a callback function for real-time status updates:
+   ```python
+   if callback:
+       callback(self.status, self.progress, self.error_occurred)
+   ```
+
 ## Command-Line Interface
 
 The scraper can be run from the command line with various options:
@@ -228,9 +299,12 @@ Options:
   --districts DISTRICTS  Comma or space separated list of districts to scrape
   --district-mode MODE   How to match districts: 'exact' or 'prefix'
   --rooms ROOMS          Integer or comma-separated list of room numbers to filter
+  --days DAYS            Filter listings by days since created (default: 1)
   --max-pages MAX_PAGES  Maximum number of pages to scrape per city/district
   --preserve             Preserve existing listings in the database
 ```
+
+The command-line interface is implemented in `run_scraper.py` and provides a user-friendly way to configure the scraper.
 
 ## Adaptation to Website Changes
 
@@ -242,15 +316,7 @@ The scraper is designed to be resilient to website structure changes:
 
 3. **Flexible Field Mapping**: The scraper handles different field names and formats for the same data (e.g., "areaInSquareMeters" vs "areaInM2").
 
-## Testing
-
-The scraper includes unit tests to verify its functionality:
-
-1. **Extract Offers Test**: Tests the ability to extract offers from different JSON structures.
-
-2. **Parse Offer JSON Test**: Tests parsing JSON offer data with different formats.
-
-3. **Edge Case Tests**: Tests handling of null values, string enums, etc.
+4. **Modular Architecture**: The separation of concerns into different modules makes it easier to update specific parts of the scraper when the website changes.
 
 ## Performance Considerations
 
@@ -266,8 +332,31 @@ The scraper includes unit tests to verify its functionality:
        break
    ```
 
-3. **Selective Scraping**: The scraper supports filtering by city, district, and room count to limit the amount of data scraped.
+3. **Selective Scraping**: The scraper supports filtering by city, district, room count, and days since created to limit the amount of data scraped.
+
+4. **Retry Logic**: The scraper implements exponential backoff for failed requests to handle temporary network issues.
+
+## Integration with Node.js Server
+
+The scraper is designed to be called from a Node.js server with status updates:
+
+1. **Status Updates**: The scraper prints status updates in a format that can be parsed by the Node.js process:
+   ```python
+   def update_status(status, progress, error):
+       """Print status updates in a format the Node.js process can parse"""
+       print(f"STATUS: {status}")
+       print(f"PROGRESS: {progress}")
+       print(f"ERROR: {1 if error else 0}")
+       sys.stdout.flush()
+   ```
+
+2. **Database Location**: The database is created in the server directory for easy access by the Node.js application:
+   ```python
+   db_path = Path(__file__).resolve().parents[1] / 'otodom.db'  # /server/otodom.db
+   ```
+
+3. **Error Handling**: The scraper reports errors in a way that can be captured by the calling process.
 
 ## Conclusion
 
-The Otodom Scraper is a robust and flexible system for extracting real estate listing data from the Otodom website. It handles various edge cases, adapts to website changes, and provides comprehensive error handling and debugging features. The scraped data is stored in a structured format in a SQLite database, ready for analysis and visualization.
+The Otodom Scraper is a robust and flexible system for extracting real estate listing data from the Otodom website. Its modular architecture makes it easy to maintain and extend, while its comprehensive error handling and debugging features make it reliable in production. The scraped data is stored in a structured format in a SQLite database, ready for analysis and visualization through the web application.
