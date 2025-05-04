@@ -8,6 +8,8 @@ The Otodom Scraper is a Python-based web scraping system designed to extract rea
 
 The scraper has been refactored into a modular architecture with the following components:
 
+### Module Structure
+
 1. **Main Components**:
    - `OtodomScraper` class - Core orchestration of the scraping process
    - `run_scraper.py` - Command-line interface for running the scraper
@@ -22,7 +24,73 @@ The scraper has been refactored into a modular architecture with the following c
 3. **Support Components**:
    - `html_area_extractor.py` - Helper module for extracting area information from HTML
 
-This modular architecture improves maintainability and allows for easier testing of individual components.
+### Module Interactions
+
+The modules interact in the following way:
+
+```
+run_scraper.py
+    ↓ (creates)
+OtodomScraper
+    ↓ (uses)
+    ├── filters.py (should_skip_offer)
+    ├── pagination.py (should_continue_pagination)
+    ├── offer_parser.py (parse_offer_json)
+    └── storage.py (insert_listing, clear_listings)
+        ↓ (uses)
+        db.py (setup_database)
+```
+
+### Separation of Concerns
+
+Each module has a specific responsibility:
+
+- **offer_parser.py**: Focuses solely on extracting and normalizing data from JSON structures
+- **filters.py**: Contains all logic for determining if an offer should be included based on filters
+- **pagination.py**: Handles logic for determining when to stop pagination
+- **storage.py**: Manages database operations for the scraper
+- **db.py**: Provides database setup and query functions for both scraper and API
+
+This separation makes the code more maintainable and testable, as each component can be tested in isolation.
+
+## Database Structure and Paths
+
+The scraper stores data in a SQLite database with the following schema:
+
+```sql
+CREATE TABLE IF NOT EXISTS listings (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    city TEXT NOT NULL,
+    district TEXT NOT NULL,
+    district_parent TEXT NOT NULL,
+    area REAL NOT NULL,          -- m²
+    price_per_sqm REAL NOT NULL, -- zł
+    floor INTEGER,               -- 0 = parter
+    rooms INTEGER,               -- number of rooms
+    scraped_at TEXT              -- ISO timestamp
+)
+```
+
+### Database Path Configuration
+
+**Important**: There are two database paths in the system:
+
+1. **Python Scraper Database Path**:
+   ```python
+   # In db.py
+   db_path = Path(__file__).resolve().parent / 'otodom.db'  # /server/src/otodom_parser/otodom.db
+   ```
+
+2. **Node.js API Database Path**:
+   ```javascript
+   // In otodom-analyzer.js
+   const DB_PATH = path.join(__dirname, '../otodom.db');  // /server/src/otodom.db
+   ```
+
+To ensure proper functionality, the database file must be accessible at both locations. This can be achieved by:
+- Copying the database file after scraping
+- Using a symlink
+- Modifying one of the paths to match the other
 
 ## Scraping Mechanism
 
@@ -113,12 +181,6 @@ The scraper extracts data from the Otodom website using several techniques:
                break
    ```
 
-4. **HTML Parsing**: For specific fields like area, the scraper can fall back to direct HTML parsing using BeautifulSoup:
-
-   ```python
-   soup = BeautifulSoup(response.text, 'html.parser')
-   ```
-
 ### Data Processing
 
 Once raw data is extracted, the scraper processes it to normalize and clean the values:
@@ -166,125 +228,45 @@ Once raw data is extracted, the scraper processes it to normalize and clean the 
    district_parent = safe_lower(path[-2]) if len(path) >= 2 else district_sub
    ```
 
-### Filtering Mechanisms
-
-The scraper supports several filtering mechanisms, now implemented in a dedicated `filters.py` module:
-
-1. **City Filtering**: Limits scraping to specific cities:
-   ```python
-   cities_to_scrape = [city for city in CITIES if self.city_filter is None or city.lower() in [c.lower() for c in self.city_filter]]
-   ```
-
-2. **District Filtering**: Filters listings by district using either exact or prefix matching:
-   ```python
-   def should_skip_offer(offer_data, district_filter, district_mode):
-       # If no district filter or "all" is specified, include all
-       if not district_filter or "all" in district_filter:
-           return False
-       
-       district = offer_data.get('district', '').lower()
-       district_parent = offer_data.get('district_parent', '').lower()
-       
-       if district_mode == "exact":
-           # Exact mode - either district or district_parent must be an exact match
-           match_found = any(d.lower() == district or d.lower() == district_parent 
-                           for d in district_filter)
-       else:  # prefix mode (default)
-           # Check if any filter is a prefix of either district or district_parent
-           match_found = False
-           for d in district_filter:
-               d_lower = d.lower()
-               if (district.startswith(d_lower) or 
-                   f"-{d_lower}" in district or
-                   district_parent.startswith(d_lower) or
-                   f"-{d_lower}" in district_parent):
-                   match_found = True
-                   break
-       
-       # Skip if no match found with the filters
-       return not match_found
-   ```
-
-3. **Room Filtering**: Filters listings by number of rooms:
-   ```python
-   if self.room_filter:
-       room_params = ",".join(str(room) for room in self.room_filter)
-       params.append(f"roomsNumber=%5B{room_params}%5D")
-   ```
-
-4. **Days Since Created Filtering**: Filters listings by how recently they were created:
-   ```python
-   params = [f"page={page}", "viewType=list", f"daysSinceCreated={self.days_filter}"]
-   ```
-
-## Database Structure
-
-The scraper stores data in a SQLite database with the following schema:
-
-```sql
-CREATE TABLE IF NOT EXISTS listings (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    city TEXT NOT NULL,
-    district TEXT NOT NULL,
-    district_parent TEXT NOT NULL,
-    area REAL NOT NULL,          -- m²
-    price_per_sqm REAL NOT NULL, -- zł
-    floor INTEGER,               -- 0 = parter
-    rooms INTEGER,               -- number of rooms
-    scraped_at TEXT              -- ISO timestamp
-)
-```
+## Database Operations
 
 The database operations are now handled by two modules:
 
 1. **storage.py**: Handles basic insert and clear operations for the scraper
+   ```python
+   def insert_listing(
+       city: str, 
+       district: str, 
+       district_parent: str, 
+       area: float, 
+       price_per_sqm: int, 
+       floor: int = 0,
+       rooms: Optional[int] = None
+   ) -> bool:
+       # Insert listing into database
+       # Note: This function does NOT set the scraped_at timestamp
+   ```
+
 2. **db.py**: Provides more advanced database functions including:
-   - Database setup and connection management
-   - Statistics retrieval for cities and districts
-   - Support for room-based statistics
-   - Hierarchical district data with parent-child relationships
-
-## Error Handling and Debugging
-
-The scraper implements comprehensive error handling and debugging features:
-
-1. **Logging**: Detailed logging at different levels (INFO, DEBUG, WARNING, ERROR):
    ```python
-   logging.basicConfig(
-       format="%(asctime)s [%(levelname)s] %(message)s",
-       handlers=[
-           logging.FileHandler("parser_errors.log", encoding="utf-8"),
-           logging.StreamHandler(sys.stdout)
-       ])
+   def insert_listing(city, district, district_parent, area, price_per_sqm, floor, rooms=None):
+       # Get current timestamp
+       timestamp = datetime.now().isoformat()
+       
+       # Insert the listing with timestamp
+       cursor.execute('''
+       INSERT INTO listings (city, district, district_parent, area, price_per_sqm, floor, rooms, scraped_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+       ''', (city, district, district_parent, area, price_per_sqm, floor, rooms, timestamp))
    ```
 
-2. **HTML Saving**: In debug mode, the scraper saves raw HTML responses for offline analysis:
-   ```python
-   if self.debug:
-       dump_file = self.debug_dir / f"{city}_{district}_{page}.html"
-       dump_file.write_bytes(response.content)
-   ```
+### Important Note on `scraped_at` Field
 
-3. **JSON Saving**: In debug mode, the scraper saves extracted JSON data:
-   ```python
-   if self.debug and offers:
-       json_dump_file = self.debug_dir / f"{city}_{district}_{page}_data.json"
-       with open(json_dump_file, 'w', encoding='utf-8') as f:
-           json.dump(offers, f, indent=2, ensure_ascii=False)
-   ```
+There is a discrepancy between the two database modules:
+- `db.py` correctly sets the `scraped_at` field to the current timestamp
+- `storage.py` does not set the `scraped_at` field, resulting in NULL values
 
-4. **Progress Tracking**: The scraper tracks progress and status for UI integration:
-   ```python
-   self.status = f"{city} - {district_name} p{page}"
-   total_progress = ((city_idx + (district_idx / len(districts))) / total_cities) * 100
-   self.progress = total_progress
-   ```
-
-5. **Callback Mechanism**: The scraper supports a callback function for real-time status updates:
-   ```python
-   if callback:
-       callback(self.status, self.progress, self.error_occurred)
-   ```
+This discrepancy needs to be resolved to ensure all records have a valid `scraped_at` timestamp.
 
 ## Command-Line Interface
 
@@ -304,37 +286,20 @@ Options:
   --preserve             Preserve existing listings in the database
 ```
 
-The command-line interface is implemented in `run_scraper.py` and provides a user-friendly way to configure the scraper.
+### Preserving Existing Data
 
-## Adaptation to Website Changes
+To scrape multiple cities without clearing the database between runs (preserving data between runs), use the `--preserve` flag:
 
-The scraper is designed to be resilient to website structure changes:
+```bash
+# First scrape Warsaw
+python run_scraper.py --cities warszawa
 
-1. **Multiple JSON Path Strategies**: The scraper tries multiple JSON paths to extract data, adapting to different website versions.
+# Then add Krakow data without clearing Warsaw data
+python run_scraper.py --cities krakow --preserve
 
-2. **Fallback Mechanisms**: If primary extraction methods fail, the scraper falls back to alternative methods like JSON-LD or direct HTML parsing.
-
-3. **Flexible Field Mapping**: The scraper handles different field names and formats for the same data (e.g., "areaInSquareMeters" vs "areaInM2").
-
-4. **Modular Architecture**: The separation of concerns into different modules makes it easier to update specific parts of the scraper when the website changes.
-
-## Performance Considerations
-
-1. **Rate Limiting**: The scraper implements a sleep between requests to avoid overloading the server:
-   ```python
-   time.sleep(1.5)  # Sleep between pages to avoid rate limiting
-   ```
-
-2. **Pagination Control**: The scraper limits the number of pages scraped per city/district:
-   ```python
-   if self.max_pages and page > self.max_pages:
-       logging.info(f"Reached max pages ({self.max_pages}) for {city} - {district_name}")
-       break
-   ```
-
-3. **Selective Scraping**: The scraper supports filtering by city, district, room count, and days since created to limit the amount of data scraped.
-
-4. **Retry Logic**: The scraper implements exponential backoff for failed requests to handle temporary network issues.
+# Then add Wroclaw data
+python run_scraper.py --cities wroclaw --preserve
+```
 
 ## Integration with Node.js Server
 
@@ -350,13 +315,74 @@ The scraper is designed to be called from a Node.js server with status updates:
        sys.stdout.flush()
    ```
 
-2. **Database Location**: The database is created in the server directory for easy access by the Node.js application:
-   ```python
-   db_path = Path(__file__).resolve().parents[1] / 'otodom.db'  # /server/otodom.db
-   ```
+2. **API Endpoints**: The Node.js server provides several API endpoints for interacting with the scraped data:
+   - `/api/otodom-analyzer/data` - Get aggregated city statistics
+   - `/api/otodom-analyzer/district-rooms` - Get district statistics with room breakdowns
+   - `/api/otodom-analyzer/last-updated` - Get the timestamp of the most recent scrape
+   - `/api/otodom-analyzer/start-scrape` - Start the scraper process
+   - `/api/otodom-analyzer/status` - Get the current status of the scraper
 
-3. **Error Handling**: The scraper reports errors in a way that can be captured by the calling process.
+3. **Database Path Issue**: The Node.js API and Python scraper use different database paths:
+   - Python: `/server/src/otodom_parser/otodom.db`
+   - Node.js: `/server/src/otodom.db`
+
+   This discrepancy can cause the API to fail if the database file is not available at both locations.
+
+## Known Issues and Recommendations
+
+1. **Database Path Mismatch**: The Node.js API and Python scraper use different database paths. Options to resolve:
+   - Modify the API code to use the same path as the Python code
+   - Modify the Python code to save to the location expected by the API
+   - Implement a symlink or file copy step in the deployment process
+
+2. **`scraped_at` NULL Values**: The `storage.py` module does not set the `scraped_at` field, resulting in NULL values. Fix:
+   - Update `storage.py` to include the `scraped_at` field in its INSERT statement
+   - Use `db.py` for all database operations instead of `storage.py`
+
+3. **Room Aggregation Logic**: The room aggregation logic in the API endpoint may fail if there are unexpected NULL values:
+   - Add proper NULL handling in the room aggregation logic
+   - Ensure all room categories are initialized with default values
+   - Add error handling around the weighted average calculations
+
+## Extending the Scraper
+
+When extending the scraper, follow these guidelines:
+
+1. **Adding New Fields**:
+   - Add the field to both `storage.py` and `db.py` insert functions
+   - Update the database schema in `db.py` setup_database function
+   - Add migration code to add the column to existing databases
+
+2. **Supporting New JSON Formats**:
+   - Add new extraction strategies to the `extract_offers` method in `OtodomScraper`
+   - Add corresponding parsing logic in `offer_parser.py`
+   - Add tests with sample JSON fixtures
+
+3. **Adding New Filters**:
+   - Add the filter parameter to `run_scraper.py`
+   - Implement the filtering logic in `filters.py`
+   - Update the URL parameter construction in `OtodomScraper`
+
+## Testing
+
+The scraper includes unit tests for key components:
+
+- `tests/test_filters.py` - Tests for district and room filtering
+- `tests/test_extract_format_v4.py` - Tests for extracting data from the latest JSON format
+- `tests/test_item_searchads_format.py` - Tests for extracting data from the searchAds format
+- `tests/test_days_filter.py` - Tests for the days filter functionality
+- `tests/test_db_migration.py` - Tests for database schema migrations
+- `tests/test_room_feature.py` - Tests for room number extraction and mapping
+
+To run the tests:
+
+```bash
+cd server/src/otodom_parser
+python -m pytest
+```
 
 ## Conclusion
 
 The Otodom Scraper is a robust and flexible system for extracting real estate listing data from the Otodom website. Its modular architecture makes it easy to maintain and extend, while its comprehensive error handling and debugging features make it reliable in production. The scraped data is stored in a structured format in a SQLite database, ready for analysis and visualization through the web application.
+
+The system has been recently refactored to improve modularity and maintainability, but there are still some issues to address, particularly around database path configuration and the `scraped_at` field.
