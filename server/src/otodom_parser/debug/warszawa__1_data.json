@@ -1,5 +1,346 @@
 [
   {
+    "id": 66785071,
+    "title": "0% Gustowne 3 pok. i 2 miejsca w garażu podziemnym",
+    "slug": "0-gustowne-3-pok-i-2-miejsca-w-garazu-podziemnym-ID4vdQz",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 500,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": null,
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo",
+            "fullName": "Bemowo, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo/gorce",
+            "fullName": "Górce, Bemowo, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBudDRiNXg4M2sybjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uMYqTPmvL8CZsx31JbIpCQM_jBTxlzcdSfnLqCvR_fc/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBudDRiNXg4M2sybjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.uMYqTPmvL8CZsx31JbIpCQM_jBTxlzcdSfnLqCvR_fc/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IngzZHplZWFubnhlby1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.p5ygFWxXPlUu0fbzXYS3kRFo_hLPklMXo5da9Y3ad2I/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IngzZHplZWFubnhlby1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.p5ygFWxXPlUu0fbzXYS3kRFo_hLPklMXo5da9Y3ad2I/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 11,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": false,
+    "isPromoted": false,
+    "source": "urn:site:local",
+    "agency": {
+      "id": 7315099,
+      "name": "Archikadr",
+      "slug": "archikadr-ID7315099",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtnbG0yMXQ5eXBwdTEtQVBMIn0.ShOD7z322J66W6fXjql7v8CuWn2vPu1uSMCgB7Ue_7Q/image;s=800x600;q=90",
+      "type": "AGENCY",
+      "brandingVisible": false,
+      "highlightedAds": false,
+      "__typename": "AgencyListingDetails"
+    },
+    "openDays": "",
+    "totalPrice": {
+      "value": 949999,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 850,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 17257,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 55.05,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "THREE",
+    "hidePrice": false,
+    "floorNumber": "FIRST",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 21:50:43",
+    "dateCreatedFirst": "2025-05-04 21:50:35",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na wstępie uprzejmie informuję, że kupujący nie ponosi kosztów obsługi biura nieruchomości.Mam przyjemność przedstawić Państwu ofertę sprzedaży komfortowego, 3 pokojowego mieszkania znajdującego się p...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/0-gustowne-3-pok-i-2-miejsca-w-garazu-podziemnym-ID4vdQz"
+  },
+  {
+    "id": 66785062,
+    "title": "Bezpośrednio | Bemowo | Przy Metrze | 2pokoje 42m2 + Duży ogródek 71m2",
+    "slug": "bezposrednio-bemowo-przy-metrze-2pokoje-42m2-duzy-ogrodek-71m2-ID4vdQq",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Batalionów Chłopskich",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo",
+            "fullName": "Bemowo, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo/chrzanow",
+            "fullName": "Chrzanów, Bemowo, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBxY3ZzY2k4dm92NTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AC5yRZndYp7biDnz7ueUfwfKIg_1P1wTSAOdyENMzio/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InBxY3ZzY2k4dm92NTItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.AC5yRZndYp7biDnz7ueUfwfKIg_1P1wTSAOdyENMzio/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijl4aXVsYzlvZDd6Mi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.EfgJjmjaRQjJNL_sv5oN0UhOd3-JuhqGNxbvkOIsOEw/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijl4aXVsYzlvZDd6Mi1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.EfgJjmjaRQjJNL_sv5oN0UhOd3-JuhqGNxbvkOIsOEw/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 11,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 855000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 668,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 20318,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 42.08,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "GROUND",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 21:50:21",
+    "dateCreatedFirst": "2025-05-04 21:46:12",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Na sprzedaż – 2-pokojowe mieszkanie z dużym ogródkiem na Bemowie (ul. Batalionów Chłopskich)Bezpośrednio, bez pośrednikówOferuję komfortowe, wykończone w wysokim standardzie mieszkanie zlokalizowane w...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/bezposrednio-bemowo-przy-metrze-2pokoje-42m2-duzy-ogrodek-71m2-ID4vdQq"
+  },
+  {
+    "id": 66785048,
+    "title": "Sprzedam mieszkanie 2-pokojowe Nowy Raków, Klinkierowa",
+    "slug": "sprzedam-mieszkanie-2-pokojowe-nowy-rakow-klinkierowa-ID4vdQc",
+    "estate": "FLAT",
+    "development": null,
+    "developmentId": 0,
+    "developmentTitle": "",
+    "developmentUrl": "",
+    "transaction": "SELL",
+    "location": {
+      "mapDetails": {
+        "radius": 0,
+        "__typename": "MapDetails"
+      },
+      "address": {
+        "street": {
+          "name": "ul. Klinkierowa",
+          "number": "",
+          "__typename": "Street"
+        },
+        "city": {
+          "name": "Warszawa",
+          "__typename": "City"
+        },
+        "province": {
+          "name": "mazowieckie",
+          "__typename": "Province"
+        },
+        "__typename": "Address"
+      },
+      "reverseGeocoding": {
+        "locations": [
+          {
+            "id": "mazowieckie",
+            "fullName": "mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa",
+            "fullName": "Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/wlochy",
+            "fullName": "Włochy, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          },
+          {
+            "id": "mazowieckie/warszawa/warszawa/warszawa/wlochy/rakow",
+            "fullName": "Raków, Włochy, Warszawa, mazowieckie",
+            "__typename": "BasicLocationObject"
+          }
+        ],
+        "__typename": "ReverseGeocoding"
+      },
+      "__typename": "LocationDetails"
+    },
+    "images": [
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imw5OG16ZXdxdjlrdS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KBew8wW93rjmTgOCRrLBBiqjdaVFj3kwxf5rRdhgBvQ/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Imw5OG16ZXdxdjlrdS1BUEwiLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.KBew8wW93rjmTgOCRrLBBiqjdaVFj3kwxf5rRdhgBvQ/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      },
+      {
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImpzbGFrN2pvbHBoNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Jk92dJpyhSxAz4QitoAqNOWFITHVbgz7oQ5pywqRP4Y/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImpzbGFrN2pvbHBoNjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Jk92dJpyhSxAz4QitoAqNOWFITHVbgz7oQ5pywqRP4Y/image;s=1280x1024;q=80",
+        "__typename": "AdImage"
+      }
+    ],
+    "totalPossibleImages": 10,
+    "isExclusiveOffer": false,
+    "isPrivateOwner": true,
+    "isPromoted": true,
+    "source": "urn:site:local",
+    "agency": null,
+    "openDays": "",
+    "totalPrice": {
+      "value": 895000,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "rentPrice": {
+      "value": 700,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "priceFromPerSquareMeter": null,
+    "pricePerSquareMeter": {
+      "value": 21808,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
+    "areaInSquareMeters": 41.04,
+    "terrainAreaInSquareMeters": null,
+    "roomsNumber": "TWO",
+    "hidePrice": false,
+    "floorNumber": "THIRD",
+    "investmentState": null,
+    "investmentUnitsAreaInSquareMeters": null,
+    "peoplePerRoom": null,
+    "dateCreated": "2025-05-04 21:42:23",
+    "dateCreatedFirst": "2025-05-04 21:41:17",
+    "investmentUnitsNumber": null,
+    "investmentUnitsRoomsNumber": null,
+    "investmentEstimatedDelivery": null,
+    "pushedUpAt": null,
+    "specialOffer": null,
+    "shortDescription": "Pośrednikom oraz agencjom nieruchomości dziękuję- proszę się nie kontaktować.Sprzedam mieszkanie o powierzchni 41,04 m2.Lokalizacja: Mieszkanie usytuowane jest przy ul. Klinkierowej 1. Jest to bardzo ...",
+    "__typename": "AdvertListItem",
+    "href": "[lang]/ad/sprzedam-mieszkanie-2-pokojowe-nowy-rakow-klinkierowa-ID4vdQc"
+  },
+  {
     "id": 66785031,
     "title": "Nowe Miasto - Bonifraterska - po remoncie",
     "slug": "nowe-miasto-bonifraterska-po-remoncie-ID4vdPW",
@@ -59,13 +400,13 @@
     },
     "images": [
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtodWM1Y3Rpb2tuMDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Me99RyeRhjcOQW5XWkr1v-m6cAZGOlExZlQg7EYuc54/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtodWM1Y3Rpb2tuMDEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Me99RyeRhjcOQW5XWkr1v-m6cAZGOlExZlQg7EYuc54/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Iml0dnByZHM1NmVzdjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.MoEcpihYkjyCtPBRYwQJMgbCGqJ19Ux3ynFk0S91sr8/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Iml0dnByZHM1NmVzdjEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.MoEcpihYkjyCtPBRYwQJMgbCGqJ19Ux3ynFk0S91sr8/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       },
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImIzbzZvdzVxdW43Ny1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OVp2XjaEQFX-kVOc0aaeY9AGAbflCE80SVh37dUz2Ks/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImIzbzZvdzVxdW43Ny1FQ09TWVNURU0iLCJ3IjpbeyJmbiI6ImVudmZxcWUxYXk0azEtQVBMIiwicyI6IjE0IiwicCI6IjEwLC0xMCIsImEiOiIwIn1dfQ.OVp2XjaEQFX-kVOc0aaeY9AGAbflCE80SVh37dUz2Ks/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtrZTIydTNrM2ZlMTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QAzc3m7GODmmrIUmVlDaUFvKtdtAsqszF1RFC0BzwDM/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtrZTIydTNrM2ZlMTEtRUNPU1lTVEVNIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.QAzc3m7GODmmrIUmVlDaUFvKtdtAsqszF1RFC0BzwDM/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       }
     ],
@@ -112,7 +453,7 @@
     "investmentEstimatedDelivery": null,
     "pushedUpAt": null,
     "specialOffer": null,
-    "shortDescription": "Rozkładowe mieszkanie z dużym potencjałem inwestycyjnym, na Nowym Mieście, 47,76 m², z balkonem.Zapraszamy do zapoznania się z ofertą sprzedaży trzypokojowego mieszkania, z dwoma niezależnymi sypialni...",
+    "shortDescription": "Rozkładowe mieszkanie z dużym potencjałem inwestycyjnym, na Nowym Mieście, 47,76 m², z piwnicą i balkonem.Zapraszamy do zapoznania się z ofertą sprzedaży trzypokojowego mieszkania, z dwoma niezależnym...",
     "__typename": "AdvertListItem",
     "href": "[lang]/ad/nowe-miasto-bonifraterska-po-remoncie-ID4vdPW"
   },
@@ -176,13 +517,13 @@
     },
     "images": [
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InRsempwdm4xMHFhcDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Vwsi0iOEiGmzGoB6zNYNC5W4V-rv2jn_-_-8G5dBipM/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InRsempwdm4xMHFhcDMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.Vwsi0iOEiGmzGoB6zNYNC5W4V-rv2jn_-_-8G5dBipM/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJqcng0cGl1Zjh2ZjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.xwAU-ZRPY9gQ9YBTVDvz_F4-h20vuo9QS3MqsCmb8AY/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjJqcng0cGl1Zjh2ZjMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.xwAU-ZRPY9gQ9YBTVDvz_F4-h20vuo9QS3MqsCmb8AY/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       },
       {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImFiaGMxcXV1c2MybjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1Sr5lAf6V4lKMtd28ThVnX-rNVh1VNQpWIyLmTqDC_k/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImFiaGMxcXV1c2MybjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.1Sr5lAf6V4lKMtd28ThVnX-rNVh1VNQpWIyLmTqDC_k/image;s=1280x1024;q=80",
+        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBrbTV0cnplcXRjcjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.vyWslUChSFe80Ob-8M41Wo18tYaC2MtUhqps7H5d6MU/image;s=655x491;q=80",
+        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjBrbTV0cnplcXRjcjItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.vyWslUChSFe80Ob-8M41Wo18tYaC2MtUhqps7H5d6MU/image;s=1280x1024;q=80",
         "__typename": "AdImage"
       }
     ],
@@ -205,11 +546,11 @@
     },
     "priceFromPerSquareMeter": null,
     "pricePerSquareMeter": {
-      "value": 14727,
+      "value": 16587,
       "currency": "PLN",
       "__typename": "Money"
     },
-    "areaInSquareMeters": 35.31,
+    "areaInSquareMeters": 31.35,
     "terrainAreaInSquareMeters": null,
     "roomsNumber": "TWO",
     "hidePrice": false,
@@ -224,7 +565,7 @@
     "investmentEstimatedDelivery": null,
     "pushedUpAt": null,
     "specialOffer": null,
-    "shortDescription": "Na sprzedaż kawalerka 35,31 m² – Praga Południe, przy parkuNa sprzedaż przytulna, narożna kawalerka o powierzchni 35,31 m², zlokalizowana na ostatnim piętrze w budynku na Pradze Południe. Ekspozycja p...",
+    "shortDescription": "Na sprzedaż kawalerka 31,35 m² – Praga Południe, przy parkuNa sprzedaż przytulna, narożna kawalerka o powierzchni 31,35 m², zlokalizowana na ostatnim piętrze w budynku na Pradze Południe.Ekspozycja po...",
     "__typename": "AdvertListItem",
     "href": "[lang]/ad/przytulna-kawalerka-tuz-obok-parku-ostatnie-pietro-ID4vdPh"
   },
@@ -3826,122 +4167,9 @@
     "href": "[lang]/ad/od-zaraz-46m2-ursus-parking-komorka-lok-ID4vdEU"
   },
   {
-    "id": 66784345,
-    "title": "Mieszkanie, 21,50 m², Warszawa",
-    "slug": "mieszkanie-21-50-m-warszawa-ID4vdER",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 100,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": null,
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie",
-            "fullName": "Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie/srodmiescie-poludniowe",
-            "fullName": "Śródmieście Południowe, Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im15MzlpZHdzdXJ4dTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.V5vcF7HghaynhR7E-jL5bsMrp3NIgRqeBDPWPVtGCUc/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Im15MzlpZHdzdXJ4dTMtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.V5vcF7HghaynhR7E-jL5bsMrp3NIgRqeBDPWPVtGCUc/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjgzN3k3aWp3NGFnOTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.dAK8O7HryL7aXE9bEl9FrsWi8kmghc5r9pIdDUeV0B8/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjgzN3k3aWp3NGFnOTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.dAK8O7HryL7aXE9bEl9FrsWi8kmghc5r9pIdDUeV0B8/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 8,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:site:local",
-    "agency": {
-      "id": 346840,
-      "name": "FSK Development Polska sp. z o.o.",
-      "slug": "fsk-development-polska-sp-z-o-o-ID346840",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjF1ZmpnaWZiMWxjbi1BUEwifQ.ko0fUQH184EZN7Kj_Ba9kyAhFYeRnn58St0XMZND91o/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": false,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 537500,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": null,
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 25000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 21.5,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "ONE",
-    "hidePrice": false,
-    "floorNumber": "SEVENTH",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 17:00:34",
-    "dateCreatedFirst": "2025-05-04 17:00:22",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "Tylko u nas!!Rozkładowe 1 pokojowe, bardzo ładne, jednostronne mieszkanie położone w centrum.Do wejścia.Piękna panorama Warszawy z okien. Wysokość mieszkania 280 cm.Ekspozycja północny-zachódNa podłog...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/mieszkanie-21-50-m-warszawa-ID4vdER"
-  },
-  {
-    "id": 66784330,
-    "title": "Nowe dwupokojowe blizko Galerii Północnej",
-    "slug": "nowe-dwupokojowe-blizko-galerii-polnocnej-ID4vdEC",
+    "id": 966785071000,
+    "title": "0% Gustowne 3 pok. i 2 miejsca w garażu podziemnym",
+    "slug": "0-gustowne-3-pok-i-2-miejsca-w-garazu-podziemnym-ID4vdQz",
     "estate": "FLAT",
     "development": null,
     "developmentId": 0,
@@ -3978,246 +4206,13 @@
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/bialoleka",
-            "fullName": "Białołęka, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo",
+            "fullName": "Bemowo, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           },
           {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/bialoleka/tarchomin",
-            "fullName": "Tarchomin, Białołęka, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhwZWVqODZsYm01MDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._w7KzX9GdK_DVZpTQEqs-49MlKlzpVg1ohmWaa0P2BM/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InhwZWVqODZsYm01MDItQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0._w7KzX9GdK_DVZpTQEqs-49MlKlzpVg1ohmWaa0P2BM/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNmYzN0bGY1MWdocTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4JJYZqvsLaFApn2dj49KiBSQo1Ztjcls-u8zUmH6pts/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6IjNmYzN0bGY1MWdocTEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.4JJYZqvsLaFApn2dj49KiBSQo1Ztjcls-u8zUmH6pts/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 14,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": true,
-    "isPromoted": true,
-    "source": "urn:site:local",
-    "agency": null,
-    "openDays": "",
-    "totalPrice": {
-      "value": 630000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 500,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 16579,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 38,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "SECOND",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 16:59:00",
-    "dateCreatedFirst": "2025-05-04 16:56:12",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "SPRZEDAM bezpośrednio 2 pokojowe nowe mieszkanie (budynek 2024r) o powierchni 38m2 z balkonem, zlokalizowane przy ul. Duninów w dzielnicy Białołęka na Tarchominie.-salon+anneks kuchenny-19 m2-sypialni...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/nowe-dwupokojowe-blizko-galerii-polnocnej-ID4vdEC"
-  },
-  {
-    "id": 66784307,
-    "title": "Muranów, 2 pok.+kuchnia I balkon I blisko METRO DW.GDAŃSKI & Starówka.",
-    "slug": "muranow-2-pok-kuchnia-i-balkon-i-blisko-metro-dw-gdanski-starowka-ID4vdEf",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 0,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": {
-          "name": "ul. Wałowa",
-          "number": "",
-          "__typename": "Street"
-        },
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie",
-            "fullName": "Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie/muranow",
-            "fullName": "Muranów, Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          }
-        ],
-        "__typename": "ReverseGeocoding"
-      },
-      "__typename": "LocationDetails"
-    },
-    "images": [
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inlqa2xzZHJlYTdyMDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.gTrIa2-ePI5UJQuvLXSL6GZnooRM15GRrXt4-YLZzgo/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Inlqa2xzZHJlYTdyMDEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.gTrIa2-ePI5UJQuvLXSL6GZnooRM15GRrXt4-YLZzgo/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      },
-      {
-        "medium": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImoxZTVmcDlnN3F3ZjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.pBJ5jGFESOib1edstix20e-M0k1G6AQQsM2uBUJAZGg/image;s=655x491;q=80",
-        "large": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImoxZTVmcDlnN3F3ZjEtQVBMIiwidyI6W3siZm4iOiJlbnZmcXFlMWF5NGsxLUFQTCIsInMiOiIxNCIsInAiOiIxMCwtMTAiLCJhIjoiMCJ9XX0.pBJ5jGFESOib1edstix20e-M0k1G6AQQsM2uBUJAZGg/image;s=1280x1024;q=80",
-        "__typename": "AdImage"
-      }
-    ],
-    "totalPossibleImages": 19,
-    "isExclusiveOffer": false,
-    "isPrivateOwner": false,
-    "isPromoted": false,
-    "source": "urn:site:local",
-    "agency": {
-      "id": 8354774,
-      "name": "Niebanalna Brokerka",
-      "slug": "niebanalna-brokerka-ID8354774",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6InJ4cmVwNW92dGdtYTMtQVBMIn0.pdp64qDw0DaaZ0Opoh4zlGL5uLpnIPeKYE3NLfOqNjM/image;s=800x600;q=90",
-      "type": "AGENCY",
-      "brandingVisible": true,
-      "highlightedAds": false,
-      "__typename": "AgencyListingDetails"
-    },
-    "openDays": "",
-    "totalPrice": {
-      "value": 742000,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "rentPrice": {
-      "value": 650,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "priceFromPerSquareMeter": null,
-    "pricePerSquareMeter": {
-      "value": 18977,
-      "currency": "PLN",
-      "__typename": "Money"
-    },
-    "areaInSquareMeters": 39.1,
-    "terrainAreaInSquareMeters": null,
-    "roomsNumber": "TWO",
-    "hidePrice": false,
-    "floorNumber": "THIRD",
-    "investmentState": null,
-    "investmentUnitsAreaInSquareMeters": null,
-    "peoplePerRoom": null,
-    "dateCreated": "2025-05-04 16:47:45",
-    "dateCreatedFirst": "2025-05-04 16:47:36",
-    "investmentUnitsNumber": null,
-    "investmentUnitsRoomsNumber": null,
-    "investmentEstimatedDelivery": null,
-    "pushedUpAt": null,
-    "specialOffer": null,
-    "shortDescription": "2-pokojowe mieszkanie z balkonem typu loggia – ul. Wałowa 6, Warszawa, MuranówNa sprzedaż słoneczne mieszkanie o powierzchni użytkowej 39,10 m², z ekspozycją zachodnią, położone na warszawskim Muranow...",
-    "__typename": "AdvertListItem",
-    "href": "[lang]/ad/muranow-2-pok-kuchnia-i-balkon-i-blisko-metro-dw-gdanski-starowka-ID4vdEf"
-  },
-  {
-    "id": 966785031000,
-    "title": "Nowe Miasto - Bonifraterska - po remoncie",
-    "slug": "nowe-miasto-bonifraterska-po-remoncie-ID4vdPW",
-    "estate": "FLAT",
-    "development": null,
-    "developmentId": 0,
-    "developmentTitle": "",
-    "developmentUrl": "",
-    "transaction": "SELL",
-    "location": {
-      "mapDetails": {
-        "radius": 0,
-        "__typename": "MapDetails"
-      },
-      "address": {
-        "street": {
-          "name": "ul. Bonifraterska",
-          "number": "",
-          "__typename": "Street"
-        },
-        "city": {
-          "name": "Warszawa",
-          "__typename": "City"
-        },
-        "province": {
-          "name": "mazowieckie",
-          "__typename": "Province"
-        },
-        "__typename": "Address"
-      },
-      "reverseGeocoding": {
-        "locations": [
-          {
-            "id": "mazowieckie",
-            "fullName": "mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa",
-            "fullName": "Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie",
-            "fullName": "Śródmieście, Warszawa, mazowieckie",
-            "__typename": "BasicLocationObject"
-          },
-          {
-            "id": "mazowieckie/warszawa/warszawa/warszawa/srodmiescie/nowe-miasto",
-            "fullName": "Nowe Miasto, Śródmieście, Warszawa, mazowieckie",
+            "id": "mazowieckie/warszawa/warszawa/warszawa/bemowo/gorce",
+            "fullName": "Górce, Bemowo, Warszawa, mazowieckie",
             "__typename": "BasicLocationObject"
           }
         ],
@@ -4226,16 +4221,16 @@
       "__typename": "LocationDetails"
     },
     "images": [],
-    "totalPossibleImages": 10,
+    "totalPossibleImages": 11,
     "isExclusiveOffer": false,
     "isPrivateOwner": false,
     "isPromoted": false,
-    "source": "urn:partner:asari",
+    "source": "urn:site:local",
     "agency": {
-      "id": 7841704,
-      "name": "Bracia Strzelczyk Nieruchomości",
-      "slug": "bracia-strzelczyk-nieruchomosci-ID7841704",
-      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6Ijdjbm5ranFhcGlpYzItQVBMIn0.0nHcPtiUTKDqZWYZGdryjs0w3FR6NGqc0gwpy6YR5NE/image;s=800x600;q=90",
+      "id": 7315099,
+      "name": "Archikadr",
+      "slug": "archikadr-ID7315099",
+      "imageUrl": "https://ireland.apollo.olxcdn.com/v1/files/eyJmbiI6ImtnbG0yMXQ5eXBwdTEtQVBMIn0.ShOD7z322J66W6fXjql7v8CuWn2vPu1uSMCgB7Ue_7Q/image;s=800x600;q=90",
       "type": "AGENCY",
       "brandingVisible": false,
       "highlightedAds": false,
@@ -4243,18 +4238,22 @@
     },
     "openDays": "",
     "totalPrice": {
-      "value": 995000,
+      "value": 949999,
       "currency": "PLN",
       "__typename": "Money"
     },
-    "rentPrice": null,
+    "rentPrice": {
+      "value": 850,
+      "currency": "PLN",
+      "__typename": "Money"
+    },
     "priceFromPerSquareMeter": null,
     "pricePerSquareMeter": {
-      "value": 20833,
+      "value": 17257,
       "currency": "PLN",
       "__typename": "Money"
     },
-    "areaInSquareMeters": 47.76,
+    "areaInSquareMeters": 55.05,
     "terrainAreaInSquareMeters": null,
     "roomsNumber": "THREE",
     "hidePrice": false,
@@ -4263,14 +4262,14 @@
     "investmentUnitsAreaInSquareMeters": null,
     "peoplePerRoom": null,
     "dateCreated": "1999-02-29 00:00:01",
-    "dateCreatedFirst": "2025-05-04 21:34:28",
+    "dateCreatedFirst": "2025-05-04 21:50:35",
     "investmentUnitsNumber": null,
     "investmentUnitsRoomsNumber": null,
     "investmentEstimatedDelivery": null,
     "pushedUpAt": null,
     "specialOffer": null,
-    "shortDescription": "Rozkładowe mieszkanie z dużym potencjałem inwestycyjnym, na Nowym Mieście, 47,76 m², z balkonem.Zapraszamy do zapoznania się z ofertą sprzedaży trzypokojowego mieszkania, z dwoma niezależnymi sypialni...",
+    "shortDescription": "Na wstępie uprzejmie informuję, że kupujący nie ponosi kosztów obsługi biura nieruchomości.Mam przyjemność przedstawić Państwu ofertę sprzedaży komfortowego, 3 pokojowego mieszkania znajdującego się p...",
     "__typename": "AdvertListItem",
-    "href": "hpr/[lang]/ad/nowe-miasto-bonifraterska-po-remoncie-ID4vdPW"
+    "href": "hpr/[lang]/ad/0-gustowne-3-pok-i-2-miejsca-w-garazu-podziemnym-ID4vdQz"
   }
 ]

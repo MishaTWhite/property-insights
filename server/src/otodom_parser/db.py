@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Database file path - ensure it's created in the server/ directory
-db_path = Path(__file__).resolve().parents[1] / 'otodom.db'  # /server/src/otodom.db
+db_path = Path(__file__).resolve().parent / 'otodom.db'  # /server/src/otodom_parser/otodom.db
 db_path.touch(exist_ok=True)  # creates file if absent
 
 def get_connection():

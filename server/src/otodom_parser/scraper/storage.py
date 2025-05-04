@@ -6,14 +6,14 @@ import sqlite3
 from pathlib import Path
 from typing import Optional, Dict, Any
 
-# Import database setup functions
-from ..db import setup_database
+# Import database setup functions and path
+from ..db import setup_database, db_path
 
 
 def clear_listings():
     """Clear all existing listings from the database"""
     try:
-        conn = sqlite3.connect('otodom.db')
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         cursor.execute("DELETE FROM listings")
         conn.commit()
@@ -50,7 +50,7 @@ def insert_listing(
         True if insertion was successful, False otherwise
     """
     try:
-        conn = sqlite3.connect('otodom.db')
+        conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
         
         # Check if the table exists, create it if it doesn't

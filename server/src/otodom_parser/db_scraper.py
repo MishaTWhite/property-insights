@@ -3,10 +3,15 @@ import logging
 import time
 from pathlib import Path
 
+# Database file path - ensure it's in the same location as db.py
+db_path = Path(__file__).resolve().parent / 'otodom.db'  # /server/src/otodom_parser/otodom.db
+db_path.touch(exist_ok=True)  # creates file if absent
+
 class ScraperDB:
-    def __init__(self, db_path):
+    def __init__(self, db_path_param=None):
         """Initialize the database connection"""
-        self.db_path = Path(db_path)
+        # Use provided path or fallback to the module-level db_path defined above
+        self.db_path = Path(db_path_param) if db_path_param is not None else db_path
         self.setup_database()
         
     def get_connection(self):
