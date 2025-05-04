@@ -23,7 +23,7 @@ CITIES = [
 ]
 
 class OtodomScraper:
-    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False):
+    def __init__(self, debug=False, city_filter=None, district_filter=None, district_mode="prefix", room_filter=None, max_pages=None, preserve=False, days_filter=1):
         self.debug = debug
         self.preserve = preserve
         # Define debug directory relative to script location
@@ -32,6 +32,7 @@ class OtodomScraper:
         self.status = "Ready"
         self.progress = 0
         self.error_occurred = False
+        self.days_filter = days_filter
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
             'Accept-Language': 'pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7',
@@ -455,7 +456,7 @@ class OtodomScraper:
             url_path += f"/{district}"
         
         # Start with base query parameters
-        params = [f"page={page}", "viewType=list"]
+        params = [f"page={page}", "viewType=list", f"daysSinceCreated={self.days_filter}"]
         
         # Add room filter parameters if specified
         if self.room_filter:
