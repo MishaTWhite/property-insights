@@ -203,13 +203,13 @@ const InvestmentCalculator = () => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      {/* Main container with flex layout */}
-      <div className="flex flex-col md:flex-row md:space-x-6">
-        {/* Left column - Form section (30-35% width) */}
-        <div className="w-full md:w-1/3 mb-6 md:mb-0">
-          <form>
+      {/* Main container with flex layout - responsive sidebar design */}
+      <div className="flex flex-col md:flex-row md:gap-6">
+        {/* Left column - Sidebar with Investment Settings (fixed width on desktop) */}
+        <div className="w-full md:min-w-[280px] md:w-full md:max-w-[300px] mb-6 md:mb-0">
+          <form className="bg-gray-50 p-4 rounded-lg h-full">
             <h2 className="text-xl font-bold mb-4">Investment Settings</h2>
-            <div className="grid grid-cols-1 gap-4">
+            <div className="grid grid-cols-1 gap-5">
               <div className="form-group">
                 <label className="block text-gray-700 mb-2">Starting Age</label>
                 <input
@@ -301,8 +301,8 @@ const InvestmentCalculator = () => {
           </form>
         </div>
 
-        {/* Right column - Results section (65-70% width) */}
-        <div className="w-full md:w-2/3">
+        {/* Right column - Results section (takes remaining space) */}
+        <div className="w-full flex-1">
           {calculationError && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
               <strong>Error:</strong> {calculationError}
@@ -311,7 +311,7 @@ const InvestmentCalculator = () => {
 
           {projections && (
             <div>
-              {/* Summary Section */}
+              {/* Summary Section - aligned with the top of settings */}
               <div className="bg-gray-100 p-4 rounded-lg mb-6">
                 <h2 className="text-xl font-bold mb-4">Investment Summary</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -443,10 +443,10 @@ const InvestmentCalculator = () => {
                 </div>
               </div>
 
-              {/* Table Section */}
+              {/* Table Section - with improved mobile responsiveness */}
               <div>
                 <h2 className="text-xl font-bold mb-4">Yearly Breakdown</h2>
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto rounded-lg border border-gray-200">
                   <table className="min-w-full divide-y divide-gray-200">
                     <thead>
                       <tr>
