@@ -407,9 +407,6 @@ const InvestmentCalculator = () => {
                           return (
                             <>
                               {formatCurrency(finalProjection.passiveIncomeMonthly)}
-                              {finalProjection.passiveIncomeMonthly < 2000 && (
-                                <span className="text-yellow-500 ml-2 tooltip" title="Monthly income is below the recommended minimum of 2000">⚠️</span>
-                              )}
                             </>
                           );
                         })()}
@@ -421,9 +418,6 @@ const InvestmentCalculator = () => {
                         return (
                           <div className="text-sm text-gray-500">
                             Inflation Adjusted: {formatCurrency(finalProjection.passiveIncomeInflationAdjusted)}
-                            {finalProjection.passiveIncomeInflationAdjusted < 2000 && (
-                              <span className="text-yellow-500 ml-2 tooltip" title="Inflation-adjusted income is below the recommended minimum of 2000">⚠️</span>
-                            )}
                           </div>
                         );
                       })()}
