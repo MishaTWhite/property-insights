@@ -170,7 +170,7 @@ const InvestmentCalculator = () => {
           sp500: { status: 'success', usingFallback: false }
         }));
       } catch (spError) {
-        console.warn('Failed to process S&P 500 data:', spError);
+        // Removed console warning about S&P 500 data processing error
         setDataStatus(prev => ({
           ...prev,
           sp500: { status: 'error', usingFallback: false }
@@ -241,14 +241,14 @@ const InvestmentCalculator = () => {
           cpi: { status: 'success', usingFallback: false }
         }));
       } catch (cpiError) {
-        console.warn('Failed to process CPI data:', cpiError);
+        // Removed console warning about CPI data processing error
         setDataStatus(prev => ({
           ...prev,
           cpi: { status: 'error', usingFallback: false }
         }));
       }
     } catch (error) {
-      console.error('Error in fetchHistoricalData:', error);
+      // Removed console error about fetchHistoricalData error
       setDataStatus({
         sp500: { status: 'error', usingFallback: false },
         cpi: { status: 'error', usingFallback: false }
@@ -280,20 +280,9 @@ const InvestmentCalculator = () => {
           // Проверим, не используем ли мы самую раннюю доступную запись
           const isUsingOldestRecord = startRecord === spData[0];
           
-          // Расширенное логирование для отладки
-          console.log(`${years}Y S&P 500 CAGR calculation:`, {
-            requestedStartDate: startDate.toISOString().split('T')[0],
-            actualStartDate: startRecord.date.toISOString().split('T')[0],
-            endDate: endRecord.date.toISOString().split('T')[0],
-            startValue: startRecord.value,
-            endValue: endRecord.value,
-            isUsingOldestRecord: isUsingOldestRecord,
-            oldestAvailableDate: spData[0].date.toISOString().split('T')[0],
-            dataPointsCount: spData.length
-          });
+          // Убрано расширенное логирование для отладки
           
           const actualYears = (endRecord.date - startRecord.date) / (1000 * 60 * 60 * 24 * 365);
-          console.log(`Actual years used for ${years}Y calculation: ${actualYears.toFixed(2)}`);
           
           const cagr = Math.pow(endRecord.value / startRecord.value, 1 / actualYears) - 1;
           return parseFloat((cagr * 100).toFixed(1));
@@ -303,12 +292,6 @@ const InvestmentCalculator = () => {
         const oldestDate = spData[0].date;
         const newestDate = latestSpData.date;
         const dataRangeYears = (newestDate - oldestDate) / (1000 * 60 * 60 * 24 * 365);
-        
-        console.log('S&P 500 data range:', {
-          oldest: oldestDate.toISOString().split('T')[0],
-          newest: newestDate.toISOString().split('T')[0],
-          rangeInYears: dataRangeYears.toFixed(2)
-        });
         
         // Определим три периода для отображения (короткий, средний, длинный)
         // Всегда используем 5 лет для короткого периода, если данных достаточно
@@ -321,8 +304,6 @@ const InvestmentCalculator = () => {
         // если данных достаточно
         const longPeriod = Math.max(Math.min(Math.floor(dataRangeYears), 30), 
                                    dataRangeYears >= 15 ? 15 : Math.floor(dataRangeYears));
-        
-        console.log(`Using periods: short=${shortPeriod}Y, medium=${mediumPeriod}Y, long=${longPeriod}Y`);
         
         // Рассчитываем CAGR для выбранных периодов
         const shortPeriodCAGR = calculateCAGR(shortPeriod);
@@ -351,7 +332,7 @@ const InvestmentCalculator = () => {
           }
         }));
       } catch (error) {
-        console.warn('Error calculating return suggestions:', error);
+        // Removed console warning about return calculation error
         setDataStatus(prev => ({
           ...prev,
           sp500: { status: 'error', usingFallback: false }
@@ -378,13 +359,7 @@ const InvestmentCalculator = () => {
           const currentRecord = latestCpiData;
           const previousYearRecord = cpiData.find(item => item.date >= oneYearAgo) || cpiData[0];
           
-          // Log the actual dates used for calculation
-          console.log(`1Y CPI YoY calculation:`, {
-            startDate: previousYearRecord.date.toISOString().split('T')[0],
-            endDate: currentRecord.date.toISOString().split('T')[0],
-            startValue: previousYearRecord.value,
-            endValue: currentRecord.value
-          });
+          // Убрано логирование расчета годовой инфляции
           
           return parseFloat(((currentRecord.value / previousYearRecord.value - 1) * 100).toFixed(1));
         };
@@ -401,20 +376,9 @@ const InvestmentCalculator = () => {
           // Проверим, не используем ли мы самую раннюю доступную запись
           const isUsingOldestRecord = startRecord === cpiData[0];
           
-          // Расширенное логирование для отладки
-          console.log(`${years}Y CPI average calculation:`, {
-            requestedStartDate: startDate.toISOString().split('T')[0],
-            actualStartDate: startRecord.date.toISOString().split('T')[0],
-            endDate: endRecord.date.toISOString().split('T')[0],
-            startValue: startRecord.value,
-            endValue: endRecord.value,
-            isUsingOldestRecord: isUsingOldestRecord,
-            oldestAvailableDate: cpiData[0].date.toISOString().split('T')[0],
-            dataPointsCount: cpiData.length
-          });
+          // Убрано расширенное логирование для отладки
           
           const actualYears = (endRecord.date - startRecord.date) / (1000 * 60 * 60 * 24 * 365);
-          console.log(`Actual years used for ${years}Y CPI calculation: ${actualYears.toFixed(2)}`);
           
           const avgAnnualRate = Math.pow(endRecord.value / startRecord.value, 1 / actualYears) - 1;
           return parseFloat((avgAnnualRate * 100).toFixed(1));
@@ -429,12 +393,6 @@ const InvestmentCalculator = () => {
         const newestCpiDate = latestCpiData.date;
         const cpiDataRangeYears = (newestCpiDate - oldestCpiDate) / (1000 * 60 * 60 * 24 * 365);
         
-        console.log('CPI data range:', {
-          oldest: oldestCpiDate.toISOString().split('T')[0],
-          newest: newestCpiDate.toISOString().split('T')[0],
-          rangeInYears: cpiDataRangeYears.toFixed(2)
-        });
-        
         // Для среднего периода используем 10 лет или половину доступного диапазона
         const mediumPeriodInflation = Math.min(10, Math.floor(cpiDataRangeYears / 2));
         
@@ -442,8 +400,6 @@ const InvestmentCalculator = () => {
         // если данных достаточно
         const longPeriodInflation = Math.max(Math.min(Math.floor(cpiDataRangeYears), 30), 
                                            cpiDataRangeYears >= 20 ? 20 : Math.floor(cpiDataRangeYears));
-        
-        console.log(`Using inflation periods: short=${shortPeriodInflation}Y, medium=${mediumPeriodInflation}Y, long=${longPeriodInflation}Y`);
         
         // Рассчитываем инфляцию для выбранных периодов
         const shortPeriodAvg = calculateAvgInflation(shortPeriodInflation); // Используем 5-летний период
@@ -472,7 +428,7 @@ const InvestmentCalculator = () => {
           }
         }));
       } catch (error) {
-        console.warn('Error calculating inflation suggestions:', error);
+        // Removed console warning about inflation calculation error
         setDataStatus(prev => ({
           ...prev,
           cpi: { status: 'error', usingFallback: false }
@@ -523,7 +479,7 @@ const InvestmentCalculator = () => {
       setProjections(results);
       setCalculationError(null);
     } catch (error) {
-      console.error("Calculation error:", error);
+      // Removed console error about calculation error
       setCalculationError(error.message || "An error occurred during calculation");
       setProjections(null);
     }
@@ -595,18 +551,14 @@ const InvestmentCalculator = () => {
     const uniqueAges = new Set();
     const uniqueProjections = filteredProjections.filter(year => {
       if (uniqueAges.has(year.age)) {
-        console.warn(`Duplicate age value detected: ${year.age}`);
+        // Removed console warning about duplicate age values
         return false;
       }
       uniqueAges.add(year.age);
       return true;
     });
     
-    // Log chart data range for debugging
-    if (uniqueProjections.length > 0) {
-      console.log(`Chart data range: ${uniqueProjections[0].age} to ${uniqueProjections[uniqueProjections.length - 1].age}`);
-      console.log(`Total data points: ${uniqueProjections.length}`);
-    }
+    // Removed console logs for chart data range
     
     return uniqueProjections.map((year) => {
       // Calculate inflation-adjusted capital if inflation is considered
@@ -638,9 +590,7 @@ const InvestmentCalculator = () => {
     const formation = data.filter(item => item.isFormationPeriod);
     const postFormation = data.filter(item => !item.isFormationPeriod);
     
-    // Log the split data for debugging
-    console.log(`Formation period data points: ${formation.length}`);
-    console.log(`Post-formation period data points: ${postFormation.length}`);
+    // Removed console logs for formation period data points
     
     // If there are both formation and post-formation data points, ensure continuity
     if (formation.length > 0 && postFormation.length > 0) {
@@ -650,7 +600,7 @@ const InvestmentCalculator = () => {
       
       // Check if there's a gap between the periods
       if (firstPostFormationAge - lastFormationAge > 1) {
-        console.warn(`Gap detected between formation and post-formation periods: ${lastFormationAge} to ${firstPostFormationAge}`);
+        // Removed console warning about gap detection
       }
     }
     
