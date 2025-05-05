@@ -9,9 +9,11 @@
  * @param {number} params.endCapitalFormationAge - Age at which to stop making new contributions
  * @param {boolean} params.considerInflation - Whether to adjust for inflation
  * @param {boolean} params.reinvestAfterFormation - Whether to reinvest returns after formation period
- * @returns {Array} Array of yearly projections
+ * @returns {Array} Array of yearly projections, possibly with warning flags
+ * @throws {Error} If input parameters are invalid
  */
 export const generateProjection = (params) => {
+  // Input validation
   const {
     startingAge,
     initialCapital,
@@ -23,41 +25,93 @@ export const generateProjection = (params) => {
     reinvestAfterFormation
   } = params;
 
+  // Validate input ranges and relationships
+  if (annualReturn > 50) {
+    throw new Error("Annual return exceeding 50% is unrealistic");
+  }
+  
+  if (annualInflation > 30) {
+    throw new Error("Annual inflation exceeding 30% is extreme");
+  }
+  
+  if (startingAge > endCapitalFormationAge) {
+    throw new Error("Starting age cannot be greater than end capital formation age");
+  }
+  
+  // Constants and caps
+  const MAX_INVESTMENT_MULTIPLIER = 4; // Cap growth at 4x the initial monthly investment
+  const MAX_INFLATION_FACTOR = 20; // Cap cumulative inflation factor
+  const MAX_SAFE_VALUE = Number.MAX_SAFE_INTEGER / 1000; // Avoid getting too close to MAX_SAFE_INTEGER
+  
   const yearlyProjections = [];
-  let currentCapital = initialCapital;
-  let currentMonthlyInvestment = monthlyInvestment;
-  const returnRate = annualReturn / 100;
-  const inflationRate = annualInflation / 100;
+  let currentCapital = ensureSafeNumber(initialCapital);
+  let currentMonthlyInvestment = ensureSafeNumber(monthlyInvestment);
+  const originalMonthlyInvestment = currentMonthlyInvestment; // Keep track of initial value for capping
+  const returnRate = ensureSafeNumber(annualReturn / 100);
+  const inflationRate = ensureSafeNumber(annualInflation / 100);
   
   // Loop until age 65
   for (let age = startingAge; age <= 65; age++) {
+    // Track if this year's projections have any stability issues
+    let hasWarning = false;
+    
     const inFormationPeriod = age <= endCapitalFormationAge;
-    const yearlyInvestment = inFormationPeriod ? currentMonthlyInvestment * 12 : 0;
+    const yearlyInvestment = inFormationPeriod ? ensureSafeNumber(currentMonthlyInvestment * 12) : 0;
     
     let interestGained;
     let capitalEnd;
     
     if (inFormationPeriod || reinvestAfterFormation) {
       // Calculate interest (assuming investments are made throughout the year)
-      interestGained = (currentCapital + yearlyInvestment / 2) * returnRate;
+      interestGained = ensureSafeNumber((currentCapital + yearlyInvestment / 2) * returnRate);
       // Add interest and new investments to capital
-      capitalEnd = currentCapital + interestGained + yearlyInvestment;
+      capitalEnd = ensureSafeNumber(currentCapital + interestGained + yearlyInvestment);
     } else {
       // Withdrawal mode: don't reinvest interest
-      interestGained = currentCapital * returnRate;
+      interestGained = ensureSafeNumber(currentCapital * returnRate);
       // Only the principal remains (interest is withdrawn)
       capitalEnd = currentCapital;
     }
     
     // Calculate monthly passive income
-    const passiveIncomeMonthly = currentCapital * returnRate / 12;
+    let passiveIncomeMonthly = ensureSafeNumber(currentCapital * returnRate / 12);
     
     // Calculate inflation adjusted income if needed
     let passiveIncomeInflationAdjusted = null;
     if (considerInflation) {
-      // Adjust for cumulative inflation since start
-      const cumulativeInflationFactor = Math.pow(1 + inflationRate, age - startingAge);
-      passiveIncomeInflationAdjusted = passiveIncomeMonthly / cumulativeInflationFactor;
+      // Calculate inflation factor with a safety cap
+      const yearsSinceStart = age - startingAge;
+      // Cap the cumulative inflation factor to avoid extreme values
+      let cumulativeInflationFactor = Math.pow(1 + inflationRate, yearsSinceStart);
+      if (cumulativeInflationFactor > MAX_INFLATION_FACTOR) {
+        cumulativeInflationFactor = MAX_INFLATION_FACTOR;
+        hasWarning = true;
+      }
+      cumulativeInflationFactor = ensureSafeNumber(cumulativeInflationFactor);
+      
+      // Ensure we don't divide by zero or a very small number
+      if (cumulativeInflationFactor < 0.0001) {
+        cumulativeInflationFactor = 0.0001;
+        hasWarning = true;
+      }
+      
+      passiveIncomeInflationAdjusted = ensureSafeNumber(passiveIncomeMonthly / cumulativeInflationFactor);
+    }
+    
+    // Cap values if they exceed safe limits
+    if (capitalEnd > MAX_SAFE_VALUE) {
+      capitalEnd = MAX_SAFE_VALUE;
+      hasWarning = true;
+    }
+    
+    if (passiveIncomeMonthly > MAX_SAFE_VALUE) {
+      passiveIncomeMonthly = MAX_SAFE_VALUE;
+      hasWarning = true;
+    }
+    
+    if (passiveIncomeInflationAdjusted && passiveIncomeInflationAdjusted > MAX_SAFE_VALUE) {
+      passiveIncomeInflationAdjusted = MAX_SAFE_VALUE;
+      hasWarning = true;
     }
     
     // Record this year's projection
@@ -68,7 +122,9 @@ export const generateProjection = (params) => {
       interestGained,
       capitalEnd,
       passiveIncomeMonthly,
-      passiveIncomeInflationAdjusted
+      passiveIncomeInflationAdjusted,
+      // Add warning flag if any values were capped or adjusted for stability
+      ...(hasWarning && { warning: "Some values were capped for stability" })
     });
     
     // Update for next iteration
@@ -76,12 +132,33 @@ export const generateProjection = (params) => {
     
     // If inflation is enabled, increase monthly investment for next year
     if (considerInflation && inFormationPeriod) {
+      // Apply inflation increase but cap the growth
       currentMonthlyInvestment *= (1 + inflationRate);
+      
+      // Cap the monthly investment growth
+      const maxAllowedInvestment = originalMonthlyInvestment * MAX_INVESTMENT_MULTIPLIER;
+      if (currentMonthlyInvestment > maxAllowedInvestment) {
+        currentMonthlyInvestment = maxAllowedInvestment;
+      }
+      
+      currentMonthlyInvestment = ensureSafeNumber(currentMonthlyInvestment);
     }
   }
   
   return yearlyProjections;
 };
+
+/**
+ * Ensures a number is finite and not NaN; returns 0 if the value is problematic
+ * @param {number} value - The number to check
+ * @returns {number} The value if it's finite, otherwise 0
+ */
+function ensureSafeNumber(value) {
+  if (!Number.isFinite(value) || Number.isNaN(value)) {
+    return 0;
+  }
+  return value;
+}
 
 /**
  * Calculate total amount invested over time

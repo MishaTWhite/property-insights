@@ -1,7 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { generateProjection, calculateTotalInvested } from '../utils/investmentCalculations';
+
+// Debounce function to avoid excessive calculations
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
 
 const InvestmentCalculator = () => {
   const { register, watch, handleSubmit, formState: { errors } } = useForm({
@@ -18,25 +31,50 @@ const InvestmentCalculator = () => {
   });
 
   const [projections, setProjections] = useState(null);
+  const [calculationError, setCalculationError] = useState(null);
   const formValues = watch();
 
-  // Generate projection when form is submitted
-  const onSubmit = (data) => {
-    const results = generateProjection(data);
-    setProjections(results);
+  // Generate projection with proper error handling
+  const generateProjectionSafely = (data) => {
+    try {
+      // Ensure all numeric inputs are properly coerced to numbers
+      const parsedData = {
+        startingAge: Number(data.startingAge),
+        initialCapital: Number(data.initialCapital),
+        monthlyInvestment: Number(data.monthlyInvestment),
+        annualReturn: Number(data.annualReturn),
+        annualInflation: Number(data.annualInflation),
+        endCapitalFormationAge: Number(data.endCapitalFormationAge),
+        considerInflation: Boolean(data.considerInflation),
+        reinvestAfterFormation: Boolean(data.reinvestAfterFormation)
+      };
+
+      const results = generateProjection(parsedData);
+      setProjections(results);
+      setCalculationError(null);
+    } catch (error) {
+      console.error("Calculation error:", error);
+      setCalculationError(error.message || "An error occurred during calculation");
+      setProjections(null);
+    }
   };
 
-  // Auto-calculate when any input changes
-  const calculateResults = () => {
-    handleSubmit(onSubmit)();
-  };
+  // Debounced calculation function
+  const debouncedCalculate = debounce((data) => {
+    generateProjectionSafely(data);
+  }, 200);
 
-  // Watch for changes to any input and recalculate
-  useState(() => {
-    calculateResults();
-  }, [formValues.startingAge, formValues.initialCapital, formValues.monthlyInvestment, 
-      formValues.annualReturn, formValues.annualInflation, formValues.endCapitalFormationAge,
-      formValues.considerInflation, formValues.reinvestAfterFormation]);
+  // Use useEffect to watch form changes and trigger calculations
+  useEffect(() => {
+    const subscription = watch((value) => {
+      debouncedCalculate(value);
+    });
+    
+    // Run initial calculation
+    debouncedCalculate(formValues);
+    
+    return () => subscription.unsubscribe();
+  }, [watch]);
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', {
@@ -61,7 +99,7 @@ const InvestmentCalculator = () => {
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
-      <form onSubmit={handleSubmit(onSubmit)} className="mb-8">
+      <form className="mb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="form-group">
             <label className="block text-gray-700 mb-2">Starting Age</label>
@@ -69,7 +107,6 @@ const InvestmentCalculator = () => {
               type="number"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               {...register("startingAge", { required: true, min: 18, max: 80 })}
-              onChange={calculateResults}
             />
             {errors.startingAge && <span className="text-red-500 text-sm">Starting age is required (18-80)</span>}
           </div>
@@ -80,7 +117,6 @@ const InvestmentCalculator = () => {
               type="number"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               {...register("initialCapital", { required: true, min: 0 })}
-              onChange={calculateResults}
             />
             {errors.initialCapital && <span className="text-red-500 text-sm">Initial capital is required</span>}
           </div>
@@ -91,7 +127,6 @@ const InvestmentCalculator = () => {
               type="number"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               {...register("monthlyInvestment", { required: true, min: 0 })}
-              onChange={calculateResults}
             />
             {errors.monthlyInvestment && <span className="text-red-500 text-sm">Monthly investment is required</span>}
           </div>
@@ -103,7 +138,6 @@ const InvestmentCalculator = () => {
               step="0.1"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               {...register("annualReturn", { required: true, min: 0, max: 30 })}
-              onChange={calculateResults}
             />
             {errors.annualReturn && <span className="text-red-500 text-sm">Annual return is required (0-30%)</span>}
           </div>
@@ -115,7 +149,6 @@ const InvestmentCalculator = () => {
               step="0.1"
               className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               {...register("annualInflation", { required: true, min: 0, max: 20 })}
-              onChange={calculateResults}
             />
             {errors.annualInflation && <span className="text-red-500 text-sm">Annual inflation is required (0-20%)</span>}
           </div>
@@ -130,7 +163,6 @@ const InvestmentCalculator = () => {
                 min: Number(formValues.startingAge || 18), 
                 max: 65 
               })}
-              onChange={calculateResults}
             />
             {errors.endCapitalFormationAge && <span className="text-red-500 text-sm">End age is required (starting age to 65)</span>}
           </div>
@@ -142,7 +174,6 @@ const InvestmentCalculator = () => {
                   type="checkbox"
                   className="mr-2"
                   {...register("considerInflation")}
-                  onChange={calculateResults}
                 />
                 <label className="text-gray-700">Consider Inflation</label>
               </div>
@@ -152,21 +183,19 @@ const InvestmentCalculator = () => {
                   type="checkbox"
                   className="mr-2"
                   {...register("reinvestAfterFormation")}
-                  onChange={calculateResults}
                 />
                 <label className="text-gray-700">Reinvest Income After Formation</label>
               </div>
             </div>
           </div>
         </div>
-
-        <button 
-          type="submit"
-          className="mt-6 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition duration-200"
-        >
-          Calculate Projection
-        </button>
       </form>
+
+      {calculationError && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-6">
+          <strong>Error:</strong> {calculationError}
+        </div>
+      )}
 
       {projections && (
         <div>
@@ -177,7 +206,7 @@ const InvestmentCalculator = () => {
               <div>
                 <div className="text-gray-600">Total Invested</div>
                 <div className="text-2xl font-semibold">
-                  {formatCurrency(calculateTotalInvested(projections) + formValues.initialCapital)}
+                  {formatCurrency(calculateTotalInvested(projections) + Number(formValues.initialCapital))}
                 </div>
               </div>
               <div>
@@ -255,6 +284,7 @@ const InvestmentCalculator = () => {
                     {formValues.considerInflation && (
                       <th className="px-4 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Inflation Adj. Income</th>
                     )}
+                    <th className="px-4 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -263,7 +293,12 @@ const InvestmentCalculator = () => {
                       key={year.age}
                       className={year.age > formValues.endCapitalFormationAge ? "bg-gray-50" : ""}
                     >
-                      <td className="px-4 py-2 whitespace-nowrap">{year.age}</td>
+                      <td className="px-4 py-2 whitespace-nowrap">
+                        {year.age}
+                        {year.warning && (
+                          <span className="ml-1 text-yellow-500" title={year.warning}>⚠️</span>
+                        )}
+                      </td>
                       <td className="px-4 py-2 whitespace-nowrap">{formatCurrency(year.capitalStart)}</td>
                       <td className="px-4 py-2 whitespace-nowrap">{formatCurrency(year.yearlyInvestment)}</td>
                       <td className="px-4 py-2 whitespace-nowrap">{formatCurrency(year.interestGained)}</td>
@@ -272,6 +307,18 @@ const InvestmentCalculator = () => {
                       {formValues.considerInflation && (
                         <td className="px-4 py-2 whitespace-nowrap">{formatCurrency(year.passiveIncomeInflationAdjusted)}</td>
                       )}
+                      <td className="px-4 py-2 whitespace-nowrap">
+                        {year.warning ? (
+                          <span className="text-yellow-500 flex items-center" title={year.warning}>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
+                            </svg>
+                            Value Capped
+                          </span>
+                        ) : (
+                          <span className="text-green-500">Normal</span>
+                        )}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
