@@ -324,17 +324,17 @@ const InvestmentCalculator = () => {
                   <div>
                     <div className="text-gray-600">Final Capital</div>
                     <div className="text-2xl font-semibold">
-                      {formatCurrency(projections[projections.length - 1].capitalEnd)}
+                      {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).capitalEnd)}
                     </div>
                   </div>
                   <div>
                     <div className="text-gray-600">Monthly Passive Income</div>
                     <div className="text-2xl font-semibold">
-                      {formatCurrency(projections[projections.length - 1].passiveIncomeMonthly)}
+                      {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly)}
                     </div>
                     {formValues.considerInflation && (
                       <div className="text-sm text-gray-500">
-                        Inflation Adjusted: {formatCurrency(projections[projections.length - 1].passiveIncomeInflationAdjusted)}
+                        Inflation Adjusted: {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted)}
                       </div>
                     )}
                   </div>
@@ -462,7 +462,9 @@ const InvestmentCalculator = () => {
                       </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                      {projections.map((year) => (
+                      {projections
+                        .filter(year => year.age <= Number(formValues.endCapitalFormationAge) + 1)
+                        .map((year) => (
                         <tr 
                           key={year.age}
                           className={year.age > formValues.endCapitalFormationAge ? "bg-gray-50" : ""}
