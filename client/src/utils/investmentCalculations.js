@@ -50,8 +50,11 @@ export const generateProjection = (params) => {
   const returnRate = ensureSafeNumber(annualReturn / 100);
   const inflationRate = ensureSafeNumber(annualInflation / 100);
   
-  // Loop until age 65
-  for (let age = startingAge; age <= 65; age++) {
+  // Calculate max age needed for projections (endCapitalFormationAge + 20)
+  const maxAge = endCapitalFormationAge + 20;
+  
+  // Loop through all years in the projection period
+  for (let age = startingAge; age <= maxAge; age++) {
     // Track if this year's projections have any stability issues
     let hasWarning = false;
     

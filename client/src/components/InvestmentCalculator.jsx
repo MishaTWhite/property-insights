@@ -80,14 +80,28 @@ const InvestmentCalculator = () => {
   // Generate projection with proper error handling
   const generateProjectionSafely = (data) => {
     try {
+      // Validate age inputs before proceeding
+      const startingAge = Number(data.startingAge);
+      const endCapitalFormationAge = Number(data.endCapitalFormationAge);
+
+      // Skip calculation if endCapitalFormationAge is invalid or missing
+      if (isNaN(endCapitalFormationAge) || endCapitalFormationAge === 0 || 
+          isNaN(startingAge) || startingAge === 0 ||
+          endCapitalFormationAge < startingAge) {
+        // Silently skip chart rendering without crashing
+        setCalculationError(null);
+        setProjections(null);
+        return;
+      }
+
       // Ensure all numeric inputs are properly coerced to numbers
       const parsedData = {
-        startingAge: Number(data.startingAge),
+        startingAge: startingAge,
         initialCapital: Number(data.initialCapital),
         monthlyInvestment: Number(data.monthlyInvestment),
         annualReturn: Number(data.annualReturn),
         annualInflation: Number(data.annualInflation),
-        endCapitalFormationAge: Number(data.endCapitalFormationAge),
+        endCapitalFormationAge: endCapitalFormationAge,
         considerInflation: Boolean(data.considerInflation),
         reinvestAfterFormation: Boolean(data.reinvestAfterFormation)
       };
@@ -131,8 +145,8 @@ const InvestmentCalculator = () => {
   const prepareChartData = (projections) => {
     if (!projections) return [];
     
-    // Calculate upper age limit according to requirements
-    const upperAgeLimit = Math.min(65, Number(formValues.endCapitalFormationAge) + 25);
+    // Calculate upper age limit dynamically (endCapitalFormationAge + 20)
+    const upperAgeLimit = Number(formValues.endCapitalFormationAge) + 20;
     
     // Filter projections to avoid duplicated years and limit to valid range
     const filteredProjections = projections.filter(year => {
