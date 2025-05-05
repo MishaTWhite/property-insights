@@ -18,7 +18,8 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const pages = [
   { title: 'Home', path: '/' },
-  { title: 'Otodom Analyzer', path: '/otodom-analyzer' }
+  { title: 'Otodom Analyzer', path: '/otodom-analyzer' },
+  { title: 'Investment Calculator', path: '/investment-calculator' }
 ];
 
 function NavBar() {
