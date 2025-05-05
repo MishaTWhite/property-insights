@@ -89,12 +89,23 @@ const InvestmentCalculator = () => {
   const prepareChartData = (projections) => {
     if (!projections) return [];
     
-    return projections.map(year => ({
-      age: year.age,
-      capital: year.capitalEnd,
-      // Mark whether this is in formation period or post-formation
-      isFormationPeriod: year.age <= formValues.endCapitalFormationAge
-    }));
+    return projections.map((year, index) => {
+      // Calculate inflation-adjusted capital if inflation is considered
+      let capitalInflationAdjusted = null;
+      if (formValues.considerInflation) {
+        const yearsSinceStart = year.age - projections[0].age;
+        const inflationFactor = Math.pow(1 + formValues.annualInflation / 100, yearsSinceStart);
+        capitalInflationAdjusted = year.capitalEnd / inflationFactor;
+      }
+      
+      return {
+        age: year.age,
+        capital: year.capitalEnd,
+        capitalInflationAdjusted,
+        // Mark whether this is in formation period or post-formation
+        isFormationPeriod: year.age <= formValues.endCapitalFormationAge
+      };
+    });
   };
 
   return (
@@ -248,14 +259,14 @@ const InvestmentCalculator = () => {
                     label={{ value: 'Capital (PLN)', angle: -90, position: 'insideLeft' }}
                   />
                   <Tooltip 
-                    formatter={(value) => [formatCurrency(value), "Capital"]} 
+                    formatter={(value, name) => [formatCurrency(value), name === "capital" ? "Nominal Value" : "Real Value"]} 
                     labelFormatter={(age) => `Age: ${age}`}
                   />
                   <Legend />
                   <Line 
                     type="monotone" 
                     dataKey="capital" 
-                    name="Capital" 
+                    name="Nominal Value" 
                     stroke="#4299E1"
                     strokeWidth={2}
                     dot={false}
@@ -263,6 +274,19 @@ const InvestmentCalculator = () => {
                     // Use a dashed line for the post-formation period
                     strokeDasharray={(data) => data.isFormationPeriod ? "0" : "5 5"}
                   />
+                  {formValues.considerInflation && (
+                    <Line 
+                      type="monotone" 
+                      dataKey="capitalInflationAdjusted" 
+                      name="Real Value (Inflation Adjusted)" 
+                      stroke="#48BB78"
+                      strokeWidth={2}
+                      dot={false}
+                      activeDot={{ r: 8 }}
+                      // Use a dashed line for the post-formation period
+                      strokeDasharray={(data) => data.isFormationPeriod ? "0" : "5 5"}
+                    />
+                  )}
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -284,7 +308,6 @@ const InvestmentCalculator = () => {
                     {formValues.considerInflation && (
                       <th className="px-4 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Inflation Adj. Income</th>
                     )}
-                    <th className="px-4 py-2 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
@@ -307,18 +330,7 @@ const InvestmentCalculator = () => {
                       {formValues.considerInflation && (
                         <td className="px-4 py-2 whitespace-nowrap">{formatCurrency(year.passiveIncomeInflationAdjusted)}</td>
                       )}
-                      <td className="px-4 py-2 whitespace-nowrap">
-                        {year.warning ? (
-                          <span className="text-yellow-500 flex items-center" title={year.warning}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                              <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-                            </svg>
-                            Value Capped
-                          </span>
-                        ) : (
-                          <span className="text-green-500">Normal</span>
-                        )}
-                      </td>
+                      
                     </tr>
                   ))}
                 </tbody>

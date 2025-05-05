@@ -69,8 +69,15 @@ export const generateProjection = (params) => {
     } else {
       // Withdrawal mode: don't reinvest interest
       interestGained = ensureSafeNumber(currentCapital * returnRate);
-      // Only the principal remains (interest is withdrawn)
-      capitalEnd = currentCapital;
+      
+      if (!reinvestAfterFormation && considerInflation) {
+        // Capital drawdown mode: decrease capital by yearly passive income
+        const yearlyPassiveIncome = ensureSafeNumber(currentCapital * returnRate);
+        capitalEnd = ensureSafeNumber(currentCapital - yearlyPassiveIncome);
+      } else {
+        // Only the principal remains (interest is withdrawn but capital stays the same)
+        capitalEnd = currentCapital;
+      }
     }
     
     // Calculate monthly passive income
