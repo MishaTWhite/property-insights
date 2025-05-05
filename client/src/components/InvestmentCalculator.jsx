@@ -26,23 +26,20 @@ const CustomTooltip = ({ active, payload, label, considerInflation }) => {
       <div className="custom-tooltip bg-white p-3 border border-gray-200 shadow-md rounded">
         <p className="font-semibold mb-1">{`Age: ${label}`}</p>
         <p className="text-sm">{`Capital: ${payload[0].value.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'PLN',
+          style: 'decimal',
           minimumFractionDigits: 0,
           maximumFractionDigits: 0,
         })}`}</p>
         
         <p className="text-sm mt-2 font-semibold text-blue-700">{`Monthly Income: ${hoveredYear.passiveIncomeMonthly.toLocaleString('en-US', {
-          style: 'currency',
-          currency: 'PLN',
+          style: 'decimal',
           minimumFractionDigits: 0,
           maximumFractionDigits: 0,
         })}`}</p>
         
         {considerInflation && (
           <p className="text-sm text-green-700">{`Inflation Adjusted Income: ${hoveredYear.passiveIncomeInflationAdjusted.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'PLN',
+            style: 'decimal',
             minimumFractionDigits: 0,
             maximumFractionDigits: 0,
           })}`}</p>
@@ -70,6 +67,14 @@ const InvestmentCalculator = () => {
 
   const [projections, setProjections] = useState(null);
   const [calculationError, setCalculationError] = useState(null);
+  const [chartView, setChartView] = useState('capital'); // 'capital' or 'income'
+  const [hoveredAge, setHoveredAge] = useState(null);
+  const [collapsedSections, setCollapsedSections] = useState({
+    settings: false,
+    summary: window.innerWidth < 768,
+    chart: window.innerWidth < 768,
+    table: window.innerWidth < 768
+  });
   const formValues = watch();
 
   // Generate projection with proper error handling
@@ -116,8 +121,7 @@ const InvestmentCalculator = () => {
 
   const formatCurrency = (value) => {
     return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'PLN',
+      style: 'decimal',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value);
@@ -221,7 +225,7 @@ const InvestmentCalculator = () => {
               </div>
 
               <div className="form-group">
-                <label className="block text-gray-700 mb-2">Initial Capital (PLN)</label>
+                <label className="block text-gray-700 mb-2">Initial Capital</label>
                 <input
                   type="number"
                   className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -231,7 +235,7 @@ const InvestmentCalculator = () => {
               </div>
 
               <div className="form-group">
-                <label className="block text-gray-700 mb-2">Monthly Investment (PLN)</label>
+                <label className="block text-gray-700 mb-2">Monthly Investment</label>
                 <input
                   type="number"
                   className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -311,39 +315,126 @@ const InvestmentCalculator = () => {
 
           {projections && (
             <div>
-              {/* Summary Section - aligned with the top of settings */}
-              <div className="bg-gray-100 p-4 rounded-lg mb-6">
-                <h2 className="text-xl font-bold mb-4">Investment Summary</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div>
-                    <div className="text-gray-600">Total Invested</div>
-                    <div className="text-2xl font-semibold">
-                      {formatCurrency(calculateTotalInvested(projections) + Number(formValues.initialCapital))}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-600">Final Capital</div>
-                    <div className="text-2xl font-semibold">
-                      {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).capitalEnd)}
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-600">Monthly Passive Income</div>
-                    <div className="text-2xl font-semibold">
-                      {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly)}
-                    </div>
-                    {formValues.considerInflation && (
-                      <div className="text-sm text-gray-500">
-                        Inflation Adjusted: {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted)}
+              {/* Summary Section with collapsible header for mobile and sticky position for desktop */}
+              <div className={`bg-gray-100 p-4 rounded-lg mb-6 lg:sticky lg:top-4 z-10 ${collapsedSections.summary ? 'border-b border-gray-300' : ''}`}>
+                <div 
+                  className="flex justify-between items-center cursor-pointer md:cursor-default" 
+                  onClick={() => window.innerWidth < 768 && setCollapsedSections({...collapsedSections, summary: !collapsedSections.summary})}
+                >
+                  <h2 className="text-xl font-bold mb-4">Investment Summary</h2>
+                  {window.innerWidth < 768 && (
+                    <button className="text-gray-500 focus:outline-none">
+                      {collapsedSections.summary ? '➕' : '➖'}
+                    </button>
+                  )}
+                </div>
+                
+                {(!collapsedSections.summary || window.innerWidth >= 768) && (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <div className="text-gray-600">Total Invested</div>
+                      <div className="text-2xl font-semibold">
+                        {formatCurrency(calculateTotalInvested(projections) + Number(formValues.initialCapital))}
                       </div>
+                    </div>
+                    <div>
+                      <div className="text-gray-600">Final Capital</div>
+                      <div className="text-2xl font-semibold">
+                        {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).capitalEnd)}
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-gray-600">Monthly Passive Income</div>
+                      <div className="text-2xl font-semibold">
+                        {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly)}
+                        {projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly < 2000 && (
+                          <span className="text-yellow-500 ml-2 tooltip" title="Monthly income is below the recommended minimum of 2000">⚠️</span>
+                        )}
+                      </div>
+                      {formValues.considerInflation && (
+                        <div className="text-sm text-gray-500">
+                          Inflation Adjusted: {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted)}
+                          {projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted < 2000 && (
+                            <span className="text-yellow-500 ml-2 tooltip" title="Inflation-adjusted income is below the recommended minimum of 2000">⚠️</span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Chart Section with collapsible header and view toggle */}
+              <div className={`mb-8 ${collapsedSections.chart ? 'border-b border-gray-300' : ''}`}>
+                <div 
+                  className="flex justify-between items-center cursor-pointer md:cursor-default mb-4" 
+                  onClick={() => window.innerWidth < 768 && setCollapsedSections({...collapsedSections, chart: !collapsedSections.chart})}
+                >
+                  <h2 className="text-xl font-bold">
+                    {chartView === 'capital' ? 'Capital Growth Projection' : 'Monthly Passive Income Projection'}
+                  </h2>
+                  <div className="flex items-center">
+                    <div className="hidden md:flex mr-4">
+                      <label className="inline-flex items-center cursor-pointer">
+                        <input
+                          type="radio"
+                          name="chartView"
+                          value="capital"
+                          className="form-radio h-4 w-4 text-blue-600"
+                          checked={chartView === 'capital'}
+                          onChange={() => setChartView('capital')}
+                        />
+                        <span className="ml-2 text-gray-700">Capital</span>
+                      </label>
+                      <label className="inline-flex items-center ml-4 cursor-pointer">
+                        <input
+                          type="radio"
+                          name="chartView"
+                          value="income"
+                          className="form-radio h-4 w-4 text-blue-600"
+                          checked={chartView === 'income'}
+                          onChange={() => setChartView('income')}
+                        />
+                        <span className="ml-2 text-gray-700">Monthly Income</span>
+                      </label>
+                    </div>
+                    {window.innerWidth < 768 && (
+                      <button className="text-gray-500 focus:outline-none">
+                        {collapsedSections.chart ? '➕' : '➖'}
+                      </button>
                     )}
                   </div>
                 </div>
-              </div>
 
-              {/* Chart Section */}
-              <div className="mb-8">
-                <h2 className="text-xl font-bold mb-4">Capital Growth Projection</h2>
+                {/* Mobile-only chart view switcher */}
+                {window.innerWidth < 768 && !collapsedSections.chart && (
+                  <div className="flex justify-center mb-4">
+                    <div className="inline-flex rounded-md shadow-sm" role="group">
+                      <button 
+                        type="button" 
+                        className={`px-4 py-2 text-sm font-medium rounded-l-lg ${
+                          chartView === 'capital' 
+                            ? 'bg-blue-600 text-white' 
+                            : 'bg-gray-200 text-gray-700'
+                        }`}
+                        onClick={() => setChartView('capital')}
+                      >
+                        Capital
+                      </button>
+                      <button 
+                        type="button" 
+                        className={`px-4 py-2 text-sm font-medium rounded-r-lg ${
+                          chartView === 'income' 
+                            ? 'bg-blue-600 text-white' 
+                            : 'bg-gray-200 text-gray-700'
+                        }`}
+                        onClick={() => setChartView('income')}
+                      >
+                        Monthly Income
+                      </button>
+                    </div>
+                  </div>
+                )}
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
                     {/* Extract data preparation outside JSX */}
@@ -355,7 +446,14 @@ const InvestmentCalculator = () => {
                         <LineChart
                           data={chartData}
                           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                          key={`chart-${formValues.startingAge}-${formValues.endCapitalFormationAge}-${chartData.length}`}
+                          key={`chart-${formValues.startingAge}-${formValues.endCapitalFormationAge}-${chartData.length}-${chartView}`}
+                          onMouseMove={(e) => {
+                            if (e && e.activePayload && e.activePayload[0]) {
+                              const age = e.activePayload[0].payload.age;
+                              setHoveredAge(age);
+                            }
+                          }}
+                          onMouseLeave={() => setHoveredAge(null)}
                         >
                           <CartesianGrid strokeDasharray="3 3" />
                           <XAxis 
@@ -367,7 +465,7 @@ const InvestmentCalculator = () => {
                           />
                           <YAxis 
                             tickFormatter={(value) => `${(value / 1000).toFixed(0)}k`}
-                            label={{ value: 'Capital (PLN)', angle: -90, position: 'insideLeft' }}
+                            label={{ value: chartView === 'capital' ? 'Capital' : 'Monthly Income', angle: -90, position: 'insideLeft' }}
                           />
                           <Tooltip 
                             content={<CustomTooltip considerInflation={formValues.considerInflation} />}
@@ -378,7 +476,7 @@ const InvestmentCalculator = () => {
                           <Line 
                             data={formation}
                             type="monotone" 
-                            dataKey="capital" 
+                            dataKey={chartView === 'capital' ? 'capital' : 'passiveIncomeMonthly'} 
                             name="Nominal Value (Formation)" 
                             stroke="#4299E1"
                             strokeWidth={2}
@@ -392,7 +490,7 @@ const InvestmentCalculator = () => {
                             <Line 
                               data={postFormation}
                               type="monotone" 
-                              dataKey="capital" 
+                              dataKey={chartView === 'capital' ? 'capital' : 'passiveIncomeMonthly'} 
                               name="Nominal Value (Post-Formation)" 
                               stroke="#4299E1"
                               strokeWidth={2}
@@ -410,7 +508,7 @@ const InvestmentCalculator = () => {
                               <Line 
                                 data={formation}
                                 type="monotone" 
-                                dataKey="capitalInflationAdjusted" 
+                                dataKey={chartView === 'capital' ? 'capitalInflationAdjusted' : 'passiveIncomeInflationAdjusted'} 
                                 name="Real Value (Formation)" 
                                 stroke="#48BB78"
                                 strokeWidth={2}
@@ -424,7 +522,7 @@ const InvestmentCalculator = () => {
                                 <Line 
                                   data={postFormation}
                                   type="monotone" 
-                                  dataKey="capitalInflationAdjusted" 
+                                  dataKey={chartView === 'capital' ? 'capitalInflationAdjusted' : 'passiveIncomeInflationAdjusted'} 
                                   name="Real Value (Post-Formation)" 
                                   stroke="#48BB78"
                                   strokeWidth={2}
