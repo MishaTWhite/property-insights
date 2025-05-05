@@ -263,7 +263,7 @@ const InvestmentCalculator = () => {
   // Calculate suggestions when data is available
   useEffect(() => {
     // Process S&P 500 data if available
-    if (spData && spData.length > 0) {
+    if (spData && spData.length > 0 && !returnSuggestions) {
       try {
         const now = new Date();
         const latestSpData = spData[spData.length - 1];
@@ -359,9 +359,12 @@ const InvestmentCalculator = () => {
         setReturnSuggestions(null);
       }
     }
-    
+  }, [spData, returnSuggestions]);
+  
+  // Separate useEffect for CPI data to avoid unnecessary recalculations
+  useEffect(() => {
     // Process CPI data if available
-    if (cpiData && cpiData.length > 0) {
+    if (cpiData && cpiData.length > 0 && !inflationSuggestions) {
       try {
         const now = new Date();
         const latestCpiData = cpiData[cpiData.length - 1];
@@ -477,7 +480,7 @@ const InvestmentCalculator = () => {
         setInflationSuggestions(null);
       }
     }
-  }, [spData, cpiData]);
+  }, [cpiData, inflationSuggestions]);
 
   // Generate projection with proper error handling
   const generateProjectionSafely = (data) => {
