@@ -617,13 +617,23 @@ const InvestmentCalculator = () => {
             <h2 className="text-xl font-bold mb-4">Investment Settings</h2>
             <div className="grid grid-cols-1 gap-5">
               <div className="form-group">
-                <label className="block text-gray-700 mb-2">Starting Age</label>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="block text-gray-700">Starting Age</label>
+                  <span className="text-sm text-gray-500">{formValues.startingAge}</span>
+                </div>
                 <input
-                  type="number"
-                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  {...register("startingAge", { required: true, min: 18, max: 80 })}
+                  type="range"
+                  min="16"
+                  max="70"
+                  step="1"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                  {...register("startingAge", { required: true, min: 16, max: 70 })}
                 />
-                {errors.startingAge && <span className="text-red-500 text-sm">Starting age is required (18-80)</span>}
+                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>16</span>
+                  <span>70</span>
+                </div>
+                {errors.startingAge && <span className="text-red-500 text-sm">Starting age is required (16-70)</span>}
               </div>
 
               <div className="form-group">
@@ -791,17 +801,27 @@ const InvestmentCalculator = () => {
               </div>
 
               <div className="form-group">
-                <label className="block text-gray-700 mb-2">End Capital Formation Age</label>
+                <div className="flex justify-between items-center mb-2">
+                  <label className="block text-gray-700">End Capital Formation Age</label>
+                  <span className="text-sm text-gray-500">{formValues.endCapitalFormationAge}</span>
+                </div>
                 <input
-                  type="number"
-                  className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  type="range"
+                  min={Number(formValues.startingAge || 16)}
+                  max="100"
+                  step="1"
+                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
                   {...register("endCapitalFormationAge", { 
                     required: true, 
-                    min: Number(formValues.startingAge || 18), 
-                    max: 65 
+                    min: Number(formValues.startingAge || 16), 
+                    max: 100 
                   })}
                 />
-                {errors.endCapitalFormationAge && <span className="text-red-500 text-sm">End age is required (starting age to 65)</span>}
+                <div className="flex justify-between text-xs text-gray-500 mt-1">
+                  <span>{formValues.startingAge || 16}</span>
+                  <span>100</span>
+                </div>
+                {errors.endCapitalFormationAge && <span className="text-red-500 text-sm">End age is required (starting age to 100)</span>}
               </div>
 
               <div className="form-group">
