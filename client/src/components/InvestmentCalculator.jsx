@@ -56,7 +56,7 @@ const CustomTooltip = ({ active, payload, label, considerInflation }) => {
 };
 
 const InvestmentCalculator = () => {
-  const { register, watch, handleSubmit, formState: { errors } } = useForm({
+  const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm({
     defaultValues: {
       startingAge: 30,
       initialCapital: 10000,
@@ -79,7 +79,202 @@ const InvestmentCalculator = () => {
     chart: window.innerWidth < 768,
     table: window.innerWidth < 768
   });
+  const [spData, setSpData] = useState(null);
+  const [cpiData, setCpiData] = useState(null);
+  const [returnSuggestions, setReturnSuggestions] = useState(null);
+  const [inflationSuggestions, setInflationSuggestions] = useState(null);
   const formValues = watch();
+  
+  // Fetch historical data from FRED
+  useEffect(() => {
+    const fetchHistoricalData = async () => {
+      try {
+        // Try to fetch S&P 500 data using a CORS proxy
+        try {
+          // Using a public CORS proxy
+          const spResponse = await fetch('https://corsproxy.io/?https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500');
+          const spText = await spResponse.text();
+          
+          // Parse CSV data
+          const spRows = spText.split('\n').slice(1); // Skip header row
+          const parsedSpData = spRows
+            .map(row => {
+              const [dateStr, valueStr] = row.split(',');
+              const value = parseFloat(valueStr);
+              if (dateStr && !isNaN(value)) {
+                return {
+                  date: new Date(dateStr),
+                  value: value
+                };
+              }
+              return null;
+            })
+            .filter(item => item !== null)
+            .sort((a, b) => a.date - b.date); // Sort by date ascending
+          
+          setSpData(parsedSpData);
+        } catch (spError) {
+          console.warn('Failed to fetch S&P 500 data via proxy, using fallback data', spError);
+          // Fallback to pre-calculated values if fetch fails
+          setReturnSuggestions({
+            fiveYear: 11.2,
+            fifteenYear: 9.3,
+            thirtyYear: 8.5
+          });
+        }
+        
+        // Try to fetch CPI data using a CORS proxy
+        try {
+          const cpiResponse = await fetch('https://corsproxy.io/?https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL');
+          const cpiText = await cpiResponse.text();
+          
+          // Parse CSV data
+          const cpiRows = cpiText.split('\n').slice(1); // Skip header row
+          const parsedCpiData = cpiRows
+            .map(row => {
+              const [dateStr, valueStr] = row.split(',');
+              const value = parseFloat(valueStr);
+              if (dateStr && !isNaN(value)) {
+                return {
+                  date: new Date(dateStr),
+                  value: value
+                };
+              }
+              return null;
+            })
+            .filter(item => item !== null)
+            .sort((a, b) => a.date - b.date); // Sort by date ascending
+          
+          setCpiData(parsedCpiData);
+        } catch (cpiError) {
+          console.warn('Failed to fetch CPI data via proxy, using fallback data', cpiError);
+          // Fallback to pre-calculated values if fetch fails
+          setInflationSuggestions({
+            oneYearYoY: 3.4,
+            tenYear: 2.5,
+            thirtyYear: 2.3
+          });
+        }
+      } catch (error) {
+        console.error('Error in fetchHistoricalData:', error);
+        // Set fallback values if everything fails
+        setReturnSuggestions({
+          fiveYear: 11.2,
+          fifteenYear: 9.3,
+          thirtyYear: 8.5
+        });
+        setInflationSuggestions({
+          oneYearYoY: 3.4,
+          tenYear: 2.5,
+          thirtyYear: 2.3
+        });
+      }
+    };
+
+    fetchHistoricalData();
+  }, []);
+
+  // Calculate suggestions when data is available
+  useEffect(() => {
+    // Process S&P 500 data if available
+    if (spData && spData.length > 0) {
+      try {
+        const now = new Date();
+        const latestSpData = spData[spData.length - 1];
+        
+        // Calculate CAGR for different periods
+        const calculateCAGR = (years) => {
+          const startDate = new Date(now);
+          startDate.setFullYear(now.getFullYear() - years);
+          
+          const startRecord = spData.find(item => item.date >= startDate) || spData[0];
+          const endRecord = latestSpData;
+          
+          const actualYears = (endRecord.date - startRecord.date) / (1000 * 60 * 60 * 24 * 365);
+          const cagr = Math.pow(endRecord.value / startRecord.value, 1 / actualYears) - 1;
+          return parseFloat((cagr * 100).toFixed(1));
+        };
+        
+        setReturnSuggestions({
+          fiveYear: calculateCAGR(5),
+          fifteenYear: calculateCAGR(15),
+          thirtyYear: calculateCAGR(30)
+        });
+      } catch (error) {
+        console.warn('Error calculating return suggestions:', error);
+        // Fallback values if calculation fails
+        setReturnSuggestions({
+          fiveYear: 11.2,
+          fifteenYear: 9.3,
+          thirtyYear: 8.5
+        });
+      }
+    }
+    
+    // Process CPI data if available
+    if (cpiData && cpiData.length > 0) {
+      try {
+        const now = new Date();
+        const latestCpiData = cpiData[cpiData.length - 1];
+        
+        // Calculate YoY inflation for last year
+        const calculateYoYInflation = () => {
+          const oneYearAgo = new Date(now);
+          oneYearAgo.setFullYear(now.getFullYear() - 1);
+          
+          // Find closest records to now and one year ago
+          const currentRecord = latestCpiData;
+          const previousYearRecord = cpiData.find(item => item.date >= oneYearAgo) || cpiData[0];
+          
+          return parseFloat(((currentRecord.value / previousYearRecord.value - 1) * 100).toFixed(1));
+        };
+        
+        // Calculate average inflation for different periods
+        const calculateAvgInflation = (years) => {
+          const startDate = new Date(now);
+          startDate.setFullYear(now.getFullYear() - years);
+          
+          const startRecord = cpiData.find(item => item.date >= startDate) || cpiData[0];
+          const endRecord = latestCpiData;
+          
+          const actualYears = (endRecord.date - startRecord.date) / (1000 * 60 * 60 * 24 * 365);
+          const avgAnnualRate = Math.pow(endRecord.value / startRecord.value, 1 / actualYears) - 1;
+          return parseFloat((avgAnnualRate * 100).toFixed(1));
+        };
+        
+        setInflationSuggestions({
+          oneYearYoY: calculateYoYInflation(),
+          tenYear: calculateAvgInflation(10),
+          thirtyYear: calculateAvgInflation(30)
+        });
+      } catch (error) {
+        console.warn('Error calculating inflation suggestions:', error);
+        // Fallback values if calculation fails
+        setInflationSuggestions({
+          oneYearYoY: 3.4,
+          tenYear: 2.5,
+          thirtyYear: 2.3
+        });
+      }
+    }
+    
+    // If we don't have data yet but we need to show suggestions anyway
+    if ((!spData || spData.length === 0) && !returnSuggestions) {
+      setReturnSuggestions({
+        fiveYear: 11.2,
+        fifteenYear: 9.3,
+        thirtyYear: 8.5
+      });
+    }
+    
+    if ((!cpiData || cpiData.length === 0) && !inflationSuggestions) {
+      setInflationSuggestions({
+        oneYearYoY: 3.4,
+        tenYear: 2.5,
+        thirtyYear: 2.3
+      });
+    }
+  }, [spData, cpiData, returnSuggestions, inflationSuggestions]);
 
   // Generate projection with proper error handling
   const generateProjectionSafely = (data) => {
@@ -304,6 +499,31 @@ const InvestmentCalculator = () => {
                   {...register("annualReturn", { required: true, min: 0, max: 30 })}
                 />
                 {errors.annualReturn && <span className="text-red-500 text-sm">Annual return is required (0-30%)</span>}
+                {returnSuggestions && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="S&P 500 5Y average return"
+                      onClick={() => setValue("annualReturn", returnSuggestions.fiveYear)}
+                    >
+                      ↳ 5Y: {returnSuggestions.fiveYear}%
+                    </span>
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="S&P 500 15Y average return"
+                      onClick={() => setValue("annualReturn", returnSuggestions.fifteenYear)}
+                    >
+                      ↳ 15Y: {returnSuggestions.fifteenYear}%
+                    </span>
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="S&P 500 30Y average return"
+                      onClick={() => setValue("annualReturn", returnSuggestions.thirtyYear)}
+                    >
+                      ↳ 30Y: {returnSuggestions.thirtyYear}%
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="form-group">
@@ -315,6 +535,31 @@ const InvestmentCalculator = () => {
                   {...register("annualInflation", { required: true, min: 0, max: 20 })}
                 />
                 {errors.annualInflation && <span className="text-red-500 text-sm">Annual inflation is required (0-20%)</span>}
+                {inflationSuggestions && (
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="US CPI 1Y YoY change"
+                      onClick={() => setValue("annualInflation", inflationSuggestions.oneYearYoY)}
+                    >
+                      ↳ 1Y: {inflationSuggestions.oneYearYoY}%
+                    </span>
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="US CPI 10Y average inflation"
+                      onClick={() => setValue("annualInflation", inflationSuggestions.tenYear)}
+                    >
+                      ↳ 10Y: {inflationSuggestions.tenYear}%
+                    </span>
+                    <span 
+                      className="text-sm px-2 py-1 bg-gray-100 rounded cursor-pointer hover:bg-gray-200 transition"
+                      title="US CPI 30Y average inflation"
+                      onClick={() => setValue("annualInflation", inflationSuggestions.thirtyYear)}
+                    >
+                      ↳ 30Y: {inflationSuggestions.thirtyYear}%
+                    </span>
+                  </div>
+                )}
               </div>
 
               <div className="form-group">
