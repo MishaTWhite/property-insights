@@ -34,9 +34,7 @@ export const generateProjection = (params) => {
     throw new Error("Annual inflation exceeding 30% is extreme");
   }
   
-  if (startingAge > endCapitalFormationAge) {
-    throw new Error("Starting age cannot be greater than end capital formation age");
-  }
+  // Removed validation for startingAge > endCapitalFormationAge since we handle this in the component
   
   // Constants and caps
   const MAX_INVESTMENT_MULTIPLIER = 4; // Cap growth at 4x the initial monthly investment

@@ -22,27 +22,31 @@ const CustomTooltip = ({ active, payload, label, considerInflation }) => {
     // Find the year data for this age in projections
     const hoveredYear = payload[0].payload;
     
+    // Safely format values with null checks
+    const formatNumberSafely = (value) => {
+      if (value === undefined || value === null) return 'N/A';
+      return value.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+    };
+    
     return (
       <div className="custom-tooltip bg-white p-3 border border-gray-200 shadow-md rounded">
         <p className="font-semibold mb-1">{`Age: ${label}`}</p>
-        <p className="text-sm">{`Capital: ${payload[0].value.toLocaleString('en-US', {
-          style: 'decimal',
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })}`}</p>
+        <p className="text-sm">{`Capital: ${formatNumberSafely(payload[0]?.value)}`}</p>
         
-        <p className="text-sm mt-2 font-semibold text-blue-700">{`Monthly Income: ${hoveredYear.passiveIncomeMonthly.toLocaleString('en-US', {
-          style: 'decimal',
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        })}`}</p>
+        {hoveredYear?.passiveIncomeMonthly !== undefined && (
+          <p className="text-sm mt-2 font-semibold text-blue-700">
+            {`Monthly Income: ${formatNumberSafely(hoveredYear.passiveIncomeMonthly)}`}
+          </p>
+        )}
         
-        {considerInflation && (
-          <p className="text-sm text-green-700">{`Inflation Adjusted Income: ${hoveredYear.passiveIncomeInflationAdjusted.toLocaleString('en-US', {
-            style: 'decimal',
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-          })}`}</p>
+        {considerInflation && hoveredYear?.passiveIncomeInflationAdjusted !== undefined && (
+          <p className="text-sm text-green-700">
+            {`Inflation Adjusted Income: ${formatNumberSafely(hoveredYear.passiveIncomeInflationAdjusted)}`}
+          </p>
         )}
       </div>
     );
@@ -83,10 +87,18 @@ const InvestmentCalculator = () => {
       // Validate age inputs before proceeding
       const startingAge = Number(data.startingAge);
       const endCapitalFormationAge = Number(data.endCapitalFormationAge);
+      const initialCapital = Number(data.initialCapital);
+      const monthlyInvestment = Number(data.monthlyInvestment);
+      const annualReturn = Number(data.annualReturn);
+      const annualInflation = Number(data.annualInflation);
 
-      // Skip calculation if endCapitalFormationAge is invalid or missing
-      if (isNaN(endCapitalFormationAge) || endCapitalFormationAge === 0 || 
-          isNaN(startingAge) || startingAge === 0 ||
+      // Enhanced validation - check for all required inputs and valid relationships
+      if (isNaN(startingAge) || startingAge <= 0 || 
+          isNaN(endCapitalFormationAge) || endCapitalFormationAge <= 0 ||
+          isNaN(initialCapital) || 
+          isNaN(monthlyInvestment) ||
+          isNaN(annualReturn) ||
+          isNaN(annualInflation) ||
           endCapitalFormationAge < startingAge) {
         // Silently skip chart rendering without crashing
         setCalculationError(null);
@@ -97,10 +109,10 @@ const InvestmentCalculator = () => {
       // Ensure all numeric inputs are properly coerced to numbers
       const parsedData = {
         startingAge: startingAge,
-        initialCapital: Number(data.initialCapital),
-        monthlyInvestment: Number(data.monthlyInvestment),
-        annualReturn: Number(data.annualReturn),
-        annualInflation: Number(data.annualInflation),
+        initialCapital: initialCapital,
+        monthlyInvestment: monthlyInvestment,
+        annualReturn: annualReturn,
+        annualInflation: annualInflation,
         endCapitalFormationAge: endCapitalFormationAge,
         considerInflation: Boolean(data.considerInflation),
         reinvestAfterFormation: Boolean(data.reinvestAfterFormation)
@@ -124,11 +136,30 @@ const InvestmentCalculator = () => {
   // Use useEffect to watch form changes and trigger calculations
   useEffect(() => {
     const subscription = watch((value) => {
-      debouncedCalculate(value);
+      // Add pre-validation before calling debounced function
+      const startingAge = Number(value.startingAge);
+      const endCapitalFormationAge = Number(value.endCapitalFormationAge);
+      
+      // Only call calculation if basic validation passes
+      if (!isNaN(startingAge) && !isNaN(endCapitalFormationAge) && 
+          startingAge > 0 && endCapitalFormationAge > 0) {
+        debouncedCalculate(value);
+      } else {
+        // Clear projections if inputs are invalid
+        setProjections(null);
+        setCalculationError(null);
+      }
     });
     
-    // Run initial calculation
-    debouncedCalculate(formValues);
+    // Run initial calculation with validation
+    if (
+      !isNaN(Number(formValues.startingAge)) && 
+      !isNaN(Number(formValues.endCapitalFormationAge)) && 
+      Number(formValues.startingAge) > 0 && 
+      Number(formValues.endCapitalFormationAge) > 0
+    ) {
+      debouncedCalculate(formValues);
+    }
     
     return () => subscription.unsubscribe();
   }, [watch]);
@@ -139,6 +170,12 @@ const InvestmentCalculator = () => {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(value);
+  };
+  
+  // Helper function for safely getting a projection at a specific age
+  const getProjectionAtAge = (age) => {
+    if (!projections) return null;
+    return projections.find(p => p.age === age) || null;
   };
 
   // Prepare chart data with appropriate visualization for accumulation vs post-accumulation
@@ -348,31 +385,48 @@ const InvestmentCalculator = () => {
                     <div>
                       <div className="text-gray-600">Total Invested</div>
                       <div className="text-2xl font-semibold">
-                        {formatCurrency(calculateTotalInvested(projections) + Number(formValues.initialCapital))}
+                        {projections ? formatCurrency(calculateTotalInvested(projections) + Number(formValues.initialCapital)) : 'N/A'}
                       </div>
                     </div>
                     <div>
                       <div className="text-gray-600">Final Capital</div>
                       <div className="text-2xl font-semibold">
-                        {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).capitalEnd)}
+                        {(() => {
+                          const finalProjection = getProjectionAtAge(Number(formValues.endCapitalFormationAge));
+                          return finalProjection ? formatCurrency(finalProjection.capitalEnd) : 'N/A';
+                        })()}
                       </div>
                     </div>
                     <div>
                       <div className="text-gray-600">Monthly Passive Income</div>
                       <div className="text-2xl font-semibold">
-                        {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly)}
-                        {projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeMonthly < 2000 && (
-                          <span className="text-yellow-500 ml-2 tooltip" title="Monthly income is below the recommended minimum of 2000">⚠️</span>
-                        )}
+                        {(() => {
+                          const finalProjection = getProjectionAtAge(Number(formValues.endCapitalFormationAge));
+                          if (!finalProjection) return 'N/A';
+                          
+                          return (
+                            <>
+                              {formatCurrency(finalProjection.passiveIncomeMonthly)}
+                              {finalProjection.passiveIncomeMonthly < 2000 && (
+                                <span className="text-yellow-500 ml-2 tooltip" title="Monthly income is below the recommended minimum of 2000">⚠️</span>
+                              )}
+                            </>
+                          );
+                        })()}
                       </div>
-                      {formValues.considerInflation && (
-                        <div className="text-sm text-gray-500">
-                          Inflation Adjusted: {formatCurrency(projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted)}
-                          {projections.find(p => p.age === Number(formValues.endCapitalFormationAge)).passiveIncomeInflationAdjusted < 2000 && (
-                            <span className="text-yellow-500 ml-2 tooltip" title="Inflation-adjusted income is below the recommended minimum of 2000">⚠️</span>
-                          )}
-                        </div>
-                      )}
+                      {formValues.considerInflation && (() => {
+                        const finalProjection = getProjectionAtAge(Number(formValues.endCapitalFormationAge));
+                        if (!finalProjection) return null;
+                        
+                        return (
+                          <div className="text-sm text-gray-500">
+                            Inflation Adjusted: {formatCurrency(finalProjection.passiveIncomeInflationAdjusted)}
+                            {finalProjection.passiveIncomeInflationAdjusted < 2000 && (
+                              <span className="text-yellow-500 ml-2 tooltip" title="Inflation-adjusted income is below the recommended minimum of 2000">⚠️</span>
+                            )}
+                          </div>
+                        );
+                      })()}
                     </div>
                   </div>
                 )}
