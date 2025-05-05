@@ -127,7 +127,32 @@ const InvestmentCalculator = () => {
   const prepareChartData = (projections) => {
     if (!projections) return [];
     
-    return projections.map((year) => {
+    // Calculate upper age limit according to requirements
+    const upperAgeLimit = Math.min(65, Number(formValues.endCapitalFormationAge) + 25);
+    
+    // Filter projections to avoid duplicated years and limit to valid range
+    const filteredProjections = projections.filter(year => {
+      return year.age <= upperAgeLimit;
+    });
+    
+    // Ensure we have unique age values (defensive check)
+    const uniqueAges = new Set();
+    const uniqueProjections = filteredProjections.filter(year => {
+      if (uniqueAges.has(year.age)) {
+        console.warn(`Duplicate age value detected: ${year.age}`);
+        return false;
+      }
+      uniqueAges.add(year.age);
+      return true;
+    });
+    
+    // Log chart data range for debugging
+    if (uniqueProjections.length > 0) {
+      console.log(`Chart data range: ${uniqueProjections[0].age} to ${uniqueProjections[uniqueProjections.length - 1].age}`);
+      console.log(`Total data points: ${uniqueProjections.length}`);
+    }
+    
+    return uniqueProjections.map((year) => {
       // Calculate inflation-adjusted capital if inflation is considered
       let capitalInflationAdjusted = null;
       if (formValues.considerInflation) {
@@ -142,6 +167,7 @@ const InvestmentCalculator = () => {
         capitalInflationAdjusted,
         // Mark whether this is in formation period or post-formation
         isFormationPeriod: year.age <= formValues.endCapitalFormationAge,
+        isPostFormation: year.age > formValues.endCapitalFormationAge,
         // Add monthly income values for the tooltip
         passiveIncomeMonthly: year.passiveIncomeMonthly,
         passiveIncomeInflationAdjusted: year.passiveIncomeInflationAdjusted
@@ -155,6 +181,22 @@ const InvestmentCalculator = () => {
     
     const formation = data.filter(item => item.isFormationPeriod);
     const postFormation = data.filter(item => !item.isFormationPeriod);
+    
+    // Log the split data for debugging
+    console.log(`Formation period data points: ${formation.length}`);
+    console.log(`Post-formation period data points: ${postFormation.length}`);
+    
+    // If there are both formation and post-formation data points, ensure continuity
+    if (formation.length > 0 && postFormation.length > 0) {
+      // Find the last formation age and first post-formation age
+      const lastFormationAge = formation[formation.length - 1].age;
+      const firstPostFormationAge = postFormation[0].age;
+      
+      // Check if there's a gap between the periods
+      if (firstPostFormationAge - lastFormationAge > 1) {
+        console.warn(`Gap detected between formation and post-formation periods: ${lastFormationAge} to ${firstPostFormationAge}`);
+      }
+    }
     
     return { formation, postFormation };
   };
@@ -304,94 +346,99 @@ const InvestmentCalculator = () => {
                 <h2 className="text-xl font-bold mb-4">Capital Growth Projection</h2>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart
-                      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis 
-                        dataKey="age"
-                        label={{ value: 'Age', position: 'insideBottomRight', offset: 0 }}
-                      />
-                      <YAxis 
-                        tickFormatter={(value) => `${(value / 1000).toFixed(0)}k`}
-                        label={{ value: 'Capital (PLN)', angle: -90, position: 'insideLeft' }}
-                      />
-                      <Tooltip 
-                        content={<CustomTooltip considerInflation={formValues.considerInflation} />}
-                      />
-                      <Legend />
+                    {/* Extract data preparation outside JSX */}
+                    {(() => {
+                      const chartData = prepareChartData(projections);
+                      const { formation, postFormation } = splitDataByFormationPeriod(chartData);
                       
-                      {/* Split Nominal Value line into two segments (formation and post-formation) */}
-                      {(() => {
-                        const chartData = prepareChartData(projections);
-                        const { formation, postFormation } = splitDataByFormationPeriod(chartData);
-                        
-                        return (
-                          <>
-                            {/* Formation period - solid line */}
+                      return (
+                        <LineChart
+                          data={chartData}
+                          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                          key={`chart-${formValues.startingAge}-${formValues.endCapitalFormationAge}-${chartData.length}`}
+                        >
+                          <CartesianGrid strokeDasharray="3 3" />
+                          <XAxis 
+                            dataKey="age"
+                            label={{ value: 'Age', position: 'insideBottomRight', offset: 0 }}
+                            domain={[formValues.startingAge, Math.min(65, Number(formValues.endCapitalFormationAge) + 20)]}
+                            allowDuplicatedCategory={false}
+                            type="number"
+                          />
+                          <YAxis 
+                            tickFormatter={(value) => `${(value / 1000).toFixed(0)}k`}
+                            label={{ value: 'Capital (PLN)', angle: -90, position: 'insideLeft' }}
+                          />
+                          <Tooltip 
+                            content={<CustomTooltip considerInflation={formValues.considerInflation} />}
+                          />
+                          <Legend />
+                          
+                          {/* Formation period - solid line */}
+                          <Line 
+                            data={formation}
+                            type="monotone" 
+                            dataKey="capital" 
+                            name="Nominal Value (Formation)" 
+                            stroke="#4299E1"
+                            strokeWidth={2}
+                            dot={false}
+                            activeDot={{ r: 8 }}
+                            connectNulls
+                          />
+                          
+                          {/* Post-formation period - dashed line */}
+                          {postFormation.length > 0 && (
                             <Line 
-                              data={formation}
+                              data={postFormation}
                               type="monotone" 
                               dataKey="capital" 
-                              name="Nominal Value" 
+                              name="Nominal Value (Post-Formation)" 
                               stroke="#4299E1"
                               strokeWidth={2}
+                              strokeDasharray="4 4"
                               dot={false}
                               activeDot={{ r: 8 }}
                               connectNulls
                             />
-                            {/* Post-formation period - dashed line */}
-                            {postFormation.length > 0 && (
+                          )}
+                          
+                          {/* If inflation is considered, add the inflation-adjusted lines */}
+                          {formValues.considerInflation && (
+                            <>
+                              {/* Formation period - solid line */}
                               <Line 
-                                data={postFormation}
+                                data={formation}
                                 type="monotone" 
-                                dataKey="capital" 
-                                name="Nominal Value (Post-accumulation)" 
-                                stroke="#4299E1"
+                                dataKey="capitalInflationAdjusted" 
+                                name="Real Value (Formation)" 
+                                stroke="#48BB78"
                                 strokeWidth={2}
-                                strokeDasharray="4 4"
                                 dot={false}
                                 activeDot={{ r: 8 }}
                                 connectNulls
                               />
-                            )}
-                            
-                            {/* If inflation is considered, add the inflation-adjusted lines */}
-                            {formValues.considerInflation && (
-                              <>
-                                {/* Formation period - solid line */}
+                              
+                              {/* Post-formation period - dashed line */}
+                              {postFormation.length > 0 && (
                                 <Line 
-                                  data={formation}
+                                  data={postFormation}
                                   type="monotone" 
                                   dataKey="capitalInflationAdjusted" 
-                                  name="Real Value (Inflation Adjusted)" 
+                                  name="Real Value (Post-Formation)" 
                                   stroke="#48BB78"
                                   strokeWidth={2}
+                                  strokeDasharray="4 4"
                                   dot={false}
                                   activeDot={{ r: 8 }}
                                   connectNulls
                                 />
-                                {/* Post-formation period - dashed line */}
-                                {postFormation.length > 0 && (
-                                  <Line 
-                                    data={postFormation}
-                                    type="monotone" 
-                                    dataKey="capitalInflationAdjusted" 
-                                    name="Real Value (Post-accumulation)" 
-                                    stroke="#48BB78"
-                                    strokeWidth={2}
-                                    strokeDasharray="4 4"
-                                    dot={false}
-                                    activeDot={{ r: 8 }}
-                                    connectNulls
-                                  />
-                                )}
-                              </>
-                            )}
-                          </>
-                        );
-                      })()}
-                    </LineChart>
+                              )}
+                            </>
+                          )}
+                        </LineChart>
+                      );
+                    })()}
                   </ResponsiveContainer>
                 </div>
               </div>
