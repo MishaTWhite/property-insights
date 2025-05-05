@@ -68,17 +68,12 @@ export const generateProjection = (params) => {
       // Add interest and new investments to capital
       capitalEnd = ensureSafeNumber(currentCapital + interestGained + yearlyInvestment);
     } else {
-      // Withdrawal mode: don't reinvest interest
+      // Non-reinvestment mode: calculate interest but don't add it to capital
       interestGained = ensureSafeNumber(currentCapital * returnRate);
       
-      if (!reinvestAfterFormation && considerInflation) {
-        // Capital drawdown mode: decrease capital by yearly passive income
-        const yearlyPassiveIncome = ensureSafeNumber(currentCapital * returnRate);
-        capitalEnd = ensureSafeNumber(currentCapital - yearlyPassiveIncome);
-      } else {
-        // Only the principal remains (interest is withdrawn but capital stays the same)
-        capitalEnd = currentCapital;
-      }
+      // Capital remains unchanged - interest is not reinvested but also not withdrawn
+      // This is the correct behavior when "Reinvest Income After Formation" is disabled
+      capitalEnd = currentCapital;
     }
     
     // Calculate monthly passive income
