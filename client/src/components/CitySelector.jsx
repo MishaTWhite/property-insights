@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/api`;
 
 function CitySelector({ onCityChange, selectedCity }) {
   const [cities, setCities] = useState([]);

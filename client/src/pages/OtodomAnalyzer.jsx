@@ -30,7 +30,7 @@ import DistrictRoomsTable from '../components/DistrictRoomsTable';
 import CitySelector from '../components/CitySelector';
 
 // Base URL for API requests
-const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
+const API_BASE_URL = `${import.meta.env.VITE_API_BASE_URL}/api`;
 
 function OtodomAnalyzer() {
   // State management

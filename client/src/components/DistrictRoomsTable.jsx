@@ -29,7 +29,7 @@ function DistrictRoomsTable({ selectedCity }) {
     async function fetchData() {
       try {
         setLoading(true);
-        const response = await fetch('/api/otodom-analyzer/district-rooms');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/otodom-analyzer/district-rooms`);
         
         if (!response.ok) {
           throw new Error(`HTTP error ${response.status}`);
