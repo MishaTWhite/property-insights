@@ -11,8 +11,10 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  // Allow requests from any origin for better development experience
-  origin: '*',
+  // Configure CORS based on environment
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://property-insights.onrender.com'] 
+    : '*',
   credentials: false
 }));
 app.use(express.json());
@@ -29,9 +31,6 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-// Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`API available at http://localhost:${PORT}/api/base-rate`);
-  console.log(`Bank offers API available at http://localhost:${PORT}/api/bank-offers`);
 });
