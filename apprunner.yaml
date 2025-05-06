@@ -1,0 +1,4 @@
+version: 1.0
+runtime: manual
+dockerfilePath: Dockerfile
+port: 3000
