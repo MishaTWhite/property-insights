@@ -2,24 +2,26 @@ import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import MortgageForm from './MortgageForm';
 import ResultsDisplay from './ResultsDisplay';
-import BankOffersTable from './BankOffersTable';
 import AcceleratedRepaymentPanel from './AcceleratedRepaymentPanel';
 import HowItWorksExplanation from './HowItWorksExplanation';
 import CurrencySwitcher from './CurrencySwitcher';
 import { calculateMortgage, calculateLoanTermFromMonthlyPayment } from '../utils/mortgageCalculations';
 import { useCurrency } from '../context/CurrencyContext';
 import { useLoanTermPreservation } from '../hooks/useLoanTermPreservation';
+import useBankOffers from '../hooks/useBankOffers';
 
 const MortgageCalculator = ({ defaultInterestRate }) => {
   const { currency } = useCurrency();
+  const { baseRate } = useBankOffers(); // Получаем фиксированное значение WIBOR = 5.41
+  
   const { control, watch, setValue } = useForm({
     defaultValues: {
       propertyValue: 500000,
       downPaymentPercent: 20,
       loanTerm: 30,
       monthlyPayment: 2229,
-      nbpBaseRate: 5.88, // Default NBP Base Rate (WIBOR 3M)
-      bankMargin: 2.10,  // Default Bank Margin
+      nbpBaseRate: baseRate, // Используем фиксированное значение WIBOR = 5.41
+      bankMargin: 2.20,  // Default Bank Margin - изменено с 2.10 на 2.20
       interestRate: defaultInterestRate,
     },
   });
@@ -263,16 +265,7 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
     setResults(calculationResults);
   }, [formValues.propertyValue, formValues.downPaymentPercent, formValues.loanTerm, formValues.interestRate, isUpdatingLoanTermFromPayment, isUpdatingPaymentFromLoanTerm]);
 
-  // Handle bank offer selection
-  const handleSelectBankOffer = (offer) => {
-    setValue('nbpBaseRate', offer.baseRateValue);
-    setValue('bankMargin', offer.margin);
-  };
-  
-  // Handle base rate selection (only update base rate)
-  const handleSelectBaseRate = (offer) => {
-    setValue('nbpBaseRate', offer.baseRateValue);
-  };
+  // Обработчики выбора банковских предложений удалены, так как блок оферов банков больше не используется
 
   return (
     <div className="flex flex-col">
@@ -287,13 +280,6 @@ const MortgageCalculator = ({ defaultInterestRate }) => {
         <div className="bg-white shadow rounded-lg p-6" style={{ backgroundColor: 'var(--color-white)' }}>
           <ResultsDisplay results={results} />
         </div>
-      </div>
-      
-      <div className="bg-white shadow rounded-lg p-6 mt-8" style={{ backgroundColor: 'var(--color-white)' }}>
-        <BankOffersTable 
-          onSelectBankOffer={handleSelectBankOffer}
-          onSelectBaseRate={handleSelectBaseRate}
-        />
       </div>
       
       <div className="mt-8">

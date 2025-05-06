@@ -1,9 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-// Удалены импорты маршрутов, которые больше не существуют
-// const ratesRoutes = require('./routes/rates');
-// const baseRateRoutes = require('./routes/base-rate');
-// const bankOffersRoutes = require('./routes/bank-offers');
+const bankOffersRoutes = require('./routes/bank-offers');
 const otodomAnalyzerRoutes = require('./routes/otodom-analyzer');
 const otodomStatsRoutes = require('./routes/otodom-stats');
 
@@ -21,10 +18,7 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-// Удалены маршруты, которые больше не существуют
-// app.use('/api', ratesRoutes);
-// app.use('/api', baseRateRoutes);
-// app.use('/api', bankOffersRoutes);
+app.use('/api', bankOffersRoutes);
 app.use('/api/otodom-analyzer', otodomAnalyzerRoutes);
 app.use('/api/otodom-stats', otodomStatsRoutes);
 
