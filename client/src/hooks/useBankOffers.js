@@ -1,8 +1,8 @@
-import axios from 'axios';
 import { useState, useEffect } from 'react';
+import bankOffers from '../data/bankOffers';
 
 /**
- * Custom hook to fetch bank mortgage offers
+ * Custom hook to provide bank mortgage offers from local data
  * @returns {Object} Bank offers data and loading state
  */
 export const useBankOffers = () => {
@@ -11,24 +11,22 @@ export const useBankOffers = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBankOffers = async () => {
+    // Simulate loading to maintain the same component behavior
+    // This could be removed if immediate loading is preferred
+    const timer = setTimeout(() => {
       try {
-        setLoading(true);
-        const response = await axios.get('/api/bank-offers', {
-          timeout: 5000 // Add timeout to prevent hanging requests
-        });
-        setOffers(response.data);
+        setOffers(bankOffers);
         setError(null);
       } catch (error) {
-        console.error('Error fetching bank offers:', error);
+        console.error('Error loading bank offers:', error);
         setError('Failed to load bank offers. Please try again later.');
         setOffers([]);
       } finally {
         setLoading(false);
       }
-    };
+    }, 300); // Short timeout to simulate network request
 
-    fetchBankOffers();
+    return () => clearTimeout(timer);
   }, []);
 
   return { offers, loading, error };

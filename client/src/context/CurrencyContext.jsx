@@ -10,6 +10,7 @@ export const CURRENCY_INFO = {
   EUR: { symbol: '€', flag: '🇪🇺', name: 'EUR' },
   USD: { symbol: '$', flag: '🇺🇸', name: 'USD' },
   UAH: { symbol: '₴', flag: '🇺🇦', name: 'UAH' },
+  GBP: { symbol: '£', flag: '🇬🇧', name: 'GBP' },
 };
 
 // Provider component
@@ -22,8 +23,16 @@ export const CurrencyProvider = ({ children }) => {
     if (!amount || isLoading || !rates[toCurrency]) {
       return amount; // Return original if no conversion possible
     }
+    
+    // For PLN, no conversion needed
+    if (toCurrency === 'PLN') {
+      return amount;
+    }
+    
     // Convert and round to nearest integer
-    return Math.round(amount * rates[toCurrency]);
+    // The rate is how many PLN for 1 unit of foreign currency
+    // So to convert from PLN to foreign currency, we divide by the rate
+    return Math.round(amount / rates[toCurrency]);
   };
 
   // Format an amount with the currency symbol WITHOUT conversion

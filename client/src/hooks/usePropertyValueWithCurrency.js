@@ -32,7 +32,8 @@ export const usePropertyValueWithCurrency = (control, setValue) => {
     if (!initialized && currentPropertyValue) {
       // If starting with non-PLN currency, convert back to PLN
       if (currency !== 'PLN' && rates && rates[currency]) {
-        setInternalValuePLN(Math.round(currentPropertyValue / rates[currency]));
+        // Convert from foreign currency to PLN by multiplying by the rate
+        setInternalValuePLN(Math.round(currentPropertyValue * rates[currency]));
       } else {
         setInternalValuePLN(currentPropertyValue);
       }
@@ -54,7 +55,7 @@ export const usePropertyValueWithCurrency = (control, setValue) => {
     // Convert from PLN to the selected currency
     const convertedValue = currency === 'PLN' 
       ? internalValuePLN 
-      : Math.round(internalValuePLN * rates[currency]);
+      : Math.round(internalValuePLN / rates[currency]);
     
     // Update the form value immediately
     setValue('propertyValue', convertedValue);
@@ -73,7 +74,9 @@ export const usePropertyValueWithCurrency = (control, setValue) => {
       setInternalValuePLN(numericValue);
     } else if (rates[currency]) {
       // Convert from current currency back to PLN
-      const valueInPLN = Math.round(numericValue / rates[currency]);
+      // If rate is how many PLN for 1 unit of foreign currency,
+      // then to convert from foreign to PLN, we multiply by the rate
+      const valueInPLN = Math.round(numericValue * rates[currency]);
       setInternalValuePLN(valueInPLN);
     }
     

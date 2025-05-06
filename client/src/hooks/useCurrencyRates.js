@@ -30,14 +30,16 @@ export const useCurrencyRates = () => {
           const eurRate = nbpRates.find(rate => rate.code === 'EUR')?.mid;
           const usdRate = nbpRates.find(rate => rate.code === 'USD')?.mid;
           const uahRate = nbpRates.find(rate => rate.code === 'UAH')?.mid;
+          const gbpRate = nbpRates.find(rate => rate.code === 'GBP')?.mid;
           
-          // For NBP API, rates are given as PLN to other currency
-          // We need the inverse for converting from PLN to other currencies
+          // NBP API returns rates as how many PLN for 1 unit of foreign currency
+          // This is the correct format for our needs (no need to invert)
           setRates({
             PLN: 1,
-            EUR: eurRate ? 1 / eurRate : null,
-            USD: usdRate ? 1 / usdRate : null,
-            UAH: uahRate ? 1 / uahRate : null,
+            EUR: eurRate || null,
+            USD: usdRate || null,
+            UAH: uahRate || null,
+            GBP: gbpRate || null,
           });
           setError(null);
         } else {
@@ -48,16 +50,21 @@ export const useCurrencyRates = () => {
         
         // Fallback to exchangerate.host
         try {
-          const fallbackResponse = await axios.get('https://api.exchangerate.host/latest?base=PLN', {
+          // Use EUR as base and convert to PLN
+          const fallbackResponse = await axios.get('https://api.exchangerate.host/latest?base=EUR', {
             timeout: 5000
           });
           
-          if (fallbackResponse.data && fallbackResponse.data.rates) {
+          if (fallbackResponse.data && fallbackResponse.data.rates && fallbackResponse.data.rates.PLN) {
+            // Calculate rates relative to PLN
+            const plnRate = fallbackResponse.data.rates.PLN;
+            
             setRates({
               PLN: 1,
-              EUR: fallbackResponse.data.rates.EUR || null,
-              USD: fallbackResponse.data.rates.USD || null,
-              UAH: fallbackResponse.data.rates.UAH || null,
+              EUR: plnRate / fallbackResponse.data.rates.EUR || null,
+              USD: plnRate / fallbackResponse.data.rates.USD || null,
+              UAH: plnRate / fallbackResponse.data.rates.UAH || null,
+              GBP: plnRate / fallbackResponse.data.rates.GBP || null,
             });
             setError(null);
           } else {
@@ -66,12 +73,13 @@ export const useCurrencyRates = () => {
         } catch (fallbackError) {
           console.error('Error with fallback API:', fallbackError);
           setError('Failed to fetch exchange rates. Please try again later.');
-          // Set some default rates for demonstration
+          // Don't set default rates, keep them as null
           setRates({
             PLN: 1,
-            EUR: 0.23, // Approximate values
-            USD: 0.25,
-            UAH: 9.2,
+            EUR: null,
+            USD: null,
+            UAH: null,
+            GBP: null,
           });
         }
       } finally {

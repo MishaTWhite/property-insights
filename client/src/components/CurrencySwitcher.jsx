@@ -8,6 +8,34 @@ const CurrencySwitcher = () => {
     setCurrency(e.target.value);
   };
 
+  // Filter available currencies based on loaded rates
+  const getAvailableCurrencies = () => {
+    if (isLoading) {
+      // During loading, only show PLN
+      return Object.entries(CURRENCY_INFO).filter(([code]) => code === 'PLN');
+    }
+    
+    // After loading, show only currencies with valid rates
+    return Object.entries(CURRENCY_INFO).filter(([code]) => 
+      code === 'PLN' || (rates[code] !== null && rates[code] !== undefined)
+    );
+  };
+
+  // Calculate and format the exchange rate display
+  const getExchangeRateDisplay = () => {
+    if (!rates[currency]) return null;
+    
+    // Display as 1 EUR = X PLN (for non-PLN currencies)
+    if (currency !== 'PLN') {
+      return (
+        <div className="text-xs text-gray-500 mt-1">
+          1 {CURRENCY_INFO[currency].name} = {rates[currency].toFixed(4)} {CURRENCY_INFO['PLN'].symbol}
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="flex flex-col items-end mb-2">
       <div className="relative">
@@ -19,11 +47,15 @@ const CurrencySwitcher = () => {
           onChange={handleCurrencyChange}
           disabled={isLoading}
         >
-          {Object.entries(CURRENCY_INFO).map(([code, info]) => (
-            <option key={code} value={code}>
-              {info.flag} {info.name}
-            </option>
-          ))}
+          {isLoading ? (
+            <option value="PLN">Loading exchange rates...</option>
+          ) : (
+            getAvailableCurrencies().map(([code, info]) => (
+              <option key={code} value={code}>
+                {info.flag} {info.name}
+              </option>
+            ))
+          )}
         </select>
         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
           <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -33,11 +65,7 @@ const CurrencySwitcher = () => {
       </div>
       
       {/* Exchange rate info */}
-      {!isLoading && rates && currency !== 'PLN' && (
-        <div className="text-xs text-gray-500 mt-1">
-          1 PLN = {rates[currency] ? rates[currency].toFixed(4) : '?'} {CURRENCY_INFO[currency].symbol}
-        </div>
-      )}
+      {!isLoading && getExchangeRateDisplay()}
       
       {error && (
         <div className="text-xs text-red-500 mt-1">
