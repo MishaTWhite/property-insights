@@ -1,4 +1,8 @@
 version: 1.0
-runtime: manual
-dockerfilePath: Dockerfile
-port: 3000
+build:
+  dockerfile: Dockerfile
+run:
+  port: 3000
+  env-vars:
+    - name: NODE_ENV
+      value: production
