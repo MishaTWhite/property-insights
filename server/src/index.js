@@ -11,11 +11,8 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
-  // Configure CORS based on environment
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://property-insights.onrender.com'] 
-    : '*',
-  credentials: false
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true
 }));
 app.use(express.json());
 
