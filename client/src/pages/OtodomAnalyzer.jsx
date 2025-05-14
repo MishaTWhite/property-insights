@@ -274,7 +274,7 @@ function OtodomAnalyzer() {
       </Collapse>
       
       <Typography variant="h4" component="h1" gutterBottom>
-        Otodom Analyzer
+        Property Analyzer
       </Typography>
       
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>

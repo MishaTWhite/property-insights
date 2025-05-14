@@ -9,7 +9,7 @@ console.log('DEEPSEEK_API_KEY set:', process.env.DEEPSEEK_API_KEY ? 'Yes' : 'No'
 const express = require('express');
 const cors = require('cors');
 const bankOffersRoutes = require('./routes/bank-offers');
-const otodomAnalyzerRoutes = require('./routes/otodom-analyzer');
+const propertyAnalyzerRoutes = require('./routes/otodom-analyzer');
 const otodomStatsRoutes = require('./routes/otodom-stats');
 const aiChatRoutes = require('./routes/ai-chat');
 
@@ -31,7 +31,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', bankOffersRoutes);
-app.use('/api/otodom-analyzer', otodomAnalyzerRoutes);
+app.use('/api/otodom-analyzer', propertyAnalyzerRoutes);
 app.use('/api/otodom-stats', otodomStatsRoutes);
 app.use('/api/ai-chat', aiChatRoutes);
 

@@ -6,7 +6,7 @@ import { fetchBaseRate } from './hooks/useRates';
 import LoadingOverlay from './components/LoadingOverlay';
 import { CurrencyProvider } from './context/CurrencyContext';
 import NavBar from './components/NavBar';
-import OtodomAnalyzer from './pages/OtodomAnalyzer';
+import PropertyAnalyzer from './pages/OtodomAnalyzer';
 import InvestmentCalculatorPage from './pages/InvestmentCalculator';
 import AIChat from './pages/AIChat';
 
@@ -63,7 +63,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage baseRate={baseRate} isLoading={isLoading} />} />
-        <Route path="/otodom-analyzer" element={<OtodomAnalyzer />} />
+        <Route path="/otodom-analyzer" element={<PropertyAnalyzer />} />
         <Route path="/investment-calculator" element={<InvestmentCalculatorPage />} />
         <Route path="/ai-chat" element={<AIChat />} />
       </Routes>
