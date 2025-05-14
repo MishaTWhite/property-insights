@@ -4,7 +4,7 @@ require('dotenv').config();
 console.log('🚀 Starting server...');
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('CORS_ORIGIN:', process.env.CORS_ORIGIN);
-console.log('SECRETS_PASSWORD set:', process.env.SECRETS_PASSWORD ? 'Yes' : 'No');
+console.log('DEEPSEEK_API_KEY set:', process.env.DEEPSEEK_API_KEY ? 'Yes' : 'No');
 
 const express = require('express');
 const cors = require('cors');
