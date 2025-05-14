@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y \
 # Copy package.json and package-lock.json
 COPY server/package*.json ./
 
+# Copy server code
+COPY server/ ./
+
 # Install Node.js dependencies
 RUN npm ci --only=production
 
@@ -21,9 +24,6 @@ COPY server/requirements.txt ./
 
 # Install Python dependencies
 RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-
-# Copy server code
-COPY server/ ./
 
 # Expose the port the app runs on
 EXPOSE 3000
