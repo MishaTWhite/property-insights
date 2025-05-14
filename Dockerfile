@@ -8,6 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
+    && ln -s /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy package.json and package-lock.json
@@ -15,6 +16,10 @@ COPY server/package*.json ./
 
 # Copy server code
 COPY server/ ./
+
+# Copy secrets file
+COPY secrets.json ./
+COPY secrets_manager.py ./
 
 # Install Node.js dependencies
 RUN npm ci --only=production

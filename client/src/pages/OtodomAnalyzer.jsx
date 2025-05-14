@@ -278,18 +278,7 @@ function OtodomAnalyzer() {
       </Typography>
       
       <Paper elevation={3} sx={{ p: 3, mb: 3 }}>
-        {renderStatus()}
-        
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <Button 
-            variant="contained" 
-            color="primary" 
-            onClick={startScraper}
-            disabled={isRunning}
-          >
-            Start Scraping
-          </Button>
-          
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <Typography variant="body2" color="text.secondary">
             Last updated: {formatTimestamp(lastUpdated)}
           </Typography>
