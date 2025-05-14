@@ -1,42 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const axios = require('axios');
-const { spawn } = require('child_process');
 const { v4: uuidv4 } = require('uuid');
 
 // Store chat sessions in memory
 // In a real application, this should be in a database
 const chatSessions = {};
 
-// Helper function to retrieve DeepSeek API key securely
+// Helper function to retrieve DeepSeek API key from environment variable
 const getDeepSeekApiKey = () => {
   return new Promise((resolve, reject) => {
-    // Pass the environment variables to the Python process
-    const env = { ...process.env };
-    
-    const pythonProcess = spawn('python', [require('path').resolve(__dirname, '../../get_deepseek_api_key.py')], {
-      env: env
-    });
-    
-    let apiKey = '';
-    let errorData = '';
-    
-    pythonProcess.stdout.on('data', (data) => {
-      apiKey += data.toString().trim();
-    });
-    
-    pythonProcess.stderr.on('data', (data) => {
-      errorData += data.toString();
-    });
-    
-    pythonProcess.on('close', (code) => {
-      if (code !== 0) {
-        console.error('Error retrieving API key:', errorData);
-        reject(new Error('Failed to retrieve DeepSeek API key'));
-      } else {
-        resolve(apiKey);
-      }
-    });
+    const apiKey = process.env.DEEPSEEK_API_KEY;
+    if (!apiKey) {
+      reject(new Error('DEEPSEEK_API_KEY environment variable not set'));
+    } else {
+      resolve(apiKey);
+    }
   });
 };
 
