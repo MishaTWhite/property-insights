@@ -23,3 +23,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# AWS credentials and configuration
+.aws/
+aws-credentials.json
+.env.aws
+**/aws-keys.*
+**/*aws*credentials*
+**/*aws*config*

@@ -1,41 +1,42 @@
-# Polish Mortgage Calculator
+# Property Insights
 
-A web application providing mortgage calculation for the Polish market.
+## Секреты и API ключи
 
-## Features
+В проекте используется система управления секретами для безопасного хранения API ключей.
 
-- Real-time mortgage calculation
-- Visualization of loan structure
-- Responsive UI
-- Server-provided base interest rate
+### Как получить API ключ DeepSeek
 
-## Getting Started
+```python
+from secrets_manager import SecretsManager
 
-### Prerequisites
+# Инициализация менеджера секретов с паролем
+secrets = SecretsManager(password='G1hdrjti')
 
-- Node.js (LTS version)
-- npm
+# Получение API ключа DeepSeek
+api_key = secrets.get_secret('deepseek_api_key')
 
-### Installation
+# Теперь можно использовать api_key для работы с DeepSeek API
+# Пример:
+# from deepseek_client import DeepSeekClient
+# client = DeepSeekClient(api_key=api_key)
+# response = client.generate_text("Ваш запрос")
+```
 
-1. Clone the repository
-2. Install dependencies:
-   ```
-   npm run install-all
-   ```
+### Доступные секреты
 
-### Running the Application
+- `deepseek_api_key` - API ключ для сервиса DeepSeek
 
-Use VS Code's Run and Debug feature:
+### Добавление новых секретов
 
-1. Open the project in VS Code
-2. Go to Run and Debug tab (Ctrl+Shift+D)
-3. Select "Run Full App" from the dropdown
-4. Click the green play button or press F5
+```python
+from secrets_manager import SecretsManager
 
-This will start both the backend server and frontend client.
+secrets = SecretsManager(password='G1hdrjti')
+secrets.set_secret('название_ключа', 'значение_ключа')
+```
 
-## Development
+### Примечания по безопасности
 
-- Frontend: React with Tailwind CSS, running on Vite
-- Backend: Express.js
+- Все секреты хранятся в зашифрованном виде в файле `secrets.json`
+- Для шифрования используется библиотека cryptography
+- Пароль для доступа к секретам: `G1hdrjti`
