@@ -8,6 +8,7 @@ import { CurrencyProvider } from './context/CurrencyContext';
 import NavBar from './components/NavBar';
 import OtodomAnalyzer from './pages/OtodomAnalyzer';
 import InvestmentCalculatorPage from './pages/InvestmentCalculator';
+import AIChat from './pages/AIChat';
 
 // Home page component
 function HomePage({ baseRate, isLoading }) {
@@ -64,6 +65,7 @@ function App() {
         <Route path="/" element={<HomePage baseRate={baseRate} isLoading={isLoading} />} />
         <Route path="/otodom-analyzer" element={<OtodomAnalyzer />} />
         <Route path="/investment-calculator" element={<InvestmentCalculatorPage />} />
+        <Route path="/ai-chat" element={<AIChat />} />
       </Routes>
     </>
   );

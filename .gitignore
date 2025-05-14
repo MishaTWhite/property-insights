@@ -39,3 +39,6 @@ secrets.json
 **/*.pem
 **/*api_key*
 **/*apikey*
+.env
+**/.env
+*.enc
