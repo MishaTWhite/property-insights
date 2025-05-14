@@ -78,3 +78,22 @@ secrets.set_secret('название_ключа', 'значение_ключа')
 - [VS Code Setup](README_VS_CODE_SETUP.md) - Настройка VS Code для проекта
 - [Deployment Guide](DEPLOYMENT.md) - Руководство по развертыванию
 - [Windows Setup](WINDOWS_SETUP.md) - Настройка для Windows
+
+## Работа с секретами
+
+Для работы с API ключами и другими секретами используйте `secrets_manager.py`:
+
+```python
+from secrets_manager import SecretsManager
+
+# Инициализация менеджера секретов (пароль должен быть в переменной окружения SECRETS_PASSWORD)
+secrets = SecretsManager()
+
+# Получение API ключа
+api_key = secrets.get_secret('deepseek_api_key')
+
+# Использование API ключа в коде
+# ...
+```
+
+Файл `secrets.json` добавлен в `.gitignore` и не должен попадать в репозиторий.

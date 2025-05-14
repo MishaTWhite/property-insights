@@ -31,3 +31,11 @@ aws-credentials.json
 **/aws-keys.*
 **/*aws*credentials*
 **/*aws*config*
+
+# Secrets and API keys
+secrets.json
+**/secrets.json
+**/*.key
+**/*.pem
+**/*api_key*
+**/*apikey*
