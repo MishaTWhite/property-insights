@@ -1,4 +1,6 @@
 console.log('🚀 Starting server...');
+console.log('NODE_ENV:', process.env.NODE_ENV);
+console.log('CORS_ORIGIN:', process.env.CORS_ORIGIN);
 
 const express = require('express');
 const cors = require('cors');
@@ -8,6 +10,12 @@ const otodomStatsRoutes = require('./routes/otodom-stats');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Explicit handling of preflight requests
+app.options('*', cors({
+  origin: process.env.CORS_ORIGIN || '*',
+  credentials: true
+}));
 
 // Middleware
 app.use(cors({
