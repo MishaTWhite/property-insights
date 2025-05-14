@@ -18,8 +18,7 @@ import HomeIcon from '@mui/icons-material/Home';
 
 const pages = [
   { title: 'Home', path: '/' },
-  // Hiding Otodom Analyzer from navigation but keeping the route
-  // { title: 'Otodom Analyzer', path: '/otodom-analyzer' },
+  { title: 'Otodom Analyzer', path: '/otodom-analyzer' },
   { title: 'Investment Calculator', path: '/investment-calculator' },
   { title: 'AI Chat', path: '/ai-chat' }
 ];
