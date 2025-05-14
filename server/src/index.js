@@ -1,3 +1,5 @@
+console.log('🚀 Starting server...');
+
 const express = require('express');
 const cors = require('cors');
 const bankOffersRoutes = require('./routes/bank-offers');
@@ -27,6 +29,25 @@ app.get('/', (req, res) => {
   res.send('Server is running');
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+// Error handling for uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('❌ Uncaught Exception:', error);
+  console.error(error.stack);
+  process.exit(1);
 });
+
+// Error handling for unhandled promise rejections
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('❌ Unhandled Promise Rejection:', reason);
+  console.error(reason.stack);
+  // Not calling process.exit here to allow other handlers to recover if possible
+});
+
+try {
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on port ${PORT}`);
+  });
+} catch (error) {
+  console.error('❌ Failed to start server:', error);
+  process.exit(1);
+}
