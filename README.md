@@ -1,5 +1,37 @@
 # Property Insights
 
+Property Insights is a web application for analyzing real estate properties and mortgage calculations.
+
+## Project Structure
+
+- `/client` - React frontend with Vite
+- `/server` - Node.js/Express backend API
+- `/server/src/otodom_parser` - Python scraper for Otodom property listings
+
+## Getting Started
+
+1. **Install Dependencies**:
+   ```
+   npm run install-all
+   ```
+
+2. **Start the Development Environment**:
+   ```
+   npm start
+   ```
+
+3. **Debugging**:
+   - Use the "Launch Server" configuration to debug the Node.js backend
+   - Use the "Launch Client" configuration to debug the React frontend in Chrome
+   - Use the "Server/Client" compound configuration to debug both simultaneously
+   - Use the "Full Stack" configuration for an integrated debugging experience
+
+## API Communication
+
+The Vite development server is configured to proxy API requests to the backend:
+- Frontend requests to `/api/*` are automatically forwarded to `http://localhost:3000/api/*`
+- No need to hardcode the backend URL in frontend code
+
 ## Секреты и API ключи
 
 В проекте используется система управления секретами для безопасного хранения API ключей.
@@ -40,3 +72,9 @@ secrets.set_secret('название_ключа', 'значение_ключа')
 - Все секреты хранятся в зашифрованном виде в файле `secrets.json`
 - Для шифрования используется библиотека cryptography
 - Пароль для доступа к секретам: `G1hdrjti`
+
+## Дополнительная документация
+
+- [VS Code Setup](README_VS_CODE_SETUP.md) - Настройка VS Code для проекта
+- [Deployment Guide](DEPLOYMENT.md) - Руководство по развертыванию
+- [Windows Setup](WINDOWS_SETUP.md) - Настройка для Windows
