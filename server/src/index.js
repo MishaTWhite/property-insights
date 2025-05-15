@@ -24,18 +24,58 @@ app.get('/', (req, res) => {
 
 console.log("✅ GET / route is mounted");
 
-// Explicit handling of preflight requests
-app.options('*', cors({
-  origin: process.env.CORS_ORIGIN || '*',
-  credentials: true
-}));
+// Configure CORS - must be before routes
+// Parse CORS_ORIGIN from environment variable
+const parseAllowedOrigins = () => {
+  const corsOrigin = process.env.CORS_ORIGIN || '*';
+  if (corsOrigin === '*') {
+    return '*'; // Wildcard case
+  }
+  // Parse comma-separated list
+  return corsOrigin.split(',').map(origin => origin.trim());
+};
 
-// Middleware
-app.use(cors({
-  origin: process.env.CORS_ORIGIN || '*',
-  credentials: true
-}));
+const corsOptions = {
+  origin: function(origin, callback) {
+    const allowedOrigins = parseAllowedOrigins();
+    
+    // Handle wildcard case
+    if (allowedOrigins === '*' || !origin) {
+      callback(null, true);
+      return;
+    }
+    
+    // Check if origin is in allowed list
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.log(`CORS blocked for origin: ${origin}`);
+      callback(null, false);
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+// Apply CORS middleware before other middleware
+app.use(cors(corsOptions));
+
+// Handle preflight requests
+app.options('*', cors(corsOptions));
+
+// Other middleware
 app.use(express.json());
+
+// Add a root handler for /api
+app.get('/api', (req, res) => {
+  return res.status(200).json({ status: 'API is running' });
+});
+
+// Add a root handler for /api/otodom-analyzer
+app.get('/api/otodom-analyzer', (req, res) => {
+  return res.status(200).json({ status: 'Otodom Analyzer API is running' });
+});
 
 // Routes
 app.use('/api', bankOffersRoutes);
