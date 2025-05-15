@@ -1,35 +1,33 @@
-# Use Node.js 18 as the base image
 FROM node:18-slim
 
 # Set working directory
 WORKDIR /app
 
+# Copy package files
+COPY package*.json ./
+COPY server/package*.json ./server/
+
+# Install dependencies
+RUN npm ci
+RUN cd server && npm ci
+
 # Install Python and pip
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
-    && ln -s /usr/bin/python3 /usr/bin/python \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy package.json and package-lock.json
-COPY server/package*.json ./
+# Copy server directory
+COPY server/ ./server/
 
-# Copy server code
-COPY server/ ./
+# Explicitly copy the SQLite database file
+COPY server/src/otodom_parser/otodom.db ./server/src/otodom_parser/
 
-# Environment variables will be provided at runtime
+# Diagnostic command to verify the database file is present
+RUN ls -la ./server/src/otodom_parser/
 
-# Install Node.js dependencies
-RUN npm ci --only=production
-
-# Copy Python requirements
-COPY server/requirements.txt ./
-
-# Install Python dependencies
-RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-
-# Expose the port the app runs on
+# Expose port
 EXPOSE 3000
 
-# Command to run the application
-CMD ["npm", "start"]
+# Start only the backend server
+CMD ["npm", "run", "server"]

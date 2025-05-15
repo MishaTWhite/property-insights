@@ -7,18 +7,6 @@ const { v4: uuidv4 } = require('uuid');
 // In a real application, this should be in a database
 const chatSessions = {};
 
-// Helper function to retrieve DeepSeek API key from environment variable
-const getDeepSeekApiKey = () => {
-  return new Promise((resolve, reject) => {
-    const apiKey = process.env.DEEPSEEK_API_KEY;
-    if (!apiKey) {
-      reject(new Error('DEEPSEEK_API_KEY environment variable not set'));
-    } else {
-      resolve(apiKey);
-    }
-  });
-};
-
 // POST endpoint to handle chat requests
 router.post('/', async (req, res) => {
   try {
@@ -27,6 +15,13 @@ router.post('/', async (req, res) => {
     // Validate request
     if (!message || !sessionId) {
       return res.status(400).json({ error: 'Message and sessionId are required' });
+    }
+    
+    // Check if API key is available
+    const apiKey = process.env.DEEPSEEK_API_KEY;
+    if (!apiKey) {
+      console.error('DEEPSEEK_API_KEY environment variable not set');
+      return res.status(500).json({ error: 'API configuration error' });
     }
     
     // Initialize session if it doesn't exist
@@ -56,9 +51,6 @@ router.post('/', async (req, res) => {
         content: msg.content
       }))
     ];
-    
-    // Get API key securely
-    const apiKey = await getDeepSeekApiKey();
     
     // Send request to DeepSeek API
     const response = await axios.post(
