@@ -16,13 +16,12 @@ const aiChatRoutes = require('./routes/ai-chat');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Root endpoint for App Runner health check - must be defined before any middleware
+// Root endpoint for App Runner health check - MUST be defined first
 app.get('/', (req, res) => {
-  console.log('Health check request received at /', new Date().toISOString());
-  res.status(200).json({ status: 'ok' });
+  console.log("✅ GET / route handler triggered");
+  return res.status(200).json({ status: 'ok' });
 });
 
-// Log that the root route is mounted
 console.log("✅ GET / route is mounted");
 
 // Explicit handling of preflight requests
@@ -46,15 +45,22 @@ app.use('/api/ai-chat', aiChatRoutes);
 
 // Simple health check endpoint
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
+  console.log("Health check at /health endpoint");
+  return res.status(200).json({ status: 'ok' });
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).json({ error: 'Internal server error' });
+  return res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
+// Start the server
+const server = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
+
+// Handle server errors
+server.on('error', (error) => {
+  console.error('Server error:', error);
 });
