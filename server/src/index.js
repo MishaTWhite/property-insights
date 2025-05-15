@@ -16,6 +16,15 @@ const aiChatRoutes = require('./routes/ai-chat');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Root endpoint for App Runner health check - must be defined before any middleware
+app.get('/', (req, res) => {
+  console.log('Health check request received at /', new Date().toISOString());
+  res.status(200).json({ status: 'ok' });
+});
+
+// Log that the root route is mounted
+console.log("✅ GET / route is mounted");
+
 // Explicit handling of preflight requests
 app.options('*', cors({
   origin: process.env.CORS_ORIGIN || '*',
@@ -29,9 +38,6 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Root endpoint for App Runner health check
-app.get('/', (req, res) => res.send('OK'));
-
 // Routes
 app.use('/api', bankOffersRoutes);
 app.use('/api/otodom-analyzer', propertyAnalyzerRoutes);
@@ -40,13 +46,13 @@ app.use('/api/ai-chat', aiChatRoutes);
 
 // Simple health check endpoint
 app.get('/health', (req, res) => {
-  res.status(200).send('OK');
+  res.status(200).json({ status: 'ok' });
 });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
-  res.status(500).send('Something broke!');
+  res.status(500).json({ error: 'Internal server error' });
 });
 
 app.listen(PORT, () => {
