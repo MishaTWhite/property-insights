@@ -17,9 +17,7 @@ COPY server/package*.json ./
 # Copy server code
 COPY server/ ./
 
-# Copy secrets file
-COPY secrets.json ./
-COPY secrets_manager.py ./
+# Environment variables will be provided at runtime
 
 # Install Node.js dependencies
 RUN npm ci --only=production

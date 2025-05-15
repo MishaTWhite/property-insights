@@ -29,6 +29,9 @@ app.use(cors({
 }));
 app.use(express.json());
 
+// Root endpoint for App Runner health check
+app.get('/', (req, res) => res.send('OK'));
+
 // Routes
 app.use('/api', bankOffersRoutes);
 app.use('/api/otodom-analyzer', propertyAnalyzerRoutes);
