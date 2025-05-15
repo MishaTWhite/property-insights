@@ -18,7 +18,6 @@ const PORT = process.env.PORT || 3000;
 
 // Root endpoint for App Runner health check - MUST be defined first
 app.get('/', (req, res) => {
-  console.log("✅ GET / route handler triggered");
   return res.status(200).json({ status: 'ok' });
 });
 
@@ -85,7 +84,6 @@ app.use('/api/ai-chat', aiChatRoutes);
 
 // Simple health check endpoint
 app.get('/health', (req, res) => {
-  console.log("Health check at /health endpoint");
   return res.status(200).json({ status: 'ok' });
 });
 

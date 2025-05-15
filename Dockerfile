@@ -15,7 +15,11 @@ RUN cd server && npm ci
 RUN apt-get update && apt-get install -y \
     python3 \
     python3-pip \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/bin/python3 /usr/bin/python
+
+# Verify Python is working
+RUN python --version
 
 # Copy server directory
 COPY server/ ./server/
