@@ -14,6 +14,7 @@ import {
   Divider
 } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
+import { API_BASE_URL } from '../config';
 
 function AIChat() {
   const [input, setInput] = useState('');
@@ -44,7 +45,7 @@ function AIChat() {
     setMessages(updatedMessages);
 
     try {
-      const response = await axios.post('/api/ai-chat', {
+      const response = await axios.post(`${API_BASE_URL}/ai-chat`, {
         message: userMessage,
         sessionId: sessionId
       });
