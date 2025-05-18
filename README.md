@@ -42,7 +42,7 @@ The Vite development server is configured to proxy API requests to the backend:
 from secrets_manager import SecretsManager
 
 # Инициализация менеджера секретов с паролем
-secrets = SecretsManager(password='G1hdrjti')
+secrets = SecretsManager(password='XXXXXXXX')
 
 # Получение API ключа DeepSeek
 api_key = secrets.get_secret('deepseek_api_key')
@@ -63,7 +63,7 @@ api_key = secrets.get_secret('deepseek_api_key')
 ```python
 from secrets_manager import SecretsManager
 
-secrets = SecretsManager(password='G1hdrjti')
+secrets = SecretsManager(password='XXXXXXXX')
 secrets.set_secret('название_ключа', 'значение_ключа')
 ```
 
