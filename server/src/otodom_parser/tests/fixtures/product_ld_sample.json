@@ -1,0 +1,44 @@
+{
+  "@type": "Product",
+  "name": "Properties in Warszawa",
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "600000",
+      "priceCurrency": "PLN",
+      "itemOffered": {
+        "@type": "Apartment",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 35.0,
+          "unitText": "m²"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Warszawa",
+          "addressRegion": "Mazowieckie",
+          "addressCountry": "PL"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "price": "750000",
+      "priceCurrency": "PLN",
+      "itemOffered": {
+        "@type": "Apartment",
+        "floorSize": {
+          "@type": "QuantitativeValue",
+          "value": 45.5,
+          "unitText": "m²"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Warszawa",
+          "addressRegion": "Mazowieckie",
+          "addressCountry": "PL"
+        }
+      }
+    }
+  ]
+}

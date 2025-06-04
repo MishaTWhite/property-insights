@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for mortgage calculator */
+
+:root {
+  --color-background: #f8f9fa;
+  --color-white: #ffffff;
+  --color-heading: #212529;
+  --color-text: #6c757d;
+  --color-accent: #0d6efd;
+  --color-principal: #0d6efd;
+  --color-interest: #fd7e14;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', 'Roboto', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-heading);
+}
+
+/* Styling for headings */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-weight: 700;
+}
+
+/* Styling for labels */
+label, .text-label {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+/* Styling for values */
+.value, .text-value {
+  font-weight: 700;
+  font-size: 16px;
+  color: #000;
+}

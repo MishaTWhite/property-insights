@@ -1,0 +1,26 @@
+{
+  "id": "12345678",
+  "areaInSquareMeters": 42.5,
+  "pricePerSquareMeter": {
+    "value": 10500
+  },
+  "totalPrice": {
+    "value": 446250
+  },
+  "floorNumber": "SECOND",
+  "location": {
+    "address": {
+      "city": "Warszawa"
+    },
+    "reverseGeocoding": {
+      "locations": [
+        {
+          "id": "city/warszawa"
+        },
+        {
+          "id": "district/mokotow"
+        }
+      ]
+    }
+  }
+}

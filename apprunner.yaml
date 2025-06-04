@@ -1,0 +1,16 @@
+version: 1.0
+runtime: python3
+build:
+  commands:
+    build:
+      - pip install -r requirements.txt
+run:
+  runtime-version: 3.9
+  command: python server/src/index.js
+  network:
+    port: 3000
+  env:
+    - name: NODE_ENV
+      value: production
+    # Секреты будут загружаться из переменной окружения SECRETS_PASSWORD
+    # которая должна быть настроена в консоли AWS AppRunner

@@ -1,0 +1,44 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# AWS credentials and configuration
+.aws/
+aws-credentials.json
+.env.aws
+**/aws-keys.*
+**/*aws*credentials*
+**/*aws*config*
+
+# Secrets and API keys
+secrets.json
+**/secrets.json
+**/*.key
+**/*.pem
+**/*api_key*
+**/*apikey*
+.env
+**/.env
+*.enc

@@ -1,0 +1,30 @@
+{
+  "props": {
+    "pageProps": {
+      "dehydratedState": {
+        "queries": [
+          {
+            "state": {
+              "data": {
+                "searchAds": {
+                  "results": [
+                    {
+                      "id": "65912456",
+                      "areaInM2": 42.0,
+                      "price": 500000,
+                      "floorNumber": 3,
+                      "location": {
+                        "city": "Warszawa",
+                        "district": "Mokotów"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

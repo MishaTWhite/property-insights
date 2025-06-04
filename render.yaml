@@ -1,0 +1,26 @@
+services:
+  # Frontend static site
+  - type: web
+    name: property-insights
+    env: static
+    buildCommand: cd client && npm install && npm run build
+    staticPublishPath: ./client/dist
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://property-insights-api.onrender.com/api/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
+
+  # Backend web service
+  - type: web
+    name: property-insights-api
+    env: node
+    buildCommand: cd server && npm install && pip install -r requirements.txt
+    startCommand: cd server && npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
